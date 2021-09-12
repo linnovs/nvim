@@ -45,6 +45,15 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- todo-comment
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("nebula.plugin.todo-comments")
+		end,
+	})
+
 	-- git
 	use({
 		"lewis6991/gitsigns.nvim",
