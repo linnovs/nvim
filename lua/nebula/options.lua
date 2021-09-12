@@ -1,6 +1,5 @@
 vim.opt.clipboard:append("unnamedplus") -- use the clipboard as the unnamed register
 vim.opt.cmdheight = 2 -- number of lines to use for the command-line
-vim.opt.colorcolumn = "+0" -- columns to highlight
 vim.opt.completeopt:append({ "menuone", "noselect" }) -- options for Insert mode completion
 vim.opt.conceallevel = 0 -- whether concealable text is shown or hidden
 vim.opt.cursorline = true -- highlight the screen line of the cursor
@@ -32,6 +31,7 @@ vim.opt.splitright = true -- new window is put right of the current one
 vim.opt.tabstop = 4 -- number of spaces that <Tab> in file uses
 vim.opt.termguicolors = true -- truecolor support
 vim.opt.textwidth = 120 -- maximum width of text that is being inserted
+vim.opt.colorcolumn = "+0" -- columns to highlight
 vim.opt.timeoutlen = 500 -- time out time in milliseconds
 vim.opt.updatetime = 100 -- after this many milliseconds flush swap file
 vim.opt.wrap = false -- long lines wrap and continue on the next line
