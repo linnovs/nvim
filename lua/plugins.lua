@@ -55,5 +55,13 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- formatter
+	use({
+		"lukas-reineke/format.nvim",
+		config = function()
+			require("nebula.plugin.format")
+		end,
+	})
+
 	-- }}}
 end)
