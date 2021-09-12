@@ -37,6 +37,14 @@ return require("packer").startup(function(use)
 	-- colorscheme
 	use({ "RRethy/nvim-base16" })
 
+	-- indent-guideline
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("nebula.plugin.indent-guideline")
+		end,
+	})
+
 	-- git
 	use({
 		"lewis6991/gitsigns.nvim",
