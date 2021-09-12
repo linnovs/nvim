@@ -90,6 +90,14 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- which-key
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			require("nebula.plugin.which-key")
+		end,
+	})
+
 	-- treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
