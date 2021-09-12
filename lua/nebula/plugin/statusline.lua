@@ -188,6 +188,15 @@ table.insert(components.inactive, {
 			bg = "oceanblue",
 			style = "bold",
 		},
+		left_sep = {
+			{
+				str = " ",
+				hl = {
+					fg = "NONE",
+					bg = "oceanblue",
+				},
+			},
+		},
 		right_sep = {
 			{
 				str = " ",
