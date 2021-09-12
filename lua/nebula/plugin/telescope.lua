@@ -90,7 +90,7 @@ end)
 
 -- LSP pciker
 vimp.nnoremap("<Leader>ca", function()
-	builtin.lsp_code_action()
+	builtin.lsp_code_actions()
 end)
 vimp.nnoremap("<Leader>D", function()
 	builtin.lsp_definitions()
