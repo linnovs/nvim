@@ -24,3 +24,19 @@ local on_attach = function(client, bufnr)
 	end)
 end
 
+local servers = { "sumneko_lua" }
+
+for _, lsp in ipairs(servers) do
+	local mod = "nebula.lsp." .. lsp
+	local config = require(mod)
+	config.on_attach = on_attach
+
+	local ok, server = lsp_installer_servers.get_server(lsp)
+	if ok then
+		if not server:is_installed() then
+			server:install()
+		end
+
+		server:setup(config)
+	end
+end
