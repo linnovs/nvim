@@ -72,6 +72,13 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use({
+		"lewis6991/spellsitter.nvim",
+		config = function()
+			require("nebula.plugin.spellsitter")
+		end,
+	})
+
 	-- github integration
 	use({
 		"pwntester/octo.nvim",
