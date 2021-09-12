@@ -146,10 +146,15 @@ return require("packer").startup(function(use)
 	-- lsputil
 	use({
 		"RishabhRD/nvim-lsputils",
-		config = function()
-			require("nebula.lsp.utils")
-		end,
 		requires = { "RishabhRD/popfix" },
+	})
+
+	-- trouble
+	use({
+		"folke/trouble.nvim",
+		config = function()
+			require("nebula.lsp.trouble")
+		end,
 	})
 
 	-- }}}
