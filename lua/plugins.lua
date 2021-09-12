@@ -88,6 +88,18 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- telescope fuzzy finder
+	use({
+		"nvim-telescope/telescope.nvim",
+		config = function()
+			require("nebula.plugin.telescope")
+		end,
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"kyazdani42/nvim-web-devicons",
+		},
+	})
+
 	-- github integration
 	use({
 		"pwntester/octo.nvim",
