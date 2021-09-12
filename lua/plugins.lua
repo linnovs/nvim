@@ -90,6 +90,15 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = "TSUpdate",
+		config = function()
+			require("nebula.plugin.treesitter")
+		end,
+	})
+
 	use({
 		"lewis6991/spellsitter.nvim",
 		config = function()
