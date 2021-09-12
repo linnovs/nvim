@@ -1,12 +1,13 @@
 local lsp_installer_servers = require("nvim-lsp-installer.servers")
 local vimp = require("vimp")
 
-vim.cmd([[
-    sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=
-    sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=
-    sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
-    sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=
-]])
+local signs = { Error = "", Warning = "", Hint = "", Information = "" }
+
+for type, icon in pairs(signs) do
+	local hl = "LspDiagnosticsSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
 vim.lsp.handlers["textDocument/codeAction"] = require("lsputil.codeAction").code_action_handler
 vim.lsp.handlers["textDocument/references"] = require("lsputil.locations").references_handler
 vim.lsp.handlers["textDocument/definition"] = require("lsputil.locations").definition_handler
