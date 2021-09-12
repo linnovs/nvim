@@ -1,7 +1,7 @@
-local nvim_lsp = require("lspconfig")
 local lsp_installer_servers = require("nvim-lsp-installer.servers")
 local vimp = require("vimp")
-local on_attach = function(client, bufnr)
+
+local on_attach = function(_, bufnr)
 	-- enable completion
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -20,6 +20,18 @@ local on_attach = function(client, bufnr)
 		end)
 		vimp.nnoremap("<Leader>rn", function()
 			vim.lsp.buf.rename()
+		end)
+		vimp.nnoremap("<Leader>ca", function()
+			vim.lsp.buf.code_action()
+		end)
+		vimp.nnoremap("<Leader>D", function()
+			vim.lsp.buf.type_definition()
+		end)
+		vimp.nnoremap("gr", function()
+			vim.lsp.buf.references()
+		end)
+		vimp.nnoremap("<Leader>ds", function()
+			vim.lsp.buf.document_symbol()
 		end)
 	end)
 end
