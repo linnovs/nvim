@@ -114,6 +114,9 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- markdown preview
+	use({ "davidgranstrom/nvim-markdown-preview", cmd = { "MarkdownPreview" } })
+
 	-- telescope fuzzy finder
 	use({
 		"nvim-telescope/telescope.nvim",
