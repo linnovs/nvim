@@ -1,6 +1,13 @@
 local lsp_installer_servers = require("nvim-lsp-installer.servers")
 local vimp = require("vimp")
 
+vim.cmd([[
+    sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=
+    sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=
+    sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=
+    sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=
+]])
+
 local on_attach = function(_, bufnr)
 	-- enable completion
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
