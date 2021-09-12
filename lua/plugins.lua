@@ -54,6 +54,15 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- tabline
+	use({
+		"akinsho/bufferline.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("nebula.plugin.bufferline")
+		end,
+	})
+
 	-- statusline
 	use({
 		"famiu/feline.nvim",
