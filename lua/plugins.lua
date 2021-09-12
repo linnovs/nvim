@@ -55,6 +55,15 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- github integration
+	use({
+		"pwntester/octo.nvim",
+		cmd = { "Octo" },
+		config = function()
+			require("nebula.plugin.github")
+		end,
+	})
+
 	-- formatter
 	use({
 		"lukas-reineke/format.nvim",
