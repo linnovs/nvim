@@ -11,4 +11,11 @@ return require('packer').startup(function()
 
     -- }}}
 
+    -- Visual {{{
+
+    -- colorscheme
+    use { 'RRethy/nvim-base16' }
+
+    -- }}}
+
 end)
