@@ -1,0 +1,26 @@
+local nvim_lsp = require("lspconfig")
+local lsp_installer_servers = require("nvim-lsp-installer.servers")
+local vimp = require("vimp")
+local on_attach = function(client, bufnr)
+	-- enable completion
+	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+	vimp.add_buffer_maps(bufnr, function()
+		vimp.nnoremap("gD", function()
+			vim.lsp.buf.declaration()
+		end)
+		vimp.nnoremap("gd", function()
+			vim.lsp.buf.definition()
+		end)
+		vimp.nnoremap("K", function()
+			vim.lsp.buf.hover()
+		end)
+		vimp.nnoremap("<C-k>", function()
+			vim.lsp.buf.signature_help()
+		end)
+		vimp.nnoremap("<Leader>rn", function()
+			vim.lsp.buf.rename()
+		end)
+	end)
+end
+

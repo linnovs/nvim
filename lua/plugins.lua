@@ -132,6 +132,19 @@ return require("packer").startup(function(use)
 
 	-- }}}
 
+	-- LSP {{{
+
+	-- native LSP configuration
+	use({
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("nebula.lsp")
+		end,
+		requires = { "williamboman/nvim-lsp-installer" },
+	})
+
+	-- }}}
+
 	-- Tool {{{
 
 	-- markdown preview
