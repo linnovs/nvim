@@ -20,6 +20,9 @@ return require("packer").startup(function(use)
 	})
 
 
+	-- coding time logging
+	use({ "wakatime/vim-wakatime" })
+
 	-- }}}
 
 	-- Visual {{{
