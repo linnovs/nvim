@@ -1,21 +1,23 @@
 -- vim: foldmethod=marker
 
-return require('packer').startup(function()
-    -- Packer manage itself
-    use { 'wbthomason/packer.nvim' }
+return require("packer").startup(function(use)
+	-- Packer manage itself
+	use({ "wbthomason/packer.nvim" })
 
-    -- Utility {{{
+	-- Utility {{{
 
-    -- better mapping handling
-    use { 'svermeulen/vimpeccable' }
+	-- better mapping handling
+	use({ "svermeulen/vimpeccable" })
 
-    -- }}}
 
-    -- Visual {{{
 
-    -- colorscheme
-    use { 'RRethy/nvim-base16' }
 
-    -- }}}
+	-- }}}
 
+	-- Visual {{{
+
+	-- colorscheme
+	use({ "RRethy/nvim-base16" })
+
+	-- }}}
 end)

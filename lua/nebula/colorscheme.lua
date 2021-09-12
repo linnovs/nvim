@@ -1,1 +1,1 @@
-vim.cmd[[colorscheme base16-nord]]
+vim.cmd([[colorscheme base16-nord]])
