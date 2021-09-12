@@ -153,7 +153,7 @@ return require("packer").startup(function(use)
 	use({
 		"folke/trouble.nvim",
 		config = function()
-			require("nebula.lsp.trouble")
+			require("nebula.plugin.trouble")
 		end,
 	})
 
