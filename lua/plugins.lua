@@ -62,6 +62,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- }}}
+
+	-- UI {{{
+
 	-- git
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -106,6 +110,10 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- }}}
+
+	-- Syntax {{{
+
 	-- treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -121,6 +129,10 @@ return require("packer").startup(function(use)
 			require("nebula.plugin.spellsitter")
 		end,
 	})
+
+	-- }}}
+
+	-- Tool {{{
 
 	-- markdown preview
 	use({ "davidgranstrom/nvim-markdown-preview", cmd = { "MarkdownPreview" } })
