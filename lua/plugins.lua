@@ -46,5 +46,14 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	-- file explorer
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("nebula.plugin.explorer")
+		end,
+	})
+
 	-- }}}
 end)
