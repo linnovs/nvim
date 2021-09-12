@@ -19,6 +19,13 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use({
+		"windwp/nvim-autopairs",
+		requires = {},
+		config = function()
+			require("nebula.plugin.autopairs")
+		end,
+	})
 
 	-- coding time logging
 	use({ "wakatime/vim-wakatime" })
