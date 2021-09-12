@@ -37,5 +37,14 @@ return require("packer").startup(function(use)
 	-- colorscheme
 	use({ "RRethy/nvim-base16" })
 
+	-- statusline
+	use({
+		"famiu/feline.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", "SmiteshP/nvim-gps" },
+		config = function()
+			require("nebula.plugin.statusline")
+		end,
+	})
+
 	-- }}}
 end)
