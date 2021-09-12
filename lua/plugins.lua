@@ -37,6 +37,15 @@ return require("packer").startup(function(use)
 	-- colorscheme
 	use({ "RRethy/nvim-base16" })
 
+	-- git
+	use({
+		"lewis6991/gitsigns.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		config = function()
+			require("nebula.plugin.gitsign")
+		end,
+	})
+
 	-- statusline
 	use({
 		"famiu/feline.nvim",
