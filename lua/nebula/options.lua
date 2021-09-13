@@ -1,6 +1,6 @@
 vim.opt.clipboard:append("unnamedplus") -- use the clipboard as the unnamed register
 vim.opt.cmdheight = 2 -- number of lines to use for the command-line
-vim.opt.completeopt:append({ "menuone", "noselect" }) -- options for Insert mode completion
+vim.opt.completeopt = { "menuone", "noselect" } -- options for Insert mode completion
 vim.opt.conceallevel = 0 -- whether concealable text is shown or hidden
 vim.opt.cursorline = true -- highlight the screen line of the cursor
 vim.opt.expandtab = true -- use spaces when <Tab> is inserted
