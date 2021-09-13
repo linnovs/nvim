@@ -139,6 +139,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use({ "nvim-treesitter/playground", requires = { "nvim-treesitter/nvim-treesitter" } })
+
 	-- }}}
 
 	-- LSP {{{
