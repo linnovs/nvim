@@ -44,17 +44,6 @@ local vi_mode_text = {
 	t = "INSERT",
 }
 
-local gps = require("nvim-gps")
-
-gps.setup({
-	icons = {
-		["class-name"] = " ", -- Classes and class-like objects
-		["function-name"] = " ", -- Functions
-		["method-name"] = " ", -- Methods (functions inside class-like objects)
-	},
-	separator = " > ",
-})
-
 table.insert(components.active, {
 	{
 		provider = function()
@@ -89,10 +78,10 @@ table.insert(components.active, {
 	},
 	{
 		provider = function()
-			return gps.get_location()
+			return require("nvim-gps").get_location()
 		end,
 		enabled = function()
-			return gps.is_available()
+			return require("nvim-gps").is_available()
 		end,
 		right_sep = " ",
 	},

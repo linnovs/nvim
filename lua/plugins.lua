@@ -88,7 +88,7 @@ return require("packer").startup(function(use)
 	-- statusline
 	use({
 		"famiu/feline.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", "SmiteshP/nvim-gps" },
+		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
 			require("nebula.plugin.statusline")
 		end,
@@ -128,6 +128,14 @@ return require("packer").startup(function(use)
 		"lewis6991/spellsitter.nvim",
 		config = function()
 			require("nebula.plugin.spellsitter")
+		end,
+	})
+
+	use({
+		"SmiteshP/nvim-gps",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("nebula.plugin.nvim-gps")
 		end,
 	})
 
