@@ -21,7 +21,6 @@ return require("packer").startup(function(use)
 
 	use({
 		"windwp/nvim-autopairs",
-		requires = {},
 		config = function()
 			require("nebula.plugin.autopairs")
 		end,
