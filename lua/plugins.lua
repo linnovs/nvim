@@ -165,9 +165,11 @@ return require("packer").startup(function(use)
 			"saadparwaiz1/cmp_luasnip", -- snippet source
 			"hrsh7th/cmp-path", -- path source
 			"hrsh7th/cmp-nvim-lua", -- nvim-lua source
+			"onsails/lspkind-nvim", -- vscode-like pictograms
 		},
 		config = function()
 			require("nebula.plugin.completion")
+			require("nebula.plugin.lspkind")
 		end,
 	})
 
