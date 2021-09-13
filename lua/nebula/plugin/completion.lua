@@ -55,11 +55,11 @@ cmp.setup({
 
 			-- set a name for each source
 			vim_item.menu = ({
-				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
 				luasnip = "[LuaSnip]",
+				buffer = "[Buffer]",
+				path = "[Path]",
 				nvim_lua = "[Lua]",
-				latex_symbols = "[Latex]",
 			})[entry.source.name]
 			return vim_item
 		end,
