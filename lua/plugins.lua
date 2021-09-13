@@ -26,6 +26,8 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use("editorconfig/editorconfig-vim")
+
 	-- coding time logging
 	use({ "wakatime/vim-wakatime" })
 
