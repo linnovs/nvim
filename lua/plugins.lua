@@ -139,7 +139,7 @@ return require("packer").startup(function(use)
 		config = function()
 			require("nebula.lsp")
 		end,
-		requires = { "williamboman/nvim-lsp-installer" },
+		requires = { "williamboman/nvim-lsp-installer", "ray-x/lsp_signature.nvim" },
 	})
 
 	-- lsputil

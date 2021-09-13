@@ -50,6 +50,8 @@ local on_attach = function(_, bufnr)
 			vim.lsp.buf.document_symbol()
 		end)
 	end)
+
+	require("lsp_signature").on_attach()
 end
 
 local servers = { "sumneko_lua" }
