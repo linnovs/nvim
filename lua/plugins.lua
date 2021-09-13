@@ -156,6 +156,21 @@ return require("packer").startup(function(use)
 		end,
 	})
 
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-nvim-lsp", -- lsp source
+			"hrsh7th/cmp-buffer", -- buffer source
+			"L3MON4D3/LuaSnip", -- snippet engine
+			"saadparwaiz1/cmp_luasnip", -- snippet source
+			"hrsh7th/cmp-path", -- path source
+			"hrsh7th/cmp-nvim-lua", -- nvim-lua source
+		},
+		config = function()
+			require("nebula.plugin.completion")
+		end,
+	})
+
 	-- }}}
 
 	-- Tool {{{

@@ -59,6 +59,9 @@ for _, lsp in ipairs(servers) do
 	local config = require(mod)
 	config.on_attach = on_attach
 
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	config.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
 	local ok, server = lsp_installer_servers.get_server(lsp)
 	if ok then
 		if not server:is_installed() then
