@@ -1,1 +1,3 @@
-vim.cmd([[colorscheme base16-nord]])
+vim.g.tokyonight_sidebars = { "packer", "NvimTree" }
+
+vim.cmd([[colorscheme tokyonight]])

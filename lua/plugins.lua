@@ -35,9 +35,6 @@ return require("packer").startup(function(use)
 
 	-- Visual {{{
 
-	-- colorscheme
-	use({ "RRethy/nvim-base16" })
-
 	-- indent-guideline
 	use({
 		"lukas-reineke/indent-blankline.nvim",
@@ -66,6 +63,9 @@ return require("packer").startup(function(use)
 	-- }}}
 
 	-- UI {{{
+
+	-- tokyo night colorscheme
+	use("folke/tokyonight.nvim")
 
 	-- git
 	use({
