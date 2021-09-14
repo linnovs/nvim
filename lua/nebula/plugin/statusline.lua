@@ -1,243 +1,72 @@
-local lsp = require("feline.providers.lsp")
-local vi_mode_utils = require("feline.providers.vi_mode")
-
-local fn = vim.fn
-
-local force_inactive = {
-	filetypes = {
-		"NvimTree",
-		"packer",
-		"startify",
-		"fugitive",
-		"fugitiveblame",
-		"qf",
-		"help",
+local config = {
+	options = {
+		icons_enabled = true,
+		theme = "tokyonight",
+		component_separators = { "", "" },
+		section_separators = { " ", " " },
+		disabled_filetypes = { "packer" },
 	},
-	buftypes = {
-		"terminal",
+	sections = { lualine_a = {}, lualine_b = {}, lualine_c = {}, lualine_x = {}, lualine_y = {}, lualine_z = {} },
+	inactive_sections = {
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = {},
+		lualine_x = {},
+		lualine_y = {},
+		lualine_z = {},
 	},
-	bufnames = {},
+	tabline = {},
+	extensions = { "nvim-tree" },
 }
+local function parse_section(part)
+	local section = "lualine_a"
 
-local components = {
-	active = {},
-	inactive = {},
-}
+	if type(part) == "string" then
+		section = string.format("lualine_%s", part:match("[abcxyz]"))
+	end
 
-local vi_mode_text = {
-	n = "NORMAL",
-	i = "INSERT",
-	v = "VISUAL",
-	[""] = "V-BLOCK",
-	V = "V-LINE",
-	c = "COMMAND",
-	no = "UNKNOWN",
-	s = "UNKNOWN",
-	S = "UNKNOWN",
-	ic = "UNKNOWN",
-	R = "REPLACE",
-	Rv = "UNKNOWN",
-	cv = "UNKWON",
-	ce = "UNKNOWN",
-	r = "REPLACE",
-	rm = "UNKNOWN",
-	t = "INSERT",
-}
+	return section
+end
 
-table.insert(components.active, {
-	{
-		provider = function()
-			return " " .. vi_mode_text[fn.mode()] .. " "
-		end,
-		hl = function()
-			return {
-				name = vi_mode_utils.get_mode_highlight_name(),
-				fg = "bg",
-				bg = vi_mode_utils.get_mode_color(),
-				style = "bold",
-			}
-		end,
-	},
-	{
-		provider = "file_info",
-		hl = {
-			fg = "fg",
-			bg = "bg",
-			style = "bold",
-		},
-		file_modified_icon = "️️🐧",
-		type = "unique",
-		left_sep = " ",
-	},
-	{
-		provider = "file_size",
-		enabled = function()
-			return fn.getfsize(fn.expand("%:p")) > 0
-		end,
-		right_sep = " ",
-	},
-	{
-		provider = function()
-			return require("nvim-gps").get_location()
-		end,
-		enabled = function()
-			return require("nvim-gps").is_available()
-		end,
-		right_sep = " ",
-	},
-	{
-		provider = "git_branch",
-		hl = {
-			fg = "yellow",
-			bg = "bg",
-			style = "bold",
-		},
-	},
-	{
-		provider = "git_diff_added",
-		hl = {
-			fg = "green",
-			bg = "bg",
-		},
-	},
-	{
-		provider = "git_diff_changed",
-		hl = {
-			fg = "orange",
-			bg = "bg",
-		},
-	},
-	{
-		provider = "git_diff_removed",
-		hl = {
-			fg = "red",
-			bg = "bg",
-		},
-	},
+local function insert_active(part, component)
+	local components = config.sections[parse_section(part)]
+	table.insert(components, component)
+end
+
+local function insert_inactive(part, component)
+	local components = config.inactive_sections[parse_section(part)]
+	table.insert(components, component)
+end
+
+local gps = require("nvim-gps")
+local colors = require("nebula.colors").git
+
+insert_active("a", "mode")
+insert_active("b", "branch")
+insert_active("b", {
+	"diff",
+	colored = true,
+	color_added = colors.added,
+	color_modified = colors.modified,
+	color_removed = colors.removed,
+	symbols = { added = " ", modified = "⊡ ", removed = " " },
 })
+insert_active("c", { "filename", file_status = true })
+insert_active("c", { gps.get_location, condition = gps.is_available })
 
-table.insert(components.active, {
-	{
-		provider = "diagnostic_errors",
-		enabled = function()
-			return lsp.diagnostics_exist("Error")
-		end,
-		hl = { fg = "red" },
-	},
-	{
-		provider = "diagnostic_warnings",
-		enabled = function()
-			return lsp.diagnostics_exist("Warning")
-		end,
-		hl = { fg = "yellow" },
-	},
-	{
-		provider = "diagnostic_hints",
-		enabled = function()
-			return lsp.diagnostics_exist("Hint")
-		end,
-		hl = { fg = "cyan" },
-	},
-	{
-		provider = "diagnostic_info",
-		enabled = function()
-			return lsp.diagnostics_exist("Information")
-		end,
-		hl = { fg = "skyblue" },
-	},
-	{
-		provider = function()
-			return string.format("%d:%d", fn.line("."), fn.col("."))
-		end,
-		left_sep = " ",
-		right_sep = " |",
-	},
-	{
-		provider = "line_percentage",
-		hl = {
-			style = "bold",
-		},
-		left_sep = " ",
-		right_sep = " ",
-	},
-	{
-		provider = "scroll_bar",
-		hl = {
-			fg = "skyblue",
-			style = "bold",
-		},
-	},
+insert_active("x", "encoding")
+insert_active("x", "fileformat")
+insert_active("x", "filetype")
+insert_active("y", {
+	"diagnostics",
+	sources = { "nvim_lsp" },
+	sections = { "error", "warn", "info", "hint" },
+	symbols = { error = " ", warn = " ", info = " ", hint = " " },
 })
+insert_active("z", "location")
 
-table.insert(components.inactive, {
-	{
-		provider = "file_type",
-		hl = {
-			fg = "bg",
-			bg = "oceanblue",
-			style = "bold",
-		},
-		left_sep = {
-			{
-				str = " ",
-				hl = {
-					fg = "NONE",
-					bg = "oceanblue",
-				},
-			},
-		},
-		right_sep = {
-			{
-				str = " ",
-				hl = {
-					fg = "NONE",
-					bg = "oceanblue",
-				},
-			},
-			{
-				str = " ",
-				hl = {
-					fg = "NONE",
-					bg = "bg",
-				},
-			},
-		},
-	},
-	{
-		provider = "file_info",
-		hl = {
-			fg = "fg",
-			bg = "bg",
-			style = "bold",
-		},
-		type = "unique",
-		left_sep = " ",
-	},
-})
+insert_inactive("c", { "filename", file_status = true })
 
--- Nord theme colors
-local colors = {
-	fg = "#D8DEE9",
-	nord0 = "#2E3440",
-	bg = "#3B4252",
-	black = "#434C5E",
-	nord3 = "#4C566A",
-	white = "#E5E9F0",
-	nord6 = "#ECEFF4",
-	oceanblue = "#8FBCBB",
-	skyblue = "#88C0D0",
-	nord9 = "#81A1C1",
-	cyan = "#5E81AC",
-	red = "#BF616A",
-	orange = "#D08770",
-	yellow = "#EBCB8B",
-	green = "#A3BE8C",
-	violet = "#B48EAD",
-	magenta = "#B48EAD",
-}
+insert_inactive("x", "location")
 
-require("feline").setup({
-	colors = colors,
-	components = components,
-	force_inactive = force_inactive,
-})
+require("lualine").setup(config)

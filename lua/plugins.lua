@@ -90,7 +90,7 @@ return require("packer").startup(function(use)
 
 	-- statusline
 	use({
-		"famiu/feline.nvim",
+		"hoob3rt/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
 			require("nebula.plugin.statusline")
