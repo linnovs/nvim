@@ -6,6 +6,9 @@ return require("packer").startup(function(use)
 
 	-- Utility {{{
 
+	-- startup time
+	use({ "tweekmonster/startuptime.vim", cmd = "StartupTime" })
+
 	-- better mapping handling
 	use({ "svermeulen/vimpeccable" })
 
