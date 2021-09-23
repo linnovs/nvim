@@ -60,6 +60,7 @@ for _, lsp in ipairs(servers) do
 	local mod = "nebula.lsp." .. lsp
 	local config = require(mod)
 	config.on_attach = on_attach
+	config.flags = { debounce_text_changes = 150 }
 
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	config.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
