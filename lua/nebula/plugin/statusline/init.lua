@@ -9,8 +9,10 @@ end
 local vi_mode = require("nebula.plugin.statusline.vi_mode")
 local git = require("nebula.plugin.statusline.git")
 local file = require("nebula.plugin.statusline.file")
+local lsp = require("nebula.plugin.statusline.lsp")
 
 insert("left", vi_mode)
+insert("left", lsp.client_name)
 insert("left", git.branch)
 insert("left", git.added)
 insert("left", git.modified)
