@@ -7,7 +7,12 @@ local function insert(position, component, inactive)
 end
 
 local vi_mode = require("nebula.plugin.statusline.vi_mode")
+local git = require("nebula.plugin.statusline.git")
 insert("left", vi_mode)
+insert("left", git.branch)
+insert("left", git.added)
+insert("left", git.modified)
+insert("left", git.removed)
 
 local colors = require("nebula.plugin.statusline.colors")
 
