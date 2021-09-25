@@ -14,6 +14,13 @@ M.default = {
 	lsp_fg = colors.basic.ligth_blue,
 	lsp_bg = colors.basic.black,
 
+	diagnostic_fg = colors.basic.ligth_blue,
+	diagnostic_bg = colors.basic.black,
+	diagnostic_error = colors.lsp.error,
+	diagnostic_warning = colors.lsp.warning,
+	diagnostic_info = colors.lsp.information,
+	diagnostic_hint = colors.lsp.hint,
+
 	git_fg = colors.basic.orange,
 	git_bg = colors.basic.black,
 	git_added = colors.git.added,
