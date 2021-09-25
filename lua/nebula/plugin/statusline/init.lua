@@ -8,11 +8,21 @@ end
 
 local vi_mode = require("nebula.plugin.statusline.vi_mode")
 local git = require("nebula.plugin.statusline.git")
+local file = require("nebula.plugin.statusline.file")
+
 insert("left", vi_mode)
 insert("left", git.branch)
 insert("left", git.added)
 insert("left", git.modified)
 insert("left", git.removed)
+insert("left", file.info)
+insert("right", file.encoding)
+insert("right", file.format)
+insert("right", file.type)
+insert("right", file.position)
+
+insert("left", file.file_info, true)
+insert("right", file.position_inactive, true)
 
 local colors = require("nebula.plugin.statusline.colors")
 
