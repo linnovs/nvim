@@ -11,6 +11,9 @@ M.default = {
 	file_fg = colors.basic.fg,
 	file_bg = colors.basic.alt_bg,
 
+	lsp_fg = colors.basic.ligth_blue,
+	lsp_bg = colors.basic.black,
+
 	git_fg = colors.basic.orange,
 	git_bg = colors.basic.black,
 	git_added = colors.git.added,
