@@ -18,4 +18,23 @@ M.default = {
 	git_removed = colors.git.modified,
 }
 
+M.vi_mode = {
+	["NORMAL"] = colors.basic.blue,
+	["OP"] = colors.basic.blue,
+	["MORE"] = colors.basic.blue,
+	["ENTER"] = colors.basic.blue,
+	["CONFIRM"] = colors.basic.blue,
+	["NONE"] = colors.basic.blue,
+	["INSERT"] = colors.basic.green,
+	["VISUAL"] = colors.basic.magenta,
+	["BLOCK"] = colors.basic.magenta,
+	["LINES"] = colors.basic.magenta,
+	["SELECT"] = colors.basic.magenta,
+	["REPLACE"] = colors.basic.red,
+	["V-REPLACE"] = colors.basic.red,
+	["COMMAND"] = colors.basic.yellow,
+	["SHELL"] = colors.basic.yellow,
+	["TERM"] = colors.basic.yellow,
+}
+
 return M
