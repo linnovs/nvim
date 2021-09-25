@@ -21,6 +21,9 @@ M.default = {
 	diagnostic_info = colors.lsp.information,
 	diagnostic_hint = colors.lsp.hint,
 
+	gps_fg = colors.basic.fg,
+	gps_bg = colors.basic.alt_bg,
+
 	git_fg = colors.basic.orange,
 	git_bg = colors.basic.black,
 	git_added = colors.git.added,
