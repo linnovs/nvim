@@ -37,13 +37,14 @@ M.removed = {
 		bg = "git_bg",
 	},
 	icon = "  ",
-	right_sep = { {
-		str = " ",
-		hl = {
-			bg = "git_bg",
-		},
-		always_visible = true,
-	} },
+}
+
+M.right_sep = {
+	provider = " ",
+	enabled = require("feline.providers.git").git_info_exists,
+	hl = {
+		bg = "git_bg",
+	},
 }
 
 return M
