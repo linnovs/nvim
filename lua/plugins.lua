@@ -166,6 +166,9 @@ return require("packer").startup({
 			requires = { "RishabhRD/popfix" },
 		})
 
+		-- codeAction
+		use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
+
 		-- trouble
 		use({
 			"folke/trouble.nvim",
