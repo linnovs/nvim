@@ -32,6 +32,13 @@ return require("packer").startup({
 
 		use("editorconfig/editorconfig-vim")
 
+		use({
+			"numtostr/FTerm.nvim",
+			config = function()
+				require("nebula.plugin.terminal")
+			end,
+		})
+
 		-- coding time logging
 		use({ "wakatime/vim-wakatime" })
 
