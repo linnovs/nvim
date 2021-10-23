@@ -129,7 +129,7 @@ return require("packer").startup({
 		-- treesitter
 		use({
 			"nvim-treesitter/nvim-treesitter",
-			run = "TSUpdate",
+			run = ":TSUpdate",
 			config = function()
 				require("nebula.plugin.treesitter")
 			end,
