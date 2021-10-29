@@ -231,7 +231,7 @@ return require("packer").startup({
 
 		-- formatter
 		use({
-			"lukas-reineke/format.nvim",
+			"mhartington/formatter.nvim",
 			config = function()
 				require("nebula.plugin.format")
 			end,
