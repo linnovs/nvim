@@ -20,33 +20,9 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if vim.fn.pumvisible() == 1 then
-				feedkey("<C-n>")
-			elseif luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
-			elseif has_words_before() then
-				cmp.complete()
-			else
-				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
-			end
-		end, {
-			"i",
-			"s",
-		}),
-
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if vim.fn.pumvisible() == 1 then
-				feedkey("<C-p>")
-			elseif luasnip.jumpable(-1) then
-				luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, {
-			"i",
-			"s",
-		}),
+		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<C-y>"] = cmp.config.disable,
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	},
 	formatting = {
 		format = function(entry, vim_item)
@@ -73,8 +49,5 @@ cmp.setup({
 	},
 })
 
-require("nvim-autopairs.completion.cmp").setup({
-	map_cr = true,
-	map_complete = true,
-	auto_select = true,
-})
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
