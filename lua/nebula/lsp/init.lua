@@ -70,5 +70,7 @@ for _, lsp in ipairs(servers) do
 		end
 
 		server:setup(config)
+	else
+		require("lspconfig")[lsp].setup(config)
 	end
 end
