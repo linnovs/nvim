@@ -27,6 +27,15 @@ require("formatter").setup({
 				}
 			end,
 		},
+		gdscript = {
+			function()
+				return {
+					exe = "gdformat",
+					args = { vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
+					stdin = false,
+				}
+			end,
+		},
 	},
 })
 
@@ -34,6 +43,6 @@ require("nebula.nvim_augroup").creates({
 	format = {
 		{ "BufWritePost", "*", [[%s/\s\+$//e]] },
 		{ "BufWritePost", "*", [[%s/\s\+\%$//e]] },
-		{ "BufWritePost", "*.lua,*.rs,*.toml", "FormatWrite" },
+		{ "BufWritePost", "*.lua,*.rs,*.toml,*.gd", "FormatWrite" },
 	},
 })
