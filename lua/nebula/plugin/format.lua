@@ -44,5 +44,6 @@ require("nebula.nvim_augroup").creates({
 		{ "BufWritePost", "*", [[%s/\s\+$//e]] },
 		{ "BufWritePost", "*", [[%s/\s\+\%$//e]] },
 		{ "BufWritePost", "*.lua,*.rs,*.toml,*.gd", "FormatWrite" },
+		{ "BufWritePre", "*.go", "lua vim.lsp.buf.formatting_sync(nil, 500)" },
 	},
 })
