@@ -184,6 +184,7 @@ return require("packer").startup({
 			end,
 		})
 
+		-- completion
 		use({
 			"hrsh7th/nvim-cmp",
 			requires = {
