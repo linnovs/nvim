@@ -202,6 +202,14 @@ return require("packer").startup({
 			end,
 		})
 
+		-- lint
+		use({
+			"mfussenegger/nvim-lint",
+			config = function()
+				require("nebula.plugin.lint")
+			end,
+		})
+
 		-- }}}
 
 		-- Tool {{{
