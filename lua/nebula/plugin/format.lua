@@ -36,6 +36,22 @@ require("formatter").setup({
 				}
 			end,
 		},
+		go = {
+			function()
+				return {
+					exe = "gofmt",
+					args = { "-w", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
+					stdin = false,
+				}
+			end,
+			function()
+				return {
+					exe = "goimports",
+					args = { "-w", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)) },
+					stdin = false,
+				}
+			end,
+		},
 	},
 })
 
@@ -43,7 +59,6 @@ require("nebula.nvim_augroup").creates({
 	format = {
 		{ "BufWritePost", "*", [[%s/\s\+$//e]] },
 		{ "BufWritePost", "*", [[%s/\s\+\%$//e]] },
-		{ "BufWritePost", "*.lua,*.rs,*.toml,*.gd", "FormatWrite" },
-		{ "BufWritePre", "*.go", "lua vim.lsp.buf.formatting_sync(nil, 500)" },
+		{ "BufWritePost", "*.lua,*.rs,*.toml,*.gd,*.go", "FormatWrite" },
 	},
 })
