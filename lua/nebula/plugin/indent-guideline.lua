@@ -4,4 +4,5 @@ require("indent_blankline").setup({
 	filetype_exclude = { "lsp-installer" },
 	space_char_blankline = " ",
 	show_current_context = true,
+	use_treesitter = true,
 })
