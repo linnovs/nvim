@@ -61,6 +61,7 @@ cmp.setup({
 				luasnip = "[LuaSnip]",
 				buffer = "[Buffer]",
 				path = "[Path]",
+				spell = "[Spell]",
 				nvim_lua = "[Lua]",
 			})[entry.source.name]
 			return vim_item
@@ -71,6 +72,7 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
+		{ name = "spell" },
 		{ name = "nvim_lua" },
 	},
 })

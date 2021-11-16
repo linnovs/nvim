@@ -193,6 +193,7 @@ return require("packer").startup({
 				"L3MON4D3/LuaSnip", -- snippet engine
 				"saadparwaiz1/cmp_luasnip", -- snippet source
 				"hrsh7th/cmp-path", -- path source
+				"f3fora/cmp-spell", -- spell source
 				"hrsh7th/cmp-nvim-lua", -- nvim-lua source
 				"onsails/lspkind-nvim", -- vscode-like pictograms
 			},
