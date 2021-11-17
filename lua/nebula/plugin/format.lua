@@ -4,22 +4,22 @@ require("format").setup({
 	},
 	lua = {
 		{
-			cmd = "stylua",
+			cmd = { "stylua" },
 		},
 	},
 	rust = {
 		{
-			cmd = "rustfmt --emit=stdout",
+			cmd = { "rustfmt --emit=stdout" },
 		},
 	},
 	toml = {
 		{
-			cmd = "prettier -w",
+			cmd = { "prettier -w" },
 		},
 	},
 	gdscript = {
 		{
-			cmd = "gdformat",
+			cmd = { "gdformat" },
 		},
 	},
 	go = {
