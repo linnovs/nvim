@@ -167,12 +167,6 @@ return require("packer").startup({
 			requires = { "williamboman/nvim-lsp-installer", "ray-x/lsp_signature.nvim" },
 		})
 
-		-- lsputil
-		use({
-			"RishabhRD/nvim-lsputils",
-			requires = { "RishabhRD/popfix" },
-		})
-
 		-- codeAction
 		use({ "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" })
 

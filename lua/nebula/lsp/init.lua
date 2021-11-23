@@ -1,5 +1,6 @@
 local lsp_installer_servers = require("nvim-lsp-installer.servers")
 local vimp = require("vimp")
+local builtin = require("telescope.builtin")
 
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
@@ -8,48 +9,21 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-vim.lsp.handlers["textDocument/codeAction"] = require("lsputil.codeAction").code_action_handler
-vim.lsp.handlers["textDocument/references"] = require("lsputil.locations").references_handler
-vim.lsp.handlers["textDocument/definition"] = require("lsputil.locations").definition_handler
-vim.lsp.handlers["textDocument/declaration"] = require("lsputil.locations").declaration_handler
-vim.lsp.handlers["textDocument/typeDefinition"] = require("lsputil.locations").typeDefinition_handler
-vim.lsp.handlers["textDocument/implementation"] = require("lsputil.locations").implementation_handler
-vim.lsp.handlers["textDocument/documentSymbol"] = require("lsputil.symbols").document_handler
-vim.lsp.handlers["workspace/symbol"] = require("lsputil.symbols").workspace_handler
-
 local on_attach = function(_, bufnr)
 	-- enable completion
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
 	vimp.add_buffer_maps(bufnr, function()
-		vimp.nnoremap({ "override" }, "gD", function()
-			vim.lsp.buf.declaration()
-		end)
-		vimp.nnoremap({ "override" }, "gd", function()
-			vim.lsp.buf.definition()
-		end)
-		vimp.nnoremap({ "override" }, "gi", function()
-			vim.lsp.buf.implementation()
-		end)
-		vimp.nnoremap({ "override" }, "K", function()
-			vim.lsp.buf.hover()
-		end)
-		vimp.nnoremap({ "override" }, "<C-k>", function()
-			vim.lsp.buf.signature_help()
-		end)
-		vimp.nnoremap({ "override" }, "<Leader>rn", function()
-			vim.lsp.buf.rename()
-		end)
+		vimp.nnoremap({ "override" }, "gD", vim.lsp.buf.declaration)
+		vimp.nnoremap({ "override" }, "gd", builtin.lsp_definitions)
+		vimp.nnoremap({ "override" }, "gi", builtin.lsp_implementations)
+		vimp.nnoremap({ "override" }, "K", vim.lsp.buf.hover)
+		vimp.nnoremap({ "override" }, "<C-k>", vim.lsp.buf.signature_help)
+		vimp.nnoremap({ "override" }, "<Leader>rn", vim.lsp.buf.rename)
 		vimp.nnoremap({ "override" }, "<Leader>ca", ":CodeActionMenu<CR>")
-		vimp.nnoremap({ "override" }, "<Leader>D", function()
-			vim.lsp.buf.type_definition()
-		end)
-		vimp.nnoremap({ "override" }, "gr", function()
-			vim.lsp.buf.references()
-		end)
-		vimp.nnoremap({ "override" }, "<Leader>ds", function()
-			vim.lsp.buf.document_symbol()
-		end)
+		vimp.nnoremap({ "override" }, "<Leader>D", builtin.lsp_type_definitions)
+		vimp.nnoremap({ "override" }, "gr", builtin.lsp_references)
+		vimp.nnoremap({ "override" }, "<Leader>ds", builtin.lsp_document_symbols)
 	end)
 
 	require("lsp_signature").on_attach()
