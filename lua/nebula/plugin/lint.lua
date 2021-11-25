@@ -1,9 +1,12 @@
-require("lint").linters_by_ft = {
-	go = { "golangcilint" },
+local null_ls = require("null-ls")
+
+local sources = {
+	null_ls.builtins.code_actions.gitsigns,
+	null_ls.builtins.diagnostics.golangci_lint.with({
+		args = { "run", "--fix=false", "--output-format=json", "$DIRNAME", "--path-prefix", "$ROOT" },
+	}),
 }
 
-require("nebula.nvim_augroup").creates({
-	lint = {
-		{ "BufWritePost", "*.go", "lua require('lint').try_lint()" },
-	},
+null_ls.config({
+	sources = sources,
 })

@@ -199,10 +199,11 @@ return require("packer").startup({
 
 		-- lint
 		use({
-			"mfussenegger/nvim-lint",
-			config = function()
-				require("nebula.plugin.lint")
-			end,
+			"jose-elias-alvarez/null-ls.nvim",
+			requires = {
+				"nvim-lua/plenary.nvim",
+				"neovim/nvim-lspconfig",
+			},
 		})
 
 		-- }}}

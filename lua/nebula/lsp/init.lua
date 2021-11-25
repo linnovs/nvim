@@ -29,7 +29,9 @@ local on_attach = function(_, bufnr)
 	require("lsp_signature").on_attach()
 end
 
-local servers = { "sumneko_lua", "yamlls", "rust_analyzer", "gdscript", "gopls", "jsonls" }
+local servers = { "sumneko_lua", "yamlls", "rust_analyzer", "gdscript", "gopls", "jsonls", "null-ls" }
+
+require("nebula.plugin.lint")
 
 for _, lsp in ipairs(servers) do
 	local mod = "nebula.lsp." .. lsp
