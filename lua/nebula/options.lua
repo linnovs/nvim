@@ -26,6 +26,7 @@ vim.opt.showmode = false -- message on status line to show current mode
 vim.opt.showtabline = 2 -- tells when the tab pages line is displayed
 vim.opt.signcolumn = "yes:1" -- when and how to display the sign column
 vim.opt.smartindent = true -- smart autoindenting for C programs
+vim.opt.spell = true -- enable spell checking
 vim.opt.spelloptions = "camel" -- options for spell checking
 vim.opt.splitbelow = true -- new window from split is below the current one
 vim.opt.splitright = true -- new window is put right of the current one
