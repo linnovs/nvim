@@ -21,6 +21,9 @@ local autocmds = {
 		{ "ColorScheme", "*", "highlight GitSignsChange guifg=" .. git.modified },
 		{ "ColorScheme", "*", "highlight GitSignsDelete guifg=" .. git.removed },
 	},
+	ChezmoiApply = {
+		{ "BufWritePost", "~/.local/share/chezmoi/*", '!chezmoi apply --source-path "%"' },
+	},
 }
 
 require("nebula.nvim_augroup").creates(autocmds)
