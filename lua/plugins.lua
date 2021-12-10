@@ -222,6 +222,7 @@ return require("packer").startup({
 			requires = {
 				"nvim-lua/plenary.nvim",
 				"kyazdani42/nvim-web-devicons",
+				"jvgrootveld/telescope-zoxide",
 			},
 		})
 

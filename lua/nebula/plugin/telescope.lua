@@ -38,6 +38,8 @@ telescope.setup({
 	},
 })
 
+telescope.load_extension("zoxide")
+
 vimp.nnoremap("<Leader><Leader>", function()
 	builtin.find_files()
 end)
@@ -51,3 +53,4 @@ vimp.nnoremap("<Leader>fh", function()
 	builtin.help_tags()
 end)
 vimp.nnoremap("<Leader>todo", "<CMD>TodoTelescope<CR>")
+vimp.nnoremap("<Leader>z", "<CMD>Telescope zoxide list<CR>")
