@@ -1,3 +1,4 @@
+local on_attach = require("nebula.lsp.on_attach")
 local null_ls = require("null-ls")
 
 local sources = {
@@ -7,7 +8,8 @@ local sources = {
 	}),
 }
 
-null_ls.config({
+null_ls.setup({
+	on_attach = on_attach,
 	diagnostic_format = "[#{c}] #{m}",
 	sources = sources,
 })
