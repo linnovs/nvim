@@ -75,9 +75,14 @@ M.type = {
 		local filename = api.nvim_buf_get_name(api.nvim_win_get_buf(winid))
 		local extension = fn.fnamemodify(filename, ":e")
 
-		local icon, _ = require("nvim-web-devicons").get_icon(filename, extension, { default = true })
+		local icon, fg = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
 
-		return icon .. " "
+		return {
+			str = icon .. " ",
+			hl = {
+				fg = fg,
+			},
+		}
 	end,
 }
 
