@@ -1,4 +1,4 @@
-vim.opt.guifont = "mononoki Nerd Font:h9"
+vim.opt.guifont = "mononoki Nerd Font:h10.5"
 vim.opt.clipboard:append("unnamedplus") -- use the clipboard as the unnamed register
 vim.opt.cmdheight = 2 -- number of lines to use for the command-line
 vim.opt.completeopt = { "menuone", "noselect" } -- options for Insert mode completion
