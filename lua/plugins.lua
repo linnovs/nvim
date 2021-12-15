@@ -243,6 +243,14 @@ return require("packer").startup({
 			end,
 		})
 
+		-- zen mode
+		use({
+			"folke/zen-mode.nvim",
+			config = function()
+				require("nebula.plugin.zen")
+			end,
+		})
+
 		-- }}}
 	end,
 	config = {
