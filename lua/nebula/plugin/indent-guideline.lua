@@ -1,7 +1,7 @@
 require("indent_blankline").setup({
 	char = "",
 	buftype_exclude = { "terminal", "help" },
-	filetype_exclude = { "lsp-installer" },
+	filetype_exclude = { "lsp-installer", "alpha" },
 	space_char_blankline = " ",
 	show_current_context = true,
 	use_treesitter = true,
