@@ -37,7 +37,7 @@ insert("right", file.position_inactive, true)
 local colors = require("nebula.plugin.statusline.colors")
 
 require("feline").setup({
-	colors = colors.default,
+	theme = colors.default,
 	components = components,
 	vi_mode_colors = colors.vi_mode,
 })

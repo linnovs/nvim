@@ -1,3 +1,5 @@
+local lsp = require("feline.providers.lsp")
+local severity = vim.diagnostic.severity
 local M = {}
 
 local sep = {
@@ -7,6 +9,7 @@ local sep = {
 
 M.errors = {
 	provider = "diagnostic_errors",
+	enable = lsp.diagnostics_exist(severity.ERROR),
 	hl = {
 		fg = "diagnostic_error",
 		bg = "diagnostic_bg",
@@ -18,6 +21,7 @@ M.errors = {
 
 M.warnings = {
 	provider = "diagnostic_warnings",
+	enable = lsp.diagnostics_exist(severity.WARN),
 	hl = {
 		fg = "diagnostic_warning",
 		bg = "diagnostic_bg",
@@ -29,6 +33,7 @@ M.warnings = {
 
 M.hints = {
 	provider = "diagnostic_hints",
+	enable = lsp.diagnostics_exist(severity.HINT),
 	hl = {
 		fg = "diagnostic_hint",
 		bg = "diagnostic_bg",
@@ -40,6 +45,7 @@ M.hints = {
 
 M.info = {
 	provider = "diagnostic_info",
+	enable = lsp.diagnostics_exist(severity.INFO),
 	hl = {
 		fg = "diagnostic_info",
 		bg = "diagnostic_bg",

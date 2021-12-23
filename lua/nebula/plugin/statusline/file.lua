@@ -88,7 +88,11 @@ M.type = {
 
 M.position = {
 	provider = "position",
-	hl = vi_mode.get_mode_highlight_name,
+	hl = function()
+		return {
+			name = vi_mode.get_mode_highlight_name(),
+		}
+	end,
 }
 
 M.position_inactive = {
