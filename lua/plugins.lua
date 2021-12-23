@@ -78,6 +78,15 @@ return require("packer").startup({
 		-- tokyo night colorscheme
 		use("folke/tokyonight.nvim")
 
+		-- dashboard
+		use({
+			"goolord/alpha-nvim",
+			requires = "kyazdani42/nvim-web-devicons",
+			config = function()
+				require("nebula.plugin.dashboard")
+			end,
+		})
+
 		-- git
 		use({
 			"lewis6991/gitsigns.nvim",
