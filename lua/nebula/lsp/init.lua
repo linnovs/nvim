@@ -8,7 +8,7 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-local servers = { "sumneko_lua", "yamlls", "rust_analyzer", "gdscript", "gopls", "jsonls" }
+local servers = { "sumneko_lua", "yamlls", "rust_analyzer", "gdscript", "gopls", "jsonls", "omnisharp" }
 
 require("nebula.plugin.lint")
 
