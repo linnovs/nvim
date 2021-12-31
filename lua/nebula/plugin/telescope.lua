@@ -1,6 +1,8 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
+local z_utiles = require("telescope._extensions.zoxide.utils")
+local z_config = require("telescope._extensions.zoxide.config")
 local vimp = require("vimp")
 
 telescope.setup({
@@ -35,10 +37,24 @@ telescope.setup({
 		help_tags = {
 			theme = "dropdown",
 		},
+		zoxide = {
+			theme = "dropdown",
+		},
 	},
 })
 
 telescope.load_extension("zoxide")
+
+z_config.setup({
+	mappings = {
+		default = {
+			after_action = function(selection)
+				print("Directory changed to " .. selection.path)
+				vim.cmd("NvimTreeToggle")
+			end,
+		},
+	},
+})
 
 vimp.nnoremap("<Leader><Leader>", function()
 	builtin.find_files()
