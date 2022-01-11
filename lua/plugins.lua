@@ -215,6 +215,14 @@ return require("packer").startup({
 			},
 		})
 
+		-- virtual type
+		use({
+			"jubnzv/virtual-types.nvim",
+			requires = {
+				"neovim/nvim-lspconfig",
+			},
+		})
+
 		-- }}}
 
 		-- Tool {{{
@@ -241,14 +249,6 @@ return require("packer").startup({
 			cmd = { "Octo" },
 			config = function()
 				require("nebula.plugin.github")
-			end,
-		})
-
-		-- formatter
-		use({
-			"lukas-reineke/format.nvim",
-			config = function()
-				require("nebula.plugin.format")
 			end,
 		})
 

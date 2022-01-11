@@ -1,7 +1,7 @@
 local vimp = require("vimp")
 local builtin = require("telescope.builtin")
 
-return function(_, bufnr)
+return function(client, bufnr)
 	-- enable completion
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -18,5 +18,15 @@ return function(_, bufnr)
 		vimp.nnoremap({ "override" }, "<Leader>ds", builtin.lsp_document_symbols)
 	end)
 
+	if client.resolved_capabilities.document_formatting then
+		vim.cmd([[
+            augroup LspFormatting
+                autocmd! * <buffer>
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
+            augroup END
+        ]])
+	end
+
+	require("virtualtypes").on_attach()
 	require("lsp_signature").on_attach()
 end

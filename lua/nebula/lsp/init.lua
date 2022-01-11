@@ -10,7 +10,7 @@ end
 
 local servers = { "sumneko_lua", "yamlls", "rust_analyzer", "gdscript", "gopls", "jsonls", "omnisharp" }
 
-require("nebula.plugin.lint")
+require("nebula.plugin.null_ls")
 
 for _, lsp in ipairs(servers) do
 	local mod = "nebula.lsp." .. lsp
