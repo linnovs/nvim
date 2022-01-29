@@ -1,7 +1,6 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
-local z_utiles = require("telescope._extensions.zoxide.utils")
 local z_config = require("telescope._extensions.zoxide.config")
 local vimp = require("vimp")
 
@@ -19,6 +18,7 @@ telescope.setup({
 		mappings = {
 			i = {
 				["<ESC>"] = actions.close,
+				["<C-h>"] = "which_key",
 			},
 		},
 	},
