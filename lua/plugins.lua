@@ -20,13 +20,7 @@ return require("packer").startup({
 			"blackCauldron7/surround.nvim",
 			config = function()
 				require("surround").setup({ mappings_style = "surround" })
-			end,
-		})
 
-		use({
-			"windwp/nvim-autopairs",
-			config = function()
-				require("nebula.plugin.autopairs")
 			end,
 		})
 
