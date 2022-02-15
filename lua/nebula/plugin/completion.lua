@@ -1,10 +1,15 @@
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 
+luasnip.config.setup({
+	delete_check_events = "TextChanged,InsertLeave",
+	region_check_events = "CursorMoved",
+})
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	mapping = {
@@ -13,7 +18,7 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 
 		["<Tab>"] = cmp.mapping(function(fallback)
-			if luasnip.expand_or_jumpable() then
+			if luasnip.expand_or_locally_jumpable() then
 				luasnip.expand_or_jump()
 			else
 				fallback()
