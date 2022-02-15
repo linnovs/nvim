@@ -93,10 +93,10 @@ require("nvim-tree").setup({
 	diagnostic = {
 		enable = true,
 		icons = {
-			error = "",
-			warning = "",
-			hint = "",
-			info = "",
+			error = " ",
+			warning = " ",
+			hint = " ",
+			info = " ",
 		},
 	},
 	-- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
