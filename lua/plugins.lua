@@ -17,10 +17,9 @@ return require("packer").startup({
 		use({ "b3nj5m1n/kommentary" })
 
 		use({
-			"blackCauldron7/surround.nvim",
+			"echasnovski/mini.nvim",
 			config = function()
-				require("surround").setup({ mappings_style = "surround" })
-
+				require("nebula.plugin.mini")
 			end,
 		})
 
