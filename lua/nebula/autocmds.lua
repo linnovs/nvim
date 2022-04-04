@@ -24,6 +24,9 @@ local autocmds = {
 	ChezmoiApply = {
 		{ "BufWritePost", "~/.local/share/chezmoi/*", '!chezmoi apply --source-path "%"' },
 	},
+	I3AutoReload = {
+		{ "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "!i3-msg reload" },
+	},
 }
 
 require("nebula.nvim_augroup").creates(autocmds)
