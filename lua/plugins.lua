@@ -23,6 +23,13 @@ return require("packer").startup({
 			end,
 		})
 
+		use({
+			"windwp/nvim-autopairs",
+			config = function()
+				require("nebula.plugin.autopairs")
+			end,
+		})
+
 		use("editorconfig/editorconfig-vim")
 
 		use({
