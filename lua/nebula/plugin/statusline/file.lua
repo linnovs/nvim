@@ -16,8 +16,8 @@ M.info = {
 			file_modified_icon = "",
 		},
 	},
-	icon = function(winid)
-		local filename = api.nvim_buf_get_name(api.nvim_win_get_buf(winid))
+	icon = function()
+		local filename = api.nvim_buf_get_name(0)
 		local extension = fn.fnamemodify(filename, ":e")
 
 		local icon = { str = "", hl = {} }
@@ -71,8 +71,8 @@ M.type = {
 	},
 	right_sep = blank_sep,
 	left_sep = left_sep,
-	icon = function(winid)
-		local filename = api.nvim_buf_get_name(api.nvim_win_get_buf(winid))
+	icon = function()
+		local filename = api.nvim_buf_get_name(0)
 		local extension = fn.fnamemodify(filename, ":e")
 
 		local icon, fg = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
