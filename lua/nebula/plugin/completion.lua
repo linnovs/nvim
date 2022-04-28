@@ -15,7 +15,7 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end,
 	},
-	mapping = {
+	mapping = cmp.mapping.preset.insert({
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<C-y>"] = cmp.config.disable,
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -41,7 +41,7 @@ cmp.setup({
 			"i",
 			"s",
 		}),
-	},
+	}),
 	formatting = {
 		format = function(entry, vim_item)
 			-- fancy icons and a name of kind
@@ -59,12 +59,13 @@ cmp.setup({
 			return vim_item
 		end,
 	},
-	sources = {
+	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+	}, {
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "spell" },
 		{ name = "nvim_lua" },
-	},
+	}),
 })
