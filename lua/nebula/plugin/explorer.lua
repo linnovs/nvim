@@ -121,8 +121,8 @@ require("nvim-tree").setup({
 		open_file = {
 			-- disabled by default, closes the tree when you open a file
 			quit_on_open = true,
-            -- if true the tree will resize itself after opening a file
-            resize_window = false,
+			-- if true the tree will resize itself after opening a file
+			resize_window = false,
 			-- disabled by default, will disable the window picker.
 			window_picker = {
 				enable = true,
