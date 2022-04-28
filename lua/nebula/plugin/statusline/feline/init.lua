@@ -6,12 +6,12 @@ local function insert(position, component, inactive)
 	table.insert(components[state][pos[position]], component)
 end
 
-local vi_mode = require("nebula.plugin.statusline.vi_mode")
-local git = require("nebula.plugin.statusline.git")
-local file = require("nebula.plugin.statusline.file")
-local lsp = require("nebula.plugin.statusline.lsp")
-local diagnostic = require("nebula.plugin.statusline.diagnostic")
-local gps = require("nebula.plugin.statusline.gps")
+local vi_mode = require("nebula.plugin.statusline.feline.vi_mode")
+local git = require("nebula.plugin.statusline.feline.git")
+local file = require("nebula.plugin.statusline.feline.file")
+local lsp = require("nebula.plugin.statusline.feline.lsp")
+local diagnostic = require("nebula.plugin.statusline.feline.diagnostic")
+local gps = require("nebula.plugin.statusline.feline.gps")
 
 insert("left", vi_mode)
 insert("left", lsp.client_name)
@@ -34,7 +34,7 @@ insert("right", file.position)
 insert("left", file.file_info, true)
 insert("right", file.position_inactive, true)
 
-local colors = require("nebula.plugin.statusline.colors")
+local colors = require("nebula.plugin.statusline.feline.colors")
 
 require("feline").setup({
 	theme = colors.default,
