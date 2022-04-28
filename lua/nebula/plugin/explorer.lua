@@ -73,7 +73,7 @@ require("nvim-tree").setup({
 	-- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
 	update_cwd = true,
 	-- show lsp diagnostics in the signcolumn
-	diagnostic = {
+	diagnostics = {
 		enable = true,
 		icons = {
 			error = " ",
@@ -105,8 +105,6 @@ require("nvim-tree").setup({
 		width = 30,
 		-- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
 		side = "left",
-		-- if true the tree will resize itself after opening a file
-		auto_resize = false,
 		mappings = {
 			-- custom only false will merge the list with the default mappings
 			-- if true, it will only use your list to set the mappings
@@ -121,11 +119,13 @@ require("nvim-tree").setup({
 	},
 	actions = {
 		open_file = {
-			-- 0 by default, closes the tree when you open a file
-			quit_on_open = 1,
+			-- disabled by default, closes the tree when you open a file
+			quit_on_open = true,
+            -- if true the tree will resize itself after opening a file
+            resize_window = false,
 			-- disabled by default, will disable the window picker.
 			window_picker = {
-				enable = false,
+				enable = true,
 				-- Dictionary of buffer option names mapped to a list of option values that
 				-- indicates to the window picker that the buffer's window should not be
 				-- selectable.
@@ -145,7 +145,7 @@ require("nvim-tree").setup({
 		-- off by default, this option shows indent markers when folders are open
 		indent_markers = {
 			enable = true,
-			icon = {
+			icons = {
 				corner = "└ ",
 				edge = "│ ",
 				none = "  ",
