@@ -106,11 +106,18 @@ return require("packer").startup({
 		})
 
 		-- statusline
-		use({
+		--[[ use({
 			"famiu/feline.nvim",
 			requires = { "kyazdani42/nvim-web-devicons" },
 			config = function()
-				require("nebula.plugin.statusline")
+				require("nebula.plugin.statusline.feline")
+			end,
+		}) ]]
+		use({
+			"nvim-lualine/lualine.nvim",
+			requires = { "kyazdani42/nvim-web-devicons" },
+			config = function()
+				require("nebula.plugin.statusline.lualine")
 			end,
 		})
 
