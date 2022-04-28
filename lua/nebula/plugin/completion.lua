@@ -67,5 +67,9 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "spell" },
 		{ name = "nvim_lua" },
+	}, {
+		{ name = "git" },
 	}),
 })
+
+require("cmp_git").setup()

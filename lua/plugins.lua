@@ -206,6 +206,7 @@ return require("packer").startup({
 				"f3fora/cmp-spell", -- spell source
 				"hrsh7th/cmp-nvim-lua", -- nvim-lua source
 				"onsails/lspkind-nvim", -- vscode-like pictograms
+				"petertriho/cmp-git", -- git related source
 			},
 			config = function()
 				require("nebula.plugin.completion")
