@@ -71,6 +71,14 @@ return require("packer").startup({
 			end,
 		})
 
+		-- notification
+		use({
+			"rcarriga/nvim-notify",
+			config = function()
+				require("nebula.plugin.notify")
+			end,
+		})
+
 		-- }}}
 
 		-- UI {{{
