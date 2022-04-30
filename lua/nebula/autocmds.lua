@@ -27,6 +27,9 @@ local autocmds = {
 	I3AutoReload = {
 		{ "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "!i3-msg reload" },
 	},
+	AutoPackerSync = {
+		{ "BufWritePost", "~/.config/nvim/lua/plugins.lua", "PackerSync" },
+	},
 }
 
 require("nebula.nvim_augroup").creates(autocmds)
