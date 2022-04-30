@@ -28,7 +28,7 @@ local autocmds = {
 		{ "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "!i3-msg reload" },
 	},
 	AutoPackerSync = {
-		{ "BufWritePost", "~/.config/nvim/lua/plugins.lua", "PackerSync" },
+		{ "BufWritePost", "~/.config/nvim/lua/plugins.lua", "so % | PackerSync" },
 	},
 }
 
