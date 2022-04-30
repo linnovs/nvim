@@ -16,12 +16,7 @@ return require("packer").startup({
 		-- commenting
 		use({ "b3nj5m1n/kommentary" })
 
-		use({
-			"echasnovski/mini.nvim",
-			config = function()
-				require("nebula.plugin.mini")
-			end,
-		})
+		use({ "tpope/vim-surround" })
 
 		use({
 			"windwp/nvim-autopairs",
