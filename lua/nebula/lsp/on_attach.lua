@@ -27,6 +27,16 @@ return function(client, bufnr)
         ]])
 	end
 
+	if client.resolved_capabilities.code_lens then
+		vim.cmd([[
+            augroup LspCodeLens
+                autocmd! * <buffer>
+                autocmd CursorHold,CursorHoldI,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
+            augroup END
+        ]])
+		vimp.nnoremap({ "override", "buffer" }, "<Leader>cl", vim.lsp.codelens.run)
+	end
+
 	require("virtualtypes").on_attach()
 	require("lsp_signature").on_attach()
 end
