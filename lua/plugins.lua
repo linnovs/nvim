@@ -49,6 +49,14 @@ return require("packer").startup({
 			end,
 		})
 
+		-- smooth scrolling
+		use({
+			"karb94/neoscroll.nvim",
+			config = function()
+				require("nebula.plugin.smoothscroll")
+			end,
+		})
+
 		-- todo-comment
 		use({
 			"folke/todo-comments.nvim",
