@@ -30,7 +30,8 @@ local autocmds = {
 		},
 	},
 	I3AutoReload = {
-		{ "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "!i3-msg reload" },
+		{ "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "silent !i3-msg reload" },
+		{ "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "lua vim.notify('Reload i3')" },
 	},
 	AutoPackerSync = {
 		{ "BufWritePost", "~/.config/nvim/lua/plugins.lua", "so % | PackerSync" },
