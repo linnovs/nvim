@@ -22,7 +22,12 @@ local autocmds = {
 		{ "ColorScheme", "*", "highlight GitSignsDelete guifg=" .. git.removed },
 	},
 	ChezmoiApply = {
-		{ "BufWritePost", "~/.local/share/chezmoi/*", '!chezmoi apply --source-path "%"' },
+		{ "BufWritePost", "~/.local/share/chezmoi/*", "silent !chezmoi apply --source-path %" },
+		{
+			"BufWritePost",
+			"~/.local/share/chezmoi/*",
+			'exe "lua vim.notify(\\"Update source " .. expand("%") .. " to target\\")"',
+		},
 	},
 	I3AutoReload = {
 		{ "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "!i3-msg reload" },
