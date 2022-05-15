@@ -18,7 +18,7 @@ local function should_update()
         last_update = now - os.time(os.date("*t", tonumber(content)))
     end
 
-    if last_update > 86400 and os.date("%w", now) >= 5 then
+    if last_update > 5 * 86400 and os.date("%w", now) >= 5 then
         file:seek("set")
         file:write(now)
         file:flush()
