@@ -34,7 +34,9 @@ return function(client, bufnr)
                 autocmd CursorHold,CursorHoldI,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
             augroup END
         ]])
-		vimp.nnoremap({ "override", "buffer" }, "<Leader>cl", vim.lsp.codelens.run)
+		vimp.add_buffer_maps(bufnr, function()
+			vimp.nnoremap({ "override" }, "<Leader>cl", vim.lsp.codelens.run)
+		end)
 	end
 
 	require("virtualtypes").on_attach()
