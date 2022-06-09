@@ -1,4 +1,3 @@
-local lsp_installer_servers = require("nvim-lsp-installer.servers")
 local on_attach = require("nebula.lsp.on_attach")
 
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
@@ -25,23 +24,18 @@ local servers = {
 
 require("nebula.plugin.null_ls")
 
+require("nvim-lsp-installer").setup({
+    automatic_installation = true,
+})
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 for _, lsp in ipairs(servers) do
-	local mod = "nebula.lsp." .. lsp
-	local config = require(mod)
-	config.on_attach = on_attach
-	config.flags = { debounce_text_changes = 150 }
+    local mod = "nebula.lsp." .. lsp
+    local config = require(mod)
+    config.on_attach = on_attach
+    config.flags = { debounce_text_changes = 150 }
+    config.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	config.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
-
-	local ok, server = lsp_installer_servers.get_server(lsp)
-	if ok then
-		if not server:is_installed() then
-			server:install()
-		end
-
-		server:setup(config)
-	else
-		require("lspconfig")[lsp].setup(config)
-	end
+    require("lspconfig")[lsp].setup(config)
 end
