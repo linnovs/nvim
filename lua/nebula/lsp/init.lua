@@ -9,15 +9,18 @@ for type, icon in pairs(signs) do
 end
 
 local servers = {
-	"clangd",
-	"cmake",
-	"gdscript",
-	"gopls",
-	"jsonls",
-	"omnisharp",
-	"rust_analyzer",
-	"sumneko_lua",
-	"yamlls",
+    "clangd",
+    "cmake",
+    "gdscript",
+    "gopls",
+    "jsonls",
+    "ltex",
+    "omnisharp",
+    "pylsp",
+    "rust_analyzer",
+    "sumneko_lua",
+    "terraformls",
+    "yamlls",
 }
 
 require("nebula.plugin.null_ls")
