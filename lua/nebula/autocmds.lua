@@ -3,39 +3,44 @@ local lsp = colors.lsp
 local git = colors.git
 
 local autocmds = {
-	set_formatoptions = {
-		{ "BufEnter", "*", "setlocal formatoptions-=o" },
-	},
-	LspColors = {
-		{ "ColorScheme", "*", "highlight DiagnosticError guifg=" .. lsp.error },
-		{ "ColorScheme", "*", "highlight DiagnosticWarn guifg=" .. lsp.warning },
-		{ "ColorScheme", "*", "highlight DiagnosticInfo guifg=" .. lsp.information },
-		{ "ColorScheme", "*", "highlight DiagnosticHint guifg=" .. lsp.hint },
-		{ "ColorScheme", "*", "highlight DiagnosticUnderlineError gui=undercurl guisp=" .. lsp.error },
-		{ "ColorScheme", "*", "highlight DiagnosticUnderlineWarn gui=undercurl guisp=" .. lsp.warning },
-		{ "ColorScheme", "*", "highlight DiagnosticUnderlineInfo gui=undercurl guisp=" .. lsp.information },
-		{ "ColorScheme", "*", "highlight DiagnosticUnderlineHint gui=undercurl guisp=" .. lsp.hint },
-	},
-	GitSignColors = {
-		{ "ColorScheme", "*", "highlight GitSignsAdd guifg=" .. git.added },
-		{ "ColorScheme", "*", "highlight GitSignsChange guifg=" .. git.modified },
-		{ "ColorScheme", "*", "highlight GitSignsDelete guifg=" .. git.removed },
-	},
-	ChezmoiApply = {
-		{ "BufWritePost", "~/.local/share/chezmoi/*", "silent !chezmoi apply --source-path %" },
-		{
-			"BufWritePost",
-			"~/.local/share/chezmoi/*",
-			'exe "lua vim.notify(\\"Update source " .. expand("%") .. " to target\\")"',
-		},
-	},
-	I3AutoReload = {
-		{ "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "silent !i3-msg reload" },
-		{ "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "lua vim.notify('Reload i3')" },
-	},
-	AutoPackerSync = {
-		{ "BufWritePost", "~/.config/nvim/lua/plugins.lua", "so % | PackerSync" },
-	},
+    set_formatoptions = {
+        { "BufEnter", "*", "setlocal formatoptions-=o" },
+    },
+    LspColors = {
+        { "ColorScheme", "*", "highlight DiagnosticError guifg=" .. lsp.error },
+        { "ColorScheme", "*", "highlight DiagnosticWarn guifg=" .. lsp.warning },
+        { "ColorScheme", "*", "highlight DiagnosticInfo guifg=" .. lsp.information },
+        { "ColorScheme", "*", "highlight DiagnosticHint guifg=" .. lsp.hint },
+        { "ColorScheme", "*", "highlight DiagnosticUnderlineError gui=undercurl guisp=" .. lsp.error },
+        { "ColorScheme", "*", "highlight DiagnosticUnderlineWarn gui=undercurl guisp=" .. lsp.warning },
+        { "ColorScheme", "*", "highlight DiagnosticUnderlineInfo gui=undercurl guisp=" .. lsp.information },
+        { "ColorScheme", "*", "highlight DiagnosticUnderlineHint gui=undercurl guisp=" .. lsp.hint },
+    },
+    GitSignColors = {
+        { "ColorScheme", "*", "highlight GitSignsAdd guifg=" .. git.added },
+        { "ColorScheme", "*", "highlight GitSignsChange guifg=" .. git.modified },
+        { "ColorScheme", "*", "highlight GitSignsDelete guifg=" .. git.removed },
+    },
+    ChezmoiApply = {
+        { "BufWritePost", "~/.local/share/chezmoi/*", "silent !chezmoi apply --source-path %" },
+        {
+            "BufWritePost",
+            "~/.local/share/chezmoi/*",
+            'exe "lua vim.notify(\\"Update source " .. expand("%") .. " to target\\")"',
+        },
+    },
+    I3AutoReload = {
+        { "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "silent !i3-msg reload" },
+        { "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "lua vim.notify('Reload i3')" },
+    },
+    AutoPackerSync = {
+        { "BufWritePost", "~/.config/nvim/lua/plugins.lua", "so % | PackerSync" },
+    },
+    MyAutoFT = {
+        { "BufRead,BufNewFile", "*.tf", "set filetype=terraform" },
+        { "BufRead,BufNewFile", "*.rasi", "set filetype=rasi" },
+        { "BufRead,BufNewFile", "*.wgsl", "set filetype=wgsl" },
+    },
 }
 
 require("nebula.nvim_augroup").creates(autocmds)
