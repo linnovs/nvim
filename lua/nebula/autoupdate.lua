@@ -31,7 +31,9 @@ local function should_update()
 end
 
 -- don't run if the file lock exist
-if 0 < os.execute("mkdir " .. flock_path .. " >/dev/null 2>&1") then
+if nil == os.execute("mkdir " .. flock_path .. " >/dev/null 2>&1") then
+    require("notify")("Packer autoupdate stopped, lock file exist.")
+
     return
 end
 
