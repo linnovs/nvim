@@ -141,6 +141,14 @@ return require("packer").startup({
             end,
         })
 
+        use({
+            'kevinhwang91/nvim-ufo',
+            requires = 'kevinhwang91/promise-async',
+            config = function()
+                require("nebula.plugin.ufo")
+            end
+        })
+
         -- which-key
         use({
             "folke/which-key.nvim",
