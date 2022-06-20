@@ -139,6 +139,7 @@ return require("packer").startup({
             config = function()
                 require("nebula.plugin.explorer")
             end,
+            tag = "nightly"
         })
 
         use({
