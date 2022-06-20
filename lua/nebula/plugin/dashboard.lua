@@ -30,6 +30,8 @@ dashboard.section.header.val = {
     "                     ,.  ',",
 }
 
+dashboard.section.header.opts.hl = "Identifier"
+
 dashboard.section.buttons.val = {
     dashboard.button("n", "  > New file", ":ene <BAR> startinsert <CR>"),
     dashboard.button("f", "  > Find file", ":Telescope find_files<CR>"),
