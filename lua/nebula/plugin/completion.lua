@@ -18,7 +18,7 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
         ["<C-y>"] = cmp.config.disable,
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
 
         ["<Tab>"] = cmp.mapping(function(fallback)
             if luasnip.expand_or_locally_jumpable() then
