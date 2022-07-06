@@ -10,6 +10,7 @@ local source_mapping = {
     path = "[Path]",
     spell = "[Spell]",
     nvim_lua = "[Lua]",
+    cmp_tabnine = "[tabnine]",
 }
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
@@ -59,6 +60,12 @@ cmp.setup({
 
             before = function(entry, vim_item)
                 local menu = source_mapping[entry.source.name]
+                if entry.source.name == "cmp_tabnine" then
+                    if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+                        menu = entry.completion_item.data.detail .. " " .. menu
+                    end
+                    vim_item.kind = "Event"
+                end
 
                 vim_item.menu = menu
 
@@ -69,6 +76,8 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
+        { name = "cmp_tabnine" }
+    }, {
     }, {
         { name = "buffer" },
         { name = "path" },
