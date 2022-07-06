@@ -236,6 +236,7 @@ return require("packer").startup({
         use({ "hrsh7th/cmp-nvim-lua", requires = { "hrsh7th/nvim-cmp" } }) -- nvim-lua source
         use({ "onsails/lspkind-nvim", requires = { "hrsh7th/nvim-cmp" } }) -- vscode-like pictograms
         use({ "petertriho/cmp-git", requires = { "hrsh7th/nvim-cmp" } }) -- git related source
+        use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = { "hrsh7th/nvim-cmp" } }) -- tabnine source
         -- }}}
 
         -- lint
