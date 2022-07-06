@@ -1,4 +1,4 @@
--- vim: foldmethod=marker
+-- vim: foldmethod=marker foldlevel=0
 
 return require("packer").startup({
     function(use)
@@ -220,22 +220,23 @@ return require("packer").startup({
         -- completion
         use({
             "hrsh7th/nvim-cmp",
-            requires = {
-                "hrsh7th/cmp-nvim-lsp", -- lsp source
-                "hrsh7th/cmp-buffer", -- buffer source
-                "L3MON4D3/LuaSnip", -- snippet engine
-                "saadparwaiz1/cmp_luasnip", -- snippet source
-                "hrsh7th/cmp-path", -- path source
-                "f3fora/cmp-spell", -- spell source
-                "hrsh7th/cmp-nvim-lua", -- nvim-lua source
-                "onsails/lspkind-nvim", -- vscode-like pictograms
-                "petertriho/cmp-git", -- git related source
-            },
             config = function()
                 require("nebula.plugin.completion")
                 require("nebula.plugin.lspkind")
             end,
         })
+
+        -- completion source {{{
+        use({ "hrsh7th/cmp-nvim-lsp", requires = { "hrsh7th/nvim-cmp" } }) -- lsp source
+        use({ "hrsh7th/cmp-buffer", requires = { "hrsh7th/nvim-cmp" } }) -- buffer source
+        use({ "L3MON4D3/LuaSnip", requires = { "hrsh7th/nvim-cmp" } }) -- snippet engine
+        use({ "saadparwaiz1/cmp_luasnip", requires = { "hrsh7th/nvim-cmp" } }) -- snippet source
+        use({ "hrsh7th/cmp-path", requires = { "hrsh7th/nvim-cmp" } }) -- path source
+        use({ "f3fora/cmp-spell", requires = { "hrsh7th/nvim-cmp" } }) -- spell source
+        use({ "hrsh7th/cmp-nvim-lua", requires = { "hrsh7th/nvim-cmp" } }) -- nvim-lua source
+        use({ "onsails/lspkind-nvim", requires = { "hrsh7th/nvim-cmp" } }) -- vscode-like pictograms
+        use({ "petertriho/cmp-git", requires = { "hrsh7th/nvim-cmp" } }) -- git related source
+        -- }}}
 
         -- lint
         use({
