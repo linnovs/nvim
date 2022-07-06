@@ -1,6 +1,16 @@
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
+local source_mapping = {
+    nvim_lsp = "[LSP]",
+    luasnip = "[LuaSnip]",
+    buffer = "[Buffer]",
+    path = "[Path]",
+    spell = "[Spell]",
+    nvim_lua = "[Lua]",
+}
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 
@@ -43,21 +53,18 @@ cmp.setup({
         }),
     }),
     formatting = {
-        format = function(entry, vim_item)
-            -- fancy icons and a name of kind
-            vim_item.kind = require("lspkind").presets.default[vim_item.kind] .. " " .. vim_item.kind
+        format = lspkind.cmp_format({
+            mode = "symbol", -- show only symbol annotations
+            maxwidth = 50,
 
-            -- set a name for each source
-            vim_item.menu = ({
-                nvim_lsp = "[LSP]",
-                luasnip = "[LuaSnip]",
-                buffer = "[Buffer]",
-                path = "[Path]",
-                spell = "[Spell]",
-                nvim_lua = "[Lua]",
-            })[entry.source.name]
-            return vim_item
-        end,
+            before = function(entry, vim_item)
+                local menu = source_mapping[entry.source.name]
+
+                vim_item.menu = menu
+
+                return vim_item
+            end
+        }),
     },
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
