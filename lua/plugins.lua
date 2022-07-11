@@ -150,6 +150,14 @@ return require("packer").startup({
             end
         })
 
+        -- beauty default UI
+        use({
+            'stevearc/dressing.nvim',
+            config = function()
+                require("nebula.plugin.dressing")
+            end
+        })
+
         -- which-key
         use({
             "folke/which-key.nvim",
