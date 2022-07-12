@@ -40,13 +40,20 @@ telescope.setup({
         zoxide = {
             theme = "dropdown",
         },
-    },
+    }
+})
+
+z_config.setup({
+    mappings = {
+        default = {
+            after_action = function(selection)
+                vim.notify("Directory changed to " .. selection.path)
+            end
+        }
+    }
 })
 
 telescope.load_extension("zoxide")
-
-z_config.setup({
-})
 
 vimp.nnoremap("<Leader><Leader>", function()
     builtin.find_files()
