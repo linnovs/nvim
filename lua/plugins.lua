@@ -186,14 +186,6 @@ return require("packer").startup({
             end,
         })
 
-        use({
-            "SmiteshP/nvim-gps",
-            requires = { "nvim-treesitter/nvim-treesitter" },
-            config = function()
-                require("nebula.plugin.nvim-gps")
-            end,
-        })
-
         use({ "nvim-treesitter/playground", requires = { "nvim-treesitter/nvim-treesitter" } })
 
         use({ "alker0/chezmoi.vim" })
@@ -212,6 +204,17 @@ return require("packer").startup({
                 "williamboman/nvim-lsp-installer",
                 "ray-x/lsp_signature.nvim",
             },
+        })
+
+        -- code context
+        use({
+            "SmiteshP/nvim-navic",
+            config = function()
+                require("nebula.plugin.navic")
+            end,
+            requires = {
+                "neovim/nvim-lspconfig"
+            }
         })
 
         -- codeAction

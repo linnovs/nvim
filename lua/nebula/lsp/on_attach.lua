@@ -39,6 +39,10 @@ return function(client, bufnr)
 		end)
 	end
 
-	require("virtualtypes").on_attach()
-	require("lsp_signature").on_attach()
+    if client.resolved_capabilities.document_symbol then
+        require("nvim-navic").attach(client, bufnr)
+    end
+
+    require("virtualtypes").on_attach()
+    require("lsp_signature").on_attach()
 end

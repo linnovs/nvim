@@ -1,8 +1,8 @@
-local gps = require("nvim-gps")
+local navic = require("nvim-navic")
 
 local M = {}
 
-M[1] = gps.get_location
-M.cond = gps.is_available
+M[1] = navic.get_location
+M.cond = navic.is_available
 
 return M
