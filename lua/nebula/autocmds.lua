@@ -4,42 +4,101 @@ local git = colors.git
 
 local autocmds = {
     set_formatoptions = {
-        { "BufEnter", "*", "setlocal formatoptions-=o" },
+        { event = "BufEnter", opts = { pattern = "*", command = "setlocal formatoptions-=o" } },
     },
     LspColors = {
-        { "ColorScheme", "*", "highlight DiagnosticError guifg=" .. lsp.error },
-        { "ColorScheme", "*", "highlight DiagnosticWarn guifg=" .. lsp.warning },
-        { "ColorScheme", "*", "highlight DiagnosticInfo guifg=" .. lsp.information },
-        { "ColorScheme", "*", "highlight DiagnosticHint guifg=" .. lsp.hint },
-        { "ColorScheme", "*", "highlight DiagnosticUnderlineError gui=undercurl guisp=" .. lsp.error },
-        { "ColorScheme", "*", "highlight DiagnosticUnderlineWarn gui=undercurl guisp=" .. lsp.warning },
-        { "ColorScheme", "*", "highlight DiagnosticUnderlineInfo gui=undercurl guisp=" .. lsp.information },
-        { "ColorScheme", "*", "highlight DiagnosticUnderlineHint gui=undercurl guisp=" .. lsp.hint },
+        {
+            event = "ColorScheme",
+            opts = {
+                pattern = "*",
+                callback = function()
+                    vim.api.nvim_exec(
+                        string.format(
+                            [[
+highlight DiagnosticError guifg=%s
+highlight DiagnosticWarn guifg=%s
+highlight DiagnosticInfo guifg=%s
+highlight DiagnosticHint guifg=%s
+highlight DiagnosticUnderlineError gui=undercurl guisp=%s
+highlight DiagnosticUnderlineWarn gui=undercurl guisp=%s
+highlight DiagnosticUnderlineInfo gui=undercurl guisp=%s
+highlight DiagnosticUnderlineHint gui=undercurl guisp=%s
+            ]]               ,
+                            lsp.error,
+                            lsp.warning,
+                            lsp.information,
+                            lsp.hint,
+                            lsp.error,
+                            lsp.warning,
+                            lsp.information,
+                            lsp.hint
+                        ),
+                        false
+                    )
+                end,
+            },
+        },
     },
     GitSignColors = {
-        { "ColorScheme", "*", "highlight GitSignsAdd guifg=" .. git.added },
-        { "ColorScheme", "*", "highlight GitSignsChange guifg=" .. git.modified },
-        { "ColorScheme", "*", "highlight GitSignsDelete guifg=" .. git.removed },
+        {
+            event = "ColorScheme",
+            opts = {
+                pattern = "*",
+                callback = function()
+                    vim.api.nvim_exec(
+                        string.format(
+                            [[
+highlight GitSignsAdd guifg=%s
+highlight GitSignsChange guifg=%s
+highlight GitSignsDelete guifg=%s
+            ]]               ,
+                            git.added,
+                            git.modified,
+                            git.removed
+                        ),
+                        false
+                    )
+                end,
+            },
+        },
     },
     ChezmoiApply = {
-        { "BufWritePost", "~/.local/share/chezmoi/*", "silent !chezmoi apply --source-path %" },
         {
-            "BufWritePost",
-            "~/.local/share/chezmoi/*",
-            'exe "lua vim.notify(\\"Update source " .. expand("%") .. " to target\\")"',
+            event = "BufWritePost",
+            opts = {
+                pattern = "~/.local/share/chezmoi/*",
+                callback = function(args)
+                    if string.sub(args.file, 1, string.len("run_")) == "run_" then
+                        return
+                    end
+                    os.execute("chezmoi apply --source-path " .. args.file)
+                    vim.notify("Update source " .. args.file .. " to target")
+                end,
+            },
         },
     },
     I3AutoReload = {
-        { "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "silent !i3-msg reload" },
-        { "BufWritePost", "~/.local/share/chezmoi/dot_config/i3/config", "lua vim.notify('Reload i3')" },
+        {
+            event = "BufWritePost",
+            opts = {
+                pattern = "~/.local/share/chezmoi/dot_config/i3/config",
+                callback = function()
+                    os.execute("i3-msg reload")
+                    vim.notify("Reload i3")
+                end,
+            },
+        },
     },
     AutoPackerSync = {
-        { "BufWritePost", "~/.config/nvim/lua/plugins.lua", "so % | PackerSync" },
+        {
+            event = "BufWritePost",
+            opts = { pattern = "~/.config/nvim/lua/plugins.lua", command = "so % | PackerSync" },
+        },
     },
     MyAutoFT = {
-        { "BufRead,BufNewFile", "*.tf", "set filetype=terraform" },
-        { "BufRead,BufNewFile", "*.rasi", "set filetype=rasi" },
-        { "BufRead,BufNewFile", "*.wgsl", "set filetype=wgsl" },
+        { event = { "BufRead", "BufNewFile" }, opts = { pattern = "*.tf", command = "set filetype=terraform" } },
+        { event = { "BufRead", "BufNewFile" }, opts = { pattern = "*.rasi", command = "set filetype=rasi" } },
+        { event = { "BufRead", "BufNewFile" }, opts = { pattern = "*.wgsl", command = "set filetype=wgsl" } },
     },
 }
 
