@@ -16,7 +16,12 @@ return require("packer").startup({
         -- commenting
         use({ "b3nj5m1n/kommentary" })
 
-        use({ "tpope/vim-surround" })
+        use({
+            "kylechui/nvim-surround",
+            config = function()
+                require("config.surround")
+            end,
+        })
 
         use({
             "windwp/nvim-autopairs",
