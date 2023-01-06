@@ -164,6 +164,15 @@ return require("packer").startup({
             end,
         })
 
+        -- better diff
+        use({
+            "sindrets/diffview.nvim",
+            config = function()
+                require("config.diffview")
+            end,
+            requires = "nvim-lua/plenary.nvim",
+        })
+
         -- which-key
         use({
             "folke/which-key.nvim",
