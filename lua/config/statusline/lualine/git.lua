@@ -1,4 +1,4 @@
-local colors = require("nebula.colors")
+local colors = require("kuuga.colors")
 
 local M = {}
 

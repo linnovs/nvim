@@ -1,4 +1,4 @@
-local on_attach = require("nebula.lsp.on_attach")
+local on_attach = require("config.lsp.on_attach")
 
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
@@ -22,21 +22,20 @@ local servers = {
     "yamlls",
 }
 
-require("nebula.plugin.null_ls")
+require("config.null_ls")
 
 require("nvim-lsp-installer").setup({
     automatic_installation = true,
 })
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true,
 }
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 for _, lsp in ipairs(servers) do
-    local mod = "nebula.lsp." .. lsp
+    local mod = "config.lsp." .. lsp
     local config = require(mod)
     config.on_attach = on_attach
     config.flags = { debounce_text_changes = 150 }

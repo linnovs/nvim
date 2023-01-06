@@ -1,4 +1,4 @@
-local on_attach = require("nebula.lsp.on_attach")
+local on_attach = require("config.lsp.on_attach")
 local null_ls = require("null-ls")
 
 local sources = {

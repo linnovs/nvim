@@ -18,16 +18,16 @@ return function(client, bufnr)
         vimp.nnoremap({ "override" }, "<Leader>ds", builtin.lsp_document_symbols)
     end)
 
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.documentFormattingProvider then
         vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
             augroup END
         ]])
     end
 
-    if client.resolved_capabilities.code_lens then
+    if client.server_capabilities.codeLensProvider then
         vim.cmd([[
             augroup LspCodeLens
                 autocmd! * <buffer>
@@ -39,7 +39,7 @@ return function(client, bufnr)
         end)
     end
 
-    if client.resolved_capabilities.document_symbol then
+    if client.server_capabilities.documentSymbolProvider then
         require("nvim-navic").attach(client, bufnr)
     end
 
