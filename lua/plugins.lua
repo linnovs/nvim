@@ -243,6 +243,15 @@ return require("packer").startup({
             end,
         })
 
+        -- github copilot
+        use({
+            "zbirenbaum/copilot.lua",
+            after = "lualine.nvim",
+            config = function()
+                require("config.copilot")
+            end,
+        })
+
         -- completion
         use({
             "hrsh7th/nvim-cmp",
@@ -262,6 +271,14 @@ return require("packer").startup({
         use({ "hrsh7th/cmp-nvim-lua", requires = { "hrsh7th/nvim-cmp" } }) -- nvim-lua source
         use({ "onsails/lspkind-nvim", requires = { "hrsh7th/nvim-cmp" } }) -- vscode-like pictograms
         use({ "petertriho/cmp-git", requires = { "hrsh7th/nvim-cmp" } }) -- git related source
+        use({
+            "zbirenbaum/copilot-cmp",
+            after = { "copilot.lua" },
+            requires = { "hrsh7th/nvim-cmp" },
+            config = function()
+                require("copilot_cmp").setup()
+            end,
+        }) -- github copilot source
         -- }}}
 
         -- lint
