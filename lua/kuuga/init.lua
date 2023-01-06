@@ -1,0 +1,7 @@
+require("kuuga.options")
+require("kuuga.autocmds")
+require("kuuga.mappings")
+require("kuuga.colorscheme")
+require("kuuga.neovide")
+require("kuuga.autoupdate")
+require("kuuga.reload")

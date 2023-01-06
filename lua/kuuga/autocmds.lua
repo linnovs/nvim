@@ -1,6 +1,7 @@
-local colors = require("nebula.colors")
+local colors = require("kuuga.colors")
 local lsp = colors.lsp
 local git = colors.git
+local home = vim.fn.expand("~")
 
 local autocmds = {
     set_formatoptions = {
@@ -66,7 +67,7 @@ highlight GitSignsDelete guifg=%s
         {
             event = "BufWritePost",
             opts = {
-                pattern = "~/.local/share/chezmoi/*",
+                pattern = home .. "/.local/share/chezmoi/*",
                 callback = function(args)
                     if string.sub(args.file, 1, string.len("run_")) == "run_" then
                         return
@@ -81,7 +82,7 @@ highlight GitSignsDelete guifg=%s
         {
             event = "BufWritePost",
             opts = {
-                pattern = "~/.local/share/chezmoi/dot_config/i3/config",
+                pattern = home .. "/.local/share/chezmoi/dot_config/i3/config",
                 callback = function()
                     os.execute("i3-msg reload")
                     vim.notify("Reload i3")
@@ -92,7 +93,7 @@ highlight GitSignsDelete guifg=%s
     AutoPackerSync = {
         {
             event = "BufWritePost",
-            opts = { pattern = "~/.config/nvim/lua/plugins.lua", command = "so % | PackerSync" },
+            opts = { pattern = home .. "/.config/nvim/lua/plugins.lua", command = "so % | PackerSync" },
         },
     },
     MyAutoFT = {
@@ -102,4 +103,4 @@ highlight GitSignsDelete guifg=%s
     },
 }
 
-require("nebula.nvim_augroup").creates(autocmds)
+require("kuuga.nvim_augroup").creates(autocmds)

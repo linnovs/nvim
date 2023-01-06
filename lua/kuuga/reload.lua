@@ -4,7 +4,7 @@ vimp.map_command("Reload", function()
 	vimp.unmap_all()
 
 	for key, _ in pairs(package.loaded) do
-		if key:match("^nebula") then
+		if key:match("^kuuga") then
 			package.loaded[key] = nil
 		end
 	end

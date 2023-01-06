@@ -1,7 +1,0 @@
-require("nebula.options")
-require("nebula.autocmds")
-require("nebula.mappings")
-require("nebula.colorscheme")
-require("nebula.neovide")
-require("nebula.autoupdate")
-require("nebula.reload")
