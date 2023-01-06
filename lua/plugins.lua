@@ -26,7 +26,7 @@ return require("packer").startup({
         use({
             "windwp/nvim-autopairs",
             config = function()
-                require("nebula.plugin.autopairs")
+                require("config.autopairs")
             end,
         })
 
@@ -35,7 +35,7 @@ return require("packer").startup({
         use({
             "numtostr/FTerm.nvim",
             config = function()
-                require("nebula.plugin.terminal")
+                require("config.terminal")
             end,
         })
 
@@ -50,7 +50,7 @@ return require("packer").startup({
         use({
             "lukas-reineke/indent-blankline.nvim",
             config = function()
-                require("nebula.plugin.indent-guideline")
+                require("config.indent-guideline")
             end,
         })
 
@@ -58,7 +58,7 @@ return require("packer").startup({
         use({
             "karb94/neoscroll.nvim",
             config = function()
-                require("nebula.plugin.smoothscroll")
+                require("config.smoothscroll")
             end,
         }) ]]
 
@@ -67,7 +67,7 @@ return require("packer").startup({
             "folke/todo-comments.nvim",
             requires = "nvim-lua/plenary.nvim",
             config = function()
-                require("nebula.plugin.todo-comments")
+                require("config.todo-comments")
             end,
         })
 
@@ -83,7 +83,7 @@ return require("packer").startup({
         use({
             "rcarriga/nvim-notify",
             config = function()
-                require("nebula.plugin.notify")
+                require("config.notify")
             end,
         })
 
@@ -99,7 +99,7 @@ return require("packer").startup({
             "goolord/alpha-nvim",
             requires = "kyazdani42/nvim-web-devicons",
             config = function()
-                require("nebula.plugin.dashboard")
+                require("config.dashboard")
             end,
         })
 
@@ -108,7 +108,7 @@ return require("packer").startup({
             "lewis6991/gitsigns.nvim",
             requires = { "nvim-lua/plenary.nvim" },
             config = function()
-                require("nebula.plugin.gitsign")
+                require("config.gitsign")
             end,
         })
 
@@ -117,7 +117,7 @@ return require("packer").startup({
             "akinsho/bufferline.nvim",
             requires = "kyazdani42/nvim-web-devicons",
             config = function()
-                require("nebula.plugin.bufferline")
+                require("config.bufferline")
             end,
         })
 
@@ -126,14 +126,14 @@ return require("packer").startup({
 			"famiu/feline.nvim",
 			requires = { "kyazdani42/nvim-web-devicons" },
 			config = function()
-				require("nebula.plugin.statusline.feline")
+				require("config.statusline.feline")
 			end,
 		}) ]]
         use({
             "nvim-lualine/lualine.nvim",
             requires = { "kyazdani42/nvim-web-devicons" },
             config = function()
-                require("nebula.plugin.statusline.lualine")
+                require("config.statusline.lualine")
             end,
         })
 
@@ -142,33 +142,33 @@ return require("packer").startup({
             "kyazdani42/nvim-tree.lua",
             requires = "kyazdani42/nvim-web-devicons",
             config = function()
-                require("nebula.plugin.explorer")
+                require("config.explorer")
             end,
-            tag = "nightly"
+            tag = "nightly",
         })
 
         -- beauty fold
         use({
-            'kevinhwang91/nvim-ufo',
-            requires = 'kevinhwang91/promise-async',
+            "kevinhwang91/nvim-ufo",
+            requires = "kevinhwang91/promise-async",
             config = function()
-                require("nebula.plugin.ufo")
-            end
+                require("config.ufo")
+            end,
         })
 
         -- beauty default UI
         use({
-            'stevearc/dressing.nvim',
+            "stevearc/dressing.nvim",
             config = function()
-                require("nebula.plugin.dressing")
-            end
+                require("config.dressing")
+            end,
         })
 
         -- which-key
         use({
             "folke/which-key.nvim",
             config = function()
-                require("nebula.plugin.which-key")
+                require("config.which-key")
             end,
         })
 
@@ -181,14 +181,14 @@ return require("packer").startup({
             "nvim-treesitter/nvim-treesitter",
             run = ":TSUpdate",
             config = function()
-                require("nebula.plugin.treesitter")
+                require("config.treesitter")
             end,
         })
 
         use({
             "lewis6991/spellsitter.nvim",
             config = function()
-                require("nebula.plugin.spellsitter")
+                require("config.spellsitter")
             end,
         })
 
@@ -204,7 +204,7 @@ return require("packer").startup({
         use({
             "neovim/nvim-lspconfig",
             config = function()
-                require("nebula.lsp")
+                require("config.lsp")
             end,
             requires = {
                 "williamboman/nvim-lsp-installer",
@@ -216,11 +216,11 @@ return require("packer").startup({
         use({
             "SmiteshP/nvim-navic",
             config = function()
-                require("nebula.plugin.navic")
+                require("config.navic")
             end,
             requires = {
-                "neovim/nvim-lspconfig"
-            }
+                "neovim/nvim-lspconfig",
+            },
         })
 
         -- codeAction
@@ -230,7 +230,7 @@ return require("packer").startup({
         use({
             "folke/trouble.nvim",
             config = function()
-                require("nebula.plugin.trouble")
+                require("config.trouble")
             end,
         })
 
@@ -238,14 +238,14 @@ return require("packer").startup({
         use({
             "hrsh7th/nvim-cmp",
             config = function()
-                require("nebula.plugin.completion")
-                require("nebula.plugin.lspkind")
+                require("config.completion")
             end,
         })
 
         -- completion source {{{
         use({ "hrsh7th/cmp-nvim-lsp", requires = { "hrsh7th/nvim-cmp" } }) -- lsp source
         use({ "hrsh7th/cmp-buffer", requires = { "hrsh7th/nvim-cmp" } }) -- buffer source
+        use({ "hrsh7th/cmp-cmdline", requires = { "hrsh7th/nvim-cmp" } }) -- cmdline source
         use({ "L3MON4D3/LuaSnip", requires = { "hrsh7th/nvim-cmp" } }) -- snippet engine
         use({ "saadparwaiz1/cmp_luasnip", requires = { "hrsh7th/nvim-cmp" } }) -- snippet source
         use({ "hrsh7th/cmp-path", requires = { "hrsh7th/nvim-cmp" } }) -- path source
@@ -253,7 +253,6 @@ return require("packer").startup({
         use({ "hrsh7th/cmp-nvim-lua", requires = { "hrsh7th/nvim-cmp" } }) -- nvim-lua source
         use({ "onsails/lspkind-nvim", requires = { "hrsh7th/nvim-cmp" } }) -- vscode-like pictograms
         use({ "petertriho/cmp-git", requires = { "hrsh7th/nvim-cmp" } }) -- git related source
-        use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = { "hrsh7th/nvim-cmp" } }) -- tabnine source
         -- }}}
 
         -- lint
@@ -284,7 +283,7 @@ return require("packer").startup({
         use({
             "nvim-telescope/telescope.nvim",
             config = function()
-                require("nebula.plugin.telescope")
+                require("config.telescope")
             end,
             requires = {
                 "nvim-lua/plenary.nvim",
@@ -298,7 +297,7 @@ return require("packer").startup({
             "pwntester/octo.nvim",
             cmd = { "Octo" },
             config = function()
-                require("nebula.plugin.github")
+                require("config.github")
             end,
         })
 
@@ -306,7 +305,7 @@ return require("packer").startup({
         use({
             "folke/zen-mode.nvim",
             config = function()
-                require("nebula.plugin.zen")
+                require("config.zen")
             end,
         })
 
