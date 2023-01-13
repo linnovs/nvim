@@ -147,15 +147,6 @@ return require("packer").startup({
             tag = "nightly",
         })
 
-        -- beauty fold
-        use({
-            "kevinhwang91/nvim-ufo",
-            requires = "kevinhwang91/promise-async",
-            config = function()
-                require("config.ufo")
-            end,
-        })
-
         -- beauty default UI
         use({
             "stevearc/dressing.nvim",
