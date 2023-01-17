@@ -35,6 +35,7 @@ return {
 				require("luasnip.loaders.from_vscode").lazy_load()
 			end,
 		},
+		lazy = true,
 		opts = {
 			history = true,
 			delete_check_events = "TextChanged",
@@ -53,6 +54,7 @@ return {
 				"saadparwaiz1/cmp_luasnip",
 				"f3fora/cmp-spell",
 				"onsails/lspkind-nvim",
+				"L3MON4D3/LuaSnip",
 			},
 			opts = function()
 				local luasnip = require("luasnip")
@@ -78,6 +80,20 @@ return {
 						end,
 					},
 					mapping = cmp.mapping.preset.insert({
+						["<Tab>"] = cmp.mapping(function(fallback)
+							if require("luasnip").expand_or_jumpable() then
+								require("luasnip").expand_or_jump()
+							else
+								fallback()
+							end
+						end),
+						["<S-Tab>"] = cmp.mapping(function(fallback)
+							if require("luasnip").jumpable(-1) then
+								require("luasnip").jump(-1)
+							else
+								fallback()
+							end
+						end),
 						["<C-Space>"] = cmp.mapping.complete(),
 						["<C-S-P>"] = cmp.mapping.complete(),
 						["<C-y>"] = cmp.config.disable,
