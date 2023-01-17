@@ -13,3 +13,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+
+local kuuga = require("kuuga")
+kuuga.init()
+
+require("lazy").setup("plugins", {
+	checker = {
+		enabled = true,
+	},
+})
+
+kuuga.setup()

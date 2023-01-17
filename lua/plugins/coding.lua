@@ -1,0 +1,150 @@
+return {
+	{ "b3nj5m1n/kommentary", event = "VeryLazy" },
+
+	{
+		"kylechui/nvim-surround",
+		event = "BufReadPost",
+		config = true,
+	},
+
+	{
+		"windwp/nvim-autopairs",
+		event = "VeryLazy",
+		config = true,
+	},
+
+	{ "alker0/chezmoi.vim", event = "VeryLazy" }, -- syntax highlight
+
+	{
+		"zbirenbaum/copilot.lua",
+		dependencies = { "nvim-lualine/lualine.nvim" },
+		config = function()
+			vim.defer_fn(function()
+				vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+				require("copilot").setup()
+			end, 100)
+		end,
+	},
+
+	-- snippet
+	{
+		"L3MON4D3/LuaSnip",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+			config = function()
+				require("luasnip.loaders.from_vscode").lazy_load()
+			end,
+		},
+		opts = {
+			history = true,
+			delete_check_events = "TextChanged",
+		},
+		keys = {
+			{
+				"<Tab>",
+				function()
+					return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<Tab>"
+				end,
+				expr = true,
+				silent = true,
+				mode = "i",
+			},
+			{
+				"<Tab>",
+				function()
+					return require("luasnip").jump(1)
+				end,
+				mode = "s",
+			},
+			{
+				"<S-Tab>",
+				function()
+					return require("luasnip").jump(-1)
+				end,
+				mode = { "s", "i" },
+			},
+		},
+
+		-- completion
+		{
+			"hrsh7th/nvim-cmp",
+			event = "InsertEnter",
+			dependencies = {
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-cmdline",
+				"hrsh7th/cmp-path",
+				"hrsh7th/cmp-nvim-lua",
+				"saadparwaiz1/cmp_luasnip",
+				"f3fora/cmp-spell",
+				"onsails/lspkind-nvim",
+			},
+			opts = function()
+				local luasnip = require("luasnip")
+				local lspkind = require("lspkind")
+				local cmp = require("cmp")
+				local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+
+				cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+				cmp.setup.cmdline("/", {
+					mapping = cmp.mapping.preset.cmdline(),
+					sources = cmp.config.sources({ { name = "buffer" } }),
+				})
+				cmp.setup.cmdline(":", {
+					mapping = cmp.mapping.preset.cmdline(),
+					sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+				})
+
+				return {
+					view = { entries = { name = "custom", selection_order = "near_cursor" } },
+					snippet = {
+						expand = function(args)
+							luasnip.lsp_expand(args)
+						end,
+					},
+					mapping = cmp.mapping.preset.insert({
+						["<C-Space>"] = cmp.mapping.complete(),
+						["<C-S-P>"] = cmp.mapping.complete(),
+						["<C-y>"] = cmp.config.disable,
+						["<CR>"] = cmp.mapping.confirm({
+							behavior = cmp.ConfirmBehavior.Replace,
+							select = false,
+						}),
+						["<C-b>"] = cmp.mapping.scroll_docs(-4),
+						["<C-f>"] = cmp.mapping.scroll_docs(4),
+					}),
+					formatting = {
+						format = lspkind.cmp_format({
+							mode = "symbol",
+							maxwidth = 50,
+							symbol_map = require("kuuga.icons").kinds,
+
+							before = function(entry, vim_item)
+								vim_item.menu = ({
+									nvim_lsp = "[LSP]",
+									luasnip = "[LuaSnip]",
+									buffer = "[Buffer]",
+									path = "[Path]",
+									spell = "[Spell]",
+									nvim_lua = "[Lua]",
+									copilot = "[Copilot]",
+								})[entry.source.name]
+
+								return vim_item
+							end,
+						}),
+					},
+					sources = cmp.config.sources({
+						{ name = "nvim_lsp" },
+						{ name = "luasnip" },
+						{ name = "copilot" },
+						{ name = "buffer" },
+						{ name = "path" },
+						{ name = "spell" },
+						{ name = "nvim_lua" },
+					}),
+				}
+			end,
+		},
+	},
+}
