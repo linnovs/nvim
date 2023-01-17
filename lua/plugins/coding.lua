@@ -76,7 +76,7 @@ return {
 					view = { entries = { name = "custom", selection_order = "near_cursor" } },
 					snippet = {
 						expand = function(args)
-							luasnip.lsp_expand(args)
+							luasnip.lsp_expand(args.body)
 						end,
 					},
 					mapping = cmp.mapping.preset.insert({
