@@ -39,31 +39,6 @@ return {
 			history = true,
 			delete_check_events = "TextChanged",
 		},
-		keys = {
-			{
-				"<Tab>",
-				function()
-					return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<Tab>"
-				end,
-				expr = true,
-				silent = true,
-				mode = "i",
-			},
-			{
-				"<Tab>",
-				function()
-					return require("luasnip").jump(1)
-				end,
-				mode = "s",
-			},
-			{
-				"<S-Tab>",
-				function()
-					return require("luasnip").jump(-1)
-				end,
-				mode = { "s", "i" },
-			},
-		},
 
 		-- completion
 		{
