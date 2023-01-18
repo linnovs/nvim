@@ -2,8 +2,8 @@ local sections = { lualine_a = {}, lualine_b = {}, lualine_c = {}, lualine_x = {
 local ia_sections = { lualine_a = {}, lualine_b = {}, lualine_c = {}, lualine_x = {}, lualine_y = {}, lualine_z = {} }
 
 local function insert(position, component)
-    local pos = "lualine_" .. position
-    table.insert(sections[pos], component)
+	local pos = "lualine_" .. position
+	table.insert(sections[pos], component)
 end
 
 local lsp = require("kuuga.config.statusline.lsp")
@@ -28,17 +28,17 @@ insert("y", lsp.diagnostics)
 insert("z", file.location)
 
 require("lualine").setup({
-    options = {
-        icons_enabled = true,
-        theme = "auto",
-        component_separators = { " ", " " },
-        section_separators = { " ", " " },
-        disabled_filetypes = { "packer", "lazy" },
-        always_divide_middle = true,
-        globalstatus = true,
-    },
-    sections = sections,
-    inactive_sections = ia_sections,
-    tabline = {},
-    extensions = { "neo-tree", "quickfix" },
+	options = {
+		icons_enabled = true,
+		theme = "auto",
+		component_separators = { " ", " " },
+		section_separators = { " ", " " },
+		disabled_filetypes = { "packer", "lazy" },
+		always_divide_middle = true,
+		globalstatus = true,
+	},
+	sections = sections,
+	inactive_sections = ia_sections,
+	tabline = {},
+	extensions = { "neo-tree", "quickfix" },
 })

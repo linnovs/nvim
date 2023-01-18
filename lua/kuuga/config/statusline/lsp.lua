@@ -4,20 +4,20 @@ local icons = require("kuuga.icons").diagnostics
 local M = {}
 
 M.client_names = {
-    function()
-        local clients = {}
+	function()
+		local clients = {}
 
-        for _, client in pairs(vim.lsp.buf_get_clients(0)) do
-            clients[#clients + 1] = client.name
-        end
+		for _, client in pairs(vim.lsp.buf_get_clients(0)) do
+			clients[#clients + 1] = client.name
+		end
 
-        return table.concat(clients, " ")
-    end,
-    icon = " ",
-    color = { fg = colors.basic.ligth_blue },
+		return table.concat(clients, " ")
+	end,
+	icon = " ",
+	color = { fg = colors.basic.ligth_blue },
 }
 
 M.diagnostics =
-{ "diagnostics", symbols = { error = icons.Error, warn = icons.Warn, info = icons.Info, hint = icons.Hint } }
+	{ "diagnostics", symbols = { error = icons.Error, warn = icons.Warn, info = icons.Info, hint = icons.Hint } }
 
 return M

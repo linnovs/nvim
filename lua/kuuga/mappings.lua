@@ -1,5 +1,5 @@
 local function map(mode, lhs, rhs, desc)
-    vim.keymap.set(mode, lhs, rhs, { desc = desc })
+	vim.keymap.set(mode, lhs, rhs, { desc = desc })
 end
 
 -- window management
@@ -23,11 +23,11 @@ map("n", "<Leader>w>", "<C-w>>", "Increase window width")
 map("n", "<Leader>w|", "<C-w>|", "Make the window largest (not closing any)")
 
 map("n", "yoh", function()
-    vim.opt.hlsearch = not vim.opt.hlsearch:get()
+	vim.opt.hlsearch = not vim.opt.hlsearch:get()
 end, "Toggle highlight search")
 
 map("n", "yos", function()
-    vim.opt.spell = not vim.opt.spell:get()
+	vim.opt.spell = not vim.opt.spell:get()
 end, "Toggle spell check")
 
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", "Escape and clear hlsearch")
