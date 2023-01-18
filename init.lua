@@ -18,6 +18,9 @@ local kuuga = require("kuuga")
 kuuga.init()
 
 require("lazy").setup("plugins", {
+	defaults = {
+		version = "*",
+	},
 	checker = {
 		enabled = true,
 	},

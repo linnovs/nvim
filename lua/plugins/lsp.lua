@@ -13,7 +13,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
-			"ray-x/lsp_signature.nvim",
+			{ "ray-x/lsp_signature.nvim", version = false },
 			"weilbith/nvim-code-action-menu",
 		},
 		init = function()
