@@ -176,6 +176,10 @@ return {
 					folder_empty = " ",
 				},
 			},
+			filesystem = {
+				follow_current_file = true,
+				use_libuv_file_watcher = true,
+			},
 			event_handlers = {
 				{
 					event = "file_opened",
