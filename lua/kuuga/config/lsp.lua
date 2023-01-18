@@ -2,6 +2,12 @@ local M = {}
 
 local builtin = require("telescope.builtin")
 
+M.format_filter = {}
+
+function M.disable_format(name)
+	M.format_filter[name] = true
+end
+
 M.on_attach = function(client, bufnr)
 	-- enable completion
 	vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -25,12 +31,12 @@ M.on_attach = function(client, bufnr)
 
 	if client.supports_method("textDocument/formatting") then
 		vim.api.nvim_create_autocmd("BufWritePre", {
-			group = vim.api.nvim_create_augroup("LspFormat." .. bufnr, {}),
+			group = vim.api.nvim_create_augroup("LspFormat." .. bufnr, { clear = false }),
 			buffer = bufnr,
 			callback = function()
 				vim.lsp.buf.format({
 					filter = function(c)
-						return c.name ~= "volar"
+						return M.format_filter[c.name] == nil
 					end,
 				})
 			end,
@@ -39,7 +45,7 @@ M.on_attach = function(client, bufnr)
 
 	if client.server_capabilities.codeLensProvider then
 		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
-			group = vim.api.nvim_create_augroup("LspCodeLens." .. bufnr, {}),
+			group = vim.api.nvim_create_augroup("LspCodeLens." .. bufnr, { clear = false }),
 			buffer = bufnr,
 			callback = vim.lsp.codelens.refresh,
 		})

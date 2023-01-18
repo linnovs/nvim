@@ -1,5 +1,5 @@
 local signs = require("kuuga.icons").diagnostics
-local on_attach = require("kuuga.config.lsp").on_attach
+local lsp = require("kuuga.config.lsp")
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
@@ -64,12 +64,14 @@ return {
 							},
 						},
 					},
+					disable_format = true,
 				},
 				tailwindcss = {},
 				terraformls = {},
 				tsserver = {},
 				volar = {
 					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+					disable_format = true,
 				},
 				yamlls = {},
 			},
@@ -81,12 +83,16 @@ return {
 			local capabilities =
 				require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-			for _, lsp in ipairs(vim.tbl_keys(servers)) do
-				local config = servers[lsp]
-				config.on_attach = on_attach
+			for _, server in ipairs(vim.tbl_keys(servers)) do
+				local config = servers[server]
+				config.on_attach = lsp.on_attach
 				config.capabilities = capabilities
+				if config.disable_format == true then
+					config.disable_format = nil
+					lsp.disable_format(server)
+				end
 
-				require("lspconfig")[lsp].setup(config)
+				require("lspconfig")[server].setup(config)
 			end
 		end,
 	},
@@ -104,7 +110,7 @@ return {
 			local null_ls = require("null-ls")
 
 			return {
-				on_attach = on_attach,
+				on_attach = lsp.on_attach,
 				diagnostic_format = "[#{c}] #{m}",
 				sources = {
 					null_ls.builtins.code_actions.gitsigns,
