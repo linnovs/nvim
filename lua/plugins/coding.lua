@@ -19,12 +19,25 @@ return {
 	{
 		"zbirenbaum/copilot.lua",
 		dependencies = { "nvim-lualine/lualine.nvim" },
-		config = function()
+		opts = {
+			suggestion = { enabled = false },
+			panel = { enabled = false },
+		},
+		config = function(_, opts)
 			vim.defer_fn(function()
 				vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-				require("copilot").setup()
+				require("copilot").setup(opts)
 			end, 100)
 		end,
+	},
+
+	{
+		"zbirenbaum/copilot-cmp",
+		dependencies = {
+			"zbirenbaum/copilot.lua",
+		},
+		lazy = true,
+		config = true,
 	},
 
 	-- snippet
@@ -36,7 +49,7 @@ return {
 				require("luasnip.loaders.from_vscode").lazy_load()
 			end,
 		},
-		event = "InsertEnter",
+		lazy = true,
 		opts = {
 			history = true,
 			delete_check_events = "TextChanged",
@@ -54,6 +67,7 @@ return {
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-path",
 			"hrsh7th/cmp-nvim-lua",
+			"zbirenbaum/copilot-cmp",
 			"saadparwaiz1/cmp_luasnip",
 			"f3fora/cmp-spell",
 			"onsails/lspkind-nvim",
