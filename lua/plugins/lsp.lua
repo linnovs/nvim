@@ -68,7 +68,6 @@ return {
 				},
 				tailwindcss = {},
 				terraformls = {},
-				tsserver = {},
 				volar = {
 					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
 					disable_format = true,
