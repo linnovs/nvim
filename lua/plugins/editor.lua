@@ -1,7 +1,7 @@
 return {
-	{ "norcalli/nvim-colorizer.lua", config = true },
     "gpanders/editorconfig.nvim",
     "wakatime/vim-wakatime",
+    { "NvChad/nvim-colorizer.lua", config = true },
 
     {
         "nvim-telescope/telescope.nvim",
