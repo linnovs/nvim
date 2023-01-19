@@ -33,6 +33,11 @@ return {
 				"<CMD>Telescope lsp_document_symbols<CR>",
 				desc = "Find LSP document symblos",
 			},
+			{
+				"<leader>fq",
+				"<CMD>Telescope quickfix<CR>",
+				desc = "Find items in quickfix list",
+			},
 		},
 		opts = function()
 			local actions = require("telescope.actions")
