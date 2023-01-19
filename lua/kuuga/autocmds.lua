@@ -56,7 +56,7 @@ highlight GitSignsDelete guifg=%s
 autocmd("BufWritePost", {
 	pattern = home .. "/.local/share/chezmoi/*",
 	callback = function(args)
-		local file = args.file:match("^.+/(.+)$")
+		local file = args.file:match("^.+/(.+)$") or args.file
 		if string.sub(file, 1, string.len("run_")) == "run_" then
 			return
 		end
