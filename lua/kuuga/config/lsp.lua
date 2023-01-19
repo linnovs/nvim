@@ -23,7 +23,6 @@ M.on_attach = function(client, bufnr)
 	map("n", "<Leader>rn", vim.lsp.buf.rename, "Rename")
 	map("n", "<Leader>D", builtin.lsp_type_definitions, "Type definitions")
 	map("n", "gr", builtin.lsp_references, "References")
-	map("n", "<Leader>ds", builtin.lsp_document_symbols, "Document symbols")
 
 	if client.server_capabilities.codeActionProvider then
 		map("n", "<Leader>cam", ":CodeActionMenu<CR>", "Code action")
