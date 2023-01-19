@@ -32,3 +32,5 @@ end, "Toggle spell check")
 
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", "Escape and clear hlsearch")
 map("t", "<esc><esc>", "<C-\\><C-n>", "Enter normal mode")
+
+map("n", "<Leader>lazy", "<CMD>Lazy<CR>", "Open Lazy.nvim")
