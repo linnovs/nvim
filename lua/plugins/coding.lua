@@ -1,5 +1,5 @@
 return {
-	{ "b3nj5m1n/kommentary", version = false, event = "VeryLazy" },
+	{ "numToStr/Comment.nvim", opts = {}, event = "VeryLazy" },
 
 	{
 		"kylechui/nvim-surround",
