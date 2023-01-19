@@ -70,6 +70,11 @@ return {
 					},
 					buffers = {
 						theme = "dropdown",
+						mappings = {
+							i = {
+								["<C-d>"] = actions.delete_buffer,
+							},
+						},
 					},
 					help_tags = {
 						theme = "dropdown",
