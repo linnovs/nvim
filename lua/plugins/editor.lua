@@ -5,6 +5,7 @@ return {
 
 	{
 		"nvim-telescope/telescope.nvim",
+		dependencies = { { "jvgrootveld/telescope-zoxide", version = false } },
 		cmd = "Telescope",
 		version = false,
 		keys = {
@@ -38,10 +39,16 @@ return {
 				"<CMD>Telescope quickfix<CR>",
 				desc = "Find items in quickfix list",
 			},
+			{
+				"<leader>z",
+				"<CMD>Telescope zoxide list<CR>",
+				desc = "Find zoxide directory",
+			},
 		},
-		opts = function()
+		config = function()
+			local telescope = require("telescope")
 			local actions = require("telescope.actions")
-			return {
+			local opts = {
 				defaults = {
 					layout_config = {
 						horizontal = {
@@ -83,32 +90,21 @@ return {
 						theme = "dropdown",
 					},
 				},
-			}
-		end,
-	},
-
-	{
-		"jvgrootveld/telescope-zoxide",
-		version = false,
-		dependencies = { "nvim-telescope/telescope.nvim" },
-		keys = {
-			{
-				"<leader>z",
-				"<CMD>Telescope zoxide list<CR>",
-				desc = "Find zoxide directory",
-			},
-		},
-		config = function()
-			require("telescope._extensions.zoxide.config").setup({
-
-				mappings = {
-					default = {
-						after_action = function(selection)
-							vim.notify("Directory changed to " .. selection.path)
-						end,
+				extensions = {
+					zoxide = {
+						mappings = {
+							default = {
+								after_action = function(selection)
+									vim.notify("Directory changed to " .. selection.path)
+								end,
+							},
+						},
 					},
 				},
-			})
+			}
+
+			telescope.setup(opts)
+			telescope.load_extension("zoxide")
 		end,
 	},
 
