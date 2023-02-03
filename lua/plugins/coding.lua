@@ -98,7 +98,7 @@ return {
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<Tab>"] = cmp.mapping(function(fallback)
-						if require("luasnip").expand_or_jumpable() then
+						if require("luasnip").expand_or_locally_jumpable() then
 							require("luasnip").expand_or_jump()
 						else
 							fallback()
