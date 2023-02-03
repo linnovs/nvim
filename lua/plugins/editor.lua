@@ -255,5 +255,17 @@ return {
 		},
 	},
 
+	{
+		"ggandor/leap.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			{ "ggandor/flit.nvim", opts = { labeled_modes = "nv" } },
+			{ "tpope/vim-repeat", version = false },
+		},
+		config = function()
+			require("leap").add_default_mappings()
+		end,
+	},
+
 	{ "davidgranstrom/nvim-markdown-preview", cmd = { "MarkdownPreview" } },
 }
