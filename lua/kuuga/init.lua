@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-	if vim.fn.argc() == 0 then
+	if vim.fn.argc(-1) == 0 then
 		vim.api.nvim_create_autocmd("User", {
 			group = vim.api.nvim_create_augroup("Kuuga", { clear = true }),
 			pattern = "VeryLazy",
