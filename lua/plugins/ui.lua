@@ -6,6 +6,7 @@ return {
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
 		},
+		priority = 1000,
 		opts = { timeout = 3000 },
 		init = function()
 			vim.notify = require("notify")
