@@ -61,7 +61,7 @@ autocmd("BufWritePost", {
 			return
 		end
 		os.execute("chezmoi apply --source-path " .. args.file)
-		vim.notify("Update source " .. args.file .. " to target")
+		vim.notify("Apply source " .. args.file .. " to target")
 	end,
 })
 
