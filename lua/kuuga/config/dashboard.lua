@@ -36,7 +36,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("f", "  > Find file", ":Telescope find_files<CR>"),
 	dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
 	dashboard.button("z", "  > Project", ":Telescope zoxide list<CR>"),
-	dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | pwd<CR>"),
+	dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h | lua vim.notify('Changed to nvimrc')<CR>"),
 	dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
 }
 
