@@ -2,6 +2,20 @@ local M = {}
 
 local builtin = require("telescope.builtin")
 
+local function has_value(tab, val)
+	if tab == nil then
+		return false
+	end
+
+	for _, value in ipairs(tab) do
+		if value == val then
+			return true
+		end
+	end
+
+	return false
+end
+
 M.format_filter = {}
 M.diagnostic_filter = {}
 
@@ -9,8 +23,8 @@ function M.disable_format(name)
 	M.format_filter[name] = true
 end
 
-function M.disable_diagnostic(name)
-	M.diagnostic_filter[name] = true
+function M.disable_diagnostic(name, fts)
+	M.diagnostic_filter[name] = fts
 end
 
 M.on_attach = function(client, bufnr)
@@ -47,7 +61,7 @@ M.on_attach = function(client, bufnr)
 		})
 	end
 
-	if M.diagnostic_filter[client.name] == true then
+	if has_value(M.diagnostic_filter[client.name], vim.bo[bufnr].filetype) then
 		vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
 	end
 
