@@ -30,6 +30,10 @@ map("n", "yos", function()
 	vim.opt.spell = not vim.opt.spell:get()
 end, "Toggle spell check")
 
+map("n", "yoc", function()
+	vim.opt.cursorcolumn = not vim.opt.cursorcolumn:get()
+end, "Toggle cursor column")
+
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", "Escape and clear hlsearch")
 map("t", "<esc><esc>", "<C-\\><C-n>", "Enter normal mode")
 
