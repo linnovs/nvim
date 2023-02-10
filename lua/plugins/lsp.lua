@@ -91,6 +91,11 @@ return {
 					lsp.disable_format(server)
 				end
 
+				if config.disable_diagnostic == true then
+					config.disable_diagnostic = nil
+					lsp.disable_diagnostic(server)
+				end
+
 				require("lspconfig")[server].setup(config)
 			end
 		end,
