@@ -3,9 +3,14 @@ local M = {}
 local builtin = require("telescope.builtin")
 
 M.format_filter = {}
+M.diagnostic_filter = {}
 
 function M.disable_format(name)
 	M.format_filter[name] = true
+end
+
+function M.disable_diagnostic(name)
+	M.diagnostic_filter[name] = true
 end
 
 M.on_attach = function(client, bufnr)
@@ -40,6 +45,10 @@ M.on_attach = function(client, bufnr)
 				})
 			end,
 		})
+	end
+
+	if M.diagnostic_filter[client.name] == true then
+		vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
 	end
 
 	if client.server_capabilities.codeLensProvider then
