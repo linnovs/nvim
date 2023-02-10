@@ -80,7 +80,7 @@ return {
 							},
 						},
 					},
-					disable_diagnostic = true,
+					disable_diagnostic = { "helm" },
 				},
 			},
 		},
@@ -100,9 +100,9 @@ return {
 					lsp.disable_format(server)
 				end
 
-				if config.disable_diagnostic == true then
+				if config.disable_diagnostic ~= nil then
+					lsp.disable_diagnostic(server, config.disable_diagnostic)
 					config.disable_diagnostic = nil
-					lsp.disable_diagnostic(server)
 				end
 
 				require("lspconfig")[server].setup(config)
