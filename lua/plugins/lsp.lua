@@ -72,7 +72,16 @@ return {
 					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
 					disable_format = true,
 				},
-				yamlls = {},
+				yamlls = {
+					settings = {
+						yaml = {
+							schemaStore = {
+								enable = true,
+							},
+						},
+					},
+					disable_diagnostic = true,
+				},
 			},
 		},
 		config = function(_, opts)
