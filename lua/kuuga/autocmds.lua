@@ -57,7 +57,9 @@ autocmd("BufWritePost", {
 	pattern = home .. "/.local/share/chezmoi/*",
 	callback = function(args)
 		local file = args.file:match("^.+/(.+)$") or args.file
-		if string.sub(file, 1, string.len("run_")) == "run_" then
+		local is_run = string.sub(file, 1, string.len("run_")) == "run_"
+		local is_chezmoi = string.sub(file, 1, string.len(".chezmoi")) == ".chezmoi"
+		if is_run or is_chezmoi then
 			return
 		end
 		os.execute("chezmoi apply --source-path " .. args.file)
