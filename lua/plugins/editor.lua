@@ -219,6 +219,9 @@ return {
 				["<leader>gh"] = { name = "+hunks" },
 				["<leader>w"] = { name = "+windows" },
 				["<leader>x"] = { name = "+diagnostics/quickfix" },
+				["<leader>o"] = { name = "+obisdian/explorer" },
+				["<leader>l"] = { name = "+lazy" },
+				["<leader>t"] = { name = "+terminal/todo" },
 			})
 		end,
 	},
