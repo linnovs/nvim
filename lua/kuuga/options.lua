@@ -19,6 +19,7 @@ vim.opt.listchars:append("precedes:<")
 vim.opt.listchars:append("tab:⭲ ")
 vim.opt.listchars:append("trail:·")
 vim.opt.matchpairs:append({ "<:>" }) -- pairs of characters that "%" can match
+-- vim.opt.mouse = "" -- disable the use of mouse clicks
 vim.opt.number = true -- print the line number in front of each line
 vim.opt.pastetoggle = "<F11>" -- key code that causes 'paste' to toggle
 vim.opt.relativenumber = true -- show relative line number in front of each line
