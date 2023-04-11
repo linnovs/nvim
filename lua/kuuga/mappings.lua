@@ -21,6 +21,7 @@ map("n", "<Leader>w-", "<C-w>-", "Decrease window height")
 map("n", "<Leader>w<", "<C-w><", "Decrease window width")
 map("n", "<Leader>w>", "<C-w>>", "Increase window width")
 map("n", "<Leader>w|", "<C-w>|", "Make the window largest (not closing any)")
+map("n", "<Leader>s", ":update<CR>", "Quick save")
 
 map("n", "yoh", function()
 	vim.opt.hlsearch = not vim.opt.hlsearch:get()
