@@ -9,7 +9,6 @@ end
 local lsp = require("kuuga.config.statusline.lsp")
 local git = require("kuuga.config.statusline.git")
 local file = require("kuuga.config.statusline.file")
-local gps = require("kuuga.config.statusline.gps")
 local lazy_updates = require("kuuga.config.statusline.updates")
 
 -- available position are a,b,c,x,y,z
@@ -19,7 +18,6 @@ insert("b", git.branch)
 insert("b", git.diff)
 insert("c", file.icon)
 insert("c", file.name)
-insert("c", gps)
 insert("x", lazy_updates)
 insert("x", file.encoding)
 insert("x", file.format)
