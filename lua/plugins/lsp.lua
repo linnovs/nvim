@@ -88,6 +88,7 @@ return {
 			local lspconfig = require("lspconfig")
 			local masonlsp = require("mason-lspconfig")
 			local cmp_lsp = require("cmp_nvim_lsp")
+			local lsp_lines = require("lsp_lines")
 
 			masonlsp.setup({ automatic_installation = true })
 
@@ -119,6 +120,8 @@ return {
 
 				lspconfig[server].setup(config)
 			end
+
+			lsp_lines.setup({})
 		end,
 	},
 
@@ -156,6 +159,21 @@ return {
 				border = "rounded",
 			},
 		},
+	},
+
+	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		version = false,
+		lazy = true,
+		dependencies = {
+			"neovim/nvim-lspconfig",
+		},
+		init = function()
+			vim.diagnostic.config({
+				virtual_text = false,
+				virtual_lines = { only_current_line = true },
+			})
+		end,
 	},
 
 	{
