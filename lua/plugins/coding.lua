@@ -61,6 +61,16 @@ return {
 		opts = {},
 	},
 
+	-- cmp-git
+	{
+		"petertriho/cmp-git",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		lazy = true,
+		opts = {},
+	},
+
 	-- completion
 	{
 		"hrsh7th/nvim-cmp",
@@ -77,6 +87,7 @@ return {
 			"f3fora/cmp-spell",
 			"onsails/lspkind-nvim",
 			"L3MON4D3/LuaSnip",
+			"petertriho/cmp-git",
 		},
 		opts = function()
 			local luasnip = require("luasnip")
@@ -146,6 +157,7 @@ return {
 								nvim_lsp = "[LSP]",
 								luasnip = "[LuaSnip]",
 								buffer = "[Buffer]",
+								cmp_git = "[Git]",
 								path = "[Path]",
 								spell = "[Spell]",
 								nvim_lua = "[Lua]",
