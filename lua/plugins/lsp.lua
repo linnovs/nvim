@@ -85,7 +85,11 @@ return {
 		},
 		config = function(_, opts)
 			local servers = opts.servers
-			require("mason-lspconfig").setup({ automatic_installation = true })
+			local lspconfig = require("lspconfig")
+			local masonlsp = require("mason-lspconfig")
+			local cmp_lsp = require("cmp_nvim_lsp")
+
+			masonlsp.setup({ automatic_installation = true })
 
 			local capabilities = vim.tbl_deep_extend(
 				"force",
@@ -105,6 +109,7 @@ return {
 				local config = servers[server]
 				config.on_attach = lsp.on_attach
 				config.capabilities = capabilities
+
 				if config.disable_format == true then
 					config.disable_format = nil
 					lsp.disable_format(server)
@@ -115,7 +120,7 @@ return {
 					config.disable_diagnostic = nil
 				end
 
-				require("lspconfig")[server].setup(config)
+				lspconfig[server].setup(config)
 			end
 		end,
 	},
