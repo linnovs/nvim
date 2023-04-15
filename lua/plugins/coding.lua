@@ -17,6 +17,7 @@ return {
 	{ "alker0/chezmoi.vim", event = "VeryLazy" }, -- syntax highlight for chezmoi
 	{ "towolf/vim-helm", event = "VeryLazy" }, -- syntax highlight for helm
 
+	-- copilot
 	{
 		"zbirenbaum/copilot.lua",
 		dependencies = { "nvim-lualine/lualine.nvim" },
