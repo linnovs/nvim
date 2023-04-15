@@ -1,5 +1,4 @@
 return {
-	"gpanders/editorconfig.nvim",
 	"wakatime/vim-wakatime",
 	{ "NvChad/nvim-colorizer.lua", config = true },
 
