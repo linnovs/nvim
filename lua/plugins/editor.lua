@@ -12,6 +12,28 @@ return {
 	},
 
 	{
+		"luukvbaal/statuscol.nvim",
+		opts = function()
+			local builtin = require("statuscol.builtin")
+
+			return {
+				segments = {
+					{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+					{
+						sign = { name = { "Diagnostic" }, maxwidth = 2 },
+						click = "v:lua.ScSa",
+					},
+					{ text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
+					{
+						sign = { name = { ".*" }, maxwidth = 2, colwidth = 1 },
+						click = "v:lua.ScSa",
+					},
+				},
+			}
+		end,
+	},
+
+	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			{ "jvgrootveld/telescope-zoxide", version = false },
