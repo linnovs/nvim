@@ -34,6 +34,10 @@ function M.disable_diagnostic(name, fts)
 	M.diagnostic_filter[name] = fts
 end
 
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Move to the previous diagnostic" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Move to the next diagnostic" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Add buffer diagnostics to location list" })
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("KuugaLspConfig", {}),
 	callback = function(ev)
