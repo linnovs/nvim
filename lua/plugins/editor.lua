@@ -5,7 +5,9 @@ return {
 
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { { "jvgrootveld/telescope-zoxide", version = false } },
+		dependencies = {
+			{ "jvgrootveld/telescope-zoxide", version = false },
+		},
 		cmd = "Telescope",
 		version = false,
 		keys = {
