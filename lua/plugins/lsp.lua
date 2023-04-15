@@ -1,3 +1,4 @@
+local icons = require("kuuga.icons").kinds
 local signs = require("kuuga.icons").diagnostics
 local lsp = require("kuuga.config.lsp")
 
