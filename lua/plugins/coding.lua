@@ -58,10 +58,7 @@ return {
 			end,
 		},
 		lazy = true,
-		opts = {
-			history = true,
-			delete_check_events = "TextChanged",
-		},
+		opts = {},
 	},
 
 	-- completion
