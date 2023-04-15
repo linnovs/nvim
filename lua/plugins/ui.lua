@@ -98,16 +98,6 @@ return {
 		end,
 	},
 
-	-- code context
-	{
-		"SmiteshP/nvim-navic",
-		lazy = true,
-		opts = {
-			icons = icons,
-			highlight = true,
-		},
-	},
-
 	-- icons
 	"nvim-tree/nvim-web-devicons",
 

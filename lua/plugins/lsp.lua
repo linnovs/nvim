@@ -114,6 +114,37 @@ return {
 		config = true,
 	},
 
+	-- code context
+	{
+		"SmiteshP/nvim-navic",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+		},
+		lazy = true,
+		opts = {
+			icons = icons,
+			highlight = true,
+		},
+	},
+
+	{
+		"SmiteshP/nvim-navbuddy",
+		lazy = true,
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"SmiteshP/nvim-navic",
+			"MunifTanjim/nui.nvim",
+		},
+		keys = {
+			{ "<leader>cc", "<CMD>Navbuddy<CR>", desc = "Navbuddy" },
+		},
+		opts = {
+			window = {
+				border = "rounded",
+			},
+		},
+	},
+
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "BufReadPre",
