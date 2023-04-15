@@ -39,7 +39,13 @@ return {
 			"zbirenbaum/copilot.lua",
 		},
 		lazy = true,
-		config = true,
+		opts = function()
+			return {
+				formatters = {
+					insert_text = require("copilot_cmp.format").remove_existing,
+				},
+			}
+		end,
 	},
 
 	-- snippet
