@@ -88,6 +88,7 @@ return {
 			"onsails/lspkind-nvim",
 			"L3MON4D3/LuaSnip",
 			"petertriho/cmp-git",
+			"davidsierradz/cmp-conventionalcommits",
 		},
 		opts = function()
 			local luasnip = require("luasnip")
@@ -158,6 +159,7 @@ return {
 								luasnip = "[LuaSnip]",
 								buffer = "[Buffer]",
 								cmp_git = "[Git]",
+								conventionalcommits = "[Conventional Commits]",
 								path = "[Path]",
 								spell = "[Spell]",
 								nvim_lua = "[Lua]",
