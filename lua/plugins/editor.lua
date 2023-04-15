@@ -1,6 +1,15 @@
 return {
 	"wakatime/vim-wakatime",
-	{ "NvChad/nvim-colorizer.lua", config = true },
+
+	{
+		"NvChad/nvim-colorizer.lua",
+		opts = {
+			user_default_options = {
+				css = true,
+				tailwind = "lsp",
+			},
+		},
+	},
 
 	{
 		"nvim-telescope/telescope.nvim",
