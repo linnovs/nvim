@@ -116,7 +116,12 @@ return {
 			})
 
 			return {
-				view = { entries = { name = "custom", selection_order = "near_cursor" } },
+				window = {
+					completion = {
+						col_offset = -2,
+						side_padding = 0,
+					},
+				},
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
@@ -148,6 +153,7 @@ return {
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 				}),
 				formatting = {
+					fields = { "kind", "abbr", "menu" },
 					format = lspkind.cmp_format({
 						mode = "symbol",
 						maxwidth = 50,
