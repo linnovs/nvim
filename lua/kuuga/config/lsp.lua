@@ -1,5 +1,12 @@
 local M = {}
 
+if vim.env.VIMDEBUG == "lsp" then
+	vim.lsp.set_log_level("trace")
+	if vim.fn.has("nvim-0.5.1") == 1 then
+		require("vim.lsp.log").set_format_func(vim.inspect)
+	end
+end
+
 local builtin = require("telescope.builtin")
 
 local function has_value(tab, val)
