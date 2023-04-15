@@ -89,6 +89,15 @@ return {
 				mapping = cmp.mapping.preset.cmdline(),
 				sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 			})
+			cmp.setup.filetype("gitcommit", {
+				sources = cmp.config.sources({
+					{ name = "conventionalcommits" },
+					{ name = "cmp_git" },
+				}, {
+					{ name = "buffer" },
+					{ name = "spell" },
+				}),
+			})
 
 			return {
 				view = { entries = { name = "custom", selection_order = "near_cursor" } },
