@@ -1,5 +1,3 @@
-local icons = require("kuuga.icons").kinds
-
 return {
 	{
 		"rcarriga/nvim-notify",
@@ -61,6 +59,7 @@ return {
 		},
 	},
 
+	-- dashboard
 	{
 		"goolord/alpha-nvim",
 		event = "VimEnter",
@@ -82,7 +81,6 @@ return {
 
 	-- beauty defaul UI
 	{
-
 		"stevearc/dressing.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		opts = {
