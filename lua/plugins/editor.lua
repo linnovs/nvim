@@ -340,7 +340,7 @@ return {
 			daily_notes = {
 				folder = "notes/dailies",
 			},
-			-- completion = { nvim_cmp = true },
+			completion = { nvim_cmp = true },
 		},
 	},
 
