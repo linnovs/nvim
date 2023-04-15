@@ -23,10 +23,15 @@ return {
 		end,
 		opts = {
 			servers = {
-				clangd = {},
+				clangd = {
+					filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+				},
 				cmake = {},
 				eslint = {
-					format = false,
+					settings = {
+						packageManager = "yarn",
+						format = false,
+					},
 				},
 				gdscript = {},
 				gopls = {},
@@ -67,6 +72,9 @@ return {
 				},
 				tailwindcss = {},
 				terraformls = {},
+				-- tsserver = {
+				-- 	disable_format = true,
+				-- },
 				volar = {
 					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
 					disable_format = true,
