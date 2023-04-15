@@ -118,6 +118,30 @@ return {
 		end,
 	},
 
+	-- status column
+	{
+		"luukvbaal/statuscol.nvim",
+		opts = function()
+			local builtin = require("statuscol.builtin")
+
+			return {
+				ft_ignore = { "alpha", "lazy", "neo-tree" },
+				segments = {
+					{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+					{
+						sign = { name = { "Diagnostic" }, maxwidth = 2 },
+						click = "v:lua.ScSa",
+					},
+					{ text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
+					{
+						sign = { name = { ".*" }, maxwidth = 2, colwidth = 1 },
+						click = "v:lua.ScSa",
+					},
+				},
+			}
+		end,
+	},
+
 	-- icons
 	"nvim-tree/nvim-web-devicons",
 
