@@ -162,6 +162,15 @@ return {
 	},
 
 	{
+		"lvimuser/lsp-inlayhints.nvim",
+		lazy = true,
+		dependencies = {
+			"neovim/nvim-lspconfig",
+		},
+		opts = {},
+	},
+
+	{
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		version = false,
 		lazy = true,
