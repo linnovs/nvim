@@ -87,8 +87,19 @@ return {
 			local servers = opts.servers
 			require("mason-lspconfig").setup({ automatic_installation = true })
 
-			local capabilities =
-				require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+			local capabilities = vim.tbl_deep_extend(
+				"force",
+				vim.lsp.protocol.make_client_capabilities(),
+				cmp_lsp.default_capabilities(),
+				{
+					textDocument = {
+						foldingRange = {
+							dynamicRegistration = false,
+							lineFoldingOnly = true,
+						},
+					},
+				}
+			)
 
 			for _, server in ipairs(vim.tbl_keys(servers)) do
 				local config = servers[server]
