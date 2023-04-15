@@ -229,24 +229,6 @@ return {
 	},
 
 	{
-		"folke/trouble.nvim",
-		cmd = { "Trouble", "TroubleToggle" },
-		opts = { use_diagnostic_signs = true },
-		keys = {
-			{
-				"<leader>xx",
-				"<CMD>TroubleToggle document_diagnostics<CR>",
-				desc = "Toggle Trouble (Document diagnostics)",
-			},
-			{
-				"<leader>xX",
-				"<CMD>TroubleToggle workspace_diagnostics<CR>",
-				desc = "Toggle Trouble (Workspace diagnostics)",
-			},
-		},
-	},
-
-	{
 		"pwntester/octo.nvim",
 		cmd = { "Octo" },
 		opts = {
