@@ -107,17 +107,14 @@ return {
 
 			for _, server in ipairs(vim.tbl_keys(servers)) do
 				local config = servers[server]
-				config.on_attach = lsp.on_attach
 				config.capabilities = capabilities
 
 				if config.disable_format == true then
-					config.disable_format = nil
 					lsp.disable_format(server)
 				end
 
 				if config.disable_diagnostic ~= nil then
 					lsp.disable_diagnostic(server, config.disable_diagnostic)
-					config.disable_diagnostic = nil
 				end
 
 				lspconfig[server].setup(config)
