@@ -224,6 +224,7 @@ return {
 				["<leader>o"] = { name = "+obisdian/explorer" },
 				["<leader>l"] = { name = "+lazy" },
 				["<leader>t"] = { name = "+terminal/todo" },
+				["<leader>ze"] = { name = "+zen" },
 			})
 		end,
 	},
