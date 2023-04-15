@@ -108,15 +108,15 @@ return {
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<Tab>"] = cmp.mapping(function(fallback)
-						if require("luasnip").expand_or_locally_jumpable() then
-							require("luasnip").expand_or_jump()
+						if luasnip.expand_or_locally_jumpable() then
+							luasnip.expand_or_jump()
 						else
 							fallback()
 						end
 					end),
 					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if require("luasnip").jumpable(-1) then
-							require("luasnip").jump(-1)
+						if luasnip.jumpable(-1) then
+							luasnip.jump(-1)
 						else
 							fallback()
 						end
