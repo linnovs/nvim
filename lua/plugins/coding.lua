@@ -10,7 +10,7 @@ return {
 
 	{
 		"windwp/nvim-autopairs",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		config = true,
 	},
 
