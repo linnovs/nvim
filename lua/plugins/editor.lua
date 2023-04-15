@@ -288,6 +288,33 @@ return {
 	},
 
 	{
+		"kevinhwang91/nvim-ufo",
+		event = "BufRead",
+		dependencies = {
+			"kevinhwang91/promise-async",
+		},
+		init = function()
+			vim.o.foldcolumn = "1"
+			vim.o.foldlevel = 99
+			vim.o.foldlevelstart = 99
+			vim.o.foldenable = true
+		end,
+		keys = {
+			{
+				"zR",
+				'<CMD>lua require("ufo").openAllFold()<CR>',
+				desc = "Open all folds (ufo version)",
+			},
+			{
+				"zM",
+				'<CMD>lua require("ufo").closeAllFold()<CR>',
+				desc = "Close all folds (ufo version)",
+			},
+		},
+		opts = {},
+	},
+
+	{
 		"epwalsh/obsidian.nvim",
 		cmd = {
 			"ObsidianCheck",
@@ -342,6 +369,12 @@ return {
 			},
 			completion = { nvim_cmp = true },
 		},
+	},
+
+	{
+		"chrisgrieser/nvim-early-retirement",
+		config = true,
+		event = "VeryLazy",
 	},
 
 	{ "davidgranstrom/nvim-markdown-preview", cmd = { "MarkdownPreview" } },
