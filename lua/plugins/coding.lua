@@ -14,8 +14,8 @@ return {
 		config = true,
 	},
 
-	{ "alker0/chezmoi.vim", event = "VeryLazy" }, -- syntax highlight for chezmoi
 	{ "towolf/vim-helm", event = "VeryLazy" }, -- syntax highlight for helm
+	{ "alker0/chezmoi.vim", event = "BufEnter */chezmoi/*" }, -- syntax highlight for chezmoi
 
 	-- copilot
 	{
