@@ -129,24 +129,29 @@ return {
 						luasnip.lsp_expand(args.body)
 					end,
 				},
-				mapping = cmp.mapping.preset.insert({
-					["<Tab>"] = cmp.mapping(function(fallback)
-						if luasnip.expand_or_locally_jumpable() then
-							luasnip.expand_or_jump()
-						else
-							fallback()
-						end
-					end),
-					["<S-Tab>"] = cmp.mapping(function(fallback)
-						if luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-S-P>"] = cmp.mapping.complete(),
-					["<C-y>"] = cmp.config.disable,
+				mapping = {
+					["<Tab>"] = cmp.mapping({
+						i = function(fallback)
+							if luasnip.expand_or_locally_jumpable() then
+								luasnip.expand_or_jump()
+							else
+								fallback()
+							end
+						end,
+					}),
+					["<S-Tab>"] = cmp.mapping({
+						i = function(fallback)
+							if luasnip.jumpable(-1) then
+								luasnip.jump(-1)
+							else
+								fallback()
+							end
+						end,
+					}),
+					["<C-Space>"] = cmp.mapping({ i = cmp.mapping.complete() }),
+					["<C-S-P>"] = cmp.mapping({ i = cmp.mapping.complete() }),
+					["<C-n>"] = cmp.mapping({ i = cmp.mapping.select_next_item() }),
+					["<C-p>"] = cmp.mapping({ i = cmp.mapping.select_prev_item() }),
 					["<CR>"] = cmp.mapping({
 						i = function(fallback)
 							if cmp.visible() and cmp.get_active_entry() then
@@ -158,9 +163,9 @@ return {
 						s = cmp.mapping.confirm({ select = true }),
 						c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
 					}),
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-				}),
+					["<C-b>"] = cmp.mapping({ i = cmp.mapping.scroll_docs(-4) }),
+					["<C-f>"] = cmp.mapping({ i = cmp.mapping.scroll_docs(4) }),
+				},
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
 					format = lspkind.cmp_format({
