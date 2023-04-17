@@ -46,6 +46,19 @@ return {
 	},
 
 	{
+		"utilyre/barbecue.nvim",
+		event = "VeryLazy",
+		name = "barbecue",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons",
+		},
+		opts = {
+			attach_navic = false,
+		},
+	},
+
+	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "BufReadPre",
 		opts = {
