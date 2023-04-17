@@ -149,6 +149,7 @@ return {
 		opts = {
 			icons = icons,
 			highlight = true,
+			safe_output = true,
 		},
 	},
 

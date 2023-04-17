@@ -90,14 +90,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		if client.server_capabilities.documentSymbolProvider then
 			require("nvim-navic").attach(client, bufnr)
 			require("nvim-navbuddy").attach(client, bufnr)
-			if vim.wo.winbar == "" then
-				vim.wo.winbar = "         %{%v:lua.require'nvim-navic'.get_location()%}"
-			end
 		end
 
 		if client.server_capabilities.signatureHelpProvider then
 			map({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, "Signature help")
-			-- require("lsp_signature").on_attach()
 		end
 
 		require("lsp-inlayhints").on_attach(client, bufnr)
