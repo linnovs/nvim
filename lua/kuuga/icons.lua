@@ -1,6 +1,6 @@
 local M = {}
 
-M.diagnostics = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+M.diagnostics = { Error = "❌", Warn = "⚠️ ", Hint = "💡", Info = "ℹ️ " }
 M.kinds = {
 	Copilot = " ",
 	Array = " ",
