@@ -1,3 +1,5 @@
+local icons = require("kuuga.icons").diagnostics
+
 return {
 	{
 		"rcarriga/nvim-notify",
@@ -110,12 +112,17 @@ return {
 		opts = {
 			options = {
 				diagnostics = "nvim_lsp",
+				diagnostics_indicator = function(count, level)
+					local icon = level:match("error") and icons.Error or icons.Warn
+					return " " .. icon .. count
+				end,
 				offsets = {
 					{
 						filetype = "neo-tree",
 						text = "Neo-tree",
 						highlight = "Directory",
 						text_align = "left",
+						separator = true,
 					},
 				},
 			},
