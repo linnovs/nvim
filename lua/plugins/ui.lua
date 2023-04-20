@@ -149,12 +149,16 @@ return {
 				segments = {
 					{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
 					{
-						sign = { name = { "Diagnostic" }, maxwidth = 2 },
+						sign = { name = { "Diagnostic" }, maxwidth = 1 },
 						click = "v:lua.ScSa",
 					},
-					{ text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
 					{
-						sign = { name = { ".*" }, maxwidth = 2, colwidth = 1 },
+						text = { builtin.lnumfunc, " " },
+						condition = { true, builtin.not_empty },
+						click = "v:lua.ScLa",
+					},
+					{
+						sign = { name = { ".*" }, maxwidth = 1, colwidth = 2 },
 						click = "v:lua.ScSa",
 					},
 				},
