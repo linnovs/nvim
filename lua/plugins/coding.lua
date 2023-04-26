@@ -100,32 +100,51 @@ return {
 			-- other dependencies
 			"onsails/lspkind.nvim",
 		},
-		opts = function()
+		config = function()
 			local luasnip = require("luasnip")
 			local lspkind = require("lspkind")
 			local cmp = require("cmp")
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
-			cmp.setup.cmdline({ "/", "?" }, {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({ { name = "buffer" } }),
-			})
-			cmp.setup.cmdline(":", {
-				mapping = cmp.mapping.preset.cmdline(),
-				sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
-			})
-			cmp.setup.filetype("gitcommit", {
-				sources = cmp.config.sources({
-					{ name = "conventionalcommits" },
-					{ name = "cmp_git" },
-				}, {
-					{ name = "buffer" },
-					{ name = "spell" },
+			local mapping = {
+				["<Tab>"] = cmp.mapping({
+					i = function(fallback)
+						if luasnip.expand_or_locally_jumpable() then
+							luasnip.expand_or_jump()
+						else
+							fallback()
+						end
+					end,
 				}),
-			})
+				["<S-Tab>"] = cmp.mapping({
+					i = function(fallback)
+						if luasnip.jumpable(-1) then
+							luasnip.jump(-1)
+						else
+							fallback()
+						end
+					end,
+				}),
+				["<C-Space>"] = cmp.mapping({ i = cmp.mapping.complete() }),
+				["<C-S-P>"] = cmp.mapping({ i = cmp.mapping.complete() }),
+				["<C-n>"] = cmp.mapping({ i = cmp.mapping.select_next_item(), c = cmp.mapping.select_next_item() }),
+				["<C-p>"] = cmp.mapping({ i = cmp.mapping.select_prev_item(), c = cmp.mapping.select_prev_item() }),
+				["<CR>"] = cmp.mapping({
+					i = function(fallback)
+						if cmp.visible() and cmp.get_active_entry() then
+							cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+						else
+							fallback()
+						end
+					end,
+					s = cmp.mapping.confirm({ select = true }),
+					c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
+				}),
+				["<C-b>"] = cmp.mapping({ i = cmp.mapping.scroll_docs(-4) }),
+				["<C-f>"] = cmp.mapping({ i = cmp.mapping.scroll_docs(4) }),
+			}
 
-			return {
+			cmp.setup({
 				window = {
 					completion = {
 						col_offset = -2,
@@ -137,43 +156,7 @@ return {
 						luasnip.lsp_expand(args.body)
 					end,
 				},
-				mapping = {
-					["<Tab>"] = cmp.mapping({
-						i = function(fallback)
-							if luasnip.expand_or_locally_jumpable() then
-								luasnip.expand_or_jump()
-							else
-								fallback()
-							end
-						end,
-					}),
-					["<S-Tab>"] = cmp.mapping({
-						i = function(fallback)
-							if luasnip.jumpable(-1) then
-								luasnip.jump(-1)
-							else
-								fallback()
-							end
-						end,
-					}),
-					["<C-Space>"] = cmp.mapping({ i = cmp.mapping.complete() }),
-					["<C-S-P>"] = cmp.mapping({ i = cmp.mapping.complete() }),
-					["<C-n>"] = cmp.mapping({ i = cmp.mapping.select_next_item() }),
-					["<C-p>"] = cmp.mapping({ i = cmp.mapping.select_prev_item() }),
-					["<CR>"] = cmp.mapping({
-						i = function(fallback)
-							if cmp.visible() and cmp.get_active_entry() then
-								cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-							else
-								fallback()
-							end
-						end,
-						s = cmp.mapping.confirm({ select = true }),
-						c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-					}),
-					["<C-b>"] = cmp.mapping({ i = cmp.mapping.scroll_docs(-4) }),
-					["<C-f>"] = cmp.mapping({ i = cmp.mapping.scroll_docs(4) }),
-				},
+				mapping = mapping,
 				formatting = {
 					fields = { "kind", "abbr", "menu" },
 					format = lspkind.cmp_format({
@@ -207,7 +190,24 @@ return {
 					{ name = "path" },
 					{ name = "buffer" },
 				}),
-			}
+			})
+
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+			cmp.setup.cmdline({ "/", "?" }, {
+				sources = cmp.config.sources({ { name = "buffer" } }),
+			})
+			cmp.setup.cmdline(":", {
+				sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+			})
+			cmp.setup.filetype("gitcommit", {
+				sources = cmp.config.sources({
+					{ name = "conventionalcommits" },
+					{ name = "cmp_git" },
+				}, {
+					{ name = "buffer" },
+					{ name = "spell" },
+				}),
+			})
 		end,
 	},
 }
