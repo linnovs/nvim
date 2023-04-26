@@ -145,6 +145,9 @@ return {
 			}
 
 			cmp.setup({
+				completion = {
+					completeopt = table.concat(vim.opt.completeopt:get(), ","),
+				},
 				window = {
 					completion = {
 						col_offset = -2,
