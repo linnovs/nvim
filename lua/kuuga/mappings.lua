@@ -22,6 +22,7 @@ map("n", "<Leader>w<", "<C-w><", "Decrease window width")
 map("n", "<Leader>w>", "<C-w>>", "Increase window width")
 map("n", "<Leader>w|", "<C-w>|", "Make the window largest (not closing any)")
 map("n", "<Leader>s", "<cmd>update<CR>", "Quick save")
+map("n", "<Leader>e", "<cmd>edit<CR>", "Quick re-edit")
 map("n", "<Leader>qq", "<cmd>quit<CR>", "Quick quit")
 
 map("n", "yoh", function()
