@@ -1,8 +1,6 @@
-local colors = require("kuuga.colors")
-
 local M = {}
 
-M.branch = { "branch", color = { fg = colors.basic.orange } }
+M.branch = { "branch", color = { fg = "#ff9e64" } }
 M.diff = { "diff", symbols = { added = " ", modified = " ", removed = " " } }
 
 return M

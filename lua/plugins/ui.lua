@@ -57,6 +57,7 @@ return {
 		},
 		opts = {
 			attach_navic = false,
+			theme = "catppucin",
 		},
 	},
 

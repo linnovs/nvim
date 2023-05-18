@@ -1,4 +1,3 @@
-local colors = require("kuuga.colors")
 local icons = require("kuuga.icons").diagnostics
 
 local M = {}
@@ -14,7 +13,6 @@ M.client_names = {
 		return table.concat(clients, " ")
 	end,
 	icon = " ",
-	color = { fg = colors.basic.ligth_blue },
 }
 
 M.diagnostics =

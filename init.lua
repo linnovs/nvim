@@ -26,4 +26,6 @@ require("lazy").setup("plugins", {
 	},
 })
 
-kuuga.setup()
+kuuga.setup({
+	colorscheme = "catppuccin",
+})

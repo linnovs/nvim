@@ -1,6 +1,6 @@
 local M = {}
 
-function M.setup()
+function M.setup(opts)
 	if vim.fn.argc(-1) == 0 then
 		vim.api.nvim_create_autocmd("User", {
 			group = vim.api.nvim_create_augroup("Kuuga", { clear = true }),
@@ -13,6 +13,10 @@ function M.setup()
 	else
 		require("kuuga.autocmds")
 		require("kuuga.mappings")
+	end
+
+	if opts.colorscheme ~= nil then
+		vim.cmd.colorscheme(opts.colorscheme)
 	end
 
 	-- neovide config
