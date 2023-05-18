@@ -44,7 +44,7 @@ autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 
-autocmd("BufEnter", { pattern = { "*/COMMIT_EDITMSG", "FTerm" }, command = "startinsert" })
+autocmd("BufEnter", { pattern = { "term://*", "*COMMIT_EDITMSG" }, command = "startinsert" })
 autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.tf", command = "set filetype=terraform" })
 autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.rasi", command = "set filetype=rasi" })
 autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.wgsl", command = "set filetype=wgsl" })
