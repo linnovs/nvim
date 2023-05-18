@@ -1,34 +1,22 @@
 return {
 	{
 		"numtostr/FTerm.nvim",
-		keys = function()
-			local fterm = require("FTerm")
-			local lg = fterm:new({
-				cmd = "lazygit",
-			})
-
-			return {
-				{
-					"<Leader>tt",
-					fterm.toggle,
-					desc = "Toggle Terminal (create new if not found)",
-					mode = { "n", "t" },
-				},
-				{
-					"<Leader>gst",
-					function()
-						lg:toggle()
-					end,
-					desc = "Toggle lazygit",
-				},
-			}
-		end,
+		event = "VeryLazy",
 		config = function()
 			local fterm = require("FTerm")
 
 			fterm.setup({
 				border = "single",
 			})
+
+			local lg = fterm:new({
+				cmd = "lazygit",
+			})
+
+			vim.keymap.set({ "n", "t" }, "<Leader>tt", fterm.toggle, { desc = "Toggle Terminal" })
+			vim.keymap.set("n", "<Leader>gst", function()
+				lg:toggle()
+			end, { desc = "Toggle lazygit" })
 		end,
 	},
 }
