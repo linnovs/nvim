@@ -38,7 +38,7 @@ require("lualine").setup({
 		theme = "catppuccin",
 		component_separators = { " ", " " },
 		section_separators = { " ", " " },
-		disabled_filetypes = { "packer", "lazy" },
+		disabled_filetypes = {},
 		always_divide_middle = true,
 		globalstatus = true,
 	},
