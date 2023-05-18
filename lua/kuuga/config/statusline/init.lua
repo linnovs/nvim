@@ -45,5 +45,5 @@ require("lualine").setup({
 	sections = sections,
 	inactive_sections = ia_sections,
 	tabline = {},
-	extensions = { "neo-tree", "quickfix" },
+	extensions = { "neo-tree", "quickfix", "trouble", "man", "lazy" },
 })
