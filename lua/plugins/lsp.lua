@@ -14,7 +14,6 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
-			"weilbith/nvim-code-action-menu",
 		},
 		init = function()
 			for type, icon in pairs(signs) do
