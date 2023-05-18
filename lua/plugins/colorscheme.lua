@@ -21,6 +21,7 @@ return {
 					TelescopePromptTitle = { bg = colors.mauve, fg = colors.mantle },
 					TelescopeResultsTitle = { fg = colors.mantle },
 					TelescopePreviewTitle = { bg = colors.sapphire, fg = colors.mantle },
+					KuugaLogo = { fg = colors.mauve },
 				}
 			end,
 			integrations = {

@@ -29,7 +29,7 @@ dashboard.section.header.val = {
 	"                     ,.  ',",
 }
 
-dashboard.section.header.opts.hl = "Identifier"
+dashboard.section.header.opts.hl = "KuugaLogo"
 
 dashboard.section.buttons.val = {
 	dashboard.button("n", "󰝒  > New file", ":ene <BAR> startinsert <CR>"),
