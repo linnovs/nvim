@@ -27,6 +27,9 @@ require("lazy").setup("plugins", {
 	install = {
 		colorscheme = { "catppuccin", "habamax" },
 	},
+	ui = {
+		border = "rounded",
+	},
 })
 
 kuuga.setup({
