@@ -3,9 +3,6 @@ local icons = require("kuuga.icons").diagnostics
 return {
 	{
 		"rcarriga/nvim-notify",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-		},
 		priority = 1000,
 		opts = { timeout = 3000, background_colour = "#00000000" },
 		init = function()
