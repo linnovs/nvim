@@ -9,6 +9,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 return {
 	{
 		"neovim/nvim-lspconfig",
+		version = false,
 		event = "BufReadPre",
 		dependencies = {
 			"williamboman/mason.nvim",
