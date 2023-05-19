@@ -81,6 +81,9 @@ return {
 							["<C-h>"] = "which_key",
 						},
 					},
+					prompt_prefix = " ",
+					selection_caret = " ",
+					multi_icon = "",
 				},
 				pickers = {
 					find_files = {
