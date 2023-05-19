@@ -2,13 +2,13 @@ local M = {}
 
 M.diagnostics = { Error = "❌", Warn = "⚠️ ", Hint = "💡", Info = "ℹ️ " }
 M.kinds = {
-	Copilot = " ",
 	Array = " ",
 	Boolean = " ",
 	Class = " ",
 	Color = " ",
 	Constant = " ",
 	Constructor = " ",
+	Copilot = " ",
 	Enum = " ",
 	EnumMember = " ",
 	Event = " ",
