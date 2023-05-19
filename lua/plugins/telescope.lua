@@ -66,7 +66,9 @@ return {
 			local opts = {
 				defaults = {
 					vimgrep_arguments = vimgrep_arguments,
+					sorting_strategy = "ascending",
 					layout_config = {
+						prompt_position = "top",
 						horizontal = {
 							mirror = false,
 						},
@@ -90,9 +92,6 @@ return {
 						hidden = true,
 						follow = true,
 						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-						layout_config = {
-							prompt_position = "top",
-						},
 					},
 					-- live_grep = {
 					-- 	theme = "dropdown",
