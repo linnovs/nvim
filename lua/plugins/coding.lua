@@ -53,6 +53,16 @@ return {
 		end,
 	},
 
+	-- codeium
+	{
+		"jcdickinson/codeium.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		lazy = true,
+		opts = {},
+	},
+
 	-- snippet
 	{
 		"L3MON4D3/LuaSnip",
@@ -93,6 +103,7 @@ return {
 			"zbirenbaum/copilot-cmp",
 			"petertriho/cmp-git",
 			"davidsierradz/cmp-conventionalcommits",
+			"jcdickinson/codeium.nvim",
 
 			-- other dependencies
 			"onsails/lspkind.nvim",
@@ -169,6 +180,7 @@ return {
 								cmp_git = "[Git]",
 								conventionalcommits = "[Conventional Commits]",
 								copilot = "[Copilot]",
+								codeium = "[Codeium]",
 								luasnip = "[LuaSnip]",
 								nvim_lsp = "[LSP]",
 								nvim_lua = "[Lua]",
@@ -182,6 +194,7 @@ return {
 				},
 				sources = cmp.config.sources({
 					{ name = "copilot" },
+					{ name = "codeium" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "nvim_lua" },
