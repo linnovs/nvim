@@ -146,15 +146,15 @@ return {
 	},
 
 	{
-		"ggandor/leap.nvim",
-		event = "VeryLazy",
+		"ggandor/flit.nvim",
+		event = "BufReadPre",
 		dependencies = {
-			{ "ggandor/flit.nvim", opts = { labeled_modes = "nv" } },
+			{ "ggandor/leap.nvim" },
 			{ "tpope/vim-repeat", version = false },
 		},
-		config = function()
-			require("leap").add_default_mappings()
-		end,
+		opts = {
+			labeled_modes = "nvo",
+		},
 	},
 
 	{
