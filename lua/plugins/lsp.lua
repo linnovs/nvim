@@ -63,28 +63,17 @@ return {
 				pylsp = {},
 				rust_analyzer = {},
 				lua_ls = {
+					disable_format = true,
 					settings = {
 						Lua = {
 							format = {
 								enable = false,
 							},
-							runtime = {
-								-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-								version = "LuaJIT",
-								-- Setup your lua path
-								path = runtime_path,
-							},
-							diagnostics = {
-								-- Get the language server to recognize the `vim` global
-								globals = { "vim" },
-							},
-							-- Do not send telemetry data containing a randomized but unique identifier
-							telemetry = {
-								enable = false,
+							workspace = {
+								checkThirdParty = false,
 							},
 						},
 					},
-					disable_format = true,
 				},
 				tailwindcss = {},
 				terraformls = {},
