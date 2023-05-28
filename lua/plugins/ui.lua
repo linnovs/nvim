@@ -78,16 +78,6 @@ return {
 		event = "VimEnter",
 		config = function()
 			local dashboard = require("kuuga.config.dashboard")
-			if vim.o.filetype == "lazy" then
-				vim.cmd.close()
-				vim.api.nvim_create_autocmd("User", {
-					pattern = "AlphaReady",
-					callback = function()
-						require("lazy").show()
-					end,
-				})
-			end
-
 			require("alpha").setup(dashboard.opts)
 		end,
 	},
