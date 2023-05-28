@@ -79,6 +79,23 @@ return {
 		config = function()
 			local dashboard = require("kuuga.config.dashboard")
 			require("alpha").setup(dashboard.opts)
+
+			vim.api.nvim_create_autocmd("VimEnter", {
+				group = vim.api.nvim_create_augroup("kuuga_dashboard", { clear = true }),
+				pattern = "*",
+				callback = function()
+					local argv = vim.api.nvim_call_function("argv", {})
+					if #argv == 0 then
+						return
+					end
+
+					local is_dir = vim.api.nvim_call_function("isdirectory", { argv[1] })
+					if is_dir then
+						vim.cmd.chdir(argv[1])
+						vim.cmd.Alpha()
+					end
+				end,
+			})
 		end,
 	},
 
