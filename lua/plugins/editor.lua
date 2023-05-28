@@ -120,7 +120,26 @@ return {
 			},
 			default_component_configs = {
 				icon = {
-					folder_empty = " ",
+					folder_closed = "",
+					folder_empty = "",
+					folder_open = "",
+					folder_empty_open = "",
+				},
+				git_status = {
+					symbols = {
+						added = "",
+						deleted = "",
+						modified = "",
+						renamed = "",
+						untracked = "",
+						ignored = "",
+						unstaged = "󰄱",
+						staged = "󰄵",
+						conflict = "󰘼",
+					},
+				},
+				modified = {
+					symbol = "",
 				},
 			},
 			filesystem = {
