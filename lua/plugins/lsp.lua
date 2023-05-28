@@ -55,10 +55,7 @@ return {
 				ltex = {
 					settings = {
 						ltex = {
-							checkFrequency = "save",
-							additionalRules = {
-								motherTongue = "zh-CN",
-							},
+							language = "en-US",
 						},
 					},
 				},
