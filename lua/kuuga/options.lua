@@ -12,7 +12,7 @@ vim.opt.foldcolumn = "1" -- columns to use for the fold column
 vim.opt.foldenable = true -- set to display all folds open
 vim.opt.foldlevel = 99 -- close folds with a level higher than this
 vim.opt.foldlevelstart = 99 -- 'foldlevel' when starting to edit a file
-vim.opt.guifont = "mononoki Nerd Font:h10.5"
+vim.opt.guifont = "mononoki:h10.5"
 vim.opt.iskeyword:append("-") -- characters included in keywords
 vim.opt.list = true -- show <Tab> and <EOL>
 vim.opt.listchars:append({ lead = "·" }) -- characters for displaying in list mode
