@@ -108,6 +108,7 @@ return {
 				},
 				volar = {},
 				yamlls = {
+					disable_format = true,
 					settings = {
 						yaml = {
 							schemaStore = {
