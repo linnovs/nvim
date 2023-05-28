@@ -46,7 +46,7 @@ return {
 
 	{
 		"utilyre/barbecue.nvim",
-		event = "VeryLazy",
+		event = "BufReadPre",
 		name = "barbecue",
 		dependencies = {
 			"SmiteshP/nvim-navic",
@@ -102,6 +102,7 @@ return {
 	-- beauty defaul UI
 	{
 		"stevearc/dressing.nvim",
+		event = "BufReadPre",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		opts = {
 			select = {
