@@ -26,10 +26,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
 		end
 
-		if M.format_filter[client.name] then
-			client.server_capabilities.documentSymbolProvider = false
-		end
-
 		map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
 		map("n", "gd", builtin.lsp_definitions, "Go to definitions")
 		map("n", "gi", builtin.lsp_implementations, "Go to implementations")
@@ -44,10 +40,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		if client.supports_method("textDocument/formatting") then
 			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = vim.api.nvim_create_augroup("LspFormat." .. bufnr .. "." .. client.name, { clear = true }),
+				group = vim.api.nvim_create_augroup("LspFormat." .. bufnr, { clear = true }),
 				buffer = bufnr,
 				callback = function()
-					vim.lsp.buf.format({})
+					vim.lsp.buf.format({
+						filter = function(c)
+							return M.format_filter[c.name] ~= true
+						end,
+						bufnr = bufnr,
+					})
 				end,
 			})
 		end
