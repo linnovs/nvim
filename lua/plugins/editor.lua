@@ -100,6 +100,7 @@ return {
 			vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 		end,
 		opts = {
+			close_if_last_window = true,
 			source_selector = {
 				winbar = true,
 				sources = {
