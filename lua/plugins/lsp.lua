@@ -92,7 +92,6 @@ return {
 							},
 						},
 					},
-					disable_diagnostic = { "helm" },
 				},
 				zls = {},
 			},
@@ -128,10 +127,6 @@ return {
 
 				if config.disable_format == true then
 					lsp.disable_format(server)
-				end
-
-				if config.disable_diagnostic ~= nil then
-					lsp.disable_diagnostic(server, config.disable_diagnostic)
 				end
 
 				lspconfig[server].setup(config)
