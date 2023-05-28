@@ -3,12 +3,28 @@ return {
 
 	{
 		"NvChad/nvim-colorizer.lua",
+		event = "BufReadPre",
 		opts = {
 			user_default_options = {
 				css = true,
 				tailwind = "lsp",
+				RRGGBBAA = true,
+				AARRGGBB = true,
+				rgb_fn = true,
 			},
 		},
+		config = function(_, opts)
+			local colorizer = require("colorizer")
+
+			colorizer.setup(opts)
+
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "lazy", "gitcommit" },
+				callback = function(args)
+					colorizer.detach_from_buffer(args.buf)
+				end,
+			})
+		end,
 	},
 
 	{
