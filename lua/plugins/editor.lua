@@ -87,9 +87,7 @@ return {
 		keys = {
 			{
 				"<leader>op",
-				function()
-					require("neo-tree.command").execute({ toggle = true })
-				end,
+				"<cmd>Neotree focus left reveal filesystem<cr>",
 				desc = "Toggle Explorer",
 			},
 		},
