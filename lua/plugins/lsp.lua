@@ -243,18 +243,16 @@ return {
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		event = "BufReadPre",
-		dependencies = { "williamboman/mason.nvim", "nvim-lua/plenary.nvim" },
-		opts = function()
+		dependencies = { "williamboman/mason.nvim", "jay-babu/mason-null-ls.nvim", "nvim-lua/plenary.nvim" },
+		config = function()
 			local null_ls = require("null-ls")
+			local null_ls_mason = require("mason-null-ls")
 
-			return {
+			null_ls.setup({
 				sources = {
 					null_ls.builtins.code_actions.gitsigns,
-					null_ls.builtins.code_actions.ltrs,
-					null_ls.builtins.diagnostics.ltrs,
-					null_ls.builtins.diagnostics.golangci_lint.with({
-						args = { "run", "--fix=false", "--out-format=json", "$DIRNAME", "--path-prefix", "$ROOT" },
-					}),
+					-- null_ls.builtins.code_actions.ltrs,
+					-- null_ls.builtins.diagnostics.ltrs,
 					null_ls.builtins.formatting.gofmt,
 					null_ls.builtins.formatting.goimports,
 					null_ls.builtins.formatting.prettier,
@@ -263,7 +261,9 @@ return {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.taplo,
 				},
-			}
+			})
+
+			null_ls_mason.setup({ automatic_installation = true })
 		end,
 	},
 }
