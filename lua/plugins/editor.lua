@@ -100,6 +100,23 @@ return {
 			vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 		end,
 		opts = {
+			source_selector = {
+				winbar = true,
+				sources = {
+					{
+						source = "filesystem",
+						display_name = "   Files ",
+					},
+					{
+						source = "buffers",
+						display_name = "  Buffers ",
+					},
+					{
+						source = "git_status",
+						display_name = "  Git ",
+					},
+				},
+			},
 			default_component_configs = {
 				icon = {
 					folder_empty = " ",
