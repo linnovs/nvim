@@ -51,7 +51,7 @@ return {
 				omnisharp = {},
 				pylsp = {},
 				rust_analyzer = {},
-				sumneko_lua = {
+			lua_ls = {
 					settings = {
 						Lua = {
 							runtime = {
