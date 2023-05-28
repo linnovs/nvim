@@ -173,6 +173,4 @@ return {
 
 	-- icons
 	"nvim-tree/nvim-web-devicons",
-
-	"MunifTanjim/nui.nvim",
 }
