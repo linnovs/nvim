@@ -6,7 +6,7 @@ return {
 		priority = 1000,
 		name = "catppuccin",
 		opts = {
-			flavor = "macchiato",
+			flavor = "mocha",
 			transparent_background = true,
 			custom_highlights = function(colors)
 				return {
@@ -21,6 +21,8 @@ return {
 					TelescopePromptTitle = { bg = colors.mauve, fg = colors.mantle },
 					TelescopeResultsTitle = { fg = colors.mantle },
 					TelescopePreviewTitle = { bg = colors.sapphire, fg = colors.mantle },
+					Pmenu = { fg = colors.text, bg = colors.base },
+					NormalFloat = { fg = colors.text, bg = colors.base },
 					KuugaLogo = { fg = colors.mauve },
 				}
 			end,
