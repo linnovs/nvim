@@ -55,7 +55,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		if client.server_capabilities.codeLensProvider then
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
-				group = vim.api.nvim_create_augroup("LspCodeLens." .. bufnr .. "." .. client.name, { clear = true }),
+				group = vim.api.nvim_create_augroup("LspCodeLens." .. bufnr, { clear = true }),
 				buffer = bufnr,
 				callback = vim.lsp.codelens.refresh,
 			})
