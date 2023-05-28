@@ -91,6 +91,7 @@ return {
 					},
 					disable_diagnostic = { "helm" },
 				},
+				zls = {},
 			},
 		},
 		config = function(_, opts)
