@@ -15,6 +15,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
+			"folke/neodev.nvim",
 		},
 		init = function()
 			for type, icon in pairs(signs) do
@@ -114,6 +115,8 @@ return {
 					},
 				}
 			)
+
+			require("neodev").setup({})
 
 			for _, server in ipairs(vim.tbl_keys(servers)) do
 				local config = servers[server]
