@@ -132,7 +132,7 @@ return {
 				lspconfig[server].setup(config)
 			end
 
-			lsp_lines.setup({})
+			lsp_lines.setup()
 		end,
 	},
 
