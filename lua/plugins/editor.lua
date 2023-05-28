@@ -90,6 +90,11 @@ return {
 				"<cmd>Neotree focus left reveal filesystem<cr>",
 				desc = "Toggle Explorer",
 			},
+			{
+				"<leader>ogs",
+				"<cmd>Neotree focus float git_status<cr>",
+				desc = "Toggle git status",
+			},
 		},
 		init = function()
 			vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
