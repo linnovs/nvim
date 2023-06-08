@@ -93,9 +93,6 @@ return {
 						follow = true,
 						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
 					},
-					-- live_grep = {
-					-- 	theme = "dropdown",
-					-- },
 					buffers = {
 						theme = "dropdown",
 						mappings = {
