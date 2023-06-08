@@ -103,7 +103,7 @@ return {
 					end
 
 					local is_dir = vim.api.nvim_call_function("isdirectory", { argv[1] })
-					if is_dir then
+					if is_dir == 1 then
 						vim.cmd.chdir(argv[1])
 						vim.cmd.Alpha()
 					end
