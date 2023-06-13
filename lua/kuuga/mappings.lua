@@ -25,21 +25,10 @@ map("n", "<Leader>s", "<cmd>update<CR>", "Quick save")
 map("n", "<Leader>e", "<cmd>edit<CR>", "Quick re-edit")
 map("n", "<Leader>qq", "<cmd>quit<CR>", "Quick quit")
 
-map("n", "yoh", function()
-	vim.opt.hlsearch = not vim.opt.hlsearch:get()
-end, "Toggle highlight search")
-
-map("n", "yos", function()
-	vim.opt.spell = not vim.opt.spell:get()
-end, "Toggle spell check")
-
-map("n", "yoc", function()
-	vim.opt.cursorcolumn = not vim.opt.cursorcolumn:get()
-end, "Toggle cursor column")
-
-map("n", "yow", function()
-	vim.opt.wrap = not vim.opt.wrap:get()
-end, "Toggle line wrap")
+map("n", "yoh", "<CMD>set hlsearch!<CR>", "Toggle highlight search")
+map("n", "yos", "<CMD>set spell!<CR>", "Toggle spell check")
+map("n", "yoc", "<CMD>set cursorcolumn!<CR>", "Toggle cursor column")
+map("n", "yow", "<CMD>set wrap!<CR>", "Toggle line wrap")
 
 map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", "Escape and clear hlsearch")
 map("t", "<esc><esc>", "<C-\\><C-n>", "Enter normal mode")
