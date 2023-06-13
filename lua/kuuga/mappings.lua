@@ -24,6 +24,7 @@ map("n", "<Leader>w|", "<C-w>|", "Make the window largest (not closing any)")
 map("n", "<Leader>s", "<cmd>update<CR>", "Quick save")
 map("n", "<Leader>e", "<cmd>edit<CR>", "Quick re-edit")
 map("n", "<Leader>qq", "<cmd>quit<CR>", "Quick quit")
+map("n", "<Leader>fqq", "<cmd>quit!<CR>", "Quick force quit")
 
 map("n", "yoh", "<CMD>set hlsearch!<CR>", "Toggle highlight search")
 map("n", "yos", "<CMD>set spell!<CR>", "Toggle spell check")
