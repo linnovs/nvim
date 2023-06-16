@@ -163,28 +163,26 @@ return {
 	-- status column
 	{
 		"luukvbaal/statuscol.nvim",
-		opts = function()
+		config = function()
 			local builtin = require("statuscol.builtin")
 
-			return {
-				ft_ignore = { "alpha", "lazy", "neo-tree" },
+			require("statuscol").setup({
 				segments = {
-					{ text = { builtin.foldfunc }, click = "v:lua.ScFa" },
+					{ text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
 					{
 						sign = { name = { "Diagnostic" }, maxwidth = 1 },
 						click = "v:lua.ScSa",
 					},
 					{
-						text = { builtin.lnumfunc, " " },
-						condition = { true, builtin.not_empty },
-						click = "v:lua.ScLa",
+						text = { builtin.lnumfunc },
+						click = "v:lua:ScLa",
 					},
 					{
-						sign = { name = { ".*" }, maxwidth = 1, colwidth = 2 },
+						sign = { name = { "Git" } },
 						click = "v:lua.ScSa",
 					},
 				},
-			}
+			})
 		end,
 	},
 
