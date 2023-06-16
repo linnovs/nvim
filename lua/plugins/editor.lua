@@ -246,5 +246,11 @@ return {
 		event = "VeryLazy",
 	},
 
-	{ "davidgranstrom/nvim-markdown-preview", cmd = { "MarkdownPreview" } },
+	{
+		"iamcco/markdown-preview.nvim",
+		ft = "markdown",
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
 }
