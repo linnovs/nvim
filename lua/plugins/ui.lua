@@ -168,19 +168,19 @@ return {
 
 			require("statuscol").setup({
 				segments = {
-					{ text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
+					{
+						sign = { name = { "Git" }, maxwidth = 1, colwidth = 1 },
+						click = "v:lua.ScSa",
+					},
 					{
 						sign = { name = { "Diagnostic" }, maxwidth = 1 },
 						click = "v:lua.ScSa",
 					},
 					{
-						text = { builtin.lnumfunc },
+						text = { builtin.lnumfunc, " " },
 						click = "v:lua:ScLa",
 					},
-					{
-						sign = { name = { "Git" } },
-						click = "v:lua.ScSa",
-					},
+					{ text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
 				},
 			})
 		end,
