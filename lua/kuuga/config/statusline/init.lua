@@ -11,7 +11,7 @@ local git = require("kuuga.config.statusline.git")
 local file = require("kuuga.config.statusline.file")
 local lazy_updates = require("kuuga.config.statusline.updates")
 
-local noice = require("noice").api.statusline
+local noice = require("noice").api.status
 
 -- available position are a,b,c,x,y,z
 insert("a", { "mode" })
