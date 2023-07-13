@@ -35,7 +35,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "<Leader>D", builtin.lsp_type_definitions, "Type definitions")
 		map("n", "gr", builtin.lsp_references, "References")
 
-		if client.server_capabilities.codeActionProvider then
+		if client.supports_method("textDocument/codeAction") then
 			map("n", "<Leader>cam", vim.lsp.buf.code_action, "Code action")
 		end
 
@@ -54,7 +54,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			})
 		end
 
-		if client.server_capabilities.codeLensProvider then
+		if client.supports_method("textDocument/codeLens") then
 			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
 				group = vim.api.nvim_create_augroup("LspCodeLens." .. bufnr, { clear = true }),
 				buffer = bufnr,
@@ -63,12 +63,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			map("n", "<Leader>cl", vim.lsp.codelens.run, "Code lens")
 		end
 
-		if client.server_capabilities.documentSymbolProvider then
+		if client.supports_method("textDocument/documentSymbol") then
 			require("nvim-navic").attach(client, bufnr)
 			require("nvim-navbuddy").attach(client, bufnr)
 		end
 
-		if client.server_capabilities.signatureHelpProvider then
+		if client.supports_method("textDocument/signatureHelp") then
 			map({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, "Signature help")
 		end
 
