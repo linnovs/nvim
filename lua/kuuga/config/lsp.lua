@@ -23,6 +23,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local bufnr = ev.buf
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
+		if client == nil then
+			return
+		end
+
 		local function map(mode, lhs, rhs, desc)
 			vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
 		end
