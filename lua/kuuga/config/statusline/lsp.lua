@@ -6,7 +6,7 @@ M.client_names = {
 	function()
 		local clients = {}
 
-		for _, client in pairs(vim.lsp.buf_get_clients(0)) do
+		for _, client in pairs(vim.lsp.get_active_clients()) do
 			clients[#clients + 1] = client.name
 		end
 
