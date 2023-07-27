@@ -22,6 +22,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		local bufnr = ev.buf
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		local augroup = vim.api.nvim_create_augroup
+		local autocmd = vim.api.nvim_create_autocmd
 
 		if client == nil then
 			return
@@ -61,8 +63,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = vim.api.nvim_create_augroup("LspFormat." .. bufnr, { clear = true }),
+			autocmd("BufWritePre", {
+				group = augroup("LspFormat." .. bufnr, { clear = true }),
 				buffer = bufnr,
 				callback = function()
 					vim.lsp.buf.format({
@@ -76,8 +78,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end
 
 		if client.supports_method("textDocument/codeLens") then
-			vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
-				group = vim.api.nvim_create_augroup("LspCodeLens." .. bufnr, { clear = true }),
+			autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
+				group = augroup("LspCodeLens." .. bufnr, { clear = true }),
 				buffer = bufnr,
 				callback = vim.lsp.codelens.refresh,
 			})
