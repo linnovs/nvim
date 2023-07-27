@@ -63,7 +63,6 @@ return {
 				pylsp = {},
 				rust_analyzer = {},
 				lua_ls = {
-					disable_format = true,
 					settings = {
 						Lua = {
 							hint = {
