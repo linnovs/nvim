@@ -112,9 +112,6 @@ return {
 				desc = "Toggle git status",
 			},
 		},
-		init = function()
-			vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-		end,
 		opts = {
 			close_if_last_window = true,
 			source_selector = {
@@ -167,7 +164,7 @@ return {
 					event = "file_opened",
 					handler = function()
 						-- auto close
-						require("neo-tree").close_all()
+						require("neo-tree.command").execute({ action = "close" })
 					end,
 				},
 			},
