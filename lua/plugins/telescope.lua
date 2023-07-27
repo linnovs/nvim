@@ -11,42 +11,42 @@ return {
 		keys = {
 			{
 				"<leader><leader>",
-				"<CMD>Telescope find_files<CR>",
+				"<CMD>lua require('telescope.builtin').find_files({})<CR>",
 				desc = "Find files (root dir)",
 			},
 			{
 				"<leader>fg",
-				"<CMD>Telescope live_grep<CR>",
+				"<CMD>lua require('telescope.builtin').live_grep({})<CR>",
 				desc = "Find in files (ripgrep)",
 			},
 			{
 				"<leader>fb",
-				"<CMD>Telescope buffers<CR>",
+				"<CMD>lua require('telescope.builtin').buffers({})<CR>",
 				desc = "Find buffers",
 			},
 			{
 				"<leader>fh",
-				"<CMD>Telescope help_tags<CR>",
+				"<CMD>lua require('telescope.builtin').help_tags({})<CR>",
 				desc = "Find help tags",
 			},
 			{
 				"<leader>fm",
-				"<CMD>Telescope man_pages<CR>",
+				"<CMD>lua require('telescope.builtin').man_pages({})<CR>",
 				desc = "Find man pages",
 			},
 			{
 				"<leader>fs",
-				"<CMD>Telescope lsp_document_symbols<CR>",
+				"<CMD>lua require('telescope.builtin').lsp_document_symbols({})<CR>",
 				desc = "Find LSP document symbols",
 			},
 			{
 				"<leader>fq",
-				"<CMD>Telescope quickfix<CR>",
+				"<CMD>lua require('telescope.builtin').quickfix({})<CR>",
 				desc = "Find items in quickfix list",
 			},
 			{
 				"<leader>z",
-				"<CMD>Telescope zoxide list<CR>",
+				"<CMD>lua require('telescope.builtin').zoxide list({})<CR>",
 				desc = "Find zoxide directory",
 			},
 		},
