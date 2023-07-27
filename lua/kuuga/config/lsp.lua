@@ -39,6 +39,23 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "<Leader>D", builtin.lsp_type_definitions, "Type definitions")
 		map("n", "gr", builtin.lsp_references, "References")
 
+		autocmd("CursorHold", {
+			group = augroup("LspShowDiagnostic" .. bufnr, { clear = true }),
+			buffer = bufnr,
+			callback = function()
+				local opts = {
+					focusable = false,
+					close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+					border = "rounded",
+					source = "always",
+					prefix = " ",
+					scope = "cursor",
+				}
+
+				vim.diagnostic.open_float(nil, opts)
+			end,
+		})
+
 		if client.supports_method("textDocument/codeAction") then
 			map("n", "<Leader>cam", vim.lsp.buf.code_action, "Code action")
 		end
