@@ -81,21 +81,21 @@ return {
 		},
 	},
 
-    {
-        "NeogitOrg/neogit",
-        dependencies = "nvim-lua/plenary.nvim",
-        keys = {
-            {
-                "<leader>gst",
-                "<cmd>Neogit<cr>",
-                desc = "Toggle neogit"
-            }
-        },
-        opts = {
-            disable_commit_confirmation = true,
-            use_telescope = true,
-        },
-    },
+	{
+		"NeogitOrg/neogit",
+		dependencies = "nvim-lua/plenary.nvim",
+		keys = {
+			{
+				"<leader>gst",
+				"<cmd>Neogit<cr>",
+				desc = "Toggle neogit",
+			},
+		},
+		opts = {
+			disable_commit_confirmation = true,
+			use_telescope = true,
+		},
+	},
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
