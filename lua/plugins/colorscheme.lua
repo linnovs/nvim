@@ -5,54 +5,74 @@ return {
 		lazy = false,
 		priority = 1000,
 		name = "catppuccin",
-		opts = {
-			flavor = "mocha",
-			transparent_background = true,
-			custom_highlights = function(colors)
-				return {
-					TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
-					TelescopePromptPrefix = { bg = colors.surface0 },
-					TelescopePromptNormal = { bg = colors.surface0 },
-					TelescopeResultsNormal = { bg = colors.mantle },
-					TelescopePreviewNormal = { bg = colors.base },
-					TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
-					TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
-					TelescopePreviewBorder = { bg = colors.base, fg = colors.base },
-					TelescopePromptTitle = { bg = colors.mauve, fg = colors.mantle },
-					TelescopeResultsTitle = { fg = colors.mantle },
-					TelescopePreviewTitle = { bg = colors.sapphire, fg = colors.mantle },
-					DiagnosticUnderlineError = { undercurl = true },
-					DiagnosticUnderlineWarn = { undercurl = true },
-					DiagnosticUnderlineInfo = { undercurl = true },
-					DiagnosticUnderlineHint = { undercurl = true },
-					DiagnosticUnderlineOk = { undercurl = true, sp = "LightGreen" },
-					Pmenu = { fg = colors.text, bg = colors.base },
-					NormalFloat = { fg = colors.text, bg = colors.base },
-					KuugaLogo = { fg = colors.mauve },
-				}
-			end,
-			integrations = {
-				alpha = true,
-				cmp = true,
-				gitsigns = true,
-				leap = true,
-				lsp_trouble = true,
-				mason = true,
-				neotree = true,
-				noice = true,
-				notify = true,
-				nvimtree = false,
-				octo = true,
-				telescope = true,
-				treesitter = true,
-				which_key = true,
-				indent_blankline = {
-					enabled = true,
+		opts = function()
+			return {
+				flavor = "mocha",
+				transparent_background = not vim.g.neovide,
+				custom_highlights = function(colors)
+					local telescopePreviewBg = colors.base
+					if vim.g.neovide then
+						telescopePreviewBg = colors.crust
+					end
+
+					return {
+						TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
+						TelescopePromptPrefix = { bg = colors.surface0 },
+						TelescopePromptNormal = { bg = colors.surface0 },
+						TelescopeResultsNormal = { bg = colors.mantle },
+						TelescopePreviewNormal = { bg = telescopePreviewBg },
+						TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
+						TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
+						TelescopePreviewBorder = { bg = telescopePreviewBg, fg = telescopePreviewBg },
+						TelescopePromptTitle = { bg = colors.mauve, fg = colors.mantle },
+						TelescopeResultsTitle = { fg = colors.mantle },
+						TelescopePreviewTitle = { bg = colors.sapphire, fg = colors.mantle },
+						DiagnosticUnderlineError = { undercurl = true },
+						DiagnosticUnderlineWarn = { undercurl = true },
+						DiagnosticUnderlineInfo = { undercurl = true },
+						DiagnosticUnderlineHint = { undercurl = true },
+						DiagnosticUnderlineOk = { undercurl = true, sp = "LightGreen" },
+						Pmenu = { fg = colors.text, bg = colors.base },
+						NormalFloat = { fg = colors.text, bg = colors.base },
+						DashboardHeader = { fg = colors.mauve },
+						DashboardDesc = { fg = colors.lavender },
+						DashboardKey = { fg = colors.green },
+						DashboardIcon = { fg = colors.lavender },
+					}
+				end,
+				integrations = {
+					alpha = true,
+					cmp = true,
+					dashboard = true,
+					flash = true,
+					gitsigns = true,
+					illuminate = true,
+					indent_blankline = {
+						enabled = true,
+					},
+					leap = true,
+					lsp_trouble = true,
+					mason = true,
+					mini = true,
+					native_lsp = {
+						enabled = true,
+						underlines = {
+							errors = { "undercurl" },
+							hints = { "undercurl" },
+							warnings = { "undercurl" },
+							information = { "undercurl" },
+						},
+					},
+					neogit = true,
+					neotree = true,
+					noice = true,
+					notify = true,
+					octo = true,
+					telescope = true,
+					treesitter = true,
+					which_key = true,
 				},
-				native_lsp = {
-					enabled = true,
-				},
-			},
-		},
+			}
+		end,
 	},
 }
