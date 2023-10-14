@@ -69,15 +69,25 @@ return {
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
 		event = "BufReadPre",
 		opts = {
-			char = "┊",
-			context_char = "┊",
-			buftype_exclude = { "terminal", "help" },
-			filetype_exclude = { "mason", "lsp-installer", "alpha", "packer", "lazy" },
-			space_char_blankline = " ",
-			show_current_context = true,
-			show_current_context_start = true,
+			indent = {
+				char = "┊",
+				tab_char = "┊",
+			},
+			scope = { enabled = false },
+			exclude = {
+				filetypes = {
+					"FTerm",
+					"Trouble",
+					"alpha",
+					"help",
+					"lazy",
+					"mason",
+					"neo-tree",
+				},
+			},
 		},
 	},
 
