@@ -28,9 +28,9 @@ return {
 	},
 
 	{
-		"windwp/nvim-autopairs",
-		event = "BufReadPost",
-		config = true,
+		"echasnovski/mini.pairs",
+		events = "BufReadPost",
+		opts = {},
 	},
 
 	-- copilot
