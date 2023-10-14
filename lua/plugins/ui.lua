@@ -76,11 +76,13 @@ return {
 
 	-- dashboard
 	{
-		"goolord/alpha-nvim",
+		"glepnir/dashboard-nvim",
 		event = "VimEnter",
 		config = function()
 			local dashboard = require("kuuga.config.dashboard")
-			require("alpha").setup(dashboard.opts)
+			require("dashboard").setup(dashboard)
+		end,
+	},
 
 			vim.api.nvim_create_autocmd("VimEnter", {
 				group = vim.api.nvim_create_augroup("kuuga_dashboard", { clear = true }),

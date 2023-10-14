@@ -1,45 +1,58 @@
-local fortune = require("alpha.fortune")
-local dashboard = require("alpha.themes.dashboard")
+local fortune = require("kuuga.fortune")
+local M = {}
 
-dashboard.section.header.val = {
-	".                                              .",
-	"d.                                            .d",
-	"xx:                                          :xx",
-	"xxxxo:.               ,oo'               .;oxxxx",
-	"xxxxxxxxo:'           ;xx,           ':oxxxxxxxx",
-	"xxxxxxxxxxxxdc'.      ;xx,      .':dxxxxxxxxxxxx",
-	".':oxxxxxxxxxxxxdc'.  ;xx,  .'cdxxxxxxxxxxxxo:'.",
-	"     .,cdxxxxxxxxxxxd.;xx,.dxxxxxxxxxxxdc;.",
-	"          .;lxxxxxxxx,;xx,,xxxxxxxxl;.",
-	"       lxl.   .':oxxx,;xx,,xxxo:'.   .lxl",
-	"       lxx.       xxx,;xx,,xxx       .xxl",
-	"       lxx.       xxx,;xx,,xxx       .xxl",
-	"       lxx.      .xxx,;xx,,xxx.      .xxl",
-	"       lxx.  .,cdxxxx,;xx,,xxxxdc;.  .xxl",
-	"       lxxloxxxxxxxo:,lxxc,:oxxxxxxxolxxl",
-	"       ;xxxxxxxoc::lxxxxxxxxc:::oxxxxxxx;",
-	"         .co:::lxxxxxxd::dxxxxxxl:::oc.",
-	"            .xxxxxo:'.    .':oxxxxx.",
-	"            .xxl.  .dx'  ,xd.  .lxx.",
-	"            .xx,   .xx'  ,xx.   ;xx.",
-	"            .xxc.  .xx'  ,xx.  .cxx.",
-	"            .xxxxd:;xx'  ,xx;:dxxxx",
-	"              .;oxxxxx'  ,xxxxxo;.",
-	"                  'cdx'  ,xdc'",
-	"                     ,.  ',",
+M.theme = "doom"
+M.config = {}
+M.config.header = {
+	".                                              . ",
+	"d.                                            .d ",
+	"xx:                                          :xx ",
+	"xxxxo:.               ,oo'               .;oxxxx ",
+	"xxxxxxxxo:'           ;xx,           ':oxxxxxxxx ",
+	"xxxxxxxxxxxxdc'.      ;xx,      .':dxxxxxxxxxxxx ",
+	".':oxxxxxxxxxxxxdc'.  ;xx,  .'cdxxxxxxxxxxxxo:'. ",
+	"     .,cdxxxxxxxxxxxd.;xx,.dxxxxxxxxxxxdc;.      ",
+	"          .;lxxxxxxxx,;xx,,xxxxxxxxl;.           ",
+	"       lxl.   .':oxxx,;xx,,xxxo:'.   .lxl        ",
+	"       lxx.       xxx,;xx,,xxx       .xxl        ",
+	"       lxx.       xxx,;xx,,xxx       .xxl        ",
+	"       lxx.      .xxx,;xx,,xxx.      .xxl        ",
+	"       lxx.  .,cdxxxx,;xx,,xxxxdc;.  .xxl        ",
+	"       lxxloxxxxxxxo:,lxxc,:oxxxxxxxolxxl        ",
+	"       ;xxxxxxxoc::lxxxxxxxxc:::oxxxxxxx;        ",
+	"         .co:::lxxxxxxd::dxxxxxxl:::oc.          ",
+	"            .xxxxxo:'.    .':oxxxxx.             ",
+	"            .xxl.  .dx'  ,xd.  .lxx.             ",
+	"            .xx,   .xx'  ,xx.   ;xx.             ",
+	"            .xxc.  .xx'  ,xx.  .cxx.             ",
+	"            .xxxxd:;xx'  ,xx;:dxxxx              ",
+	"              .;oxxxxx'  ,xxxxxo;.               ",
+	"                  'cdx'  ,xdc'                   ",
+	"                     ,.  ',                      ",
 }
 
-dashboard.section.header.opts.hl = "KuugaLogo"
+local settings_action = "e $MYVIMRC | cd %:p:h | lua vim.notify('Changed to nvimrc')"
 
-dashboard.section.buttons.val = {
-	dashboard.button("n", "󰝒  > New file", ":ene <BAR> startinsert <CR>"),
-	dashboard.button("f", "󰈞  > Find file", ":Telescope find_files<CR>"),
-	dashboard.button("r", "󱋡  > Recent", ":Telescope oldfiles<CR>"),
-	dashboard.button("z", "󱧶  > Project", ":Telescope zoxide list<CR>"),
-	dashboard.button("s", "󱁻  > Settings", ":e $MYVIMRC | :cd %:p:h | lua vim.notify('Changed to nvimrc')<CR>"),
-	dashboard.button("q", "󰮘  > Quit NVIM", ":qa<CR>"),
+-- stylua: ignore
+M.config.center = {
+	{ key = "n", icon = "󰝒 ", desc = " > New file",    action = "ene <BAR> startinsert" },
+	{ key = "f", icon = "󰈞 ", desc = " > Find file",   action = "Telescope find_files" },
+	{ key = "r", icon = "󱋡 ", desc = " > Recent",      action = "Telescope oldfiles" },
+	{ key = "z", icon = "󱧶 ", desc = " > Project",     action = "Telescope zoxide list" },
+	{ key = "s", icon = "󱁻 ", desc = " > Settings",    action = settings_action },
+	{ key = "q", icon = "󰮘 ", desc = " > Quit NVIM",   action = "qa" },
 }
 
-dashboard.section.footer.val = fortune()
+M.config.footer = fortune
 
-return dashboard
+for _, button in ipairs(M.config.center) do
+	button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
+end
+
+M.hide = {
+	statusline = true,
+	tabline = true,
+	winbar = true,
+}
+
+return M
