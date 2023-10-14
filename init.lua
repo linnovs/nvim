@@ -31,6 +31,20 @@ require("lazy").setup("plugins", {
 	ui = {
 		border = "rounded",
 	},
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				-- "matchit",
+				-- "matchparen",
+				-- "netrwPlugin",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
+		},
+	},
 })
 
 kuuga.setup({
