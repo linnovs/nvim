@@ -22,6 +22,13 @@ return {
 					["cmp.entry.get_documentation"] = true,
 				},
 			},
+			views = {
+				mini = {
+					win_options = {
+						winblend = 0,
+					},
+				},
+			},
 			-- routes = { { view = "notify", filter = { event = "msg_showmode" } } },
 			presets = {
 				bottom_search = false,
