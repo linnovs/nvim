@@ -63,6 +63,25 @@ return {
 			table.insert(vimgrep_arguments, "--glob")
 			table.insert(vimgrep_arguments, "!**/.git/*")
 
+			local function flash(prompt_bufnr)
+				require("flash").jump({
+					pattern = "^",
+					label = { after = { 0, 0 } },
+					search = {
+						mode = "search",
+						exclude = {
+							function(win)
+								return vim.bo[vim.api.nvim_win_get_buf(win)].filetype ~= "TelescopeResults"
+							end,
+						},
+					},
+					action = function(match)
+						local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+						picker:set_selection(match.pos[1] - 1)
+					end,
+				})
+			end
+
 			local opts = {
 				defaults = {
 					vimgrep_arguments = vimgrep_arguments,
@@ -78,9 +97,13 @@ return {
 					},
 					set_env = { ["COLORTERM"] = "truecolor" },
 					mappings = {
+						n = {
+							s = flash,
+						},
 						i = {
 							["<ESC>"] = actions.close,
 							["<C-h>"] = "which_key",
+							["<C-s>"] = flash,
 						},
 					},
 					prompt_prefix = " ",
