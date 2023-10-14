@@ -40,7 +40,7 @@ return {
 			local luasnip = require("luasnip")
 			local lspkind = require("lspkind")
 			local cmp = require("cmp")
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			local defaults = require("cmp.config.default")()
 
 			local mapping = {
 				["<Tab>"] = cmp.mapping({
@@ -85,6 +85,9 @@ return {
 				experimental = {
 					ghost_text = true,
 				},
+				completion = {
+					completeopt = "menu,menuone,noinsert,noselect",
+				},
 				preselect = cmp.PreselectMode.None,
 				window = {
 					completion = {
@@ -125,18 +128,7 @@ return {
 						end,
 					}),
 				},
-				-- sorting = {
-				--     priority_weight = 2,
-				--     comparators = {
-				--         cmp.config.compare.offset,
-				--         cmp.config.compare.exact,
-				--         cmp.config.compare.score,
-				--         cmp.config.compare.kind,
-				--         cmp.config.compare.sort_text,
-				--         cmp.config.compare.length,
-				--         cmp.config.compare.order,
-				--     },
-				-- },
+				sorting = defaults.sorting,
 				sources = cmp.config.sources({
 					{ name = "copilot" },
 					{ name = "codeium" },
@@ -150,7 +142,6 @@ return {
 				}),
 			})
 
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 			cmp.setup.cmdline({ "/", "?" }, {
 				sources = cmp.config.sources({ { name = "buffer" } }),
 			})
