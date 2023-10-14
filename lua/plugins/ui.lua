@@ -101,20 +101,26 @@ return {
 		end,
 	},
 
-			vim.api.nvim_create_autocmd("VimEnter", {
-				group = vim.api.nvim_create_augroup("kuuga_dashboard", { clear = true }),
-				pattern = "*",
+	{
+		"echasnovski/mini.indentscope",
+		event = "BufReadPre",
+		opts = {
+			symbol = "┊",
+			options = { try_as_border = true },
+		},
+		init = function()
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = {
+					"FTerm",
+					"Trouble",
+					"alpha",
+					"help",
+					"lazy",
+					"mason",
+					"neo-tree",
+				},
 				callback = function()
-					local argv = vim.api.nvim_call_function("argv", {})
-					if #argv == 0 then
-						return
-					end
-
-					local is_dir = vim.api.nvim_call_function("isdirectory", { argv[1] })
-					if is_dir == 1 then
-						vim.cmd.chdir(argv[1])
-						vim.cmd.Alpha()
-					end
+					vim.b.miniindentscope_disable = true
 				end,
 			})
 		end,
