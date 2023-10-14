@@ -132,6 +132,14 @@ return {
 							},
 						},
 					},
+					man_pages = {
+						sections = { "ALL" },
+						mappings = {
+							i = {
+								["<CR>"] = actions.select_vertical,
+							},
+						},
+					},
 					zoxide = {
 						theme = "dropdown",
 					},
