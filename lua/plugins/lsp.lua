@@ -24,11 +24,15 @@ return {
 			end
 
 			vim.diagnostic.config({
-				virtual_text = true,
+				virtual_text = {
+					spacing = 4,
+					source = "if_many",
+					prefix = "●",
+				},
 				signs = true,
 				underline = true,
 				update_in_insert = true,
-				severity_sort = false,
+				severity_sort = true,
 			})
 		end,
 		opts = {
