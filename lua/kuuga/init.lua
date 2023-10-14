@@ -20,7 +20,9 @@ function M.setup(opts)
 	end
 
 	-- neovide config
-	vim.g.neovide_no_idle = true
+	if vim.g.neovide then
+		require("kuuga.neovide")
+	end
 end
 
 M.did_init = false
