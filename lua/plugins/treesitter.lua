@@ -4,6 +4,7 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"JoosepAlviste/nvim-ts-context-commentstring",
+			{ "nvim-treesitter/nvim-treesitter-context", opts = { mode = "cursor" } },
 			{ "windwp/nvim-ts-autotag", opts = {} },
 		},
 		version = false,
