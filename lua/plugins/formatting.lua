@@ -1,26 +1,17 @@
 return {
 	{
-		"mhartington/formatter.nvim",
-		cmd = { "Format", "FormatWrite" },
-		init = function()
-			vim.api.nvim_create_autocmd("BufWritePost", {
-				callback = function()
-					vim.cmd("FormatWrite")
-				end,
-			})
-		end,
-		config = function()
-			-- local defaults = require("formatter.defaults")
-			local filetypes = require("formatter.filetypes")
-
-			require("formatter").setup({
-				logging = false,
-				filetype = {
-					lua = {
-						filetypes.lua.stylua,
-					},
-				},
-			})
-		end,
+		"stevearc/conform.nvim",
+		event = "BufReadPre",
+		opts = {
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_fallback = true,
+			},
+			formatters_by_ft = {
+				lua = { "stylua" },
+				go = { "gofmt", "goimports", "golines" },
+			},
+			notify_on_error = true,
+		},
 	},
 }
