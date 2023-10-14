@@ -12,10 +12,19 @@ return {
 	},
 
 	{
-		"kylechui/nvim-surround",
-		event = "BufReadPost",
-		version = false,
-		config = true,
+		"echasnovski/mini.surround",
+		events = "BufReadPost",
+		opts = {
+			mappings = {
+				add = "ys",
+				delete = "ds",
+				find = "gsf",
+				find_left = "gsF",
+				highlight = "gsh",
+				replace = "cs",
+				update_n_lines = "gsn",
+			},
+		},
 	},
 
 	{
