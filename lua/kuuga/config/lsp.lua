@@ -68,6 +68,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				buffer = bufnr,
 				callback = function()
 					vim.lsp.buf.format({
+						async = false,
 						filter = function(c)
 							return M.format_filter[c.name] ~= true
 						end,
