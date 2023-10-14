@@ -126,6 +126,11 @@ return {
 					},
 					help_tags = {
 						theme = "dropdown",
+						mappings = {
+							i = {
+								["<CR>"] = actions.select_vertical,
+							},
+						},
 					},
 					zoxide = {
 						theme = "dropdown",
