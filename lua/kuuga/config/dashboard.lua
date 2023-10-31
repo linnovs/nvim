@@ -35,7 +35,7 @@ local settings_action = "e $MYVIMRC | cd %:p:h | lua vim.notify('Changed to nvim
 
 -- stylua: ignore
 M.config.center = {
-	{ key = "n", icon = "󰝒 ", desc = " > New file",    action = "ene <BAR> startinsert" },
+	{ key = "n", icon = "󰝒 ", desc = " > New file",    action = "ene | startinsert" },
 	{ key = "f", icon = "󰈞 ", desc = " > Find file",   action = "Telescope find_files" },
 	{ key = "r", icon = "󱋡 ", desc = " > Recent",      action = "Telescope oldfiles" },
 	{ key = "z", icon = "󱧶 ", desc = " > Project",     action = "Telescope zoxide list" },
