@@ -147,32 +147,6 @@ return {
 		end,
 	},
 
-	-- status column
-	{
-		"luukvbaal/statuscol.nvim",
-		config = function()
-			local builtin = require("statuscol.builtin")
-
-			require("statuscol").setup({
-				segments = {
-					{
-						sign = { name = { "Git" }, maxwidth = 1, colwidth = 1 },
-						click = "v:lua.ScSa",
-					},
-					{
-						sign = { name = { "Diagnostic" }, maxwidth = 1 },
-						click = "v:lua.ScSa",
-					},
-					{
-						text = { builtin.lnumfunc, " " },
-						click = "v:lua:ScLa",
-					},
-					{ text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
-				},
-			})
-		end,
-	},
-
 	-- icons
 	"nvim-tree/nvim-web-devicons",
 }
