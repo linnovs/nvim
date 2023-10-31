@@ -294,17 +294,10 @@ return {
 			vim.o.foldlevelstart = 99
 			vim.o.foldenable = true
 		end,
+        -- stylua: ignore
 		keys = {
-			{
-				"zR",
-				'<CMD>lua require("ufo").openAllFold()<CR>',
-				desc = "Open all folds (ufo version)",
-			},
-			{
-				"zM",
-				'<CMD>lua require("ufo").closeAllFold()<CR>',
-				desc = "Close all folds (ufo version)",
-			},
+			{ "zR", function() require("ufo").openAllFolds() end, desc = "Open all folds (ufo version)", },
+			{ "zM", function() require("ufo").closeAllFolds() end, desc = "Close all folds (ufo version)", },
 		},
 		opts = {},
 	},
