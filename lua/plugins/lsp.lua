@@ -31,7 +31,7 @@ return {
 				},
 				signs = true,
 				underline = true,
-				update_in_insert = true,
+				update_in_insert = false,
 				severity_sort = true,
 			})
 		end,
