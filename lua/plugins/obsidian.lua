@@ -1,6 +1,7 @@
 return {
 	{
 		"epwalsh/obsidian.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
 		cmd = {
 			"ObsidianCheck",
 			"ObsidianToday",
@@ -47,12 +48,19 @@ return {
 			},
 		},
 		opts = {
-			dir = "~/Documents/Obsidian Vault",
+			workspaces = {
+				{
+					name = "personal",
+					path = "~/Documents/Obsidian Vault",
+				},
+			},
 			notes_subdir = "notes",
 			daily_notes = {
 				folder = "notes/dailies",
 			},
 			completion = { nvim_cmp = true },
+			mappings = {},
+			overwrite_mappings = false,
 		},
 	},
 }
