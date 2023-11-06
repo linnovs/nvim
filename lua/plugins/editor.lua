@@ -113,89 +113,13 @@ return {
 
 	{
 		"stevearc/oil.nvim",
-		cmd = "Oil",
+		lazy = false,
 		keys = {
 			{ "<Leader>of", "<CMD>Oil<CR>", desc = "Open oil (file explorer)" },
 		},
 		opts = {},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
-
-	-- {
-	-- 	"nvim-neo-tree/neo-tree.nvim",
-	-- 	cmd = "Neotree",
-	-- 	keys = {
-	-- 		{
-	-- 			"<leader>op",
-	-- 			"<cmd>Neotree focus left reveal filesystem<cr>",
-	-- 			desc = "Toggle Explorer",
-	-- 		},
-	-- 		{
-	-- 			"<leader>ogs",
-	-- 			"<cmd>Neotree focus float git_status<cr>",
-	-- 			desc = "Toggle git status",
-	-- 		},
-	-- 	},
-	-- 	opts = {
-	-- 		close_if_last_window = true,
-	-- 		source_selector = {
-	-- 			winbar = true,
-	-- 			sources = {
-	-- 				{
-	-- 					source = "filesystem",
-	-- 					display_name = "   Files ",
-	-- 				},
-	-- 				{
-	-- 					source = "buffers",
-	-- 					display_name = "  Buffers ",
-	-- 				},
-	-- 				{
-	-- 					source = "git_status",
-	-- 					display_name = "  Git ",
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 		default_component_configs = {
-	-- 			icon = {
-	-- 				folder_closed = "",
-	-- 				folder_empty = "",
-	-- 				folder_open = "",
-	-- 				folder_empty_open = "",
-	-- 			},
-	-- 			git_status = {
-	-- 				symbols = {
-	-- 					added = "",
-	-- 					deleted = "",
-	-- 					modified = "",
-	-- 					renamed = "",
-	-- 					untracked = "",
-	-- 					ignored = "",
-	-- 					unstaged = "󰄱",
-	-- 					staged = "󰄵",
-	-- 					conflict = "󰘼",
-	-- 				},
-	-- 			},
-	-- 			modified = {
-	-- 				symbol = "",
-	-- 			},
-	-- 		},
-	-- 		filesystem = {
-	-- 			follow_current_file = {
-	-- 				enabled = true,
-	-- 			},
-	-- 			use_libuv_file_watcher = true,
-	-- 		},
-	-- 		event_handlers = {
-	-- 			{
-	-- 				event = "file_opened",
-	-- 				handler = function()
-	-- 					-- auto close
-	-- 					require("neo-tree.command").execute({ action = "close" })
-	-- 				end,
-	-- 			},
-	-- 		},
-	-- 	},
-	-- },
 
 	{
 		"folke/which-key.nvim",
