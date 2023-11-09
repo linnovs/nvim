@@ -6,20 +6,17 @@ local function insert(position, component)
 	table.insert(sections[pos], component)
 end
 
+local mode = require("kuuga.config.statusline.mode")
+local noice = require("kuuga.config.statusline.noice")
 local lsp = require("kuuga.config.statusline.lsp")
 local git = require("kuuga.config.statusline.git")
 local file = require("kuuga.config.statusline.file")
 local lazy_updates = require("kuuga.config.statusline.updates")
 
-local noice = require("noice").api.status
-
 -- available position are a,b,c,x,y,z
-insert("a", { "mode" })
-insert("a", {
-	noice.mode.get,
-	cond = noice.mode.has,
-	color = { fg = "#ffffff", bg = "#e43fde" },
-})
+insert("b", mode.bar)
+insert("b", mode.icon)
+insert("b", noice.marco)
 insert("b", lsp.client_names)
 insert("b", git.branch)
 insert("b", git.diff)
@@ -30,7 +27,7 @@ insert("x", file.encoding)
 insert("x", file.format)
 insert("x", file.type)
 insert("y", lsp.diagnostics)
-insert("z", file.location)
+insert("y", file.location)
 
 require("lualine").setup({
 	options = {
