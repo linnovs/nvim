@@ -7,7 +7,7 @@ return {
 		name = "catppuccin",
 		opts = function()
 			return {
-				flavor = "mocha",
+				flavor = "macchiato",
 				transparent_background = not vim.g.neovide,
 				custom_highlights = function(colors)
 					local telescopePreviewBg = colors.base
