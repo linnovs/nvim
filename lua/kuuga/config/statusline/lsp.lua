@@ -13,6 +13,7 @@ M.client_names = {
 		return table.concat(clients, " ")
 	end,
 	icon = " ",
+	color = { fg = "#b7bdf8" },
 }
 
 M.diagnostics =
