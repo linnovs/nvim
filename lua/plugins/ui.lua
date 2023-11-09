@@ -31,7 +31,7 @@ return {
 			},
 			-- routes = { { view = "notify", filter = { event = "msg_showmode" } } },
 			presets = {
-				bottom_search = false,
+				bottom_search = true,
 				command_palette = true,
 				long_message_to_split = true,
 				inc_name = false,
