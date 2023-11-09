@@ -8,6 +8,10 @@ return {
 		opts = function()
 			return {
 				flavor = "macchiato",
+				background = {
+					light = "latte",
+					dark = "macchiato",
+				},
 				transparent_background = not vim.g.neovide,
 				custom_highlights = function(colors)
 					local telescopePreviewBg = colors.base
