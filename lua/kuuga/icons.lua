@@ -1,6 +1,6 @@
 local M = {}
 
-M.diagnostics = { Error = "❌", Warn = "⚠️ ", Hint = "💡", Info = "ℹ️ " }
+M.diagnostics = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 M.kinds = {
 	Array = " ",
 	Boolean = " ",
