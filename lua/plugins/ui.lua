@@ -91,16 +91,6 @@ return {
 		},
 	},
 
-	-- dashboard
-	{
-		"glepnir/dashboard-nvim",
-		event = "VimEnter",
-		config = function()
-			local dashboard = require("kuuga.config.dashboard")
-			require("dashboard").setup(dashboard)
-		end,
-	},
-
 	{
 		"echasnovski/mini.indentscope",
 		event = "BufReadPre",
@@ -126,7 +116,17 @@ return {
 		end,
 	},
 
-	-- beauty defaul UI
+	-- dashboard
+	{
+		"glepnir/dashboard-nvim",
+		event = "VimEnter",
+		config = function()
+			local dashboard = require("kuuga.config.dashboard")
+			require("dashboard").setup(dashboard)
+		end,
+	},
+
+	-- beauty default UI
 	{
 		"stevearc/dressing.nvim",
 		event = "BufReadPre",
