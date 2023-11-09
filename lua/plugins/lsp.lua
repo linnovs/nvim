@@ -209,6 +209,7 @@ return {
 			window = {
 				border = "rounded",
 			},
+			icons = icons,
 		},
 	},
 
