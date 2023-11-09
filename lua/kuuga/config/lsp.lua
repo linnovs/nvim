@@ -59,7 +59,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		})
 
 		if client.supports_method("textDocument/codeAction") then
-			map("n", "<Leader>cam", vim.lsp.buf.code_action, "Code action")
+			map("n", "<Leader>ca", vim.lsp.buf.code_action, "Code action")
 		end
 
 		if client.supports_method("textDocument/formatting") then
