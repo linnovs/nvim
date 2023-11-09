@@ -46,34 +46,63 @@ return {
 				end,
 				integrations = {
 					alpha = true,
+					barbecue = {
+						dim_dirname = true,
+						bold_basename = true,
+						dim_context = false,
+						alt_background = false,
+					},
 					cmp = true,
+					dap = {
+						enabled = true,
+						enable_ui = true,
+					},
 					dashboard = true,
 					flash = true,
 					gitsigns = true,
+					headlines = true,
 					illuminate = true,
 					indent_blankline = {
 						enabled = true,
 					},
-					leap = true,
 					lsp_trouble = true,
+					markdown = true,
 					mason = true,
-					mini = true,
+					mini = {
+						enabled = true,
+						indentscope_color = "mauve",
+					},
 					native_lsp = {
 						enabled = true,
+						virtual_text = {
+							errors = { "italic" },
+							hints = { "italic" },
+							warnings = { "italic" },
+							information = { "italic" },
+						},
 						underlines = {
 							errors = { "undercurl" },
 							hints = { "undercurl" },
 							warnings = { "undercurl" },
 							information = { "undercurl" },
 						},
+						inlay_hints = {
+							background = true,
+						},
+					},
+					navic = {
+						enabled = true,
+						custom_bg = "NONE",
 					},
 					neogit = true,
-					neotree = true,
 					noice = true,
 					notify = true,
 					octo = true,
-					telescope = true,
+					telescope = {
+						enabled = true,
+					},
 					treesitter = true,
+					treesitter_context = true,
 					which_key = true,
 				},
 			}
