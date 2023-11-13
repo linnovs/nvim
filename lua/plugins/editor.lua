@@ -237,6 +237,14 @@ return {
 	},
 
 	{
+		"carbon-steel/detour.nvim",
+		command = "Detour",
+		keys = {
+			{ "<LEADER>op", ":Detour<cr>", desc = "Open Detour" },
+		},
+	},
+
+	{
 		"chrisgrieser/nvim-early-retirement",
 		config = true,
 		event = "VeryLazy",
