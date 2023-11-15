@@ -245,6 +245,11 @@ return {
 	},
 
 	{
+		"kevinhwang91/nvim-bqf",
+		ft = "qf",
+	},
+
+	{
 		"chrisgrieser/nvim-early-retirement",
 		config = true,
 		event = "VeryLazy",
