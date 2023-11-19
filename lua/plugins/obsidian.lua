@@ -2,18 +2,9 @@ return {
 	{
 		"epwalsh/obsidian.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		cmd = {
-			"ObsidianCheck",
-			"ObsidianToday",
-			"ObsidianYesterday",
-			"ObsidianOpen",
-			"ObsidianNew",
-			"ObsidianQuickSwitch",
-			"ObsidianBacklinks",
-			"ObsidianSearch",
-			"ObsidianLink",
-			"ObsidianLinkNew",
-			"ObsidianFollowLink",
+		event = {
+			"BufReadPre " .. vim.fn.expand("~") .. "/Documents/Obsidian Vault/**.md",
+			"BufNewFile " .. vim.fn.expand("~") .. "/Documents/Obsidian Vault/**.md",
 		},
 		keys = {
 			{
@@ -59,8 +50,6 @@ return {
 				folder = "notes/dailies",
 			},
 			completion = { nvim_cmp = true },
-			mappings = {},
-			overwrite_mappings = false,
 		},
 	},
 }
