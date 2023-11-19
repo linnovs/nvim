@@ -24,7 +24,7 @@ local dependencies = {
 
 	"petertriho/cmp-git",
 	"davidsierradz/cmp-conventionalcommits",
-	"jcdickinson/codeium.nvim",
+	"Exafunction/codeium.nvim",
 
 	-- other dependencies
 	"onsails/lspkind.nvim",
