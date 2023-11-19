@@ -29,6 +29,19 @@ return {
 					},
 				},
 			},
+			routes = {
+				{
+					filter = {
+						event = "msg_show",
+						any = {
+							{ find = "%d+L, %d+B" },
+							{ find = "; after #%d+" },
+							{ find = "; before #%d+" },
+						},
+					},
+					view = "mini",
+				},
+			},
 			-- routes = { { view = "notify", filter = { event = "msg_showmode" } } },
 			presets = {
 				bottom_search = true,
@@ -51,6 +64,7 @@ return {
 		opts = {
 			attach_navic = false,
 			theme = "catppucin-macchiato",
+			exclude_filetypes = { "toggleterm" },
 		},
 	},
 
