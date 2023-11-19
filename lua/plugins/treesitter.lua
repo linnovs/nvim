@@ -10,6 +10,9 @@ return {
 		version = false,
 		build = ":TSUpdate",
 		event = "BufReadPost",
+		init = function()
+			vim.g.skip_ts_context_commentstring_module = true
+		end,
 		opts = {
 			sync_install = false,
 			ensure_installed = {
@@ -57,7 +60,6 @@ return {
 			},
 			highlight = { enable = true, additional_vim_regex_highlighting = false },
 			indent = { enable = true },
-			context_commentstring = { enable = true },
 			textobjects = {
 				select = {
 					enable = true,
@@ -79,6 +81,9 @@ return {
 			},
 		},
 		config = function(_, opts)
+			require("ts_context_commentstring").setup({
+				enable_autocmd = false,
+			})
 			require("nvim-treesitter.configs").setup(opts)
 			vim.treesitter.language.register("markdown", "octo")
 		end,
