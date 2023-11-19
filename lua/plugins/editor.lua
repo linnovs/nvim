@@ -168,7 +168,13 @@ return {
 	{
 		"folke/flash.nvim",
 		event = "BufReadPre",
-		opts = {},
+		opts = {
+			modes = {
+				char = {
+					jump_labels = true,
+				},
+			},
+		},
         -- stylua: ignore
 		keys = {
 			{ "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash", },
