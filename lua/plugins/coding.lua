@@ -1,12 +1,19 @@
 return {
 	{
 		"echasnovski/mini.comment",
+		event = "BufReadPost",
 		opts = {
 			options = {
 				custom_commentstring = function()
 					return require("ts_context_commentstring.internal").calculate_commentstring()
 						or vim.bo.commentstring
 				end,
+			},
+			mappings = {
+				comment = "gc",
+				comment_line = "gcc",
+				comment_visual = "gc",
+				textobject = "gc",
 			},
 		},
 	},
