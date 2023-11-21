@@ -89,9 +89,6 @@ return {
 				experimental = {
 					ghost_text = true,
 				},
-				completion = {
-					completeopt = "menu,menuone,noinsert,noselect",
-				},
 				preselect = cmp.PreselectMode.None,
 				window = {
 					completion = {
