@@ -156,6 +156,8 @@ return {
 				sources = cmp.config.sources({
 					{ name = "conventionalcommits" },
 					{ name = "cmp_git" },
+					{ name = "copilot" },
+					{ name = "codeium" },
 				}, {
 					{ name = "buffer" },
 					{ name = "spell" },
