@@ -12,14 +12,18 @@ local dependencies = {
 		dependencies = {
 			"zbirenbaum/copilot.lua",
 		},
-		config = true,
+		config = function()
+			require("copilot_cmp").setup()
+		end,
 	},
 	{
 		"petertriho/cmp-git",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
-		config = true,
+		config = function()
+			require("cmp_git").setup({})
+		end,
 	},
 
 	"petertriho/cmp-git",

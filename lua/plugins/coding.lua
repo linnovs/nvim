@@ -84,7 +84,7 @@ return {
 	-- copilot
 	{
 		"zbirenbaum/copilot.lua",
-		dependencies = { "nvim-lualine/lualine.nvim" },
+		build = ":Copilot auth",
 		opts = {
 			suggestion = { enabled = false },
 			panel = { enabled = false },
