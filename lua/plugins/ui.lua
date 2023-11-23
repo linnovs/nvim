@@ -150,6 +150,7 @@ return {
 	-- beauty default UI
 	{
 		"stevearc/dressing.nvim",
+		version = false,
 		event = "BufReadPre",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		opts = {
