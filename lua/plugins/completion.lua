@@ -40,7 +40,7 @@ return {
 		version = false,
 		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = dependencies,
-		config = function()
+		opts = function()
 			local luasnip = require("luasnip")
 			local lspkind = require("lspkind")
 			local cmp = require("cmp")
@@ -85,7 +85,7 @@ return {
 				["<C-f>"] = cmp.mapping({ i = cmp.mapping.scroll_docs(4) }),
 			}
 
-			cmp.setup({
+			return {
 				experimental = {
 					ghost_text = true,
 				},
@@ -109,6 +109,7 @@ return {
 					fields = { "kind", "abbr", "menu" },
 					format = lspkind.cmp_format({
 						mode = "symbol",
+
 						maxwidth = 50,
 						symbol_map = require("kuuga.icons").kinds,
 						before = function(entry, vim_item)
@@ -141,14 +142,25 @@ return {
 					{ name = "path" },
 					{ name = "buffer" },
 				}),
-			})
+			}
+		end,
+		---@param opts cmp.ConfigSchema
+		config = function(_, opts)
+			local cmp = require("cmp")
 
+			cmp.setup(opts)
+
+			---@diagnostic disable-next-line: missing-fields
 			cmp.setup.cmdline({ "/", "?" }, {
 				sources = cmp.config.sources({ { name = "buffer" } }),
 			})
+
+			---@diagnostic disable-next-line: missing-fields
 			cmp.setup.cmdline(":", {
 				sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 			})
+
+			---@diagnostic disable-next-line: missing-fields
 			cmp.setup.filetype("gitcommit", {
 				sources = cmp.config.sources({
 					{ name = "conventionalcommits" },
