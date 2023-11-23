@@ -53,7 +53,7 @@ return {
 				goto_right = "g]",
 			},
 
-			n_lines = 50,
+			n_lines = 500,
 			search_method = "cover_or_next",
 
 			silent = false,
