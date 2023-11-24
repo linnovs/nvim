@@ -165,7 +165,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
 		config = function()
-			require("kuuga.config.statusline")
+			require("kuuga.config.statusline.lualine")
 		end,
 	},
 
