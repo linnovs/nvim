@@ -44,9 +44,7 @@ stl:add_item(diagnostic(vim.diagnostic.severity.WARN))
 stl:add_item(diagnostic(vim.diagnostic.severity.INFO))
 stl:add_item(diagnostic(vim.diagnostic.severity.HINT))
 stl:add_item(ruler())
-stl:add_item(percentage({
-	sep_left = sep.left_chevron_solid(true),
-}))
+stl:add_item(percentage({ sep_left = sep.left_chevron_solid(true) }))
 
 local inactive_stl = Bar("statusline")
 inactive_stl:add_item(mode())
