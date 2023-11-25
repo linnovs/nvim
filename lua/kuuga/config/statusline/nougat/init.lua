@@ -53,6 +53,8 @@ inactive_stl:add_item(file.name_with_icon({
 }))
 inactive_stl:add_item(file.status())
 inactive_stl:add_item(spacer())
+inactive_stl:add_item(file.format({ prefix = " " }))
+inactive_stl:add_item(file.encoding({ prefix = " ", suffix = " " }))
 
 bar_util.set_statusline(function(ctx)
 	return ctx.is_focused and stl or inactive_stl
