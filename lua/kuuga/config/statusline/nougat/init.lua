@@ -9,6 +9,7 @@ local mode = require("kuuga.config.statusline.nougat.mode")
 local lsp_server = require("kuuga.config.statusline.nougat.lsp_server")
 local git = require("kuuga.config.statusline.nougat.git")
 local file = require("kuuga.config.statusline.nougat.file")
+local lazy = require("kuuga.config.statusline.nougat.lazy")
 local diagnostic = require("kuuga.config.statusline.nougat.diagnostic")
 local ruler = require("kuuga.config.statusline.nougat.ruler")
 local percentage = require("kuuga.config.statusline.nougat.percentage")
@@ -24,6 +25,8 @@ stl:add_item(file.name_with_icon({
 stl:add_item(file.status())
 stl:add_item(spacer())
 stl:add_item(truncation_point())
+stl:add_item(lazy())
+stl:add_item(sep.space())
 stl:add_item(file.format({
 	hl = { bg = color.surface1 },
 	prefix = " ",
