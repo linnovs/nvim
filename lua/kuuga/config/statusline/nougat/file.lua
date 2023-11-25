@@ -38,6 +38,9 @@ local get_filename_with_icon = function(_, ctx)
 		}),
 		nut_buf_filename.create({
 			prefix = " ",
+			config = {
+				modifier = ":~:.",
+			},
 		}),
 	}
 end
