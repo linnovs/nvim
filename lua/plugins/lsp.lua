@@ -92,6 +92,7 @@ return {
 						},
 					},
 				},
+				nil_ls = {},
 				tailwindcss = {},
 				terraformls = {},
 				tsserver = {
