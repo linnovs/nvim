@@ -105,6 +105,7 @@ return {
 		},
 		lazy = true,
 		opts = {},
+		branch = "exafunction/update",
 	},
 
 	-- snippet
