@@ -1,7 +1,7 @@
 return {
 	{
 		"akinsho/nvim-toggleterm.lua",
-		version = "*",
+		version = false,
 		event = "VeryLazy",
 		opts = {
 			size = function(term)
