@@ -13,6 +13,7 @@ return {
 				zsh = { "beautysh" },
 				bash = { "beautysh" },
 				sh = { "beautysh" },
+				["*"] = { "trim_whitespace" },
 			},
 			notify_on_error = true,
 		},
