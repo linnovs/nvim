@@ -169,11 +169,7 @@ return {
 		"folke/flash.nvim",
 		event = "BufReadPre",
 		opts = {
-			modes = {
-				char = {
-					jump_labels = true,
-				},
-			},
+			labels = "arstgmneioqwfpbjluyzxcdvkh",
 		},
         -- stylua: ignore
 		keys = {
