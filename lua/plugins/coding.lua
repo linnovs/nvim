@@ -104,6 +104,7 @@ return {
 			"nvim-lua/plenary.nvim",
 		},
 		lazy = true,
+        commit = "822e762567a0bf50b1a4e733c8c93691934d7606",
 		opts = {},
 	},
 
