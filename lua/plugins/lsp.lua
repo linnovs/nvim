@@ -124,6 +124,7 @@ return {
 						},
 					},
 				},
+				typos_lsp = {},
 				volar = {},
 				yamlls = {
 					disable_format = true,
