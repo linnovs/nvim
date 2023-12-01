@@ -47,6 +47,7 @@ return {
 						format = false,
 					},
 				},
+				dockerls = {},
 				gdscript = {},
 				golangci_lint_ls = {},
 				gopls = {
