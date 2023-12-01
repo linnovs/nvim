@@ -2,6 +2,7 @@ return {
 	{
 		"stevearc/conform.nvim",
 		event = "BufReadPre",
+		cmd = "ConformInfo",
 		opts = {
 			format_on_save = {
 				timeout_ms = 1000,
