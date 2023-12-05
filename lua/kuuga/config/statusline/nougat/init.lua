@@ -6,6 +6,7 @@ local truncation_point = require("nougat.nut.truncation_point").create
 local color = require("catppuccin.palettes").get_palette("macchiato") or {}
 
 local mode = require("kuuga.config.statusline.nougat.mode")
+local marco = require("kuuga.config.statusline.nougat.macro")
 local lsp_server = require("kuuga.config.statusline.nougat.lsp_server")
 local git = require("kuuga.config.statusline.nougat.git")
 local file = require("kuuga.config.statusline.nougat.file")
@@ -25,6 +26,8 @@ stl:add_item(file.name_with_icon({
 stl:add_item(file.status())
 stl:add_item(spacer())
 stl:add_item(truncation_point())
+stl:add_item(marco())
+stl:add_item(sep.space())
 stl:add_item(lazy())
 stl:add_item(sep.space())
 stl:add_item(file.format({
