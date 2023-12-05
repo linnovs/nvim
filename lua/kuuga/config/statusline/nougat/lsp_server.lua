@@ -32,6 +32,13 @@ local lsp_server = function(opts)
 			fg = color.surface0,
 			bold = true,
 		},
+		cache = {
+			scope = "buf",
+			clear = {
+				"LspAttach",
+				"LspDetach",
+			},
+		},
 	}, opts or {})
 
 	return Item(opts)
