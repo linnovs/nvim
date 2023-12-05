@@ -37,6 +37,7 @@ return {
 		end,
 		opts = {
 			servers = {
+				bashls = {},
 				clangd = {
 					filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 				},
