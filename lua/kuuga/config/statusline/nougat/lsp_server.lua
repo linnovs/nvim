@@ -12,7 +12,7 @@ local get_content = function(_, ctx)
 		return nil
 	end
 
-	return table.concat(clients, " & ")
+	return table.concat(clients, " ")
 end
 
 local is_hidden = function(_, ctx)
