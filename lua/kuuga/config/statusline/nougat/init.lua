@@ -17,6 +17,7 @@ local percentage = require("kuuga.config.statusline.nougat.percentage")
 
 local stl = Bar("statusline")
 stl:add_item(mode())
+stl:add_item(marco())
 stl:add_item(lsp_server())
 stl:add_item(git.branch())
 stl:add_item(git.status())
@@ -26,8 +27,6 @@ stl:add_item(file.name_with_icon({
 stl:add_item(file.status())
 stl:add_item(spacer())
 stl:add_item(truncation_point())
-stl:add_item(marco())
-stl:add_item(sep.space())
 stl:add_item(lazy())
 stl:add_item(sep.space())
 stl:add_item(file.format({
