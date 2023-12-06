@@ -29,13 +29,11 @@ end
 
 local marco = function(opts)
 	opts = vim.tbl_extend("force", {
-		hl = { fg = color.base, bg = color.red },
-		sep_left = sep.left_half_circle_solid(true),
-		sep_right = sep.right_half_circle_solid(true),
+		hl = { fg = color.red, bg = color.overlay0 },
 		hidden = is_hidden,
-		prefix = "󰑋 ",
+		prefix = "󰻃 ",
 		content = get_content,
-		suffix = "",
+		suffix = " ",
 		cache = {
 			store = cache_store,
 			get = get_cache,
