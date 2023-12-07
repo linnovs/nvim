@@ -122,6 +122,7 @@ return {
 					"lazy",
 					"mason",
 					"neo-tree",
+					"man",
 				},
 				callback = function()
 					vim.b.miniindentscope_disable = true
