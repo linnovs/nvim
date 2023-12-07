@@ -81,6 +81,12 @@ return {
 		},
 	},
 
+	-- diffview
+	{
+		"sindrets/diffview.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+
 	-- copilot
 	{
 		"zbirenbaum/copilot.lua",
