@@ -70,10 +70,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			require("nvim-navbuddy").attach(client, bufnr)
 		end
 
-		if client.supports_method("textDocument/signatureHelp") then
-			map({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, "Signature help")
-		end
-
 		if client.supports_method("textDocument/inlayHint") then
 			vim.lsp.inlay_hint.enable(bufnr, true)
 		end
