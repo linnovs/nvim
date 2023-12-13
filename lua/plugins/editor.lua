@@ -106,6 +106,7 @@ return {
 			},
 		},
 		opts = {
+			graph_style = "unicode",
 			disable_commit_confirmation = true,
 			use_telescope = true,
 		},
