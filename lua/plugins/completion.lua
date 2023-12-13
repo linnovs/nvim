@@ -26,6 +26,7 @@ local dependencies = {
 		end,
 	},
 	"chrisgrieser/cmp-nerdfont",
+	"hrsh7th/cmp-nvim-lsp-signature-help",
 	"petertriho/cmp-git",
 	"davidsierradz/cmp-conventionalcommits",
 	"Exafunction/codeium.nvim",
@@ -125,6 +126,7 @@ return {
 								nvim_lua = "[Lua]",
 								path = "[Path]",
 								spell = "[Spell]",
+								nvim_lsp_signature_help = "[Signature]",
 							})[entry.source.name]
 
 							return vim_item
@@ -138,6 +140,7 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "nvim_lua" },
+					{ name = "nvim_lsp_signature_help" },
 				}, {
 					{ name = "nerdfont" },
 					{ name = "spell" },
