@@ -1,21 +1,19 @@
+local formatters = require("kuuga.config.tools").formatters
+
 return {
 	{
 		"stevearc/conform.nvim",
 		event = "BufReadPre",
 		cmd = "ConformInfo",
+		init = function()
+			vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
+		end,
 		opts = {
 			format_on_save = {
 				timeout_ms = 1000,
 				lsp_fallback = true,
 			},
-			formatters_by_ft = {
-				lua = { "stylua" },
-				go = { "gofmt", "goimports", "golines" },
-				zsh = { "beautysh" },
-				bash = { "beautysh" },
-				sh = { "beautysh" },
-				["*"] = { "trim_whitespace" },
-			},
+			formatters_by_ft = formatters,
 			notify_on_error = true,
 		},
 	},
