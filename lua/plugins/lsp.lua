@@ -14,7 +14,7 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			"hrsh7th/cmp-nvim-lsp",
+			{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "neovim/nvim-lspconfig" } },
 			"folke/neodev.nvim",
 		},
 		init = function()
@@ -163,6 +163,7 @@ return {
 				}
 			)
 
+			require("neoconf").setup({})
 			require("neodev").setup({})
 
 			for _, server in ipairs(vim.tbl_keys(servers)) do
