@@ -33,8 +33,8 @@ return {
 				"html",
 				"javascript",
 				"jsdoc",
-				-- "json",
-				-- "jsonc",
+				"json",
+				"jsonc",
 				"lua",
 				"luadoc",
 				"luap",
@@ -81,6 +81,7 @@ return {
 			},
 		},
 		config = function(_, opts)
+			---@diagnostic disable-next-line: missing-fields
 			require("ts_context_commentstring").setup({
 				enable_autocmd = false,
 			})
