@@ -1,16 +1,13 @@
+local linters = require("kuuga.config.tools").linters
+
 return {
 	{
 		"mfussenegger/nvim-lint",
 		event = "BufReadPre",
-		opts = {
-			linters_by_ft = {
-				go = { "golangcilint" },
-			},
-		},
 		config = function(_, opts)
 			local M = {}
 			local lint = require("lint")
-			lint.linters_by_ft = opts.linters_by_ft
+			lint.linters_by_ft = linters
 
 			function M.debounce(ms, fn)
 				local timer = vim.loop.new_timer()
