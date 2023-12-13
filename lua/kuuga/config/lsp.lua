@@ -1,15 +1,9 @@
 local M = {}
 
-if vim.env.VIMDEBUG == "lsp" then
-	vim.lsp.set_log_level("trace")
-end
-
 local builtin = require("telescope.builtin")
 
-M.format_filter = {}
-
-function M.disable_format(name)
-	M.format_filter[name] = true
+if vim.env.VIMDEBUG == "lsp" then
+	vim.lsp.set_log_level("trace")
 end
 
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show diagnostic floating window" })
@@ -60,22 +54,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		if client.supports_method("textDocument/codeAction") then
 			map("n", "<Leader>ca", vim.lsp.buf.code_action, "Code action")
-		end
-
-		if client.supports_method("textDocument/formatting") then
-			autocmd("BufWritePre", {
-				group = augroup("LspFormat." .. bufnr, { clear = true }),
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format({
-						async = false,
-						filter = function(c)
-							return M.format_filter[c.name] ~= true
-						end,
-						bufnr = bufnr,
-					})
-				end,
-			})
 		end
 
 		if client.supports_method("textDocument/codeLens") then
