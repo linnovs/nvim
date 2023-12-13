@@ -174,6 +174,7 @@ return {
 				}
 			)
 
+			require("kuuga.config.lsp").setup({})
 			require("neoconf").setup({})
 			require("neodev").setup({})
 
