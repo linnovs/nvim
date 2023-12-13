@@ -32,6 +32,7 @@ function M.init()
 
 		-- load all options before lazy.nvim run
 		require("kuuga.options")
+		require("kuuga.filetypes")
 
 		M.did_init = true
 	end
