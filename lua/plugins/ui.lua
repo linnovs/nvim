@@ -108,10 +108,17 @@ return {
 	{
 		"echasnovski/mini.indentscope",
 		event = "BufReadPre",
-		opts = {
-			symbol = "┊",
-			options = { try_as_border = true },
-		},
+		opts = function()
+			local animation = require("mini.indentscope").gen_animation.none()
+
+			return {
+				symbol = "┊",
+				options = { try_as_border = true },
+				draw = {
+					animation = animation,
+				},
+			}
+		end,
 		init = function()
 			vim.api.nvim_create_autocmd("FileType", {
 				pattern = {
