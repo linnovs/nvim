@@ -25,7 +25,7 @@ local dependencies = {
 			require("cmp_git").setup({})
 		end,
 	},
-
+	"chrisgrieser/cmp-nerdfont",
 	"petertriho/cmp-git",
 	"davidsierradz/cmp-conventionalcommits",
 	"Exafunction/codeium.nvim",
@@ -115,6 +115,7 @@ return {
 						before = function(entry, vim_item)
 							vim_item.menu = ({
 								buffer = "[Buffer]",
+								nerdfont = "[NerdFont]",
 								cmp_git = "[Git]",
 								conventionalcommits = "[Conventional Commits]",
 								copilot = "[Copilot]",
@@ -138,6 +139,7 @@ return {
 					{ name = "luasnip" },
 					{ name = "nvim_lua" },
 				}, {
+					{ name = "nerdfont" },
 					{ name = "spell" },
 					{ name = "path" },
 					{ name = "buffer" },
