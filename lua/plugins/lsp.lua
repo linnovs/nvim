@@ -1,10 +1,5 @@
 local icons = require("kuuga.icons").kinds
 local signs = require("kuuga.icons").diagnostics
-local lsp = require("kuuga.config.lsp")
-
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
 
 return {
 	{
@@ -181,10 +176,6 @@ return {
 			for _, server in ipairs(vim.tbl_keys(servers)) do
 				local config = servers[server]
 				config.capabilities = capabilities
-
-				if config.disable_format == true then
-					lsp.disable_format(server)
-				end
 
 				lspconfig[server].setup(config)
 			end
