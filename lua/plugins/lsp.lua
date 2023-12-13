@@ -182,12 +182,6 @@ return {
 		end,
 	},
 
-	{
-		"williamboman/mason.nvim",
-		config = true,
-		build = ":MasonUpdate",
-	},
-
 	-- code context
 	{
 		"SmiteshP/nvim-navic",
