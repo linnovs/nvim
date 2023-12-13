@@ -16,6 +16,7 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "neovim/nvim-lspconfig" } },
 			"folke/neodev.nvim",
+			"b0o/schemastore.nvim",
 		},
 		init = function()
 			for type, icon in pairs(signs) do
@@ -35,112 +36,122 @@ return {
 				severity_sort = true,
 			})
 		end,
-		opts = {
-			servers = {
-				bashls = {},
-				clangd = {
-					filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-				},
-				cmake = {},
-				eslint = {
-					settings = {
-						packageManager = "yarn",
-						format = false,
+		opts = function()
+			local schemastore = require("schemastore")
+			return {
+				servers = {
+					bashls = {},
+					clangd = {
+						filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 					},
-				},
-				dockerls = {},
-				gdscript = {},
-				golangci_lint_ls = {},
-				gopls = {
-					settings = {
-						gopls = {
-							hints = {
-								assignVariableTypes = true,
-								compositeLiteralFields = true,
-								constantValues = true,
-								functionTypeParameters = true,
-								parameterNames = true,
-								rangeVariableTypes = true,
+					cmake = {},
+					eslint = {
+						settings = {
+							packageManager = "yarn",
+							format = false,
+						},
+					},
+					dockerls = {},
+					gdscript = {},
+					golangci_lint_ls = {},
+					gopls = {
+						settings = {
+							gopls = {
+								hints = {
+									assignVariableTypes = true,
+									compositeLiteralFields = true,
+									constantValues = true,
+									functionTypeParameters = true,
+									parameterNames = true,
+									rangeVariableTypes = true,
+								},
 							},
 						},
 					},
-				},
-				jsonls = {},
-				ltex = {
-					settings = {
-						ltex = {
-							language = "en-US",
-						},
-					},
-				},
-				omnisharp = {},
-				pylsp = {},
-				rust_analyzer = {},
-				lua_ls = {
-					settings = {
-						Lua = {
-							hint = {
-								enable = true,
-							},
-							format = {
-								enable = false,
-							},
-							workspace = {
-								checkThirdParty = false,
-							},
-							completion = {
-								callSnippet = "Replace",
+					jsonls = {
+						settings = {
+							json = {
+								schemas = schemastore.json.schemas(),
+								validate = { enable = true },
 							},
 						},
 					},
-				},
-				nil_ls = {},
-				tailwindcss = {},
-				terraformls = {},
-				tsserver = {
-					disable_format = true,
-					settings = {
-						typescript = {
-							inlayHints = {
-								includeInlayParameterNameHints = "all",
-								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-								includeInlayFunctionParameterTypeHints = true,
-								includeInlayVariableTypeHints = true,
-								includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-								includeInlayPropertyDeclarationTypeHints = true,
-								includeInlayFunctionLikeReturnTypeHints = true,
-								includeInlayEnumMemberValueHints = true,
-							},
-						},
-						javascript = {
-							inlayHints = {
-								includeInlayParameterNameHints = "all",
-								includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-								includeInlayFunctionParameterTypeHints = true,
-								includeInlayVariableTypeHints = true,
-								includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-								includeInlayPropertyDeclarationTypeHints = true,
-								includeInlayFunctionLikeReturnTypeHints = true,
-								includeInlayEnumMemberValueHints = true,
+					ltex = {
+						settings = {
+							ltex = {
+								language = "en-US",
 							},
 						},
 					},
-				},
-				typos_lsp = {},
-				volar = {},
-				yamlls = {
-					disable_format = true,
-					settings = {
-						yaml = {
-							schemaStore = {
-								enable = true,
+					omnisharp = {},
+					pylsp = {},
+					rust_analyzer = {},
+					lua_ls = {
+						settings = {
+							Lua = {
+								hint = {
+									enable = true,
+								},
+								format = {
+									enable = false,
+								},
+								workspace = {
+									checkThirdParty = false,
+								},
+								completion = {
+									callSnippet = "Replace",
+								},
 							},
 						},
 					},
+					nil_ls = {},
+					tailwindcss = {},
+					terraformls = {},
+					tsserver = {
+						settings = {
+							typescript = {
+								inlayHints = {
+									includeInlayParameterNameHints = "all",
+									includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+									includeInlayFunctionParameterTypeHints = true,
+									includeInlayVariableTypeHints = true,
+									includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+									includeInlayPropertyDeclarationTypeHints = true,
+									includeInlayFunctionLikeReturnTypeHints = true,
+									includeInlayEnumMemberValueHints = true,
+								},
+							},
+							javascript = {
+								inlayHints = {
+									includeInlayParameterNameHints = "all",
+									includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+									includeInlayFunctionParameterTypeHints = true,
+									includeInlayVariableTypeHints = true,
+									includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+									includeInlayPropertyDeclarationTypeHints = true,
+									includeInlayFunctionLikeReturnTypeHints = true,
+									includeInlayEnumMemberValueHints = true,
+								},
+							},
+						},
+					},
+					typos_lsp = {},
+					volar = {},
+					yamlls = {
+						settings = {
+							yaml = {
+								schemaStore = {
+									enable = false,
+									url = "",
+								},
+								schemas = schemastore.yaml.schemas(),
+							},
+						},
+					},
+					zls = {},
 				},
-				zls = {},
-			},
-		},
+			}
+		end,
 		config = function(_, opts)
 			local servers = opts.servers
 			local lspconfig = require("lspconfig")
