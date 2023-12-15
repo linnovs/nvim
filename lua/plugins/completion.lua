@@ -8,15 +8,6 @@ local dependencies = {
 	"saadparwaiz1/cmp_luasnip",
 	"f3fora/cmp-spell",
 	{
-		"zbirenbaum/copilot-cmp",
-		dependencies = {
-			"zbirenbaum/copilot.lua",
-		},
-		config = function()
-			require("copilot_cmp").setup()
-		end,
-	},
-	{
 		"petertriho/cmp-git",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -46,11 +37,14 @@ return {
 			local lspkind = require("lspkind")
 			local cmp = require("cmp")
 			local defaults = require("cmp.config.default")()
+			local copilot = require("copilot.suggestion")
 
 			local mapping = {
 				["<Tab>"] = cmp.mapping({
 					i = function(fallback)
-						if luasnip.expand_or_locally_jumpable() then
+						if copilot.is_visible() then
+							copilot.accept()
+						elseif luasnip.expand_or_locally_jumpable() then
 							luasnip.expand_or_jump()
 						else
 							fallback()
@@ -119,7 +113,6 @@ return {
 								nerdfont = "[NerdFont]",
 								cmp_git = "[Git]",
 								conventionalcommits = "[Conventional Commits]",
-								copilot = "[Copilot]",
 								codeium = "[Codeium]",
 								luasnip = "[LuaSnip]",
 								nvim_lsp = "[LSP]",
@@ -135,7 +128,6 @@ return {
 				},
 				sorting = defaults.sorting,
 				sources = cmp.config.sources({
-					{ name = "copilot" },
 					{ name = "codeium" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
@@ -154,6 +146,14 @@ return {
 			local cmp = require("cmp")
 
 			cmp.setup(opts)
+
+			cmp.event:on("menu_opened", function()
+				vim.b.copilot_suggestion_hidden = true
+			end)
+
+			cmp.event:on("menu_closed", function()
+				vim.b.copilot_suggestion_hidden = false
+			end)
 
 			---@diagnostic disable-next-line: missing-fields
 			cmp.setup.cmdline({ "/", "?" }, {

@@ -91,8 +91,20 @@ return {
 	{
 		"zbirenbaum/copilot.lua",
 		build = ":Copilot auth",
+		event = "InsertEnter",
 		opts = {
-			suggestion = { enabled = false },
+			suggestion = {
+				enabled = true,
+				auto_trigger = false,
+				keymap = {
+					accept = false,
+					accept_word = false,
+					accept_line = false,
+					next = "<C-n>",
+					prev = "<C-p>",
+					dismiss = false,
+				},
+			},
 			panel = { enabled = false },
 		},
 		config = function(_, opts)
