@@ -1,11 +1,12 @@
 ---@diagnostic disable: undefined-field
 local Item = require("nougat.item")
 local create_cache_store = require("nougat.cache").create_store
+local Store = require("nougat.store").TabStore
 local sep = require("nougat.separator")
 local status = require("noice.api.status")
 local color = require("catppuccin.palettes").get_palette("macchiato") or {}
 
-local cache_store = create_cache_store("tab", "kuuga.nougat.nut.macro", {
+local cache_store = Store("kuuga.nougat.nut.macro", {
 	msg = "",
 })
 

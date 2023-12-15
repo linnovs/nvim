@@ -1,5 +1,5 @@
+local nougat = require("nougat")
 local Bar = require("nougat.bar")
-local bar_util = require("nougat.bar.util")
 local sep = require("nougat.separator")
 local spacer = require("nougat.nut.spacer").create
 local truncation_point = require("nougat.nut.truncation_point").create
@@ -61,6 +61,6 @@ inactive_stl:add_item(spacer())
 inactive_stl:add_item(file.format({ prefix = " " }))
 inactive_stl:add_item(file.encoding({ prefix = " ", suffix = " " }))
 
-bar_util.set_statusline(function(ctx)
+nougat.set_statusline(function(ctx)
 	return ctx.is_focused and stl or inactive_stl
 end)
