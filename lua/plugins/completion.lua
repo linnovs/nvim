@@ -20,7 +20,7 @@ local dependencies = {
 	"hrsh7th/cmp-nvim-lsp-signature-help",
 	"petertriho/cmp-git",
 	"davidsierradz/cmp-conventionalcommits",
-	"Exafunction/codeium.nvim",
+	-- "Exafunction/codeium.nvim",
 
 	-- other dependencies
 	"onsails/lspkind.nvim",
@@ -60,8 +60,15 @@ return {
 						end
 					end,
 				}),
-				["<C-Space>"] = cmp.mapping({ i = cmp.mapping.complete() }),
-				["<C-S-P>"] = cmp.mapping({ i = cmp.mapping.complete() }),
+				["<C-Space>"] = cmp.mapping({
+					i = function()
+						if cmp.visible() then
+							cmp.close()
+						else
+							cmp.complete()
+						end
+					end,
+				}),
 				["<C-n>"] = cmp.mapping({ i = cmp.mapping.select_next_item(), c = cmp.mapping.select_next_item() }),
 				["<C-p>"] = cmp.mapping({ i = cmp.mapping.select_prev_item(), c = cmp.mapping.select_prev_item() }),
 				["<CR>"] = cmp.mapping({
@@ -113,7 +120,7 @@ return {
 								nerdfont = "[NerdFont]",
 								cmp_git = "[Git]",
 								conventionalcommits = "[Conventional Commits]",
-								codeium = "[Codeium]",
+								-- codeium = "[Codeium]",
 								luasnip = "[LuaSnip]",
 								nvim_lsp = "[LSP]",
 								nvim_lua = "[Lua]",
@@ -128,7 +135,7 @@ return {
 				},
 				sorting = defaults.sorting,
 				sources = cmp.config.sources({
-					{ name = "codeium" },
+					-- { name = "codeium" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "nvim_lua" },
@@ -170,8 +177,7 @@ return {
 				sources = cmp.config.sources({
 					{ name = "conventionalcommits" },
 					{ name = "cmp_git" },
-					{ name = "copilot" },
-					{ name = "codeium" },
+					-- { name = "codeium" },
 				}, {
 					{ name = "buffer" },
 					{ name = "spell" },

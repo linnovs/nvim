@@ -115,15 +115,15 @@ return {
 		end,
 	},
 
-	-- codeium
-	{
-		"Exafunction/codeium.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		lazy = true,
-		opts = {},
-	},
+	-- -- codeium
+	-- {
+	-- 	"Exafunction/codeium.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 	},
+	-- 	lazy = true,
+	-- 	opts = {},
+	-- },
 
 	-- snippet
 	{
