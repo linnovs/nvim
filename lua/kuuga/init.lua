@@ -1,40 +1,48 @@
+---@diagnostic disable: need-check-nil
 local M = {}
 
-function M.setup(opts)
+M.did_init = false
+function M.init()
+	if M.did_init then
+		return
+	end
+
+	version_check()
+
+	vim.g.mapleader = " "
+
+	M.delay_notifications()
+
+	-- load all options before lazy.nvim run
+	require("kuuga.config.options")
+	require("kuuga.config.filetypes")
+	require("kuuga.config.plugin")
+
+	M.did_init = true
+end
+
+function M.setup()
+	M.init()
+
 	if vim.fn.argc(-1) == 0 then
 		vim.api.nvim_create_autocmd("User", {
 			group = vim.api.nvim_create_augroup("Kuuga", { clear = true }),
 			pattern = "VeryLazy",
 			callback = function()
-				require("kuuga.autocmds")
-				require("kuuga.mappings")
+				require("kuuga.config.autocmds")
+				require("kuuga.config.mappings")
 			end,
 		})
 	else
-		require("kuuga.autocmds")
-		require("kuuga.mappings")
+		require("kuuga.config.autocmds")
+		require("kuuga.config.mappings")
 	end
 
-	if opts.colorscheme ~= nil then
-		vim.cmd.colorscheme(opts.colorscheme)
-	end
+	vim.cmd.colorscheme("catppuccin")
 
 	-- neovide config
 	if vim.g.neovide then
-		require("kuuga.neovide")
-	end
-end
-
-M.did_init = false
-function M.init()
-	if not M.did_init then
-		M.delay_notifications()
-
-		-- load all options before lazy.nvim run
-		require("kuuga.options")
-		require("kuuga.filetypes")
-
-		M.did_init = true
+		require("kuuga.config.neovide")
 	end
 end
 
