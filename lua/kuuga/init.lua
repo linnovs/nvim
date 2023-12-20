@@ -3,6 +3,7 @@ local M = {}
 
 ---@class KuugaOptions
 ---@field public version string
+---@field public colorscheme string
 
 ---@param opts KuugaOptions
 local function version_check(opts)
@@ -13,6 +14,23 @@ local function version_check(opts)
 		vim.api.nvim_echo({
 			{
 				"Neovim version required to be at least 0.10\n",
+				"WarningMsg",
+			},
+			{ "Press any key to exit", "MoreMsg" },
+		}, true, {})
+		vim.fn.getchar()
+		vim.cmd([[quit]])
+	end
+end
+
+--@param opts KuugaOptions
+local function set_colorscheme(opts)
+	if opts.colorscheme then
+		vim.cmd.colorscheme(opts.colorscheme)
+	else
+		vim.api.nvim_echo({
+			{
+				"missing colorscheme option in init.lua\n",
 				"WarningMsg",
 			},
 			{ "Press any key to exit", "MoreMsg" },
@@ -37,6 +55,7 @@ function M.init(opts)
 	require("kuuga.config.options")
 	require("kuuga.config.filetypes")
 	require("kuuga.config.plugin") -- lazy.nvim
+	set_colorscheme(opts)
 
 	M.did_init = true
 end
@@ -58,8 +77,6 @@ function M.setup(opts)
 		require("kuuga.config.autocmds")
 		require("kuuga.config.mappings")
 	end
-
-	vim.cmd.colorscheme("catppuccin")
 
 	-- neovide config
 	if vim.g.neovide then
