@@ -4,7 +4,7 @@ return {
 	{
 		"mfussenegger/nvim-lint",
 		event = "BufReadPre",
-		config = function(_, opts)
+		config = function()
 			local M = {}
 			local lint = require("lint")
 			lint.linters_by_ft = linters
