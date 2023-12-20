@@ -5,15 +5,15 @@ local spacer = require("nougat.nut.spacer").create
 local truncation_point = require("nougat.nut.truncation_point").create
 local color = require("catppuccin.palettes").get_palette("macchiato") or {}
 
-local mode = require("kuuga.config.statusline.nougat.mode")
-local marco = require("kuuga.config.statusline.nougat.macro")
-local lsp_server = require("kuuga.config.statusline.nougat.lsp_server")
-local git = require("kuuga.config.statusline.nougat.git")
-local file = require("kuuga.config.statusline.nougat.file")
-local lazy = require("kuuga.config.statusline.nougat.lazy")
-local diagnostic = require("kuuga.config.statusline.nougat.diagnostic")
-local ruler = require("kuuga.config.statusline.nougat.ruler")
-local percentage = require("kuuga.config.statusline.nougat.percentage")
+local mode = require("kuuga.lib.statusline.nougat.mode")
+local marco = require("kuuga.lib.statusline.nougat.macro")
+local lsp_server = require("kuuga.lib.statusline.nougat.lsp_server")
+local git = require("kuuga.lib.statusline.nougat.git")
+local file = require("kuuga.lib.statusline.nougat.file")
+local lazy = require("kuuga.lib.statusline.nougat.lazy")
+local diagnostic = require("kuuga.lib.statusline.nougat.diagnostic")
+local ruler = require("kuuga.lib.statusline.nougat.ruler")
+local percentage = require("kuuga.lib.statusline.nougat.percentage")
 
 local stl = Bar("statusline")
 stl:add_item(mode())

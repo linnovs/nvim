@@ -6,12 +6,12 @@ local function insert(position, component)
 	table.insert(sections[pos], component)
 end
 
-local mode = require("kuuga.config.statusline.lualine.mode")
-local noice = require("kuuga.config.statusline.lualine.noice")
-local lsp = require("kuuga.config.statusline.lualine.lsp")
-local git = require("kuuga.config.statusline.lualine.git")
-local file = require("kuuga.config.statusline.lualine.file")
-local lazy_updates = require("kuuga.config.statusline.lualine.updates")
+local mode = require("kuuga.lib.statusline.lualine.mode")
+local noice = require("kuuga.lib.statusline.lualine.noice")
+local lsp = require("kuuga.lib.statusline.lualine.lsp")
+local git = require("kuuga.lib.statusline.lualine.git")
+local file = require("kuuga.lib.statusline.lualine.file")
+local lazy_updates = require("kuuga.lib.statusline.lualine.updates")
 
 -- available position are a,b,c,x,y,z
 insert("b", mode.bar)

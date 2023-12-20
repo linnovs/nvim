@@ -1,4 +1,4 @@
-local fortune = require("kuuga.fortune")
+local fortune = require("kuuga.lib.fortune")
 local M = {}
 
 M.theme = "doom"
