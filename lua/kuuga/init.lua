@@ -1,9 +1,13 @@
 ---@diagnostic disable: need-check-nil
 local M = {}
 
-local function version_check()
+---@class KuugaOptions
+---@field public version string
+
+---@param opts KuugaOptions
+local function version_check(opts)
 	local version = vim.version
-	local expected_version = version.parse("0.10.0") or { 0, 0, 0 }
+	local expected_version = version.parse(opts.version) or { 0, 0, 0 }
 
 	if version.cmp(expected_version, version()) == -1 then
 		vim.api.nvim_echo({
@@ -19,7 +23,8 @@ local function version_check()
 end
 
 M.did_init = false
-function M.init()
+---@param opts KuugaOptions
+function M.init(opts)
 	if M.did_init then
 		return
 	end
@@ -38,8 +43,9 @@ function M.init()
 	M.did_init = true
 end
 
-function M.setup()
-	M.init()
+---@param opts KuugaOptions
+function M.setup(opts)
+	M.init(opts)
 
 	if vim.fn.argc(-1) == 0 then
 		vim.api.nvim_create_autocmd("User", {
