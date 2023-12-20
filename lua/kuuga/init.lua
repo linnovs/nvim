@@ -29,16 +29,14 @@ function M.init(opts)
 		return
 	end
 
-	version_check()
-
-	vim.g.mapleader = " "
-
+	version_check(opts)
 	M.delay_notifications()
 
+	vim.g.mapleader = " "
 	-- load all options before lazy.nvim run
 	require("kuuga.config.options")
 	require("kuuga.config.filetypes")
-	require("kuuga.config.plugin")
+	require("kuuga.config.plugin") -- lazy.nvim
 
 	M.did_init = true
 end
