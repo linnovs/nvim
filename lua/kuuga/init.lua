@@ -1,6 +1,23 @@
 ---@diagnostic disable: need-check-nil
 local M = {}
 
+local function version_check()
+	local version = vim.version
+	local expected_version = version.parse("0.10.0") or { 0, 0, 0 }
+
+	if version.cmp(expected_version, version()) == -1 then
+		vim.api.nvim_echo({
+			{
+				"Neovim version required to be at least 0.10\n",
+				"WarningMsg",
+			},
+			{ "Press any key to exit", "MoreMsg" },
+		}, true, {})
+		vim.fn.getchar()
+		vim.cmd([[quit]])
+	end
+end
+
 M.did_init = false
 function M.init()
 	if M.did_init then
