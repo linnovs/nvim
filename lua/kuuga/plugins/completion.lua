@@ -147,7 +147,6 @@ return {
 				}),
 			}
 		end,
-		---@param opts cmp.ConfigSchema
 		config = function(_, opts)
 			local cmp = require("cmp")
 
@@ -161,17 +160,14 @@ return {
 				vim.b.copilot_suggestion_hidden = false
 			end)
 
-			---@diagnostic disable-next-line: missing-fields
 			cmp.setup.cmdline({ "/", "?" }, {
 				sources = cmp.config.sources({ { name = "buffer" } }),
 			})
 
-			---@diagnostic disable-next-line: missing-fields
 			cmp.setup.cmdline(":", {
 				sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 			})
 
-			---@diagnostic disable-next-line: missing-fields
 			cmp.setup.filetype("gitcommit", {
 				sources = cmp.config.sources({
 					{ name = "conventionalcommits" },
