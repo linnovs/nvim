@@ -52,10 +52,8 @@ return {
 						alt_background = false,
 					},
 					cmp = true,
-					dap = {
-						enabled = true,
-						enable_ui = true,
-					},
+					dap = true,
+					dap_ui = true,
 					dashboard = true,
 					flash = true,
 					gitsigns = true,
