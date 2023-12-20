@@ -1,10 +1,9 @@
-local icons = require("kuuga.icons").kinds
-local signs = require("kuuga.icons").diagnostics
+local icons = require("kuuga.lib.icons").kinds
+local signs = require("kuuga.lib.icons").diagnostics
 
 return {
 	{
 		"neovim/nvim-lspconfig",
-		version = false,
 		event = "BufReadPre",
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -169,7 +168,7 @@ return {
 				}
 			)
 
-			require("kuuga.config.lsp").setup({})
+			require("kuuga.lib.lsp").setup({})
 			require("neoconf").setup({})
 			require("neodev").setup({})
 

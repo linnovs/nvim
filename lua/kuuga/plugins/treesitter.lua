@@ -7,7 +7,6 @@ return {
 			{ "nvim-treesitter/nvim-treesitter-context", opts = { mode = "cursor" } },
 			{ "windwp/nvim-ts-autotag", opts = {} },
 		},
-		version = false,
 		build = ":TSUpdate",
 		event = "BufReadPost",
 		init = function()

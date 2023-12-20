@@ -1,7 +1,6 @@
 return {
 	{
 		"akinsho/nvim-toggleterm.lua",
-		version = false,
 		event = "VeryLazy",
 		init = function()
 			local group = vim.api.nvim_create_augroup("ToggleTermTernOpenMapping", { clear = true })

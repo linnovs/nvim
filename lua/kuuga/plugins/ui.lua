@@ -143,7 +143,7 @@ return {
 		"glepnir/dashboard-nvim",
 		event = "VimEnter",
 		config = function()
-			local dashboard = require("kuuga.config.dashboard")
+			local dashboard = require("kuuga.lib.dashboard")
 			require("dashboard").setup(dashboard)
 		end,
 	},
@@ -158,7 +158,6 @@ return {
 	-- beauty default UI
 	{
 		"stevearc/dressing.nvim",
-		version = false,
 		event = "BufReadPre",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		opts = {
@@ -176,7 +175,7 @@ return {
 		},
 		event = "VeryLazy",
 		config = function()
-			require("kuuga.config.statusline.nougat")
+			require("kuuga.lib.statusline.nougat")
 		end,
 	},
 

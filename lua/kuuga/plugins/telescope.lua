@@ -7,7 +7,6 @@ return {
 			{ "jvgrootveld/telescope-zoxide", version = false },
 		},
 		cmd = "Telescope",
-		version = false,
 		keys = {
 			{
 				"<leader><leader>",

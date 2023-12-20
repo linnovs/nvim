@@ -1,4 +1,4 @@
-local formatters = require("kuuga.config.tools").formatters
+local formatters = require("kuuga.lib.tools").formatters
 
 return {
 	{

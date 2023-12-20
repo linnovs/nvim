@@ -1,4 +1,4 @@
-local tools = require("kuuga.config.tools")
+local tools = require("kuuga.lib.tools")
 
 return {
 	{

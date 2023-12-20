@@ -1,4 +1,4 @@
-local linters = require("kuuga.config.tools").linters
+local linters = require("kuuga.lib.tools").linters
 
 return {
 	{

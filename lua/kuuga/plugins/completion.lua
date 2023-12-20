@@ -29,7 +29,6 @@ local dependencies = {
 return {
 	{
 		"hrsh7th/nvim-cmp",
-		version = false,
 		event = { "InsertEnter", "CmdlineEnter" },
 		dependencies = dependencies,
 		opts = function()
@@ -113,7 +112,7 @@ return {
 						mode = "symbol",
 
 						maxwidth = 50,
-						symbol_map = require("kuuga.icons").kinds,
+						symbol_map = require("kuuga.lib.icons").kinds,
 						before = function(entry, vim_item)
 							vim_item.menu = ({
 								buffer = "[Buffer]",
