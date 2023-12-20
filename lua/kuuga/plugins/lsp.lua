@@ -71,6 +71,20 @@ return {
 						},
 					},
 					ltex = {
+						filetypes = {
+							"bib",
+							"gitcommit",
+							"markdown",
+							"org",
+							"plaintex",
+							"rst",
+							"rnoweb",
+							"tex",
+							"pandoc",
+							"quarto",
+							"rmd",
+							"NeogitCommitMessage",
+						},
 						settings = {
 							ltex = {
 								language = "en-US",
