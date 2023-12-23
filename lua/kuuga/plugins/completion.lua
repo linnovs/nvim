@@ -6,7 +6,6 @@ local dependencies = {
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-nvim-lua",
 	"saadparwaiz1/cmp_luasnip",
-	"f3fora/cmp-spell",
 	{
 		"petertriho/cmp-git",
 		dependencies = {
@@ -124,7 +123,6 @@ return {
 								nvim_lsp = "[LSP]",
 								nvim_lua = "[Lua]",
 								path = "[Path]",
-								spell = "[Spell]",
 								nvim_lsp_signature_help = "[Signature]",
 							})[entry.source.name]
 
@@ -141,7 +139,6 @@ return {
 					{ name = "nvim_lsp_signature_help" },
 				}, {
 					{ name = "nerdfont" },
-					{ name = "spell" },
 					{ name = "path" },
 					{ name = "buffer" },
 				}),
@@ -175,7 +172,6 @@ return {
 					-- { name = "codeium" },
 				}, {
 					{ name = "buffer" },
-					{ name = "spell" },
 				}),
 			})
 		end,
