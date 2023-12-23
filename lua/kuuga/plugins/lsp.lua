@@ -90,6 +90,7 @@ return {
 							ltex = {
 								enabled = true,
 								language = "en-US",
+								checkFrequency = "save",
 							},
 						},
 					},
