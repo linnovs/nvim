@@ -88,6 +88,7 @@ return {
 						},
 						settings = {
 							ltex = {
+								enabled = true,
 								language = "en-US",
 							},
 						},
