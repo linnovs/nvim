@@ -18,7 +18,6 @@ local dependencies = {
 	"chrisgrieser/cmp-nerdfont",
 	"hrsh7th/cmp-nvim-lsp-signature-help",
 	"petertriho/cmp-git",
-	"davidsierradz/cmp-conventionalcommits",
 	-- "Exafunction/codeium.nvim",
 
 	-- other dependencies
@@ -117,7 +116,6 @@ return {
 								buffer = "[Buffer]",
 								nerdfont = "[NerdFont]",
 								cmp_git = "[Git]",
-								conventionalcommits = "[Conventional Commits]",
 								-- codeium = "[Codeium]",
 								luasnip = "[LuaSnip]",
 								nvim_lsp = "[LSP]",
@@ -167,11 +165,9 @@ return {
 
 			cmp.setup.filetype("gitcommit", {
 				sources = cmp.config.sources({
-					{ name = "conventionalcommits" },
 					{ name = "cmp_git" },
-					-- { name = "codeium" },
-				}, {
 					{ name = "buffer" },
+					-- { name = "codeium" },
 				}),
 			})
 		end,
