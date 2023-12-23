@@ -32,6 +32,7 @@ return {
 		end,
 		opts = function()
 			local schemastore = require("schemastore")
+
 			return {
 				servers = {
 					bashls = {},
