@@ -93,6 +93,7 @@ return {
 								checkFrequency = "save",
 								additionalRules = {
 									enablePickyRules = true,
+									motherTongue = "zh-CN",
 								},
 							},
 						},
