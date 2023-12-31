@@ -220,26 +220,6 @@ return {
 	},
 
 	{
-		"kevinhwang91/nvim-ufo",
-		event = "BufRead",
-		dependencies = {
-			"kevinhwang91/promise-async",
-		},
-		init = function()
-			vim.o.foldcolumn = "0"
-			vim.o.foldlevel = 99
-			vim.o.foldlevelstart = 99
-			vim.o.foldenable = true
-		end,
-        -- stylua: ignore
-		keys = {
-			{ "zR", function() require("ufo").openAllFolds() end, desc = "Open all folds (ufo version)", },
-			{ "zM", function() require("ufo").closeAllFolds() end, desc = "Close all folds (ufo version)", },
-		},
-		opts = {},
-	},
-
-	{
 		"carbon-steel/detour.nvim",
 		command = "Detour",
 		keys = {
