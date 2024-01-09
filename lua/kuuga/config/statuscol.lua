@@ -1,4 +1,4 @@
-_G.StatusColFoldAction = function()
+_G.KuugaStatusColFoldAction = function()
 	local mousepos = vim.fn.getmousepos()
 	if mousepos == nil then
 		return
@@ -16,7 +16,7 @@ _G.StatusColFoldAction = function()
 	end)
 end
 
-_G.StatusCol = function()
+_G.KuugaStatusCol = function()
 	local lnum = vim.v.lnum
 	local relnum = vim.v.relnum
 	local virtnum = vim.v.virtnum
@@ -37,10 +37,10 @@ _G.StatusCol = function()
 	-- inspired by https://github.com/neovim/neovim/pull/25028#issuecomment-1707054458
 	if vim.fn.foldlevel(lnum) > vim.fn.foldlevel(lnum - 1) then
 		local arrow = vim.fn.foldclosed(lnum) == -1 and fillchars.foldopen or fillchars.foldclose
-		foldCol = string.format(" %%#FoldColumn#%%@v:lua.StatusColFoldAction@%s", arrow)
+		foldCol = string.format(" %%#FoldColumn#%%@v:lua.KuugaStatusColFoldAction@%s", arrow)
 	end
 
 	return signCol .. numberCol .. foldCol .. " "
 end
 
-vim.opt.statuscolumn = "%!v:lua.StatusCol()"
+vim.opt.statuscolumn = "%!v:lua.KuugaStatusCol()"
