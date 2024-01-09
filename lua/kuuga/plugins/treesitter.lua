@@ -86,9 +86,11 @@ return {
 			})
 			require("nvim-treesitter.configs").setup(opts)
 			vim.treesitter.language.register("markdown", "octo")
+
+			require("kuuga.lib.foldtext")
 			vim.opt.foldmethod = "expr"
 			vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-			vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+			vim.opt.foldtext = "v:lua.KuugaFoldText()"
 		end,
 	},
 }
