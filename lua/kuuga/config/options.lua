@@ -34,6 +34,7 @@ vim.opt.spell = false -- disable spell checking
 vim.opt.spelloptions = "camel" -- options for spell checking
 vim.opt.splitbelow = true -- new window from split is below the current one
 vim.opt.splitright = true -- new window is put right of the current one
+vim.opt.statuscolumn = "%!v:lua.require('kuuga.lib.statuscolumn').init()" -- custom format for the status column
 vim.opt.tabstop = 4 -- number of spaces that <Tab> in file uses
 vim.opt.termguicolors = true -- truecolor support
 vim.opt.textwidth = 120 -- maximum width of text that is being inserted

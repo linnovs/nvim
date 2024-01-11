@@ -54,7 +54,6 @@ function M.init(opts)
 	-- load all options before lazy.nvim run
 	require("kuuga.config.options")
 	require("kuuga.config.filetypes")
-	require("kuuga.config.statuscol")
 	require("kuuga.config.plugin") -- lazy.nvim
 	set_colorscheme(opts)
 
