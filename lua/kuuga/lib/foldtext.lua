@@ -100,7 +100,7 @@ local function foldlines(foldstart, foldend)
 	}
 end
 
-_G.KuugaFoldText = function()
+return function()
 	local foldstart = vim.v.foldstart
 	local foldend = vim.v.foldend
 	local foldtext = ts.foldtext()
