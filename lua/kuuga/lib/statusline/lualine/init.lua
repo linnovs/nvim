@@ -1,46 +1,54 @@
 local sections = { lualine_a = {}, lualine_b = {}, lualine_c = {}, lualine_x = {}, lualine_y = {}, lualine_z = {} }
-local ia_sections = { lualine_a = {}, lualine_b = {}, lualine_c = {}, lualine_x = {}, lualine_y = {}, lualine_z = {} }
 
-local function insert(position, component)
-	local pos = "lualine_" .. position
-	table.insert(sections[pos], component)
+local function insert_left(component)
+	table.insert(sections.lualine_c, component)
 end
 
-local mode = require("kuuga.lib.statusline.lualine.mode")
-local noice = require("kuuga.lib.statusline.lualine.noice")
-local lsp = require("kuuga.lib.statusline.lualine.lsp")
-local git = require("kuuga.lib.statusline.lualine.git")
-local file = require("kuuga.lib.statusline.lualine.file")
-local lazy_updates = require("kuuga.lib.statusline.lualine.updates")
+local function insert_right(component)
+	table.insert(sections.lualine_x, component)
+end
 
--- available position are a,b,c,x,y,z
-insert("b", mode.bar)
-insert("b", mode.icon)
-insert("b", noice.marco)
-insert("b", lsp.client_names)
-insert("b", git.branch)
-insert("b", git.diff)
-insert("c", file.icon)
-insert("c", file.name)
-insert("x", lazy_updates)
-insert("x", file.encoding)
-insert("x", file.format)
-insert("x", file.type)
-insert("y", lsp.diagnostics)
-insert("y", file.location)
+local components = require("kuuga.lib.statusline.lualine.components")
+
+insert_left(components.mode)
+insert_left(components.macro)
+insert_left(components.lsp)
+insert_left(components.git_status)
+insert_left(components.fileicon)
+insert_left(components.filename)
+
+insert_right(components.lazy_update)
+insert_right(components.empty)
+insert_right(components.fileformat)
+insert_right(components.encoding)
+insert_right(components.filetype)
+insert_right(components.diagnostic_error)
+insert_right(components.diagnostic_warn)
+insert_right(components.diagnostic_info)
+insert_right(components.diagnostic_hint)
+insert_right(components.ruler)
+insert_right(components.selectioncount)
+insert_right(components.progress)
 
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
 		theme = "catppuccin",
-		component_separators = { " ", " " },
-		section_separators = { " ", " " },
+		component_separators = "",
+		section_separators = "",
 		disabled_filetypes = {},
 		always_divide_middle = true,
 		globalstatus = true,
 	},
 	sections = sections,
-	inactive_sections = ia_sections,
-	tabline = {},
-	extensions = { "neo-tree", "quickfix", "trouble", "man", "lazy" },
+	extensions = {
+		"lazy",
+		"man",
+		"mason",
+		"nvim-dap-ui",
+		"oil",
+		"quickfix",
+		"toggleterm",
+		"trouble",
+	},
 })
