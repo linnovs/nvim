@@ -169,13 +169,10 @@ return {
 
 	-- statusline
 	{
-		"MunifTanjim/nougat.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		event = "VeryLazy",
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			require("kuuga.lib.statusline.nougat")
+			require("kuuga.lib.statusline.lualine")
 		end,
 	},
 
