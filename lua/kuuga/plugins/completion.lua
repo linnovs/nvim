@@ -18,7 +18,7 @@ local dependencies = {
 	"chrisgrieser/cmp-nerdfont",
 	"hrsh7th/cmp-nvim-lsp-signature-help",
 	"petertriho/cmp-git",
-	-- "Exafunction/codeium.nvim",
+	"Exafunction/codeium.nvim",
 
 	-- other dependencies
 	"onsails/lspkind.nvim",
@@ -34,14 +34,14 @@ return {
 			local lspkind = require("lspkind")
 			local cmp = require("cmp")
 			local defaults = require("cmp.config.default")()
-			local copilot = require("copilot.suggestion")
+			-- local copilot = require("copilot.suggestion")
 
 			local mapping = {
 				["<Tab>"] = cmp.mapping({
 					i = function(fallback)
-						if copilot.is_visible() then
-							copilot.accept()
-						elseif luasnip.expand_or_locally_jumpable() then
+						-- if copilot.is_visible() then
+						-- 	copilot.accept()
+						if luasnip.expand_or_locally_jumpable() then
 							luasnip.expand_or_jump()
 						else
 							fallback()
@@ -116,7 +116,7 @@ return {
 								buffer = "[Buffer]",
 								nerdfont = "[NerdFont]",
 								cmp_git = "[Git]",
-								-- codeium = "[Codeium]",
+								codeium = "[Codeium]",
 								luasnip = "[LuaSnip]",
 								nvim_lsp = "[LSP]",
 								nvim_lua = "[Lua]",
@@ -130,9 +130,9 @@ return {
 				},
 				sorting = defaults.sorting,
 				sources = cmp.config.sources({
-					-- { name = "codeium" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "codeium" },
 					{ name = "nvim_lua" },
 					{ name = "nvim_lsp_signature_help" },
 				}, {
@@ -167,7 +167,7 @@ return {
 				sources = cmp.config.sources({
 					{ name = "cmp_git" },
 					{ name = "buffer" },
-					-- { name = "codeium" },
+					{ name = "codeium" },
 				}),
 			})
 		end,
