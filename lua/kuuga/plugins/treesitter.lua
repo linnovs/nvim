@@ -30,6 +30,7 @@ return {
 				"gomod",
 				"gosum",
 				"html",
+				"http",
 				"javascript",
 				"jsdoc",
 				"json",
