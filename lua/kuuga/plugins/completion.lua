@@ -136,7 +136,6 @@ return {
 					{ name = "codeium" },
 					{ name = "nvim_lua" },
 					{ name = "nvim_lsp_signature_help" },
-				}, {
 					{ name = "nerdfont" },
 					{ name = "path" },
 					{ name = "buffer" },
