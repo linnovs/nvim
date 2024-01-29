@@ -18,7 +18,7 @@ autocmd("BufWritePost", {
 		if is_run or is_chezmoi then
 			return
 		end
-		os.execute("chezmoi apply --source-path " .. args.file)
+		os.execute("chezmoi apply --refresh-externals=never --source-path " .. args.file)
 		vim.notify("Apply source " .. args.file .. " to target")
 	end,
 })
