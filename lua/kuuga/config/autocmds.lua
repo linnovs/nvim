@@ -34,6 +34,7 @@ autocmd("BufWritePost", {
 autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = home .. "/Documents/Obsidian Vault/*",
 	callback = function()
+		vim.opt.conceallevel = 1
 		vim.keymap.set("n", "gf", function()
 			if require("obsidian").util.cursor_on_markdown_link() then
 				return "<CMD>ObsidianFollowLink<CR>"
