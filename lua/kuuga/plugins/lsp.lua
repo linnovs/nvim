@@ -90,7 +90,6 @@ return {
 							ltex = {
 								enabled = true,
 								language = "en-US",
-								checkFrequency = "save",
 								additionalRules = {
 									enablePickyRules = true,
 									motherTongue = "zh-CN",
