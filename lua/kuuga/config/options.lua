@@ -15,8 +15,11 @@ vim.opt.foldlevelstart = 99 -- 'foldlevel' when starting to edit a file
 vim.opt.guifont = "JetBrains Mono:h12"
 vim.opt.iskeyword:append("-") -- characters included in keywords
 vim.opt.list = true -- show <Tab> and <EOL>
-vim.opt.listchars:append({ lead = "·" }) -- characters for displaying in list mode
-vim.opt.listchars:append({ precedes = "<" })
+vim.opt.listchars:append({ extends = "󰞘" }) -- characters for displaying in list mode
+vim.opt.listchars:append({ lead = "·" })
+vim.opt.listchars:append({ multispace = "··" })
+vim.opt.listchars:append({ nbsp = "." })
+vim.opt.listchars:append({ precedes = "󰞗" })
 vim.opt.listchars:append({ tab = "⭲ " })
 vim.opt.listchars:append({ trail = "·" })
 vim.opt.matchpairs:append({ "<:>" }) -- pairs of characters that "%" can match
