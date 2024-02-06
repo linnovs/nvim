@@ -1,17 +1,5 @@
 return {
 	{
-		"rcarriga/nvim-notify",
-		priority = 1000,
-		opts = { timeout = 3000, background_colour = "#00000000" },
-		init = function()
-			vim.notify = require("notify")
-		end,
-		config = function(_, opts)
-			require("notify").setup(opts)
-		end,
-	},
-
-	{
 		"folke/noice.nvim",
 		priority = 500,
 		opts = {
@@ -66,19 +54,6 @@ return {
 			theme = "catppucin-macchiato",
 			exclude_filetypes = { "toggleterm" },
 		},
-	},
-
-	{
-		"folke/zen-mode.nvim",
-		cmd = "ZenMode",
-		keys = {
-			{
-				"<leader>zen",
-				"<CMD>ZenMode<CR>",
-				desc = "Zen Mode",
-			},
-		},
-		opts = {},
 	},
 
 	{
@@ -138,23 +113,6 @@ return {
 		end,
 	},
 
-	-- dashboard
-	{
-		"glepnir/dashboard-nvim",
-		event = "VimEnter",
-		config = function()
-			local dashboard = require("kuuga.lib.dashboard")
-			require("dashboard").setup(dashboard)
-		end,
-	},
-
-	-- markdown headlines
-	{
-		"lukas-reineke/headlines.nvim",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		config = true, -- or `opts = {}`
-	},
-
 	-- beauty default UI
 	{
 		"stevearc/dressing.nvim",
@@ -166,16 +124,4 @@ return {
 			},
 		},
 	},
-
-	-- statusline
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			require("kuuga.lib.statusline.lualine")
-		end,
-	},
-
-	-- icons
-	"nvim-tree/nvim-web-devicons",
 }

@@ -26,151 +26,150 @@ local dependencies = {
 }
 
 return {
-	{
-		"hrsh7th/nvim-cmp",
-		event = { "InsertEnter", "CmdlineEnter" },
-		dependencies = dependencies,
-		opts = function()
-			local luasnip = require("luasnip")
-			local lspkind = require("lspkind")
-			local cmp = require("cmp")
-			local defaults = require("cmp.config.default")()
-			-- local copilot = require("copilot.suggestion")
+	"hrsh7th/nvim-cmp",
+	event = { "InsertEnter", "CmdlineEnter" },
+	dependencies = dependencies,
+	version = false,
+	opts = function()
+		local luasnip = require("luasnip")
+		local lspkind = require("lspkind")
+		local cmp = require("cmp")
+		local defaults = require("cmp.config.default")()
+		-- local copilot = require("copilot.suggestion")
 
-			local mapping = {
-				["<Tab>"] = cmp.mapping({
-					i = function(fallback)
-						-- if copilot.is_visible() then
-						-- 	copilot.accept()
-						if luasnip.expand_or_locally_jumpable() then
-							luasnip.expand_or_jump()
-						else
-							fallback()
-						end
-					end,
-				}),
-				["<S-Tab>"] = cmp.mapping({
-					i = function(fallback)
-						if luasnip.jumpable(-1) then
-							luasnip.jump(-1)
-						else
-							fallback()
-						end
-					end,
-				}),
-				["<C-Space>"] = cmp.mapping({
-					i = function()
-						if cmp.visible() then
-							cmp.close()
-						else
-							cmp.complete()
-						end
-					end,
-				}),
-				["<C-n>"] = cmp.mapping({ i = cmp.mapping.select_next_item(), c = cmp.mapping.select_next_item() }),
-				["<C-p>"] = cmp.mapping({ i = cmp.mapping.select_prev_item(), c = cmp.mapping.select_prev_item() }),
-				["<CR>"] = cmp.mapping({
-					i = function(fallback)
-						if cmp.visible() and cmp.get_active_entry() then
-							cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
-						else
-							fallback()
-						end
-					end,
-					s = cmp.mapping.confirm({ select = true }),
-					c = cmp.mapping.confirm({ select = false }),
-				}),
-				["<C-y>"] = cmp.mapping.confirm({ select = true }),
-				["<C-b>"] = cmp.mapping({ i = cmp.mapping.scroll_docs(-4) }),
-				["<C-f>"] = cmp.mapping({ i = cmp.mapping.scroll_docs(4) }),
-			}
+		local mapping = {
+			["<Tab>"] = cmp.mapping({
+				i = function(fallback)
+					-- if copilot.is_visible() then
+					-- 	copilot.accept()
+					if luasnip.expand_or_locally_jumpable() then
+						luasnip.expand_or_jump()
+					else
+						fallback()
+					end
+				end,
+			}),
+			["<S-Tab>"] = cmp.mapping({
+				i = function(fallback)
+					if luasnip.jumpable(-1) then
+						luasnip.jump(-1)
+					else
+						fallback()
+					end
+				end,
+			}),
+			["<C-Space>"] = cmp.mapping({
+				i = function()
+					if cmp.visible() then
+						cmp.close()
+					else
+						cmp.complete()
+					end
+				end,
+			}),
+			["<C-n>"] = cmp.mapping({ i = cmp.mapping.select_next_item(), c = cmp.mapping.select_next_item() }),
+			["<C-p>"] = cmp.mapping({ i = cmp.mapping.select_prev_item(), c = cmp.mapping.select_prev_item() }),
+			["<CR>"] = cmp.mapping({
+				i = function(fallback)
+					if cmp.visible() and cmp.get_active_entry() then
+						cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
+					else
+						fallback()
+					end
+				end,
+				s = cmp.mapping.confirm({ select = true }),
+				c = cmp.mapping.confirm({ select = false }),
+			}),
+			["<C-y>"] = cmp.mapping.confirm({ select = true }),
+			["<C-b>"] = cmp.mapping({ i = cmp.mapping.scroll_docs(-4) }),
+			["<C-f>"] = cmp.mapping({ i = cmp.mapping.scroll_docs(4) }),
+		}
 
-			return {
-				experimental = {
-					ghost_text = true,
+		return {
+			experimental = {
+				ghost_text = true,
+			},
+			preselect = cmp.PreselectMode.None,
+			window = {
+				completion = {
+					col_offset = -2,
+					side_padding = 0,
 				},
-				preselect = cmp.PreselectMode.None,
-				window = {
-					completion = {
-						col_offset = -2,
-						side_padding = 0,
-					},
-					documentation = {
-						border = "rounded",
-					},
+				documentation = {
+					border = "rounded",
 				},
-				snippet = {
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
+			},
+			snippet = {
+				expand = function(args)
+					luasnip.lsp_expand(args.body)
+				end,
+			},
+			mapping = mapping,
+			formatting = {
+				fields = { "kind", "abbr", "menu" },
+				format = lspkind.cmp_format({
+					mode = "symbol",
+
+					maxwidth = 50,
+					symbol_map = require("kuuga.lib.icons").kinds,
+					before = function(entry, vim_item)
+						vim_item.menu = ({
+							buffer = "[Buffer]",
+							nerdfont = "[NerdFont]",
+							cmp_git = "[Git]",
+							codeium = "[Codeium]",
+							luasnip = "[LuaSnip]",
+							nvim_lsp = "[LSP]",
+							nvim_lua = "[Lua]",
+							path = "[Path]",
+							nvim_lsp_signature_help = "[Signature]",
+						})[entry.source.name]
+
+						return vim_item
 					end,
-				},
-				mapping = mapping,
-				formatting = {
-					fields = { "kind", "abbr", "menu" },
-					format = lspkind.cmp_format({
-						mode = "symbol",
-
-						maxwidth = 50,
-						symbol_map = require("kuuga.lib.icons").kinds,
-						before = function(entry, vim_item)
-							vim_item.menu = ({
-								buffer = "[Buffer]",
-								nerdfont = "[NerdFont]",
-								cmp_git = "[Git]",
-								codeium = "[Codeium]",
-								luasnip = "[LuaSnip]",
-								nvim_lsp = "[LSP]",
-								nvim_lua = "[Lua]",
-								path = "[Path]",
-								nvim_lsp_signature_help = "[Signature]",
-							})[entry.source.name]
-
-							return vim_item
-						end,
-					}),
-				},
-				sorting = defaults.sorting,
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "codeium" },
-					{ name = "nvim_lua" },
-					{ name = "nvim_lsp_signature_help" },
-					{ name = "nerdfont" },
-					{ name = "path" },
-					{ name = "buffer" },
-					{ name = "calc" },
 				}),
-			}
-		end,
-		config = function(_, opts)
-			local cmp = require("cmp")
+			},
+			sorting = defaults.sorting,
+			sources = cmp.config.sources({
+				{ name = "nvim_lsp" },
+				{ name = "luasnip" },
+				{ name = "codeium" },
+				{ name = "nvim_lua" },
+				{ name = "nvim_lsp_signature_help" },
+				{ name = "nerdfont" },
+				{ name = "path" },
+				{ name = "buffer" },
+				{ name = "calc" },
+			}),
+		}
+	end,
+	config = function(_, opts)
+		local cmp = require("cmp")
 
-			cmp.setup(opts)
+		cmp.setup(opts)
 
-			cmp.event:on("menu_opened", function()
-				vim.b.copilot_suggestion_hidden = true
-			end)
+		cmp.event:on("menu_opened", function()
+			vim.b.copilot_suggestion_hidden = true
+		end)
 
-			cmp.event:on("menu_closed", function()
-				vim.b.copilot_suggestion_hidden = false
-			end)
+		cmp.event:on("menu_closed", function()
+			vim.b.copilot_suggestion_hidden = false
+		end)
 
-			cmp.setup.cmdline({ "/", "?" }, {
-				sources = cmp.config.sources({ { name = "buffer" } }),
-			})
+		cmp.setup.cmdline({ "/", "?" }, {
+			sources = cmp.config.sources({ { name = "buffer" } }),
+		})
 
-			cmp.setup.cmdline(":", {
-				sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
-			})
+		cmp.setup.cmdline(":", {
+			sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+		})
 
-			cmp.setup.filetype("gitcommit", {
-				sources = cmp.config.sources({
-					{ name = "cmp_git" },
-					{ name = "buffer" },
-					{ name = "codeium" },
-				}),
-			})
-		end,
-	},
+		cmp.setup.filetype("gitcommit", {
+			sources = cmp.config.sources({
+				{ name = "cmp_git" },
+				{ name = "buffer" },
+				{ name = "codeium" },
+			}),
+		})
+	end,
 }

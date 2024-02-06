@@ -20,7 +20,7 @@ return {
 
 	{
 		"echasnovski/mini.surround",
-		events = "BufReadPost",
+		event = "BufReadPost",
 		opts = {
 			mappings = {
 				add = "ys",
@@ -36,7 +36,7 @@ return {
 
 	{
 		"echasnovski/mini.ai",
-		events = "BufReadPost",
+		event = "BufReadPost",
 		opts = {
 			custom_textobjects = nil,
 
@@ -62,7 +62,7 @@ return {
 
 	{
 		"echasnovski/mini.pairs",
-		events = "BufReadPost",
+		event = "BufReadPost",
 		opts = {
 			modes = { insert = true, command = false, terminal = true },
 			mappings = {
@@ -79,72 +79,5 @@ return {
 				["`"] = { action = "closeopen", pair = "``", neigh_pattern = "[^\\].", register = { cr = false } },
 			},
 		},
-	},
-
-	-- diffview
-	{
-		"sindrets/diffview.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-
-	-- copilot
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	cmd = "Copilot",
-	-- 	event = "InsertEnter",
-	-- 	opts = {
-	-- 		suggestion = {
-	-- 			enabled = true,
-	-- 			auto_trigger = false,
-	-- 			keymap = {
-	-- 				accept = false,
-	-- 				accept_word = false,
-	-- 				accept_line = false,
-	-- 				next = "<C-n>",
-	-- 				prev = "<C-p>",
-	-- 				dismiss = false,
-	-- 			},
-	-- 		},
-	-- 		panel = { enabled = false },
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		vim.defer_fn(function()
-	-- 			vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-	-- 			require("copilot").setup(opts)
-	-- 		end, 100)
-	-- 	end,
-	-- },
-
-	-- codeium
-	{
-		"Exafunction/codeium.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"hrsh7th/nvim-cmp",
-		},
-		event = "InsertEnter",
-		opts = {},
-	},
-
-	-- snippet
-	{
-		"L3MON4D3/LuaSnip",
-		dependencies = {
-			"rafamadriz/friendly-snippets",
-			config = function()
-				require("luasnip.loaders.from_vscode").lazy_load()
-			end,
-		},
-		lazy = true,
-		opts = {
-			history = true,
-			delete_check_events = "TextChanged",
-		},
-	},
-
-	-- parinfer
-	{
-		"gpanders/nvim-parinfer",
-		ft = { "clojure", "scheme", "lisp", "racket", "hy", "fennel", "janet", "carp", "wast", "yuck", "dune" },
 	},
 }
