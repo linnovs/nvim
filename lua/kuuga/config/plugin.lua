@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("kuuga.plugins", {
 	defaults = {
-		version = false,
+		version = "*",
 	},
 	checker = { enabled = true, notify = false },
 	install = { colorscheme = { "catppuccin", "habamax" } },
