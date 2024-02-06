@@ -5,7 +5,7 @@ return {
 		cmd = { "TodoTrouble", "TodoTelescope" },
 		event = "BufReadPost",
 		keys = {
-			{ "<leader>ftodo", "<cmd>TodoTelescope<CR>", desc = "Find TODOs" },
+			{ "<leader>ft", "<cmd>TodoTelescope<CR>", desc = "Find TODOs" },
 			{
 				"]t",
 				function()
