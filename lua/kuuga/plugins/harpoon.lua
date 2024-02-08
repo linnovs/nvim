@@ -12,7 +12,7 @@ return {
 				function()
 					harpoon.ui:toggle_quick_menu(harpoon:list())
 				end,
-				desc = "Add mark",
+				desc = "Show marks",
 			},
 			{
 				"<leader>ha",
