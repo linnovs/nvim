@@ -30,7 +30,6 @@ return {
 					view = "mini",
 				},
 			},
-			-- routes = { { view = "notify", filter = { event = "msg_showmode" } } },
 			presets = {
 				bottom_search = true,
 				command_palette = true,
