@@ -14,9 +14,7 @@ return {
 			current_line_blame = true,
 			on_attach = function(bufnr)
 				local gs = package.loaded["gitsigns"]
-				local function map(mode, lhs, rhs, desc)
-					vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
-				end
+				local map = require("kuuga.lib.keymap")
 
 				map("n", "]h", gs.next_hunk, "Next hunk")
 				map("n", "[h", gs.prev_hunk, "Prev hunk")

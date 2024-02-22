@@ -1,5 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 local home = vim.fn.expand("~")
+local map = require("kuuga.lib.keymap")
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, { command = "checktime" })
 autocmd("VimResized", { command = "tabdo wincmd =" })
@@ -35,13 +36,13 @@ autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = home .. "/Documents/Obsidian Vault/*",
 	callback = function()
 		vim.opt.conceallevel = 2
-		vim.keymap.set("n", "gf", function()
+		map("n", "gf", function()
 			if require("obsidian").util.cursor_on_markdown_link() then
 				return "<CMD>ObsidianFollowLink<CR>"
 			else
 				return "gf"
 			end
-		end, { desc = "Follow Obsidian Link", expr = true })
+		end, "Follow Obsidian or gf", { expr = true })
 	end,
 })
 

@@ -8,8 +8,9 @@ return {
 			pattern = { "term://*:toggleterm:*", "term://*#toggleterm#*" },
 			callback = function(ev)
 				local bufnr = ev.buf
+				local keymap = require("kuuga.lib.keymap")
 				local function map(lhs, rhs, desc)
-					vim.keymap.set("t", lhs, rhs, { desc = desc, buffer = bufnr })
+					keymap("t", lhs, rhs, desc, { buffer = bufnr })
 				end
 
 				map("<leader>wh", "<Cmd>wincmd h<CR>", "Move window to the left")

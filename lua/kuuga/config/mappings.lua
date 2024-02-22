@@ -1,6 +1,4 @@
-local function map(mode, lhs, rhs, desc)
-	vim.keymap.set(mode, lhs, rhs, { desc = desc })
-end
+local map = require("kuuga.lib.keymap")
 
 -- window management
 map("n", "<Leader>ws", "<C-w>s", "Split window horizontally")
