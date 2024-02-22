@@ -51,10 +51,22 @@ return {
 		completion = {
 			nvim_cmp = true,
 			min_chars = 2,
-			new_notes_location = "current_dir",
-			preferred_link_style = "wiki",
-			prepend_note_id = true,
 		},
+		mapping = {
+			["gf"] = {
+				action = function()
+					return require("obsidian").util.gf_passthrouhg()
+				end,
+				opts = { noremap = false, expr = true, buffer = true },
+			},
+			["<LEADER>ch"] = {
+				action = function()
+					return require("obsidian").util.toggle_checkbox()
+				end,
+				opts = { buffer = true },
+			},
+		},
+		new_notes_location = "current_dir",
 		note_id_func = function(title)
 			-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
 			-- In this case a note with the title 'My new note' will be given an ID that looks
@@ -71,6 +83,19 @@ return {
 			end
 			return tostring(os.time()) .. "-" .. suffix
 		end,
+		wiki_link_func = function(opts)
+			if opts.id == nil then
+				return string.format("[[%s]]", opts.label)
+			elseif opts.label ~= opts.id then
+				return string.format("[[%s|%s]]", opts.id, opts.label)
+			else
+				return string.format("[[%s]]", opts.id)
+			end
+		end,
+		markdown_link_func = function(opts)
+			return string.format("[%s](%s)", opts.label, opts.path)
+		end,
+		preferred_link_style = "wiki",
 		image_name_func = function()
 			-- Prefix image names with timestamp.
 			return string.format("%s-", os.time())
@@ -88,16 +113,15 @@ return {
 			end
 			return out
 		end,
-		backlinks = {
-			height = 10,
-			wrap = true,
-		},
-		tags = {
-			height = 10,
-			wrap = true,
-		},
 		use_advanced_uri = true,
-		finder = "telescope.nvim",
+		open_app_foreground = true,
+		pick = {
+			name = "telescope.nvim",
+			mapping = {
+				new = "<C-x>",
+				insert_link = "<C-l>",
+			},
+		},
 		sort_by = "modified",
 		sort_reversed = true,
 		open_note_in = "current",
@@ -153,4 +177,14 @@ return {
 		},
 		yaml_parser = "native",
 	},
+	config = function(_, opts)
+		vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+			pattern = vim.fn.expand("~/Documents/Obsidian Vault/**.md"),
+			callback = function()
+				vim.opt.conceallevel = 2
+			end,
+		})
+
+		require("obsidian").setup(opts)
+	end,
 }
