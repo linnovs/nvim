@@ -32,20 +32,6 @@ autocmd("BufWritePost", {
 	end,
 })
 
-autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = home .. "/Documents/Obsidian Vault/*",
-	callback = function()
-		vim.opt.conceallevel = 2
-		map("n", "gf", function()
-			if require("obsidian").util.cursor_on_markdown_link() then
-				return "<CMD>ObsidianFollowLink<CR>"
-			else
-				return "gf"
-			end
-		end, "Follow Obsidian or gf", { expr = true })
-	end,
-})
-
 autocmd("BufEnter", { pattern = { "term://*", "*COMMIT_EDITMSG" }, command = "startinsert" })
 autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.tf", command = "set filetype=terraform" })
 autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.rasi", command = "set filetype=rasi" })
