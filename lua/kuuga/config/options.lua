@@ -13,7 +13,7 @@ vim.opt.foldenable = true -- set to display all folds open
 vim.opt.foldlevel = 99 -- close folds with a level higher than this
 vim.opt.foldlevelstart = 99 -- 'foldlevel' when starting to edit a file
 vim.opt.foldtext = "" -- expression used to display for a closed fold
-vim.opt.guifont = "JetBrains Mono:h12"
+vim.opt.guifont = "JetBrains Mono,Noto Color Emoji:h12"
 vim.opt.iskeyword:append("-") -- characters included in keywords
 vim.opt.list = true -- show <Tab> and <EOL>
 vim.opt.listchars:append({ extends = "󰞘" }) -- characters for displaying in list mode
