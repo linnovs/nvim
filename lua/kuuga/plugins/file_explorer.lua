@@ -7,6 +7,7 @@ return {
 	opts = {
 		keymaps = {
 			["<leader>wv"] = "actions.select_vsplit",
+			["<C-s>"] = false,
 		},
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
