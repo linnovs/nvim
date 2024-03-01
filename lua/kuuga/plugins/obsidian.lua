@@ -113,7 +113,7 @@ return {
 			end
 			return out
 		end,
-		use_advanced_uri = true,
+		use_advanced_uri = false,
 		open_app_foreground = true,
 		pick = {
 			name = "telescope.nvim",
