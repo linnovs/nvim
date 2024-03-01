@@ -6,6 +6,7 @@ M.formatters = {
 	zsh = { "beautysh" },
 	bash = { "beautysh" },
 	sh = { "beautysh" },
+	javascript = { { "prettierd", "prettier" } },
 	["*"] = { "trim_whitespace" },
 }
 
