@@ -74,6 +74,7 @@ return {
 					"lazy",
 					"mason",
 					"neo-tree",
+					"dashboard",
 				},
 			},
 		},
@@ -104,6 +105,7 @@ return {
 					"mason",
 					"neo-tree",
 					"man",
+					"dashboard",
 				},
 				callback = function()
 					vim.b.miniindentscope_disable = true
