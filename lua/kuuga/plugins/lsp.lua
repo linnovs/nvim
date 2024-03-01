@@ -4,7 +4,7 @@ local signs = require("kuuga.lib.icons").diagnostics
 return {
 	{
 		"neovim/nvim-lspconfig",
-		event = "BufReadPre",
+		event = "BufNew",
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",

@@ -2,7 +2,7 @@ local formatters = require("kuuga.lib.tools").formatters
 
 return {
 	"stevearc/conform.nvim",
-	event = "BufReadPre",
+	event = "BufNew",
 	cmd = "ConformInfo",
 	init = function()
 		vim.o.formatexpr = "v:lua.require('conform').formatexpr()"

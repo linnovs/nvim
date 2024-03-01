@@ -1,6 +1,6 @@
 return {
 	"LunarVim/bigfile.nvim",
-	event = "BufReadPre",
+	event = "BufNew",
 	opts = {
 		filesize = 2, -- size of file in MiB
 	},

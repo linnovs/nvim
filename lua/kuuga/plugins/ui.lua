@@ -42,7 +42,7 @@ return {
 
 	{
 		"utilyre/barbecue.nvim",
-		event = "BufReadPre",
+		event = "BufNew",
 		name = "barbecue",
 		dependencies = {
 			"SmiteshP/nvim-navic",
@@ -58,7 +58,7 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		event = "BufReadPre",
+		event = "BufNew",
 		opts = {
 			indent = {
 				char = "┊",
@@ -81,7 +81,7 @@ return {
 
 	{
 		"echasnovski/mini.indentscope",
-		event = "BufReadPre",
+		event = "BufNew",
 		opts = function()
 			local animation = require("mini.indentscope").gen_animation.none()
 
@@ -115,7 +115,7 @@ return {
 	-- beauty default UI
 	{
 		"stevearc/dressing.nvim",
-		event = "BufReadPre",
+		event = "BufNew",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		opts = {
 			select = {
