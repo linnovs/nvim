@@ -6,6 +6,7 @@ M.formatters = {
 	zsh = { "beautysh" },
 	bash = { "beautysh" },
 	sh = { "beautysh" },
+	nix = { "nixpkgs_fmt", "nixpkgs-fmt" },
 	javascript = { { "prettierd", "prettier" } },
 	["*"] = { "trim_whitespace" },
 }
@@ -17,6 +18,7 @@ M.debugger = {}
 local pseudo_tools = {
 	"gofmt", -- gofmt is from golang.org/x/tools/cmd/gofmt
 	"trim_whitespace",
+	"nixpkgs_fmt", -- nixpkgs_fmt is for Conform.nvim to active configuration only
 }
 
 M.to_install = function()
