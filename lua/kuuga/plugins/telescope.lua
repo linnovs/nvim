@@ -44,7 +44,7 @@ return {
 		},
 		{
 			"<leader>z",
-			"<CMD>lua require('telescope.builtin').zoxide list({})<CR>",
+			"<CMD>lua require('telescope').extensions.zoxide.list({})<CR>",
 			desc = "Find zoxide directory",
 		},
 	},
