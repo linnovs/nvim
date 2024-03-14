@@ -4,5 +4,10 @@ return {
 	init = function()
 		vim.g.nvim_ghost_server_port = 4001
 		vim.g.nvim_ghost_autostart = 0
+
+		vim.api.nvim_create_autocmd("User", {
+			pattern = { "*github.com" },
+			command = "setfiletype markdown",
+		})
 	end,
 }
