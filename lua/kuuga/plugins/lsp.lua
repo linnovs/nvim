@@ -10,7 +10,7 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "neovim/nvim-lspconfig" } },
 			"folke/neodev.nvim",
-			"b0o/schemastore.nvim",
+			{ "b0o/schemastore.nvim", version = false },
 		},
 		init = function()
 			for type, icon in pairs(signs) do
