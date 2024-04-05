@@ -55,7 +55,9 @@ return {
 				dap_ui = true,
 				dashboard = true,
 				flash = true,
+				fidget = false,
 				gitsigns = true,
+				harpoon = true,
 				headlines = true,
 				illuminate = true,
 				indent_blankline = {
