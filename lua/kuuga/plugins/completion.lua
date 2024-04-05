@@ -167,6 +167,7 @@ return {
 		cmp.setup.filetype("gitcommit", {
 			sources = cmp.config.sources({
 				{ name = "cmp_git" },
+				{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "codeium" },
 			}),
