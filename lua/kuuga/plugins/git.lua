@@ -41,19 +41,14 @@ return {
 	},
 
 	{
-		"NeogitOrg/neogit",
-		dependencies = "nvim-lua/plenary.nvim",
+		"tpope/vim-fugitive",
+		version = false,
 		keys = {
 			{
 				"<leader>gst",
-				"<cmd>Neogit<cr>",
-				desc = "Toggle neogit",
+				"<cmd>Git<cr>",
+				desc = "Toggle fugitive",
 			},
-		},
-		opts = {
-			graph_style = "unicode",
-			disable_commit_confirmation = true,
-			use_telescope = true,
 		},
 	},
 
