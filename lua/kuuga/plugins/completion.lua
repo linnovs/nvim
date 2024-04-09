@@ -164,7 +164,7 @@ return {
 			sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 		})
 
-		cmp.setup.filetype("gitcommit", {
+		cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
 			sources = cmp.config.sources({
 				{ name = "cmp_git" },
 				{ name = "luasnip" },
