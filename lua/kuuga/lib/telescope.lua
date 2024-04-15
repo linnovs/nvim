@@ -6,7 +6,7 @@ local config = require("telescope.config")
 local vimgrep_arguments = { unpack(config.values.vimgrep_arguments) }
 
 table.insert(vimgrep_arguments, "--hidden") -- include the hidden files (dot files)
--- Ignore all file in .git and glob
+-- Ignore all file in .git
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
 
