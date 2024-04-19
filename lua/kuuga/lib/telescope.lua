@@ -76,7 +76,7 @@ telescope.setup({
 		path_display = filename_first,
 		prompt_prefix = " ",
 		selection_caret = " ",
-		multi_icon = "",
+		multi_icon = " ",
 	},
 	pickers = {
 		find_files = {
