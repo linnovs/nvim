@@ -12,7 +12,7 @@ return {
 				untracked = { text = "▎" },
 			},
 			current_line_blame = true,
-			on_attach = function(bufnr)
+			on_attach = function()
 				local gs = package.loaded["gitsigns"]
 				local map = require("kuuga.lib.keymap")
 
