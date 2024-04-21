@@ -8,10 +8,13 @@ M.formatters = {
 	sh = { "beautysh" },
 	nix = { "nixpkgs_fmt", "nixpkgs-fmt" },
 	javascript = { { "prettierd", "prettier" } },
+	python = { "ruff_fix", "ruff_format" },
 	["*"] = { "trim_whitespace" },
 }
 
-M.linters = {}
+M.linters = {
+	python = { "ruff" },
+}
 
 M.debugger = {}
 
@@ -21,11 +24,24 @@ local pseudo_tools = {
 	"nixpkgs_fmt", -- nixpkgs_fmt is for Conform.nvim to active configuration only
 }
 
+local mason_names = {
+	ruff_fix = "ruff",
+	ruff_format = "ruff",
+}
+
 M.to_install = function()
 	local formatters = vim.tbl_flatten(vim.tbl_values(M.formatters))
 	local linters = vim.tbl_flatten(vim.tbl_values(M.linters))
 	local tools = vim.list_extend(vim.fn.copy(formatters), linters)
 	vim.list_extend(tools, M.debugger)
+
+	tools = vim.tbl_map(function(tool)
+		if mason_names[tool] then
+			return mason_names[tool]
+		end
+
+		return tool
+	end, vim.fn.copy(tools))
 
 	table.sort(tools)
 	tools = vim.fn.uniq(tools)
