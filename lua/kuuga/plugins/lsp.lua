@@ -100,7 +100,18 @@ return {
 						flags = { debounce_text_changes = 300 },
 					},
 					omnisharp = {},
-					pylsp = {},
+					pyright = {
+						settings = {
+							pyright = {
+								disableOrganizeImports = true, -- use ruff
+							},
+							python = {
+								analysis = {
+									ignore = { "*" }, -- use ruff
+								},
+							},
+						},
+					},
 					rust_analyzer = {},
 					lua_ls = {
 						settings = {
