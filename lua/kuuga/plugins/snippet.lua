@@ -8,6 +8,7 @@ return {
 			end,
 		},
 	},
+	build = "make install_jsregexp",
 	lazy = true,
 	opts = {
 		history = true,
