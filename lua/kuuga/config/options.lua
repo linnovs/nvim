@@ -38,6 +38,7 @@ vim.opt.spelloptions = "camel" -- options for spell checking
 vim.opt.splitbelow = true -- new window from split is below the current one
 vim.opt.splitright = true -- new window is put right of the current one
 vim.opt.tabstop = 4 -- number of spaces that <Tab> in file uses
+vim.opt.laststatus = 3 -- tells when last window has status lines
 vim.opt.termguicolors = true -- truecolor support
 vim.opt.textwidth = 115 -- maximum width of text that is being inserted
 vim.opt.timeout = true -- time out on mappings and key codes
