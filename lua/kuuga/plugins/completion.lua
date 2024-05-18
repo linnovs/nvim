@@ -114,15 +114,16 @@ return {
 					symbol_map = require("kuuga.lib.icons").kinds,
 					before = function(entry, vim_item)
 						vim_item.menu = ({
-							buffer = "[Buffer]",
-							nerdfont = "[NerdFont]",
-							cmp_git = "[Git]",
-							codeium = "[Codeium]",
-							luasnip = "[LuaSnip]",
 							nvim_lsp = "[LSP]",
+							luasnip = "[LuaSnip]",
+							codeium = "[Codeium]",
 							nvim_lua = "[Lua]",
-							path = "[Path]",
 							nvim_lsp_signature_help = "[Signature]",
+							nerdfont = "[NerdFont]",
+							path = "[Path]",
+							buffer = "[Buffer]",
+							calc = "[Calc]",
+							cmp_git = "[Git]",
 						})[entry.source.name]
 
 						return vim_item
