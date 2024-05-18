@@ -2,7 +2,7 @@ local M = {}
 
 M.formatters = {
 	lua = { "stylua" },
-	go = { "gofmt", "goimports", "golines" },
+	go = { "goimports", "golines", "gofumpt" },
 	zsh = { "beautysh" },
 	bash = { "beautysh" },
 	sh = { "beautysh" },
