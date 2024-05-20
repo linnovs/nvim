@@ -7,7 +7,7 @@ if vim.env.VIMDEBUG == "lsp" then
 	vim.lsp.set_log_level("trace")
 end
 
-M.setup = function(opts)
+M.setup = function()
 	keymap("n", "<leader>d", vim.diagnostic.open_float, "Show diagnostic floating window")
 	keymap("n", "[d", vim.diagnostic.goto_prev, "Move to the previous diagnostic")
 	keymap("n", "]d", vim.diagnostic.goto_next, "Move to the next diagnostic")
