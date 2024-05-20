@@ -73,7 +73,9 @@ M.setup = function()
 			end
 
 			if client.supports_method("textDocument/inlayHint") then
-				vim.lsp.inlay_hint.enable(bufnr, true)
+				map("yoih", function()
+					vim.lsp.inlay_hint.enable(bufnr, not vim.lsp.inlay_hint.is_enabled())
+				end, "Toggle inlay hints")
 			end
 		end,
 	})
