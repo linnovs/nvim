@@ -52,8 +52,20 @@ return {
 		},
 		opts = {
 			graph_style = "unicode",
-			disable_commit_confirmation = true,
-			use_telescope = true,
+			telescope_sorter = function()
+				return require("telescope").extensions.fzf.native_fzf_sorter()
+			end,
+			remember_settings = true,
+			use_per_project_settings = true,
+			signs = {
+				hunk = { "", "" },
+				item = { "", "" },
+				section = { "", "" },
+			},
+			integrations = {
+				telescope = true,
+				diffview = true,
+			},
 		},
 	},
 
