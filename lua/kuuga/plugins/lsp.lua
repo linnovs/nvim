@@ -5,6 +5,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = "BufNew",
+		version = false,
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
