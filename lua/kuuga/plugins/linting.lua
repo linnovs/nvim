@@ -10,6 +10,9 @@ return {
 
 		function M.debounce(ms, fn)
 			local timer = vim.loop.new_timer()
+			if timer == nil then
+				return function() end
+			end
 			return function(...)
 				local argv = { ... }
 				timer:start(ms, 0, function()
