@@ -201,7 +201,7 @@ return {
 				}
 			)
 
-			require("kuuga.lib.lsp").setup({})
+			require("kuuga.lib.lsp").setup()
 			require("neoconf").setup({})
 			require("neodev").setup({})
 
