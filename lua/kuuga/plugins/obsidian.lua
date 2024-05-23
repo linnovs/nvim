@@ -129,7 +129,17 @@ return {
 			folder = "assets/templates",
 			date_format = "%Y-%m-%d",
 			time_format = "%H:%M",
-			substitutions = {},
+			substitutions = {
+				locale_date = function()
+					return os.date("%A, %b %d, %Y")
+				end,
+				yesterday = function()
+					return os.date("%Y-%m-%d", os.time() - 86400)
+				end,
+				tomorrow = function()
+					return os.date("%Y-%m-%d", os.time() + 86400)
+				end,
+			},
 		},
 		use_advanced_uri = false,
 		open_app_foreground = false,
