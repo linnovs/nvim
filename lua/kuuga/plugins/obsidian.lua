@@ -27,13 +27,13 @@ return {
 			desc = "Open Obsidian App",
 		},
 		{
-			"<leader>ot",
+			"<leader>o2d",
 			"<CMD>ObsidianToday<CR>",
 			desc = "Create Obsidian Today Note",
 		},
 		{
-			"<leader>oy",
-			"<CMD>ObsidianToday<CR>",
+			"<leader>oyd",
+			"<CMD>ObsidianToday -1<CR>",
 			desc = "Create/Open Obsidian Yesterday Note",
 		},
 	},
@@ -47,6 +47,7 @@ return {
 		notes_subdir = "notes",
 		daily_notes = {
 			folder = "notes/dailies",
+			template = "daily.md",
 		},
 		completion = {
 			nvim_cmp = true,
@@ -66,7 +67,7 @@ return {
 				opts = { buffer = true },
 			},
 		},
-		new_notes_location = "current_dir",
+		new_notes_location = "notes_subdir",
 		note_id_func = function(title)
 			-- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
 			-- In this case a note with the title 'My new note' will be given an ID that looks
@@ -82,6 +83,11 @@ return {
 				end
 			end
 			return tostring(os.time()) .. "-" .. suffix
+		end,
+		note_path_func = function(spec)
+			-- This is equivalent to the default behavior.
+			local path = spec.dir / tostring(spec.id)
+			return path:with_suffix(".md")
 		end,
 		wiki_link_func = function(opts)
 			if opts.id == nil then
@@ -102,8 +108,13 @@ return {
 		end,
 		disable_frontmatter = false,
 		note_frontmatter_func = function(note)
-			-- This is equivalent to the default frontmatter function.
+			-- Add the title of the note as an alias.
+			if note.title then
+				note:add_alias(note.title)
+			end
+
 			local out = { id = note.id, aliases = note.aliases, tags = note.tags }
+
 			-- `note.metadata` contains any manually added fields in the frontmatter.
 			-- So here we just make sure those fields are kept in the frontmatter.
 			if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
@@ -111,10 +122,17 @@ return {
 					out[k] = v
 				end
 			end
+
 			return out
 		end,
+		templates = {
+			folder = "assets/templates",
+			date_format = "%Y-%m-%d",
+			time_format = "%H:%M",
+			substitutions = {},
+		},
 		use_advanced_uri = false,
-		open_app_foreground = true,
+		open_app_foreground = false,
 		pick = {
 			name = "telescope.nvim",
 			mapping = {
@@ -140,6 +158,7 @@ return {
 			reference_text = { hl_group = "ObsidianRefText" },
 			highlight_text = { hl_group = "ObsidianHighlightText" },
 			tags = { hl_group = "ObsidianTag" },
+			block_ids = { hl_group = "ObsidianBlockID" },
 			hl_groups = {
 				-- The options are passed directly to `vim.api.nvim_set_hl()`. See `:help nvim_set_hl`.
 				ObsidianTodo = { bold = true, fg = "#f78c6c" },
@@ -150,29 +169,15 @@ return {
 				ObsidianRefText = { underline = true, fg = "#c792ea" },
 				ObsidianExtLinkIcon = { fg = "#c792ea" },
 				ObsidianTag = { italic = true, fg = "#89ddff" },
+				ObsidianBlockID = { italic = true, fg = "#89ddff" },
 				ObsidianHighlightText = { bg = "#75662e" },
 			},
 		},
 		attachments = {
 			img_folder = "assets/imgs",
-			-- A function that determines the text to insert in the note when pasting an image.
-			-- It takes two arguments, the `obsidian.Client` and a plenary `Path` to the image file.
-			-- This is the default implementation.
-			---@param client obsidian.Client
-			---@param path Path the absolute path to the image file
-			---@return string
 			img_text_func = function(client, path)
-				local link_path
-				local vault_relative_path = client:vault_relative_path(path)
-				if vault_relative_path ~= nil then
-					-- Use relative path if the image is saved in the vault dir.
-					link_path = vault_relative_path
-				else
-					-- Otherwise use the absolute path.
-					link_path = tostring(path)
-				end
-				local display_name = vim.fs.basename(link_path)
-				return string.format("![%s](%s)", display_name, link_path)
+				path = client:vault_relative_path(path) or path
+				return string.format("![%s](%s)", path.name, path)
 			end,
 		},
 		yaml_parser = "native",
