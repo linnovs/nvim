@@ -10,5 +10,5 @@ return {
 			["<C-s>"] = false,
 		},
 	},
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "nvim-tree/nvim-web-devicons", version = false },
 }
