@@ -10,7 +10,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "neovim/nvim-lspconfig" } },
-			"folke/neodev.nvim",
+			{ "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" } }, types = true } },
 			{ "b0o/schemastore.nvim", version = false },
 		},
 		init = function()
