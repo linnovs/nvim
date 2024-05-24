@@ -9,14 +9,18 @@ M.formatters = {
 	nix = { "nixpkgs_fmt", "nixpkgs-fmt" },
 	javascript = { { "prettierd", "prettier" } },
 	python = { "ruff_fix", "ruff_format" },
+	proto = { "buf" },
 	["*"] = { "trim_whitespace" },
 }
 
 M.linters = {
 	python = { "ruff" },
+	proto = { "buf_lint" },
 }
 
-M.debugger = {}
+M.debugger = {
+	"delve",
+}
 
 local pseudo_tools = {
 	"gofmt", -- gofmt is from golang.org/x/tools/cmd/gofmt
@@ -27,6 +31,7 @@ local pseudo_tools = {
 local mason_names = {
 	ruff_fix = "ruff",
 	ruff_format = "ruff",
+	buf_lint = "buf",
 }
 
 M.to_install = function()
