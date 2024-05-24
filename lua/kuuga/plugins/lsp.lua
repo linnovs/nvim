@@ -101,6 +101,7 @@ return {
 						flags = { debounce_text_changes = 300 },
 					},
 					omnisharp = {},
+					pbls = {},
 					pyright = {
 						settings = {
 							pyright = {
