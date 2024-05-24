@@ -65,4 +65,13 @@ return {
 			require("dapui").setup()
 		end,
 	},
+
+	{
+		"leoluz/nvim-dap-go",
+		version = false,
+		lazy = true,
+		ft = { "go" },
+		dependencies = { "mfussenegger/nvim-dap" },
+		opts = {},
+	},
 }
