@@ -36,6 +36,29 @@ return {
 			"<CMD>ObsidianToday -1<CR>",
 			desc = "Create/Open Obsidian Yesterday Note",
 		},
+		{
+			"<leader>owr",
+			function()
+				local client = require("obsidian").get_client()
+				local note = require("obsidian.note")
+
+				local id = string.format("%s", os.date("%Y-W%V", os.time()))
+				local path = string.format("notes/weeklies/%s.md", id)
+				local wr = note.new(id, {}, {}, path)
+
+				if wr:exists() then
+					client:open_note(wr)
+				else
+					local note = client:create_note({
+						id = id,
+						dir = "notes/weeklies",
+						template = "weekly.md",
+					})
+					client:open_note(note)
+				end
+			end,
+			desc = "Create this week's review",
+		},
 	},
 	opts = {
 		workspaces = {
@@ -133,11 +156,23 @@ return {
 				locale_date = function()
 					return os.date("%A, %b %d, %Y")
 				end,
+				year = function()
+					return os.date("%Y")
+				end,
 				yesterday = function()
 					return os.date("%Y-%m-%d", os.time() - 86400)
 				end,
 				tomorrow = function()
 					return os.date("%Y-%m-%d", os.time() + 86400)
+				end,
+				weeknum = function()
+					return os.date("%V", os.time())
+				end,
+				lastweek = function()
+					return os.date("%Y-W%V", os.time() - 86400 * 7)
+				end,
+				nextweek = function()
+					return os.date("%Y-W%V", os.time() + 86400 * 7)
 				end,
 			},
 		},
