@@ -35,8 +35,8 @@ local mason_names = {
 }
 
 M.to_install = function()
-	local formatters = vim.tbl_flatten(vim.tbl_values(M.formatters))
-	local linters = vim.tbl_flatten(vim.tbl_values(M.linters))
+	local formatters = vim.iter(vim.tbl_values(M.formatters)):flatten(2):totable()
+	local linters = vim.iter(vim.tbl_values(M.linters)):flatten(2):totable()
 	local tools = vim.list_extend(vim.fn.copy(formatters), linters)
 	vim.list_extend(tools, M.debugger)
 
