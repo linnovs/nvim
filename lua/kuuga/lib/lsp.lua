@@ -60,7 +60,9 @@ M.setup = function()
 				autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
 					group = augroup("LspCodeLens." .. bufnr, { clear = true }),
 					buffer = bufnr,
-					callback = vim.lsp.codelens.refresh,
+					callback = function()
+						vim.lsp.codelens.refresh({ bufnr = bufnr })
+					end,
 				})
 				map("<Leader>cl", vim.lsp.codelens.run, "Code lens")
 			end
