@@ -14,18 +14,20 @@ return {
 			{ "b0o/schemastore.nvim", version = false },
 		},
 		init = function()
-			for type, icon in pairs(signs) do
-				local hl = "DiagnosticSign" .. type
-				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-			end
-
 			vim.diagnostic.config({
 				virtual_text = {
 					spacing = 4,
 					source = "if_many",
 					prefix = "●",
 				},
-				signs = true,
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = signs.Error,
+						[vim.diagnostic.severity.WARN] = signs.Warn,
+						[vim.diagnostic.severity.INFO] = signs.Info,
+						[vim.diagnostic.severity.HINT] = signs.Hint,
+					},
+				},
 				underline = true,
 				update_in_insert = false,
 				severity_sort = true,
