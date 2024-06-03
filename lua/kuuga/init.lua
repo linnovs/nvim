@@ -10,10 +10,10 @@ local function version_check(opts)
 	local version = vim.version
 	local expected_version = version.parse(opts.version) or { 0, 0, 0 }
 
-	if version.cmp(expected_version, version()) == -1 then
+	if version.lt(version(), expected_version) then
 		vim.api.nvim_echo({
 			{
-				"Neovim version required to be at least 0.10\n",
+				"Neovim version required to be at least " .. opts.version .. " \n",
 				"WarningMsg",
 			},
 			{ "Press any key to exit", "MoreMsg" },
