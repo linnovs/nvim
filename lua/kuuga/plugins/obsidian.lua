@@ -174,6 +174,18 @@ return {
 				nextweek = function()
 					return os.date("%Y-W%V", os.time() + 86400 * 7)
 				end,
+				weekstart = function()
+					return os.date("%Y-%m-%d", os.time() - (os.date("%w") - 1) % 7 * 3600 * 24)
+				end,
+				weekstartStr = function()
+					return os.date("%b %d", os.time() - (os.date("%w") - 1) % 7 * 3600 * 24)
+				end,
+				weekend = function()
+					return os.date("%Y-%m-%d", os.time() + (7 - os.date("%w")) % 7 * 3600 * 24)
+				end,
+				weekendStr = function()
+					return os.date("%b %d", os.time() + (7 - os.date("%w")) % 7 * 3600 * 24)
+				end,
 			},
 		},
 		use_advanced_uri = false,
