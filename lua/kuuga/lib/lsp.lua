@@ -9,8 +9,6 @@ end
 
 M.setup = function()
 	keymap("n", "<leader>d", vim.diagnostic.open_float, "Show diagnostic floating window")
-	keymap("n", "[d", vim.diagnostic.goto_prev, "Move to the previous diagnostic")
-	keymap("n", "]d", vim.diagnostic.goto_next, "Move to the next diagnostic")
 	keymap("n", "<leader>q", vim.diagnostic.setloclist, "Add buffer diagnostics to location list")
 
 	vim.api.nvim_create_autocmd("LspAttach", {
