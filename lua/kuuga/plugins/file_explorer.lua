@@ -1,6 +1,6 @@
 return {
 	"stevearc/oil.nvim",
-	lazy = false,
+	event = "VeryLazy",
 	keys = {
 		{ "<Leader>of", "<CMD>Oil<CR>", desc = "Open oil (file explorer)" },
 	},

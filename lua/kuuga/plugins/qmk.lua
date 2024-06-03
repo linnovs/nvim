@@ -1,5 +1,6 @@
 return {
 	"codethread/qmk.nvim",
+	ft = "c",
 	version = false,
 	opts = {
 		name = "LAYOUT",

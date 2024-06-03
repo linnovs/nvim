@@ -1,7 +1,7 @@
 return {
 	{
 		"folke/noice.nvim",
-		priority = 500,
+		event = "VeryLazy",
 		opts = {
 			lsp = {
 				override = {
@@ -43,7 +43,7 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		event = "BufNew",
+		event = "BufRead",
 		opts = {
 			indent = {
 				char = "┊",
@@ -67,7 +67,7 @@ return {
 
 	{
 		"echasnovski/mini.indentscope",
-		event = "BufNew",
+		event = "BufRead",
 		opts = function()
 			local animation = require("mini.indentscope").gen_animation.none()
 
@@ -102,7 +102,7 @@ return {
 	-- beauty default UI
 	{
 		"stevearc/dressing.nvim",
-		event = "BufNew",
+		event = "BufRead",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		opts = {
 			select = {

@@ -26,7 +26,7 @@ return {
 
 	{
 		"brenoprata10/nvim-highlight-colors",
-		event = "BufNew",
+		event = "BufRead",
 		opts = true,
 	},
 }

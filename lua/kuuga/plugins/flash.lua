@@ -1,6 +1,6 @@
 return {
 	"folke/flash.nvim",
-	event = "BufNew",
+	event = "BufRead",
 	opts = {
 		labels = "arstgmneioqwfpbjluyzxcdvkh",
 	},
