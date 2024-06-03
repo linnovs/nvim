@@ -10,7 +10,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "neovim/nvim-lspconfig" } },
-			{ "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" } }, types = true } },
+			{ "folke/lazydev.nvim", ft = "lua", opts = { library = { "nvim-dap-ui" } } },
 			{ "b0o/schemastore.nvim", version = false },
 		},
 		init = function()
@@ -204,7 +204,6 @@ return {
 
 			require("kuuga.lib.lsp").setup()
 			require("neoconf").setup({})
-			require("neodev").setup({})
 
 			for _, server in ipairs(vim.tbl_keys(servers)) do
 				local config = servers[server]
