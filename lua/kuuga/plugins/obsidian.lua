@@ -49,7 +49,7 @@ return {
 				if wr:exists() then
 					client:open_note(wr)
 				else
-					local note = client:create_note({
+					note = client:create_note({
 						id = id,
 						dir = "notes/weeklies",
 						template = "weekly.md",
