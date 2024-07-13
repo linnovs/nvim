@@ -50,6 +50,7 @@ return {
 						},
 					},
 					dockerls = {},
+					fish_lsp = {},
 					gdscript = {},
 					golangci_lint_ls = {},
 					gopls = {
