@@ -1,29 +1,27 @@
 return {
 	"folke/which-key.nvim",
+	dependencies = {
+		"echasnovski/mini.icons",
+		"nvim-tree/nvim-web-devicons",
+	},
 	event = "VeryLazy",
 	opts = {
-		key_labels = { ["<leader>"] = "SPC" },
+		preset = "modern",
+		spec = {
+			{ "g", group = "goto" },
+			{ "]", group = "next" },
+			{ "[", group = "prev" },
+			{ "<leader>c", group = "code" },
+			{ "<leader>d", group = "debug" },
+			{ "<leader>f", group = "find" },
+			{ "<leader>g", group = "git" },
+			{ "<leader>gh", group = "hunks" },
+			{ "<leader>h", group = "harpoon" },
+			{ "<leader>w", group = "windows" },
+			{ "<leader>x", group = "diagnostics/quickfix" },
+			{ "<leader>o", group = "obisdian/explorer" },
+			{ "<leader>l", group = "lazy" },
+			{ "<leader>ze", group = "zen" },
+		},
 	},
-	config = function(_, opts)
-		local wk = require("which-key")
-		wk.setup(opts)
-		wk.register({
-			mode = { "n", "v" },
-			["g"] = { name = "goto" },
-			["]"] = { name = "next" },
-			["["] = { name = "prev" },
-			["<leader>c"] = { name = "code" },
-			["<leader>d"] = { name = "debug" },
-			["<leader>f"] = { name = "find" },
-			["<leader>g"] = { name = "git" },
-			["<leader>gh"] = { name = "hunks" },
-			["<leader>h"] = { name = "harpoon" },
-			["<leader>w"] = { name = "windows" },
-			["<leader>x"] = { name = "diagnostics/quickfix" },
-			["<leader>o"] = { name = "obisdian/explorer" },
-			["<leader>l"] = { name = "lazy" },
-			["<leader>t"] = { name = "terminal" },
-			["<leader>ze"] = { name = "zen" },
-		})
-	end,
 }
