@@ -6,7 +6,7 @@ local function foldendtext()
 	local foldend = vim.v.foldend
 	local bufnr = api.nvim_get_current_buf()
 
-	---@type boolean, LanguageTree
+	---@type boolean, vim.treesitter.LanguageTree
 	local ok, parser = pcall(ts.get_parser, bufnr)
 	if not ok then
 		return nil
