@@ -10,7 +10,7 @@ return {
 				local bufnr = ev.buf
 				local keymap = require("kuuga.lib.keymap")
 				local function map(lhs, rhs, desc)
-					keymap("t", lhs, rhs, desc, { buffer = bufnr })
+					keymap.map("t", lhs, rhs, desc, { buffer = bufnr })
 				end
 
 				map("<leader>wh", "<Cmd>wincmd h<CR>", "Move window to the left")
@@ -42,4 +42,32 @@ return {
 			enabled = true,
 		},
 	},
+	config = function(_, opts)
+		local keymap = require("kuuga.lib.keymap")
+		local Terminal = require("toggleterm.terminal").Terminal
+		local homedir = vim.fn.expand("~")
+		local lazygitconf = homedir .. "/.config/lazygit"
+
+		local lazygit = Terminal:new({
+			cmd = "lazygit",
+			hidden = true,
+			direction = "tab",
+			env = {
+				GIT_EDITOR = "nvr -cc tabedit --remote-wait",
+				LG_CONFIG_FILE = lazygitconf .. "/config.yml," .. lazygitconf .. "/nvim.yml",
+			},
+			on_open = function(term)
+				vim.cmd("startinsert!")
+				keymap.map("t", "q", "<cmd>close<cr>", "Close lazygit", { buffer = term.bufnr, noremap = true })
+				keymap.map("t", "<space>", "<space>", "lazygit space", { buffer = term.bufnr, noremap = true })
+				keymap.map("t", "<esc>", "<esc>", "lazygit space", { buffer = term.bufnr, noremap = true })
+			end,
+		})
+
+		require("toggleterm").setup(opts)
+
+		keymap.map("n", "<Leader>gst", function()
+			lazygit:toggle()
+		end, "Toggle lazygit")
+	end,
 }
