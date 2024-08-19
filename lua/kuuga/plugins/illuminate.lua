@@ -17,7 +17,7 @@ return {
 				require("illuminate")["goto_" .. dir .. "_reference"](false)
 			end
 			local desc = dir:sub(1, 1):upper() .. dir:sub(2) .. " Reference"
-			keymap("n", lhs, fn, desc, { buffer = buffer })
+			keymap.map("n", lhs, fn, desc, { buffer = buffer })
 		end
 
 		map("]]", "next")

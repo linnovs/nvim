@@ -14,28 +14,28 @@ return {
 			current_line_blame = true,
 			on_attach = function()
 				local gs = package.loaded["gitsigns"]
-				local map = require("kuuga.lib.keymap")
+				local keymap = require("kuuga.lib.keymap")
 
-				map("n", "]h", gs.next_hunk, "Next hunk")
-				map("n", "[h", gs.prev_hunk, "Prev hunk")
+				keymap.map("n", "]h", gs.next_hunk, "Next hunk")
+				keymap.map("n", "[h", gs.prev_hunk, "Prev hunk")
 
 				-- Actions
-				map({ "n", "v" }, "<leader>ghs", "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk")
-				map({ "n", "v" }, "<leader>ghr", "<CMD>Gitsigns reset_hunk<CR>", "Reset hunk")
-				map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
-				map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
-				map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
-				map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
-				map("n", "<leader>ghb", function()
+				keymap.map({ "n", "v" }, "<leader>ghs", "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk")
+				keymap.map({ "n", "v" }, "<leader>ghr", "<CMD>Gitsigns reset_hunk<CR>", "Reset hunk")
+				keymap.map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
+				keymap.map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
+				keymap.map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
+				keymap.map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
+				keymap.map("n", "<leader>ghb", function()
 					gs.blame_line({ full = true })
 				end, "Blame Line")
-				map("n", "<leader>ghd", gs.diffthis, "Diff this")
-				map("n", "<leader>ghD", function()
-					gs.diffthis("~")
-				end, "Diff this ~")
+				keymap.map("n", "<leader>ghd", gs.diffthis, "Diff this")
+				keymap.map("n", "<leader>ghD", function()
+					gs.map.diffthis("~")
+				end, ".mapDiff this ~")
 
-				-- Text objects
-				map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk()<CR>", "GitSigns Select Hunk")
+				-- Tex.mapt objects
+				keymap.map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk()<CR>", "GitSigns Select Hunk")
 			end,
 		},
 	},

@@ -8,8 +8,8 @@ if vim.env.VIMDEBUG == "lsp" then
 end
 
 M.setup = function()
-	keymap("n", "<leader>d", vim.diagnostic.open_float, "Show diagnostic floating window")
-	keymap("n", "<leader>q", vim.diagnostic.setloclist, "Add buffer diagnostics to location list")
+	keymap.map("n", "<leader>d", vim.diagnostic.open_float, "Show diagnostic floating window")
+	keymap.map("n", "<leader>q", vim.diagnostic.setloclist, "Add buffer diagnostics to location list")
 
 	-- fixes for bug https://github.com/neovim/neovim/issues/12970
 	---@diagnostic disable-next-line: duplicate-set-field
@@ -32,7 +32,7 @@ M.setup = function()
 			local autocmd = vim.api.nvim_create_autocmd
 
 			local function map(lhs, rhs, desc)
-				keymap("n", lhs, rhs, desc, { buffer = bufnr })
+				keymap.map("n", lhs, rhs, desc, { buffer = bufnr })
 			end
 
 			if client == nil then

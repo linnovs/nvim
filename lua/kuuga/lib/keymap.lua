@@ -1,4 +1,6 @@
-return function(mode, lhs, rhs, desc, opts)
+local M = {}
+
+function M.map(mode, lhs, rhs, desc, opts)
 	if opts == nil then
 		opts = {
 			desc = desc,
@@ -9,3 +11,5 @@ return function(mode, lhs, rhs, desc, opts)
 
 	vim.keymap.set(mode, lhs, rhs, opts)
 end
+
+return M
