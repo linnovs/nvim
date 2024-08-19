@@ -7,21 +7,22 @@ return {
 
 	{
 		"OXY2DEV/markview.nvim",
-		ft = "markdown",
+		lazy = false,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons", -- Used by the code bloxks
 		},
 		opts = {
-			options = {
-				on_enable = {
-					conceallevel = 2,
-					concealcursor = "",
-				},
-				on_disable = {
-					conceallevel = 0,
-					concealcursor = "",
-				},
+			modes = { "n", "no", "c" },
+
+			hybrid_modes = { "n" },
+
+			callbacks = {
+				on_enable = function(_, win)
+					vim.wo[win].conceallevel = 2
+					---@diagnostic disable-next-line: inject-field
+					vim.wo[win].conecalcursor = "c"
+				end,
 			},
 		},
 	},
