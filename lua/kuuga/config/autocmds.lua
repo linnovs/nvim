@@ -1,6 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 local home = vim.fn.expand("~")
-local map = require("kuuga.lib.keymap")
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, { command = "checktime" })
 autocmd("VimResized", { command = "tabdo wincmd =" })
