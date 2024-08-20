@@ -53,7 +53,7 @@ return {
 			hidden = true,
 			direction = "tab",
 			env = {
-				GIT_EDITOR = "nvr -cc tabedit --remote-wait",
+				GIT_EDITOR = "nvr -cc vsplit --remote-wait",
 				LG_CONFIG_FILE = lazygitconf .. "/config.yml," .. lazygitconf .. "/nvim.yml",
 			},
 			on_open = function(term)
