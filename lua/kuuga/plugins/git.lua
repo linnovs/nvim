@@ -40,35 +40,6 @@ return {
 		},
 	},
 
-	-- {
-	-- 	"NeogitOrg/neogit",
-	-- 	dependencies = "nvim-lua/plenary.nvim",
-	-- 	keys = {
-	-- 		{
-	-- 			"<leader>gst",
-	-- 			"<cmd>Neogit<cr>",
-	-- 			desc = "Toggle neogit",
-	-- 		},
-	-- 	},
-	-- 	opts = {
-	-- 		graph_style = "unicode",
-	-- 		telescope_sorter = function()
-	-- 			return require("telescope").extensions.fzf.native_fzf_sorter()
-	-- 		end,
-	-- 		remember_settings = true,
-	-- 		use_per_project_settings = true,
-	-- 		signs = {
-	-- 			hunk = { "", "" },
-	-- 			item = { "", "" },
-	-- 			section = { "", "" },
-	-- 		},
-	-- 		integrations = {
-	-- 			telescope = true,
-	-- 			diffview = true,
-	-- 		},
-	-- 	},
-	-- },
-
 	{
 		"pwntester/octo.nvim",
 		cmd = { "Octo" },

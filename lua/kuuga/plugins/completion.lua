@@ -4,20 +4,9 @@ local dependencies = {
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-cmdline",
 	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-nvim-lua",
 	"hrsh7th/cmp-calc",
 	"saadparwaiz1/cmp_luasnip",
-	{
-		"petertriho/cmp-git",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		config = function()
-			require("cmp_git").setup({})
-		end,
-	},
 	"chrisgrieser/cmp-nerdfont",
-	"hrsh7th/cmp-nvim-lsp-signature-help",
 	"petertriho/cmp-git",
 	"Exafunction/codeium.nvim",
 
@@ -35,13 +24,10 @@ return {
 		local lspkind = require("lspkind")
 		local cmp = require("cmp")
 		local defaults = require("cmp.config.default")()
-		-- local copilot = require("copilot.suggestion")
 
 		local mapping = {
 			["<Tab>"] = cmp.mapping({
 				i = function(fallback)
-					-- if copilot.is_visible() then
-					-- 	copilot.accept()
 					if luasnip.expand_or_locally_jumpable() then
 						luasnip.expand_or_jump()
 					else
@@ -135,12 +121,11 @@ return {
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "codeium" },
-				{ name = "nvim_lua" },
-				{ name = "nvim_lsp_signature_help" },
-				{ name = "nerdfont" },
 				{ name = "path" },
-				{ name = "buffer" },
 				{ name = "calc" },
+			}, {
+				{ name = "nerdfont" },
+				{ name = "buffer" },
 			}),
 		}
 	end,
@@ -149,20 +134,16 @@ return {
 
 		cmp.setup(opts)
 
-		cmp.event:on("menu_opened", function()
-			vim.b.copilot_suggestion_hidden = true
-		end)
-
-		cmp.event:on("menu_closed", function()
-			vim.b.copilot_suggestion_hidden = false
-		end)
-
 		cmp.setup.cmdline({ "/", "?" }, {
+			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({ { name = "buffer" } }),
 		})
 
 		cmp.setup.cmdline(":", {
+			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
+			---@diagnostic disable-next-line: missing-fields
+			matching = { disallow_symbol_nonprefix_matching = false },
 		})
 
 		cmp.setup.filetype({ "gitcommit", "NeogitCommitMessage" }, {
