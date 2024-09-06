@@ -64,19 +64,14 @@ end
 function M.setup(opts)
 	M.init(opts)
 
-	if vim.fn.argc(-1) == 0 then
-		vim.api.nvim_create_autocmd("User", {
-			group = vim.api.nvim_create_augroup("Kuuga", { clear = true }),
-			pattern = "VeryLazy",
-			callback = function()
-				require("kuuga.config.autocmds")
-				require("kuuga.config.mappings")
-			end,
-		})
-	else
-		require("kuuga.config.autocmds")
-		require("kuuga.config.mappings")
-	end
+	vim.api.nvim_create_autocmd("User", {
+		group = vim.api.nvim_create_augroup("Kuuga", { clear = true }),
+		pattern = "VeryLazy",
+		callback = function()
+			require("kuuga.config.autocmds")
+			require("kuuga.config.mappings")
+		end,
+	})
 
 	-- neovide config
 	if vim.g.neovide then
@@ -94,8 +89,8 @@ function M.delay_notifications()
 	local orig = vim.notify
 	vim.notify = temp
 
-	local timer = vim.loop.new_timer()
-	local check = vim.loop.new_check()
+	local timer = vim.uv.new_timer()
+	local check = assert(vim.uv.new_check())
 
 	local replay = function()
 		timer:stop()
