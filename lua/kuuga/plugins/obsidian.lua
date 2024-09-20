@@ -189,7 +189,7 @@ return {
 				end,
 			},
 		},
-		use_advanced_uri = false,
+		use_advanced_uri = true,
 		open_app_foreground = false,
 		pick = {
 			name = "telescope.nvim",
