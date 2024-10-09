@@ -9,6 +9,7 @@ M.empty = require("kuuga.lib.statusline.lualine.components.empty")
 M.ruler = require("kuuga.lib.statusline.lualine.components.ruler")
 M.selectioncount = require("kuuga.lib.statusline.lualine.components.selectioncount")
 M.progress = require("kuuga.lib.statusline.lualine.components.progress")
+M.codeium = require("kuuga.lib.statusline.lualine.components.codeium")
 
 local file = require("kuuga.lib.statusline.lualine.components.file")
 M.fileicon = file.icon
