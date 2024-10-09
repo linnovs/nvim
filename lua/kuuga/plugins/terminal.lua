@@ -58,7 +58,6 @@ return {
 			},
 			on_open = function(term)
 				vim.cmd("startinsert!")
-				keymap.map("t", "q", "<cmd>close<cr>", "Close lazygit", { buffer = term.bufnr, noremap = true })
 				keymap.map("t", "<space>", "<space>", "lazygit space", { buffer = term.bufnr, noremap = true })
 				keymap.map("t", "<esc>", "<esc>", "lazygit space", { buffer = term.bufnr, noremap = true })
 			end,
