@@ -79,11 +79,6 @@ M.setup = function()
 				map("<Leader>cl", vim.lsp.codelens.run, "Code lens")
 			end
 
-			if client.supports_method("textDocument/documentSymbol") then
-				require("nvim-navic").attach(client, bufnr)
-				require("nvim-navbuddy").attach(client, bufnr)
-			end
-
 			if client.supports_method("textDocument/inlayHint") then
 				map("yoih", function()
 					vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })

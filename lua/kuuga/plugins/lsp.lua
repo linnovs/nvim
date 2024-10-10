@@ -183,39 +183,6 @@ return {
 		end,
 	},
 
-	-- code context
-	{
-		"SmiteshP/nvim-navic",
-		dependencies = {
-			"neovim/nvim-lspconfig",
-		},
-		lazy = true,
-		opts = {
-			icons = icons,
-			highlight = true,
-			safe_output = true,
-		},
-	},
-
-	{
-		"SmiteshP/nvim-navbuddy",
-		lazy = true,
-		dependencies = {
-			"neovim/nvim-lspconfig",
-			"SmiteshP/nvim-navic",
-			"MunifTanjim/nui.nvim",
-		},
-		keys = {
-			{ "<leader>cc", "<CMD>Navbuddy<CR>", desc = "Navbuddy" },
-		},
-		opts = {
-			window = {
-				border = "rounded",
-			},
-			icons = icons,
-		},
-	},
-
 	{
 		"folke/trouble.nvim",
 		cmd = { "Trouble", "TroubleToggle" },
