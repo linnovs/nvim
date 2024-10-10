@@ -32,7 +32,7 @@ autocmd("BufWritePost", {
 })
 
 autocmd("BufEnter", { pattern = { "term://*", "*COMMIT_EDITMSG" }, command = "startinsert" })
-autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.tf", command = "set filetype=terraform" })
-autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.rasi", command = "set filetype=rasi" })
-autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.wgsl", command = "set filetype=wgsl" })
+autocmd({ "BufReadPost", "BufNewFile" }, { pattern = "*.tf", command = "set filetype=terraform" })
+autocmd({ "BufReadPost", "BufNewFile" }, { pattern = "*.rasi", command = "set filetype=rasi" })
+autocmd({ "BufReadPost", "BufNewFile" }, { pattern = "*.wgsl", command = "set filetype=wgsl" })
 autocmd("FileType", { pattern = "gitcommit,gitrebase,gitconfig", command = "set bufhidden=delete" })

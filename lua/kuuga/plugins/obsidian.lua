@@ -241,7 +241,7 @@ return {
 		yaml_parser = "native",
 	},
 	config = function(_, opts)
-		vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+		vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 			pattern = vim.fn.expand("~/Documents/Obsidian Vault/**.md"),
 			callback = function()
 				vim.opt.conceallevel = 2

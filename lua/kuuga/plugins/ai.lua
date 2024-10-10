@@ -4,7 +4,7 @@ vim.g.codeium_manual = true
 return {
 	"Exafunction/codeium.vim",
 	branch = "main",
-	event = "BufEnter",
+	event = "VeryLazy",
 	config = function()
 		local map = require("kuuga.lib.keymap").map
 

@@ -2,7 +2,7 @@ local linters = require("kuuga.lib.tools").linters
 
 return {
 	"mfussenegger/nvim-lint",
-	event = "BufRead",
+	event = "BufReadPost",
 	config = function()
 		local lint = require("lint")
 		lint.linters_by_ft = linters

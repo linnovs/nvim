@@ -2,6 +2,7 @@ return {
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
+		dependencies = { "MunifTanjim/nui.nvim" },
 		opts = {
 			lsp = {
 				override = {
@@ -43,7 +44,7 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		event = "BufRead",
+		event = "BufReadPost",
 		opts = {
 			indent = {
 				char = "┊",
@@ -67,7 +68,7 @@ return {
 
 	{
 		"echasnovski/mini.indentscope",
-		event = "BufRead",
+		event = "BufReadPost",
 		opts = function()
 			local animation = require("mini.indentscope").gen_animation.none()
 
@@ -102,12 +103,14 @@ return {
 	-- beauty default UI
 	{
 		"stevearc/dressing.nvim",
-		event = "BufRead",
+		event = "BufReadPost",
 		dependencies = { "nvim-telescope/telescope.nvim" },
-		opts = {
-			select = {
-				telescope = require("telescope.themes").get_cursor(),
-			},
-		},
+		opts = function()
+			return {
+				select = {
+					telescope = require("telescope.themes").get_cursor(),
+				},
+			}
+		end,
 	},
 }
