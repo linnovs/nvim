@@ -6,6 +6,11 @@ return {
 		lazy = true,
 		config = true,
 		build = ":MasonUpdate",
+		opts = {
+			ui = {
+				border = "rounded",
+			},
+		},
 	},
 
 	{
