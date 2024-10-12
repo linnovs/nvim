@@ -17,6 +17,7 @@ return {
 		windows = {
 			autocomplete = {
 				border = "rounded",
+				preselect = false,
 				draw = "reversed",
 			},
 			documentation = {
