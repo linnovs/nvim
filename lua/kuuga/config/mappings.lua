@@ -23,6 +23,7 @@ keymap.map("n", "<Leader>w|", "<C-w>|", "Make the window largest (not closing an
 keymap.map("n", "<C-s>", "<cmd>update<CR>", "Quick save")
 keymap.map("n", "<Leader>e", "<cmd>edit<CR>", "Quick re-edit")
 keymap.map("n", "<Leader>qq", "<cmd>quit<CR>", "Quick quit")
+keymap.map("n", "<Leader>qa", "<cmd>qall<CR>", "Quick quit all")
 keymap.map("n", "<Leader>fqq", "<cmd>quit!<CR>", "Quick force quit")
 
 keymap.map("n", "yoh", "<CMD>set hlsearch!<CR>", "Toggle highlight search")
