@@ -9,11 +9,13 @@ M.formatters = {
 	nix = { "nixpkgs_fmt", "nixpkgs-fmt" },
 	proto = { "protolint" },
 	python = { "ruff_fix", "ruff_format" },
+	rust = { "rustfmt" },
 	sh = { "beautysh" },
 	zsh = { "beautysh" },
 }
 
 M.linters = {
+	rust = { "clippy" },
 	python = { "ruff" },
 	proto = { "protolint" },
 }
@@ -25,6 +27,7 @@ M.debugger = {
 local pseudo_tools = {
 	"gofmt", -- gofmt is from golang.org/x/tools/cmd/gofmt
 	"trim_whitespace",
+	"clippy", -- come with cargo (rust)
 	"nixpkgs_fmt", -- nixpkgs_fmt is for Conform.nvim to active configuration only
 }
 
