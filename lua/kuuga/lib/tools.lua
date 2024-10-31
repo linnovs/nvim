@@ -1,16 +1,16 @@
 local M = {}
 
 M.formatters = {
-	lua = { "stylua" },
-	go = { "goimports", "golines", "gofumpt" },
-	zsh = { "beautysh" },
-	bash = { "beautysh" },
-	sh = { "beautysh" },
-	nix = { "nixpkgs_fmt", "nixpkgs-fmt" },
-	javascript = { { "prettierd", "prettier" } },
-	python = { "ruff_fix", "ruff_format" },
-	proto = { "protolint" },
 	["*"] = { "trim_whitespace" },
+	bash = { "beautysh" },
+	go = { "goimports", "golines", "gofumpt" },
+	javascript = { { "prettierd", "prettier" } },
+	lua = { "stylua" },
+	nix = { "nixpkgs_fmt", "nixpkgs-fmt" },
+	proto = { "protolint" },
+	python = { "ruff_fix", "ruff_format" },
+	sh = { "beautysh" },
+	zsh = { "beautysh" },
 }
 
 M.linters = {
