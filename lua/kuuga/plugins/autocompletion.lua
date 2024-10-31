@@ -8,11 +8,7 @@ return {
 	---@module 'blink.cmp.config'
 	---@type blink.cmp.Config
 	opts = {
-		keymap = {
-			accept = "<CR>",
-			select_prev = { "<Up>", "<C-p>" },
-			select_next = { "<Down>", "<C-n>" },
-		},
+		keymap = "default",
 		accept = {
 			auto_brackets = { enabled = true },
 		},
