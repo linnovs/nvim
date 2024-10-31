@@ -1,74 +1,35 @@
 local colors = require("catppuccin.palettes").get_palette("macchiato") or {}
 
-local mode_text = {
-	["n"] = "󰚩 󰒘 ", -- NORMAL
-	["no"] = "󰚩 󰂪 ", -- OP PENDING
-	["nov"] = "󰚩 󰂪 ", -- OP PENDING CHA
-	["noV"] = "󰚩 󰂪 ", -- OP PENDING LINE
-	["no"] = "󰚩 󰂪 ", -- OP PENDING BLOCK
-	["niI"] = "󰚩 󱆠 ", -- INSERT (NORMAL)
-	["niR"] = "󰚩 󱆢 ", -- REPLACE (NORMAL)
-	["niV"] = "󰚩 󱆣 ", -- V REPLACE (NORMAL)
-	["nt"] = "󰚩 󰯄 ", -- TERMINAL NORMAL
-	["ntT"] = "󰚩 󱦚 ", -- TERMINAL (NORMAL)
-
-	["v"] = "󱜙 󰕥 ", -- VISUAL
-	["vs"] = "󱜙 󰳈 ", -- SELECT (VISUAL)
-	["V"] = "󱜙 󰻌 ", -- V-LINE
-	["Vs"] = "󱜙 󰻍 ", -- SELECT (V-LINE)
-	[""] = "󱜙 󱄻 ", -- V-BLOCK
-	["s"] = "󱜙 󱄼 ", -- SELECT (V-BLOCK)
-
-	["s"] = "󱜚 󰳈 ", -- SELECT
-	["S"] = "󱜚 󰻍 ", -- S-LINE
-	[""] = "󱜚 󱄼 ", -- S-BLOCK
-
-	["i"] = "󱚝 󱢾 ", -- INSERT
-	["ic"] = "󱚝 󱢿 ", -- INSERT COMPL GENERIC
-	["ix"] = "󱚝 󱢿 ", -- INSERT COMPL
-
-	["R"] = "󱚡 󱢾 ", -- REPLACE
-	["Rc"] = "󱚡 󱢿 ", -- REPLACE COMP GENERIC
-	["Rx"] = "󱚡 󱢿 ", -- REPLACE COMP
-	["Rv"] = "󱚢 󰳈 ", -- V REPLACE
-	["Rvc"] = "󱚢 󱢿 ", -- V REPLACE COMP GENERIC
-	["Rvx"] = "󱚢 󱢿 ", -- V REPLACE COMP
-
-	["c"] = "󰜍 󱢼 ", -- COMMAND
-	["cv"] = "󰜍 󰴳 ", -- VIM EX
-	["ce"] = "󰜍 󰴳 ", -- EX
-	["r"] = "󰭆 󰚊 ", -- PROMPT
-	["rm"] = "󰭆 󰚊 ", -- MORE PROMPT
-	["r?"] = "󱨚 󰳈 ", -- CONFIRM
-	["!"] = "󱚠 󰦝 ", -- SHELL
-
-	["t"] = "󱇷 󱠨 ", -- TERMINAL
-}
-
 local highlights = {
 	normal = {
 		bg = colors.overlay0,
 		fg = colors.teal,
+		gui = "bold",
 	},
 	visual = {
 		bg = colors.overlay0,
 		fg = colors.peach,
+		gui = "bold",
 	},
 	insert = {
 		bg = colors.overlay0,
 		fg = colors.green,
+		gui = "bold",
 	},
 	replace = {
 		bg = colors.overlay0,
 		fg = colors.red,
+		gui = "bold",
 	},
 	commandline = {
 		bg = colors.overlay0,
 		fg = colors.yellow,
+		gui = "bold",
 	},
 	terminal = {
 		bg = colors.overlay0,
 		fg = colors.blue,
+		gui = "bold",
 	},
 }
 
@@ -118,13 +79,9 @@ local mode_color = {
 
 local M = {}
 
-M[1] = function()
-	local mode_code = vim.api.nvim_get_mode().mode
-	if mode_text[mode_code] == nil then
-		return mode_code
-	end
-	return "▌ " .. mode_text[mode_code]
-end
+M[1] = "mode"
+
+M.icon = "▌"
 
 M.color = function()
 	return mode_color[vim.fn.mode()]
