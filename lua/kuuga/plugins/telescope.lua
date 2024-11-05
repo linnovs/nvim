@@ -38,6 +38,11 @@ return {
 			desc = "Find LSP document symbols",
 		},
 		{
+			"<leader>fkm",
+			"<CMD>lua require('telescope.builtin').keymaps({})<CR>",
+			desc = "Find keymaps",
+		},
+		{
 			"<leader>fq",
 			"<CMD>lua require('telescope.builtin').quickfix({})<CR>",
 			desc = "Find items in quickfix list",
