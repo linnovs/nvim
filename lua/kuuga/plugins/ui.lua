@@ -51,8 +51,8 @@ return {
 		---@type ibl.config
 		opts = {
 			indent = {
-				char = "┊",
-				tab_char = "┊",
+				char = "▏",
+				tab_char = "▏",
 			},
 			scope = { enabled = false },
 			exclude = {
@@ -77,7 +77,7 @@ return {
 			local animation = require("mini.indentscope").gen_animation.none()
 
 			return {
-				symbol = "┊",
+				symbol = "▏",
 				options = { try_as_border = true },
 				draw = {
 					animation = animation,
