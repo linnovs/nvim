@@ -42,7 +42,8 @@ end
 -- from https://github.com/nvim-telescope/telescope.nvim/issues/2014#issuecomment-1878409284
 local function filename_first(_, path)
 	local tail = vim.fs.basename(path)
-	local parent = vim.fs.dirname(path)
+	local prefix = string.format("^%s/", vim.fn.getcwd())
+	local parent = vim.fs.dirname(path:gsub(prefix, ""))
 	if parent == "." then
 		return tail
 	end
