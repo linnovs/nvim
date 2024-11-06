@@ -94,6 +94,9 @@ telescope.setup({
 				},
 			},
 		},
+		lsp_references = {
+			show_line = false,
+		},
 		help_tags = {
 			theme = "dropdown",
 			mappings = {
