@@ -44,6 +44,34 @@ return {
 				lsp_doc_border = true,
 			},
 		},
+		keys = {
+			{
+				"<C-f>",
+				function()
+					if not require("noice.lsp").scroll(4) then
+						return "<C-f>"
+					end
+
+					return ""
+				end,
+				mode = { "n", "i", "s" },
+				silent = true,
+				expr = true,
+			},
+			{
+				"<C-b>",
+				function()
+					if not require("noice.lsp").scroll(-4) then
+						return "<C-b>"
+					end
+
+					return ""
+				end,
+				mode = { "n", "i", "s" },
+				silent = true,
+				expr = true,
+			},
+		},
 	},
 
 	{
