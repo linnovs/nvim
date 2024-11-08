@@ -5,7 +5,7 @@ return {
 		"rafamadriz/friendly-snippets",
 	},
 	version = "v0.*",
-	---@module 'blink.cmp.config'
+	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
 		keymap = {
