@@ -9,6 +9,7 @@ return {
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
+			"saghen/blink.cmp",
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "neovim/nvim-lspconfig" } },
 			{
 				"folke/lazydev.nvim",
@@ -182,7 +183,7 @@ return {
 
 			for _, server in ipairs(vim.tbl_keys(servers)) do
 				local config = servers[server]
-				config.capabilities = capabilities
+				config.capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 				lspconfig[server].setup(config)
 			end
