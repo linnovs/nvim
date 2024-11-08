@@ -26,10 +26,6 @@ keymap.map("n", "<Leader>qq", "<cmd>quit<CR>", "Quick quit")
 keymap.map("n", "<Leader>qa", "<cmd>qall<CR>", "Quick quit all")
 keymap.map("n", "<Leader>fqq", "<cmd>quit!<CR>", "Quick force quit")
 
-keymap.map("n", "yoh", "<CMD>set hlsearch!<CR>", "Toggle highlight search")
-keymap.map("n", "yos", "<CMD>set spell!<CR>", "Toggle spell check")
-keymap.map("n", "yoc", "<CMD>set cursorcolumn!<CR>", "Toggle cursor column")
-keymap.map("n", "yow", "<CMD>set wrap!<CR>", "Toggle line wrap")
 
 keymap.map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", "Escape and clear hlsearch")
 keymap.map("t", "<esc><esc>", "<C-\\><C-n>", "Enter normal mode")
