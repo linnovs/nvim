@@ -33,7 +33,7 @@ return {
 							{ find = "; before #%d+" },
 						},
 					},
-					view = "mini",
+					view = "notify",
 				},
 			},
 			presets = {
