@@ -10,7 +10,12 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "neovim/nvim-lspconfig" } },
-			{ "folke/lazydev.nvim", ft = "lua", opts = { library = { "nvim-dap-ui" } } },
+			{
+				"folke/lazydev.nvim",
+				version = false,
+				ft = "lua",
+				opts = { library = { "nvim-dap-ui", { path = "luvit-meta/library", words = { "vim%.uv" } } } },
+			},
 			{ "b0o/schemastore.nvim", version = false },
 		},
 		init = function()
