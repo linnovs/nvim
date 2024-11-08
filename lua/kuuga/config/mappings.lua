@@ -26,8 +26,6 @@ keymap.map("n", "<Leader>qq", "<cmd>quit<CR>", "Quick quit")
 keymap.map("n", "<Leader>qa", "<cmd>qall<CR>", "Quick quit all")
 keymap.map("n", "<Leader>fqq", "<cmd>quit!<CR>", "Quick force quit")
 
-
 keymap.map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", "Escape and clear hlsearch")
-keymap.map("t", "<esc><esc>", "<C-\\><C-n>", "Enter normal mode")
 
 keymap.map("n", "<Leader>lazy", "<CMD>Lazy<CR>", "Open Lazy.nvim")
