@@ -1,4 +1,3 @@
-local icons = require("kuuga.lib.icons").kinds
 local signs = require("kuuga.lib.icons").diagnostics
 
 return {
