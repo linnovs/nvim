@@ -176,6 +176,7 @@ return {
 				},
 			})
 
+			require("kuuga.lib.lsp").lsp_progress_autocmd()
 			require("kuuga.lib.lsp").setup()
 			require("neoconf").setup({})
 
