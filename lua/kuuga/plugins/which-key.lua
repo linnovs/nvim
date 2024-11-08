@@ -6,7 +6,7 @@ return {
 	},
 	event = "VeryLazy",
 	opts = {
-		preset = "modern",
+		preset = "helix",
 		spec = {
 			{ "g", group = "goto" },
 			{ "]", group = "next" },
