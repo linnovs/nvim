@@ -25,6 +25,15 @@ return {
 		accept = {
 			auto_brackets = { enabled = true },
 		},
+		sources = {
+			completion = {
+				enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
+			},
+			providers = {
+				lsp = { fallback_for = { "lazydev" } },
+				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+			},
+		},
 		windows = {
 			autocomplete = {
 				border = "rounded",
