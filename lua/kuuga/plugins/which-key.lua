@@ -5,6 +5,15 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	event = "VeryLazy",
+	keys = {
+		{
+			"<leader>?",
+			function()
+				require("which-key").show({ global = false })
+			end,
+			desc = "Buffer local keymaps (which-key)",
+		},
+	},
 	opts = {
 		preset = "helix",
 		spec = {
