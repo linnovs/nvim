@@ -36,10 +36,18 @@ local mason_names = {
 	ruff_format = "ruff",
 }
 
+local extra_tools = {
+	"cspell",
+}
+
 M.to_install = function()
+	local tools = vim.fn.copy(extra_tools)
+
 	local formatters = vim.iter(vim.tbl_values(M.formatters)):flatten(2):totable()
 	local linters = vim.iter(vim.tbl_values(M.linters)):flatten(2):totable()
-	local tools = vim.list_extend(vim.fn.copy(formatters), linters)
+
+	vim.list_extend(tools, formatters)
+	vim.list_extend(tools, linters)
 	vim.list_extend(tools, M.debugger)
 
 	tools = vim.tbl_map(function(tool)
