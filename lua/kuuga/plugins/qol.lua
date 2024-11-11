@@ -49,7 +49,7 @@ return {
 			{ "<leader>gfl", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History", },
 			{ "<leader>gl",  function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)", },
 			{ "<leader>tt",  function() Snacks.terminal() end, desc = "Toggle terminal", },
-			{ "[[",          function() Snacks.words.jump(vim.v.count1) end, desc = "Next reference", },
+			{ "]]",          function() Snacks.words.jump(vim.v.count1) end, desc = "Next reference", },
 			{ "[[",          function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev reference", },
 			-- stylua: ignore end
 			{
