@@ -88,7 +88,19 @@ return {
 					vim.print = _G.dd
 
 					-- toggle mappings
-					Snacks.toggle.option("spell", { name = "Spelling" }):map("yos")
+					Snacks.toggle
+						.option("spell", {
+							name = "Spelling",
+							map = function(mode, lhs, rhs, opts)
+								vim.keymap.set(mode, lhs, function()
+									rhs()
+									vim.api.nvim_exec_autocmds("User", {
+										pattern = "QoLToggleSpelling",
+									})
+								end, opts)
+							end,
+						})
+						:map("yos")
 					Snacks.toggle.option("cursorcolumn", { name = "Cursor column" }):map("yoc")
 					Snacks.toggle.option("wrap", { name = "Line wrap" }):map("yow")
 					Snacks.toggle.inlay_hints():map("yoih")
