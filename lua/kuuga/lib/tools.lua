@@ -15,6 +15,7 @@ M.formatters = {
 }
 
 M.linters = {
+	["*"] = {}, -- this need to add a `try_lint(linter)` at the end of the autocmd
 	rust = { "clippy" },
 	python = { "ruff" },
 	proto = { "protolint" },
