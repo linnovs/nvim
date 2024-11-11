@@ -30,11 +30,11 @@ return {
 				terminal = {
 					keys = {
 						-- stylua: ignore start
-						toggle    = { "<leader>tt", "<Cmd>close<CR>", mode = "t" },
-						win_up    = { "<leader>wk", "<Cmd>wincmd k<CR>", desc = "Moves to window above", mode = "t" },
-						win_down  = { "<leader>wj", "<Cmd>wincmd j<CR>", desc = "Moves to window below", mode = "t" },
-						win_right = { "<leader>wh", "<Cmd>wincmd h<CR>", desc = "Moves to window right", mode = "t" },
-						win_left  = { "<leader>wl", "<Cmd>wincmd l<CR>", desc = "Moves to window left", mode = "t" },
+						toggle    = { "<Leader>tt", "<Cmd>close<CR>", mode = "t" },
+						win_up    = { "<Leader>wk", "<Cmd>wincmd k<CR>", desc = "Moves to window above", mode = "t" },
+						win_down  = { "<Leader>wj", "<Cmd>wincmd j<CR>", desc = "Moves to window below", mode = "t" },
+						win_right = { "<Leader>wh", "<Cmd>wincmd h<CR>", desc = "Moves to window right", mode = "t" },
+						win_left  = { "<Leader>wl", "<Cmd>wincmd l<CR>", desc = "Moves to window left", mode = "t" },
 						-- stylua: ignore end
 					},
 				},
