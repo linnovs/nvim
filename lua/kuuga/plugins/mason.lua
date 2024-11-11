@@ -17,12 +17,18 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		event = "VeryLazy",
 		dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
+		init = function()
+			-- this is required to run the mason-tool-installer's run_on_start when lazyload is on, since the
+			-- plugin is using VimEnter event to start the installer function
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "VeryLazy",
+				callback = require("mason-tool-installer").run_on_start,
+			})
+		end,
 		opts = {
 			ensure_installed = tools.to_install(),
-			auto_update = false,
 			run_on_start = true,
-			start_delay = 0,
-			debounce_hours = nil,
+			auto_update = true,
 		},
 	},
 }
