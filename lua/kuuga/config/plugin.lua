@@ -20,6 +20,9 @@ require("lazy").setup("kuuga.plugins", {
 	defaults = {
 		version = "*",
 	},
+	rocks = {
+		hererocks = true,
+	},
 	checker = { enabled = true, notify = false },
 	install = { colorscheme = { "catppuccin", "habamax" } },
 	ui = { border = "rounded" },
