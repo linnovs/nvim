@@ -16,7 +16,7 @@ return {
 				top_down = true,
 				margin = { top = 0, right = 1, bottom = 0 },
 			},
-			quickfile = { enabled = false },
+			quickfile = { enabled = true },
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
 			styles = {
