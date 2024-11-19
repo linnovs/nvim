@@ -30,6 +30,7 @@ local pseudo_tools = {
 	"trim_whitespace",
 	"clippy", -- come with cargo (rust)
 	"nixpkgs_fmt", -- nixpkgs_fmt is for Conform.nvim to active configuration only
+	"rustfmt", -- installed via rustup
 }
 
 local mason_names = {
