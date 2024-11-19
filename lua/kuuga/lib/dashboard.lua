@@ -1,58 +1,41 @@
-local fortune = require("kuuga.lib.fortune")
-local M = {}
+---@type snacks.dashboard.Config
+local M = { enabled = true, sections = {}, formats = {} }
 
-M.theme = "doom"
-M.config = {}
-M.config.header = {
-	".                                              . ",
-	"d.                                            .d ",
-	"xx:                                          :xx ",
-	"xxxxo:.               ,oo'               .;oxxxx ",
-	"xxxxxxxxo:'           ;xx,           ':oxxxxxxxx ",
-	"xxxxxxxxxxxxdc'.      ;xx,      .':dxxxxxxxxxxxx ",
-	".':oxxxxxxxxxxxxdc'.  ;xx,  .'cdxxxxxxxxxxxxo:'. ",
-	"     .,cdxxxxxxxxxxxd.;xx,.dxxxxxxxxxxxdc;.      ",
-	"          .;lxxxxxxxx,;xx,,xxxxxxxxl;.           ",
-	"       lxl.   .':oxxx,;xx,,xxxo:'.   .lxl        ",
-	"       lxx.       xxx,;xx,,xxx       .xxl        ",
-	"       lxx.       xxx,;xx,,xxx       .xxl        ",
-	"       lxx.      .xxx,;xx,,xxx.      .xxl        ",
-	"       lxx.  .,cdxxxx,;xx,,xxxxdc;.  .xxl        ",
-	"       lxxloxxxxxxxo:,lxxc,:oxxxxxxxolxxl        ",
-	"       ;xxxxxxxoc::lxxxxxxxxc:::oxxxxxxx;        ",
-	"         .co:::lxxxxxxd::dxxxxxxl:::oc.          ",
-	"            .xxxxxo:'.    .':oxxxxx.             ",
-	"            .xxl.  .dx'  ,xd.  .lxx.             ",
-	"            .xx,   .xx'  ,xx.   ;xx.             ",
-	"            .xxc.  .xx'  ,xx.  .cxx.             ",
-	"            .xxxxd:;xx'  ,xx;:dxxxx              ",
-	"              .;oxxxxx'  ,xxxxxo;.               ",
-	"                  'cdx'  ,xdc'                   ",
-	"                     ,.  ',                      ",
+M.width = 75
+M.row = nil
+M.col = nil
+M.pane_gap = 4
+
+M.preset = {}
+M.preset.keys = {
+	{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+	{ icon = "󰝒 ", key = "n", desc = "New File", action = ":ene | startinsert" },
+	{ icon = "󰈞 ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+	{ icon = "󱋡 ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+	{ icon = "󱧶 ", key = "z", desc = "Projects", action = ":Telescope zoxide list" },
+	{
+		icon = " ",
+		key = "c",
+		desc = "Config",
+		action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
+	},
+	{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
+	{ icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+	{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 }
 
-local settings_action = "e $MYVIMRC | cd %:p:h | lua vim.notify('Changed to nvimrc')"
-
--- stylua: ignore
-M.config.center = {
-	{ key = "n", icon = "󰝒 ", desc = " > New file",    action = "ene | startinsert" },
-	{ key = "f", icon = "󰈞 ", desc = " > Find file",   action = "Telescope find_files" },
-	{ key = "r", icon = "󱋡 ", desc = " > Recent",      action = "Telescope oldfiles" },
-	{ key = "z", icon = "󱧶 ", desc = " > Project",     action = "Telescope zoxide list" },
-	{ key = "s", icon = "󱁻 ", desc = " > Settings",    action = settings_action },
-	{ key = "q", icon = "󰮘 ", desc = " > Quit NVIM",   action = "qa" },
+M.sections[1] = {
+	section = "terminal",
+	cmd = "chafa ~/.config/nvim/dashboard.png --format symbols --symbols vhalf+hhalf+stipple-space --size 60x60; sleep .1",
+	padding = 1,
+	height = 30,
+	indent = 4,
 }
 
-M.config.footer = fortune
-
-for _, button in ipairs(M.config.center) do
-	button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
-end
-
-M.hide = {
-	statusline = true,
-	tabline = true,
-	winbar = true,
+M.sections[2] = {
+	pane = 2,
+	{ section = "keys", gap = 1, padding = 1 },
+	{ section = "startup", padding = 1 },
 }
 
 return M

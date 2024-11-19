@@ -1,3 +1,5 @@
+local dashboard = require("kuuga.lib.dashboard")
+
 return {
 	{
 		"folke/snacks.nvim",
@@ -39,6 +41,7 @@ return {
 					},
 				},
 			},
+			dashboard = dashboard,
 		},
 		keys = {
 			-- stylua: ignore start
