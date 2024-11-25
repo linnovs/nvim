@@ -30,7 +30,7 @@ return {
 				enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
 			},
 			providers = {
-				lsp = { fallback_for = { "lazydev" } },
+				lsp = { name = "LSP", fallback_for = { "lazydev" } },
 				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
 			},
 		},
@@ -38,23 +38,6 @@ return {
 			autocomplete = {
 				border = "rounded",
 				selection = "manual",
-				draw = function(ctx)
-					return {
-						" ",
-						{ ctx.kind_icon, ctx.icon_gap, hl_group = "BlinkCmpKind" .. ctx.kind },
-						" ",
-						{
-							ctx.label,
-							ctx.kind == "Snippet" and "~" or nil,
-							fill = true,
-							hl_group = ctx.deprecated and "BlinkCmpLabelDeprecated" or "BlinkCmpLabel",
-							max_width = 50,
-						},
-						" ",
-						{ ctx.kind, hl_group = "BlinkCmpKind" .. ctx.kind },
-						" ",
-					}
-				end,
 			},
 			documentation = {
 				border = "rounded",
