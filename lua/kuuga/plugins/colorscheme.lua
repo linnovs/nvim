@@ -3,6 +3,7 @@ return {
 	lazy = false,
 	priority = 1000,
 	name = "catppuccin",
+	version = false,
 	opts = function()
 		return {
 			flavor = "macchiato",
