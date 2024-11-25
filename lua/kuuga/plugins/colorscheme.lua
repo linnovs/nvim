@@ -33,6 +33,7 @@ return {
 					dim_context = false,
 					alt_background = false,
 				},
+				blink_cmp = true,
 				cmp = true,
 				dap = true,
 				dap_ui = true,
@@ -79,6 +80,7 @@ return {
 				noice = true,
 				notify = true,
 				octo = true,
+				snacks = true,
 				telescope = {
 					enabled = true,
 				},
