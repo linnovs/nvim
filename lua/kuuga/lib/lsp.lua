@@ -11,19 +11,6 @@ M.setup = function()
 	keymap.map("n", "<leader>d", vim.diagnostic.open_float, "Show diagnostic floating window")
 	keymap.map("n", "<leader>q", vim.diagnostic.setloclist, "Add buffer diagnostics to location list")
 
-	-- fixes for bug https://github.com/neovim/neovim/issues/12970
-	---@diagnostic disable-next-line: duplicate-set-field
-	vim.lsp.util.apply_text_document_edit = function(text_document_edit, _, offset_encoding)
-		local text_document = text_document_edit.textDocument
-		local bufnr = vim.uri_to_bufnr(text_document.uri)
-		if offset_encoding == nil then
-			vim.notify_once("apply_text_document_edit must be called with valid offset encoding", vim.log.levels.WARN)
-			return
-		end
-
-		vim.lsp.util.apply_text_edits(text_document_edit.edits, bufnr, offset_encoding)
-	end
-
 	vim.api.nvim_create_autocmd("LspAttach", {
 		group = vim.api.nvim_create_augroup("KuugaLspConfig", { clear = false }),
 		callback = function(ev)
