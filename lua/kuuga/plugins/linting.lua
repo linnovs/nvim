@@ -1,4 +1,6 @@
 local linters = require("kuuga.lib.tools").linters
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
 
 return {
 	"mfussenegger/nvim-lint",
@@ -12,7 +14,7 @@ return {
 			return diagnostic
 		end)
 
-		vim.api.nvim_create_autocmd("User", {
+		autocmd("User", {
 			pattern = "QoLToggleSpelling",
 			callback = function(evt)
 				local ns = lint.get_namespace("cspell")
@@ -25,8 +27,8 @@ return {
 			end,
 		})
 
-		vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
-			group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
+		autocmd({ "BufWritePost", "BufReadPost", "InsertLeave" }, {
+			group = augroup("nvim-lint", { clear = true }),
 			callback = function()
 				lint.try_lint()
 
