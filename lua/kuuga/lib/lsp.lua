@@ -25,7 +25,7 @@ local function diagnostic_open_float(cursor)
 end
 
 M.setup = function()
-	keymap.map("n", "<leader>d", vim.diagnostic.open_float, "Show diagnostic floating window")
+	keymap.map("n", "<leader>d", diagnostic_open_float(false), "Show diagnostic floating window")
 	keymap.map("n", "<leader>q", vim.diagnostic.setloclist, "Add buffer diagnostics to location list")
 
 	vim.api.nvim_create_autocmd("LspAttach", {
