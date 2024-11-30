@@ -7,6 +7,23 @@ if vim.env.VIMDEBUG == "lsp" then
 	vim.lsp.set_log_level("trace")
 end
 
+---@param cursor boolean
+local function diagnostic_open_float(cursor)
+	---@type vim.diagnostic.Opts.Float
+	local diag_opts = {
+		focusable = false,
+		-- close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+		border = "rounded",
+		source = true,
+		prefix = " ",
+		scope = cursor and "cursor" or "line",
+	}
+
+	return function()
+		vim.diagnostic.open_float(diag_opts)
+	end
+end
+
 M.setup = function()
 	keymap.map("n", "<leader>d", vim.diagnostic.open_float, "Show diagnostic floating window")
 	keymap.map("n", "<leader>q", vim.diagnostic.setloclist, "Add buffer diagnostics to location list")
@@ -38,18 +55,7 @@ M.setup = function()
 			autocmd("CursorHold", {
 				group = augroup("LspShowDiagnostic" .. bufnr, { clear = true }),
 				buffer = bufnr,
-				callback = function()
-					local diag_opts = {
-						focusable = false,
-						close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-						border = "rounded",
-						source = "always",
-						prefix = " ",
-						scope = "cursor",
-					}
-
-					vim.diagnostic.open_float(nil, diag_opts)
-				end,
+				callback = diagnostic_open_float(true),
 			})
 
 			if client.supports_method("textDocument/codeAction") then
