@@ -6,11 +6,13 @@ M.formatters = {
 	go = { "goimports", "golines", "gofumpt" },
 	javascript = { "prettierd" },
 	lua = { "stylua" },
+	markdown = { "prettierd" },
 	nix = { "nixpkgs_fmt" },
 	proto = { "protolint" },
 	python = { "ruff_fix", "ruff_format" },
 	rust = { "rustfmt" },
 	sh = { "beautysh" },
+	yaml = { "prettierd" },
 	zsh = { "beautysh" },
 }
 
