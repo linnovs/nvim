@@ -21,9 +21,11 @@ M.linters = {
 	rust = { "clippy" },
 	python = { "ruff" },
 	proto = { "protolint" },
+	ghaction = { "actionlint" },
 }
 
 M.mason_installs = {
+	"actionlint",
 	"beautysh",
 	"cspell",
 	"gofumpt",
