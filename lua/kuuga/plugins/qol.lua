@@ -9,13 +9,7 @@ return {
 		---@type snacks.Config
 		opts = {
 			bigfile = { enabled = true },
-			notifier = {
-				enabled = true,
-				timeout = 3000,
-				style = "compact",
-				top_down = true,
-				margin = { top = 0, right = 1, bottom = 0 },
-			},
+			notifier = { enabled = true },
 			quickfile = { enabled = true },
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
