@@ -26,7 +26,7 @@ return {
 			})
 		end,
 		opts = {
-			ensure_installed = tools.to_install(),
+			ensure_installed = tools.mason_installs,
 			run_on_start = true,
 			auto_update = true,
 		},
