@@ -1,3 +1,6 @@
+-- HACK: this fix the missing fields until [this](https://github.com/Saghen/blink.cmp/issues/427) got fixed.
+---@diagnostic disable: missing-fields
+
 return {
 	"saghen/blink.cmp",
 	lazy = false,
@@ -8,23 +11,7 @@ return {
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
-		keymap = {
-			["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-			["<C-e>"] = { "hide" },
-			["<CR>"] = { "accept", "fallback" },
-
-			["<C-p>"] = { "select_prev", "fallback" },
-			["<C-n>"] = { "select_next", "fallback" },
-
-			["<C-b>"] = { "scroll_documentation_up", "fallback" },
-			["<C-f>"] = { "scroll_documentation_down", "fallback" },
-
-			["<Tab>"] = { "snippet_forward", "fallback" },
-			["<S-Tab>"] = { "snippet_backward", "fallback" },
-		},
-		accept = {
-			auto_brackets = { enabled = true },
-		},
+		keymap = { preset = "enter" },
 		sources = {
 			completion = {
 				enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
@@ -34,21 +21,16 @@ return {
 				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
 			},
 		},
-		windows = {
-			autocomplete = {
-				border = "rounded",
-				selection = "manual",
-			},
+		completion = {
+			list = { selection = "manual" },
 			documentation = {
-				border = "rounded",
+				window = {
+					border = "rounded",
+				},
 			},
 			ghost_text = {
 				enabled = true,
 			},
 		},
-		highlight = {
-			use_nvim_cmp_as_default = true,
-		},
-		nerd_font_variant = "mono",
 	},
 }
