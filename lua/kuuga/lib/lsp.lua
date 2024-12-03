@@ -4,7 +4,9 @@ local keymap = require("kuuga.lib.keymap")
 local builtin = require("telescope.builtin")
 
 if vim.env.VIMDEBUG == "lsp" then
-	vim.lsp.set_log_level("trace")
+	vim.lsp.set_log_level("debug")
+else
+	vim.lsp.set_log_level("off")
 end
 
 ---@param cursor boolean
