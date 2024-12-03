@@ -14,7 +14,7 @@ return {
 				"folke/lazydev.nvim",
 				version = false,
 				ft = "lua",
-				opts = { library = { { path = "luvit-meta/library", words = { "vim%.uv" } } } },
+				opts = { library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } } },
 			},
 			{ "b0o/schemastore.nvim", version = false },
 		},
