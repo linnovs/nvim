@@ -79,6 +79,7 @@ return {
 							},
 						},
 					},
+					lemminx = {},
 					ltex = {
 						filetypes = {
 							"bib",
