@@ -16,13 +16,6 @@ return {
 					enabled = false,
 				},
 			},
-			views = {
-				mini = {
-					win_options = {
-						winblend = 0,
-					},
-				},
-			},
 			routes = {
 				{
 					filter = {
