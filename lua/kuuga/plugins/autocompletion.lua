@@ -14,11 +14,12 @@ return {
 		keymap = { preset = "enter" },
 		sources = {
 			completion = {
-				enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
+				enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev", "dadbod" },
 			},
 			providers = {
 				lsp = { name = "LSP", fallback_for = { "lazydev" } },
 				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+				dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 			},
 		},
 		completion = {
