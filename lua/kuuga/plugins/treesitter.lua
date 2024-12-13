@@ -61,6 +61,7 @@ return {
 			"vimdoc",
 			"vue",
 			"wgsl",
+			"xml",
 			"yaml",
 			"zig",
 		},
