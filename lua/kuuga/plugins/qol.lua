@@ -16,7 +16,7 @@ return {
 			words = { enabled = true },
 			styles = {
 				notification = {
-					wo = { wrap = true, winblend = 0 },
+					wo = { wrap = true },
 				},
 				lazygit = {
 					keys = {
