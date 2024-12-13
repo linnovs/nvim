@@ -44,6 +44,7 @@ return {
 			{ "<leader>z",   function() Snacks.zen() end, desc = "Toggler Zen Mode", },
 			{ "<leader>Z",   function() Snacks.zen.zoom() end, desc = "Toggler Zoom", },
 			{ "<leader>un",  function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications", },
+			{ "<leader>n",   function() Snacks.notifier.show_history() end, desc = "Notifications History", },
 			{ "<leader>bd",  function() Snacks.bufdelete() end, desc = "Delete Buffer", },
 			{ "<leader>fbd", function() Snacks.bufdelete({force = true}) end, desc = "Force Delete Buffer", },
 			{ "<leader>gst", function() Snacks.lazygit() end, desc = "Lazygit", },
