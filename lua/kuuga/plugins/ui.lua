@@ -67,33 +67,6 @@ return {
 		},
 	},
 
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		event = "BufReadPost",
-		---@module "ibl"
-		---@type ibl.config
-		opts = {
-			indent = {
-				char = "▏",
-				tab_char = "▏",
-			},
-			scope = { enabled = false },
-			exclude = {
-				filetypes = {
-					"FTerm",
-					"Trouble",
-					"alpha",
-					"help",
-					"lazy",
-					"mason",
-					"neo-tree",
-					"dashboard",
-				},
-			},
-		},
-	},
-
 	-- beauty default UI
 	{
 		"stevearc/dressing.nvim",

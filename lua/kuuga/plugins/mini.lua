@@ -21,20 +21,11 @@ return {
 		})
 	end,
 	config = function()
-		local indentscope = require("mini.indentscope")
 		local bracked = require("mini.bracketed")
 		local pairs = require("mini.pairs")
 		local ai = require("mini.ai")
 		local surround = require("mini.surround")
 		local comment = require("mini.comment")
-
-		indentscope.setup({
-			symbol = "▏",
-			options = { try_as_border = true },
-			draw = {
-				animation = indentscope.gen_animation.none(),
-			},
-		})
 
 		bracked.setup()
 
