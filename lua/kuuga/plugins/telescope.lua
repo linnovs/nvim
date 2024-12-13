@@ -47,11 +47,6 @@ return {
 			"<CMD>lua require('telescope.builtin').quickfix({})<CR>",
 			desc = "Find items in quickfix list",
 		},
-		{
-			"<leader>z",
-			"<CMD>lua require('telescope').extensions.zoxide.list({})<CR>",
-			desc = "Find zoxide directory",
-		},
 	},
 	config = function()
 		require("kuuga.lib.telescope")
