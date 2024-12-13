@@ -143,7 +143,11 @@ return {
 					},
 					nil_ls = {},
 					terraformls = {},
-					typos_lsp = {},
+					typos_lsp = {
+						init_options = {
+							config = vim.fn.stdpath("config") .. "/typos.toml",
+						},
+					},
 					volar = {},
 					yamlls = {
 						filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab", "yaml.ghaction" },
