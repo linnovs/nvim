@@ -41,6 +41,8 @@ return {
 		},
 		keys = {
 			-- stylua: ignore start
+			{ "<leader>z",   function() Snacks.zen() end, desc = "Toggler Zen Mode", },
+			{ "<leader>Z",   function() Snacks.zen.zoom() end, desc = "Toggler Zoom", },
 			{ "<leader>un",  function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications", },
 			{ "<leader>bd",  function() Snacks.bufdelete() end, desc = "Delete Buffer", },
 			{ "<leader>fbd", function() Snacks.bufdelete({force = true}) end, desc = "Delete Buffer", },
