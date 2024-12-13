@@ -11,7 +11,7 @@ return {
 				light = "latte",
 				dark = "macchiato",
 			},
-			transparent_background = not vim.g.neovide,
+			transparent_background = false,
 			custom_highlights = function(colors)
 				return {
 					DiagnosticUnderlineError = { undercurl = true },
