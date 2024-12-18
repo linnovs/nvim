@@ -169,17 +169,9 @@ return {
 			local servers = opts.servers
 			local lspconfig = require("lspconfig")
 			local masonlsp = require("mason-lspconfig")
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 			masonlsp.setup({ automatic_installation = true })
-
-			local capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), {
-				textDocument = {
-					foldingRange = {
-						dynamicRegistration = false,
-						lineFoldingOnly = true,
-					},
-				},
-			})
 
 			require("kuuga.lib.lsp").lsp_progress_autocmd()
 			require("kuuga.lib.lsp").setup()
