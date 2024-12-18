@@ -17,7 +17,6 @@ insert_left(components.filename)
 
 insert_right(components.lazy_update)
 insert_right(components.empty)
-insert_right(components.codeium)
 insert_right(components.empty)
 insert_right(components.filetype)
 insert_right(components.diagnostic_error)
