@@ -1,7 +1,7 @@
 local M = {}
 
 local keymap = require("kuuga.lib.keymap")
-local builtin = require("telescope.builtin")
+local fzf = require("fzf-lua")
 
 if vim.env.VIMDEBUG == "lsp" then
 	vim.lsp.set_log_level("debug")
@@ -47,12 +47,12 @@ M.setup = function()
 			end
 
 			map("gD", vim.lsp.buf.declaration, "Go to declaration")
-			map("gd", builtin.lsp_definitions, "Go to definitions")
-			map("gi", builtin.lsp_implementations, "Go to implementations")
+			map("gd", fzf.lsp_definitions, "Go to definitions")
+			map("gi", fzf.lsp_implementations, "Go to implementations")
 			map("K", vim.lsp.buf.hover, "Hover")
 			map("<Leader>rn", vim.lsp.buf.rename, "Rename")
-			map("<Leader>D", builtin.lsp_type_definitions, "Type definitions")
-			map("gr", builtin.lsp_references, "References")
+			map("<Leader>D", fzf.lsp_typedefs, "Type definitions")
+			map("gr", fzf.lsp_references, "References")
 
 			autocmd("CursorHold", {
 				group = augroup("LspShowDiagnostic" .. bufnr, { clear = true }),

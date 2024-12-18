@@ -71,13 +71,6 @@ return {
 	{
 		"stevearc/dressing.nvim",
 		event = "BufReadPost",
-		dependencies = { "nvim-telescope/telescope.nvim" },
-		opts = function()
-			return {
-				select = {
-					telescope = require("telescope.themes").get_cursor(),
-				},
-			}
-		end,
+		opts = {},
 	},
 }

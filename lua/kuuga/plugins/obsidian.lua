@@ -192,7 +192,7 @@ return {
 		use_advanced_uri = true,
 		open_app_foreground = false,
 		pick = {
-			name = "telescope.nvim",
+			name = "fzf-lua",
 			mapping = {
 				new = "<C-x>",
 				insert_link = "<C-l>",

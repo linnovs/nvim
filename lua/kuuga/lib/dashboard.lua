@@ -1,3 +1,4 @@
+---@module 'snacks'
 ---@type snacks.dashboard.Config
 local M = { enabled = true, sections = {}, formats = {} }
 
@@ -12,7 +13,6 @@ M.preset.keys = {
 	{ icon = "󰝒 ", key = "n", desc = "New File", action = ":ene | startinsert" },
 	{ icon = "󰈞 ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
 	{ icon = "󱋡 ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-	{ icon = "󱧶 ", key = "z", desc = "Projects", action = ":Telescope zoxide list" },
 	{
 		icon = " ",
 		key = "c",

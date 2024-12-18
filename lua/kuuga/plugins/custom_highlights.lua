@@ -1,11 +1,10 @@
 return {
 	{
 		"folke/todo-comments.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim" },
-		cmd = { "TodoTrouble", "TodoTelescope" },
+		cmd = { "TodoTrouble", "TodoFzfLua" },
 		event = "BufReadPost",
 		keys = {
-			{ "<leader>ft", "<cmd>TodoTelescope<CR>", desc = "Find TODOs" },
+			{ "<leader>ft", "<cmd>TodoFzfLua<CR>", desc = "Find TODOs" },
 			{
 				"]t",
 				function()
