@@ -2,35 +2,50 @@
 ---@diagnostic disable: missing-fields
 
 return {
-	"saghen/blink.cmp",
-	lazy = false,
-	dependencies = {
-		"rafamadriz/friendly-snippets",
-	},
-	version = "v0.*",
-	---@module 'blink.cmp'
-	---@type blink.cmp.Config
-	opts = {
-		keymap = { preset = "enter" },
-		sources = {
-			completion = {
-				enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev", "dadbod" },
-			},
-			providers = {
-				lsp = { name = "LSP", fallback_for = { "lazydev" } },
-				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-				dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
-			},
+	{
+		"saghen/blink.compat",
+		version = "*",
+		lazy = true,
+		opts = {},
+		dependencies = {
+			{ "Exafunction/codeium.nvim", opts = true },
 		},
-		completion = {
-			list = { selection = "manual" },
-			documentation = {
-				window = {
-					border = "rounded",
+	},
+
+	{
+		"saghen/blink.cmp",
+		lazy = false,
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+		},
+		version = "v0.*",
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
+		opts = {
+			keymap = { preset = "enter" },
+			sources = {
+				completion = {
+					enabled_providers = { "lsp", "codeium", "path", "snippets", "buffer", "lazydev", "dadbod" },
+				},
+				providers = {
+					lsp = { name = "LSP", fallback_for = { "lazydev" } },
+					codeium = { name = "codeium", module = "blink.compat.source" },
+					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 				},
 			},
-			ghost_text = {
-				enabled = true,
+			completion = {
+				list = { selection = "manual" },
+				documentation = {
+					auto_show = true,
+					auto_show_delay_ms = 200,
+					window = {
+						border = "rounded",
+					},
+				},
+				ghost_text = {
+					enabled = true,
+				},
 			},
 		},
 	},
