@@ -1,6 +1,8 @@
 -- HACK: this fix the missing fields until [this](https://github.com/Saghen/blink.cmp/issues/427) got fixed.
 ---@diagnostic disable: missing-fields
 
+local kind_icons = require("kuuga.lib.icons").kind_icons
+
 return {
 	{
 		"saghen/blink.compat",
@@ -46,6 +48,9 @@ return {
 				ghost_text = {
 					enabled = true,
 				},
+			},
+			appearance = {
+				kind_icons = kind_icons,
 			},
 		},
 	},
