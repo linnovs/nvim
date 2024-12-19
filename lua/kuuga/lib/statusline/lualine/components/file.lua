@@ -21,9 +21,9 @@ M.name = {
 	newfile_status = true,
 	path = 0,
 	symbols = {
-		modified = "󰏫 ",
+		modified = " ",
 		readonly = "󰌾 ",
-		unnamed = "󰅪 ",
+		unnamed = "󰡯 ",
 		newfile = "󰎔 ",
 	},
 	color = { fg = colors.text },
