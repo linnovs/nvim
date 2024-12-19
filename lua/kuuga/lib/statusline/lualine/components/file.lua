@@ -12,7 +12,7 @@ M.icon = {
 M.type = {
 	"bo:filetype",
 	color = { fg = colors.text, bg = colors.surface0 },
-	separator = { left = "" },
+	separator = { left = "", right = "" },
 }
 
 M.name = {
