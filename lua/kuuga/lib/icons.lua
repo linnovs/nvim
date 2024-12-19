@@ -1,43 +1,37 @@
 local M = {}
 
-M.diagnostics = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-M.kinds = {
-	Array = " ",
-	Boolean = " ",
-	Class = " ",
-	Codeium = "󰘦 ",
-	Color = " ",
-	Constant = " ",
-	Constructor = " ",
-	Copilot = " ",
-	Enum = " ",
-	EnumMember = " ",
-	Event = " ",
-	Field = " ",
-	File = " ",
-	Folder = " ",
-	Function = "󰊕 ",
-	Interface = " ",
-	Key = " ",
-	Keyword = " ",
-	Method = " ",
-	Module = " ",
-	Namespace = " ",
-	Null = "󰟢 ",
-	Number = " ",
-	Object = "󰮄 ",
-	Operator = " ",
-	Package = " ",
-	Property = " ",
-	Reference = " ",
-	Snippet = " ",
-	String = " ",
-	Struct = " ",
-	Text = " ",
-	TypeParameter = " ",
-	Unit = " ",
-	Value = " ",
-	Variable = " ",
+M.diagnostics = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+M.kind_icons = {
+	Text = "󰉿",
+	Method = "",
+	Function = "󰊕",
+	Constructor = "󰒓",
+
+	Field = "",
+	Variable = "",
+	Property = "",
+
+	Class = "",
+	Interface = "",
+	Struct = "",
+	Module = "",
+
+	Unit = "",
+	Value = "",
+	Enum = "",
+	EnumMember = "",
+
+	Keyword = "",
+	Constant = "",
+
+	Snippet = "",
+	Color = "",
+	File = "",
+	Reference = "",
+	Folder = "󰉋",
+	Event = "",
+	Operator = "",
+	TypeParameter = "",
 }
 
 return M
