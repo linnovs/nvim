@@ -26,6 +26,42 @@ local function diagnostic_open_float(cursor)
 	end
 end
 
+local function declaration()
+	fzf.lsp_declarations({ jump_to_single_result = true })
+end
+
+local function definitions()
+	fzf.lsp_definitions({ jump_to_single_result = true })
+end
+
+local function implementations()
+	fzf.lsp_implementations({ jump_to_single_result = true })
+end
+
+local function hover()
+	vim.lsp.buf.hover()
+end
+
+local function rename()
+	vim.lsp.buf.rename()
+end
+
+local function typedefs()
+	fzf.lsp_typedefs({ jump_to_single_result = true })
+end
+
+local function references()
+	fzf.lsp_references({ jump_to_single_result = true })
+end
+
+local function codeaction()
+	vim.lsp.buf.code_action()
+end
+
+local function codelens()
+	vim.lsp.codelens.run()
+end
+
 M.setup = function()
 	keymap.map("n", "<leader>d", diagnostic_open_float(false), "Show diagnostic floating window")
 	keymap.map("n", "<leader>q", vim.diagnostic.setloclist, "Add buffer diagnostics to location list")
@@ -46,13 +82,13 @@ M.setup = function()
 				return
 			end
 
-			map("gD", vim.lsp.buf.declaration, "Go to declaration")
-			map("gd", fzf.lsp_definitions, "Go to definitions")
-			map("gi", fzf.lsp_implementations, "Go to implementations")
-			map("K", vim.lsp.buf.hover, "Hover")
-			map("<Leader>rn", vim.lsp.buf.rename, "Rename")
-			map("<Leader>D", fzf.lsp_typedefs, "Type definitions")
-			map("gr", fzf.lsp_references, "References")
+			map("gD", declaration, "Go to declaration")
+			map("gd", definitions, "Go to definitions")
+			map("gi", implementations, "Go to implementations")
+			map("K", hover, "Hover")
+			map("<Leader>rn", rename, "Rename")
+			map("<Leader>D", typedefs, "Type definitions")
+			map("gr", references, "References")
 
 			autocmd("CursorHold", {
 				group = augroup("LspShowDiagnostic" .. bufnr, { clear = true }),
@@ -61,7 +97,7 @@ M.setup = function()
 			})
 
 			if client:supports_method("textDocument/codeAction", bufnr) then
-				map("<Leader>ca", vim.lsp.buf.code_action, "Code action")
+				map("<Leader>ca", codeaction, "Code action")
 			end
 
 			if client:supports_method("textDocument/codeLens", bufnr) then
@@ -72,7 +108,7 @@ M.setup = function()
 						vim.lsp.codelens.refresh({ bufnr = bufnr })
 					end,
 				})
-				map("<Leader>cl", vim.lsp.codelens.run, "Code lens")
+				map("<Leader>cl", codelens, "Code lens")
 			end
 		end,
 	})
