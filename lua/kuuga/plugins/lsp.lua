@@ -1,4 +1,4 @@
-local signs = require("kuuga.lib.icons").diagnostics
+local icons = require("kuuga.lib.icons")
 
 return {
 	{
@@ -21,15 +21,29 @@ return {
 		init = function()
 			vim.diagnostic.config({
 				virtual_text = {
-					prefix = "●",
+					prefix = function(diagnostic)
+						local prefix = ""
+
+						if diagnostic.severity == vim.diagnostic.severity.ERROR then
+							prefix = icons.diagnostics.Error
+						elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+							prefix = icons.diagnostics.Warn
+						elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+							prefix = icons.diagnostics.Info
+						elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+							prefix = icons.diagnostics.Hint
+						end
+
+						return prefix .. " "
+					end,
 					spacing = 4,
 				},
 				signs = {
 					text = {
-						[vim.diagnostic.severity.ERROR] = signs.Error,
-						[vim.diagnostic.severity.WARN] = signs.Warn,
-						[vim.diagnostic.severity.INFO] = signs.Info,
-						[vim.diagnostic.severity.HINT] = signs.Hint,
+						[vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
+						[vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
+						[vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
+						[vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
 					},
 				},
 				underline = true,
