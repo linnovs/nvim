@@ -39,6 +39,7 @@ require("lualine").setup({
 	},
 	sections = sections,
 	extensions = {
+		"fzf",
 		"lazy",
 		"man",
 		"mason",
