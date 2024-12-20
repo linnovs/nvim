@@ -1,6 +1,5 @@
 vim.opt.background = "dark" -- "dark" or "light", used for highlight colors
 vim.opt.backupcopy = "yes" -- make backup as a copy, don't rename the file
--- vim.opt.clipboard:append("unnamedplus") -- use the clipboard as the unnamed register
 vim.opt.cmdheight = 1 -- number of lines to use for the command-line
 vim.opt.colorcolumn = "+0" -- columns to highlight
 vim.opt.completeopt = { "menu", "menuone", "preview", "noinsert", "noselect" } -- options for Insert mode completion
