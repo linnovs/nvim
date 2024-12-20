@@ -1,8 +1,6 @@
 -- HACK: this fix the missing fields until [this](https://github.com/Saghen/blink.cmp/issues/427) got fixed.
 ---@diagnostic disable: missing-fields
 
-local kind_icons = require("kuuga.lib.icons").kind_icons
-
 return {
 	{
 		"saghen/blink.compat",
@@ -19,6 +17,7 @@ return {
 		lazy = false,
 		dependencies = {
 			"rafamadriz/friendly-snippets",
+			"echasnovski/mini.nvim",
 		},
 		version = "v0.*",
 		---@module 'blink.cmp'
@@ -45,12 +44,30 @@ return {
 						border = "rounded",
 					},
 				},
+				menu = {
+					draw = {
+						columns = {
+							{ "kind_icon" },
+							{ "label", "label_description", gap = 1 },
+							{ "kind" },
+						},
+						components = {
+							kind_icon = {
+								text = function(ctx)
+									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+									return kind_icon
+								end,
+								highlight = function(ctx)
+									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+									return hl
+								end,
+							},
+						},
+					},
+				},
 				ghost_text = {
 					enabled = true,
 				},
-			},
-			appearance = {
-				kind_icons = kind_icons,
 			},
 		},
 	},
