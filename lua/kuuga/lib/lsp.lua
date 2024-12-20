@@ -51,7 +51,7 @@ local function typedefs()
 end
 
 local function references()
-	fzf.lsp_references({ jump_to_single_result = true })
+	fzf.lsp_references({ ignore_current_line = true })
 end
 
 local function codeaction()
