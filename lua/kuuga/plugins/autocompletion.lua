@@ -1,6 +1,3 @@
--- HACK: this fix the missing fields until [this](https://github.com/Saghen/blink.cmp/issues/427) got fixed.
----@diagnostic disable: missing-fields
-
 return {
 	{
 		"saghen/blink.compat",
@@ -25,13 +22,17 @@ return {
 		opts = {
 			keymap = { preset = "enter" },
 			sources = {
-				completion = {
-					enabled_providers = { "lsp", "codeium", "path", "snippets", "buffer", "lazydev", "dadbod" },
+				default = { "lsp", "path", "snippets", "buffer", "codeium" },
+				per_filetype = {
+					lua = { "lsp", "path", "snippets", "buffer", "lazydev", "codeium" },
+					sql = { "lsp", "snippets", "buffer", "dadbod", "codeium" },
+					psql = { "lsp", "snippets", "buffer", "dadbod", "codeium" },
+					mysql = { "lsp", "snippets", "buffer", "dadbod", "codeium" },
 				},
 				providers = {
-					lsp = { name = "LSP", fallback_for = { "lazydev" } },
+					lsp = { name = "LSP" },
 					codeium = { name = "codeium", module = "blink.compat.source" },
-					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", fallbacks = { "lsp" } },
 					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 				},
 			},
