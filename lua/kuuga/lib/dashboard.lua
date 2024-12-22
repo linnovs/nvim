@@ -26,10 +26,9 @@ M.preset.keys = {
 
 M.sections[1] = {
 	section = "terminal",
-	cmd = "chafa ~/.config/nvim/dashboard.png --format symbols --symbols vhalf+hhalf+stipple-space --size 60x60; sleep .1",
-	padding = 1,
-	height = 30,
-	indent = 4,
+	cmd = "chafa ~/.config/nvim/dashboard.png --format symbols --stretch --size 40x20 --align center,center; sleep .1",
+	height = 20,
+	padding = 2,
 }
 
 M.sections[2] = {
