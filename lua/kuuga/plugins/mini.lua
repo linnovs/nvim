@@ -1,6 +1,5 @@
 return {
 	"echasnovski/mini.nvim",
-	version = false,
 	event = "BufReadPost",
 	init = function()
 		vim.api.nvim_create_autocmd("FileType", {
