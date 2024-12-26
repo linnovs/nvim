@@ -12,15 +12,8 @@ return {
 					["vim.lsp.util.stylize_markdown"] = true,
 					["cmp.entry.get_documentation"] = true,
 				},
-				progress = {
-					enabled = false,
-				},
-				signature = {
-					opts = {
-						anchor = "SW",
-						position = { row = 1 },
-					},
-				},
+				progress = { enabled = false },
+				signature = { enabled = false },
 			},
 			routes = {
 				{
