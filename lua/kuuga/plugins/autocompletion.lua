@@ -51,6 +51,7 @@ return {
 					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 				},
 			},
+			signature = { enabled = true },
 			completion = {
 				list = { selection = "manual" },
 				documentation = {
