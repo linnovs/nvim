@@ -12,6 +12,8 @@ return {
         { "<leader>fm", function() require("fzf-lua").manpages() end, desc = "Fzf find man pagse", },
         { "<leader>fs", function() require("fzf-lua").lsp_document_symbols() end, desc = "Fzf find document symbols", },
         { "<leader>fw", function() require("fzf-lua").lsp_workspace_symbols() end, desc = "Fzf find workspace symbols", },
+		{ "<leader>fc", function() require("kuuga.lib.cht-st").cht_sh_list() end, desc = "Fzf find cht.sh", },
+		{ "<leader>sc", function() require("kuuga.lib.cht-st").query_cht_sh() end, desc = "Fzf search cht.sh", },
 		-- stylua: ignore end
 	},
 	opts = {},
