@@ -1,5 +1,3 @@
-local icons = require("kuuga.lib.icons")
-
 return {
 	{
 		"neovim/nvim-lspconfig",
@@ -18,39 +16,6 @@ return {
 			},
 			{ "b0o/schemastore.nvim", version = false },
 		},
-		init = function()
-			vim.diagnostic.config({
-				virtual_text = {
-					prefix = function(diagnostic)
-						local prefix = ""
-
-						if diagnostic.severity == vim.diagnostic.severity.ERROR then
-							prefix = icons.diagnostics.Error
-						elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-							prefix = icons.diagnostics.Warn
-						elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-							prefix = icons.diagnostics.Info
-						elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-							prefix = icons.diagnostics.Hint
-						end
-
-						return prefix .. " "
-					end,
-					spacing = 4,
-				},
-				signs = {
-					text = {
-						[vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
-						[vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
-						[vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
-						[vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
-					},
-				},
-				underline = true,
-				update_in_insert = false,
-				severity_sort = true,
-			})
-		end,
 		opts = function()
 			local schemastore = require("schemastore")
 
@@ -187,6 +152,7 @@ return {
 
 			masonlsp.setup({ automatic_installation = true })
 
+			require("kuuga.lib.lsp").init()
 			require("kuuga.lib.lsp").lsp_progress_autocmd()
 			require("kuuga.lib.lsp").setup()
 			require("neoconf").setup({})

@@ -1,5 +1,6 @@
 local M = {}
 
+local icons = require("kuuga.lib.icons")
 local keymap = require("kuuga.lib.keymap")
 local fzf = require("fzf-lua")
 
@@ -62,12 +63,45 @@ local function codelens()
 	vim.lsp.codelens.run()
 end
 
+M.init = function()
+	vim.diagnostic.config({
+		virtual_text = {
+			prefix = function(diagnostic)
+				local prefix = ""
+
+				if diagnostic.severity == vim.diagnostic.severity.ERROR then
+					prefix = icons.diagnostics.Error
+				elseif diagnostic.severity == vim.diagnostic.severity.WARN then
+					prefix = icons.diagnostics.Warn
+				elseif diagnostic.severity == vim.diagnostic.severity.INFO then
+					prefix = icons.diagnostics.Info
+				elseif diagnostic.severity == vim.diagnostic.severity.HINT then
+					prefix = icons.diagnostics.Hint
+				end
+
+				return prefix .. " "
+			end,
+			spacing = 4,
+		},
+		signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
+				[vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
+				[vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
+				[vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
+			},
+		},
+		underline = true,
+		update_in_insert = false,
+		severity_sort = true,
+	})
+end
+
 M.setup = function()
 	keymap.map("n", "<leader>d", diagnostic_open_float(false), "Show diagnostic floating window")
 	keymap.map("n", "<leader>q", vim.diagnostic.setloclist, "Add buffer diagnostics to location list")
 
 	vim.api.nvim_create_autocmd("LspAttach", {
-		group = vim.api.nvim_create_augroup("KuugaLspConfig", { clear = false }),
 		callback = function(ev)
 			local bufnr = ev.buf
 			local client = vim.lsp.get_client_by_id(ev.data.client_id)
