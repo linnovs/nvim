@@ -19,7 +19,7 @@ return {
 			callback = function(evt)
 				local ns = lint.get_namespace("cspell")
 
-				if not Snacks.toggle.option("spell"):get() then
+				if not vim.o.spell then
 					vim.diagnostic.reset(ns, evt.buf)
 				else
 					lint.try_lint("cspell")
