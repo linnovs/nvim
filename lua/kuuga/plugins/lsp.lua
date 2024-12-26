@@ -26,12 +26,7 @@ return {
 						filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 					},
 					cmake = {},
-					eslint = {
-						settings = {
-							packageManager = "yarn",
-							format = false,
-						},
-					},
+					eslint = { settings = { format = false } },
 					dockerls = {},
 					fish_lsp = {},
 					gdscript = {},
