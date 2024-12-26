@@ -15,6 +15,12 @@ return {
 				progress = {
 					enabled = false,
 				},
+				signature = {
+					opts = {
+						anchor = "SW",
+						position = { row = 1 },
+					},
+				},
 			},
 			routes = {
 				{
