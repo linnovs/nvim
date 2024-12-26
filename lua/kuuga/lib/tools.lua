@@ -1,5 +1,7 @@
 local M = {}
 
+---@module 'conform'
+---@type table<string, conform.FiletypeFormatter>
 M.formatters = {
 	["*"] = { "trim_whitespace" },
 	bash = { "beautysh" },
