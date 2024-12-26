@@ -122,6 +122,22 @@ return {
 					},
 					nil_ls = {},
 					terraformls = {},
+					ts_ls = {
+						init_options = {
+							plugins = {
+								{ name = "@vue/typescript-plugin", location = "", { languages = { "vue" } } },
+							},
+						},
+						filetypes = {
+							"javascript",
+							"javascriptreact",
+							"javascript.jsx",
+							"typescript",
+							"typescriptreact",
+							"typescript.tsx",
+							"vue",
+						},
+					},
 					typos_lsp = {
 						init_options = {
 							config = vim.fn.stdpath("config") .. "/typos.toml",
