@@ -36,6 +36,7 @@ M.mason_installs = {
 	"gofumpt",
 	"goimports",
 	"golines",
+	"impl",
 	"nixpkgs-fmt",
 	"prettierd",
 	"protolint",
