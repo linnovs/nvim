@@ -45,6 +45,7 @@ return {
 		cmd = { "Octo" },
 		opts = {
 			enable_builtin = true,
+			picker = "fzf-lua",
 			mappings = {
 				submit_win = {
 					approve_review = { lhs = "<leader>ar", desc = "approve review" },
