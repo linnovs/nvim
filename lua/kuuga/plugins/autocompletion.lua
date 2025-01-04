@@ -15,6 +15,11 @@ end
 
 return {
 	{
+		"xzbdmw/colorful-menu.nvim",
+		lazy = true,
+	},
+
+	{
 		"saghen/blink.compat",
 		version = "*",
 		lazy = true,
@@ -30,6 +35,7 @@ return {
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"echasnovski/mini.nvim",
+			"xzbdmw/colorful-menu.nvim",
 		},
 		version = "v0.*",
 		---@module 'blink.cmp'
@@ -55,7 +61,7 @@ return {
 			completion = {
 				list = { selection = "manual" },
 				documentation = {
-					auto_show = true,
+					auto_show = false,
 					auto_show_delay_ms = 200,
 					window = {
 						border = "rounded",
@@ -81,6 +87,34 @@ return {
 									_, hl = get_color_icon(ctx)
 
 									return hl
+								end,
+							},
+							label = {
+								width = { fill = true, max = 60 },
+								text = function(ctx)
+									local hl_info = require("colorful-menu").highlights(ctx.item, vim.bo.filetype)
+									if hl_info ~= nil then
+										return hl_info.text
+									else
+										return ctx.label
+									end
+								end,
+								highlight = function(ctx)
+									local hl_info = require("colorful-menu").highlights(ctx.item, vim.bo.filetype)
+									local hls = {}
+									if hl_info ~= nil then
+										for _, info in ipairs(hl_info.highlights) do
+											table.insert(hls, {
+												info.range[1],
+												info.range[2],
+												group = ctx.deprecated and "BlinkCmpLabelDeprecated" or info[1],
+											})
+										end
+									end
+									for _, idx in ipairs(ctx.label_matched_indices) do
+										table.insert(hls, { idx, idx + 1, group = "BlinkCmpLabelMatch" })
+									end
+									return hls
 								end,
 							},
 						},
