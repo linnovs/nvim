@@ -18,21 +18,20 @@ return {
 			styles = {
 				notification = {
 					wo = { wrap = true },
-				},
 				lazygit = {
 					keys = {
 						-- stylua: ignore
-						reset_ob = { "[", "[", mode = "t" },
+						reset_ob = { "[", "[", mode = "t", expr = true },
 					},
 				},
 				terminal = {
 					keys = {
 						-- stylua: ignore start
-						toggle    = { "<Leader>tt", "<Cmd>close<CR>", mode = "t" },
-						win_up    = { "<Leader>wk", "<Cmd>wincmd k<CR>", desc = "Moves to window above", mode = "t" },
-						win_down  = { "<Leader>wj", "<Cmd>wincmd j<CR>", desc = "Moves to window below", mode = "t" },
-						win_right = { "<Leader>wh", "<Cmd>wincmd h<CR>", desc = "Moves to window right", mode = "t" },
-						win_left  = { "<Leader>wl", "<Cmd>wincmd l<CR>", desc = "Moves to window left", mode = "t" },
+						toggle    = { "<Leader>tt", "<Cmd>close<CR>", mode = "t", expr = true },
+						win_up    = { "<Leader>wk", "<Cmd>wincmd k<CR>", desc = "Moves to window above", mode = "t", expr = true },
+						win_down  = { "<Leader>wj", "<Cmd>wincmd j<CR>", desc = "Moves to window below", mode = "t", expr = true },
+						win_right = { "<Leader>wh", "<Cmd>wincmd h<CR>", desc = "Moves to window right", mode = "t", expr = true },
+						win_left  = { "<Leader>wl", "<Cmd>wincmd l<CR>", desc = "Moves to window left", mode = "t", expr = true },
 						-- stylua: ignore end
 					},
 				},
