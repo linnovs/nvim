@@ -69,52 +69,26 @@ return {
 				},
 				menu = {
 					draw = {
-						columns = {
-							{ "kind_icon" },
-							{ "label", "label_description", gap = 1 },
-							{ "source_name" },
-						},
+						columns = { { "kind_icon" }, { "label", gap = 1 }, { "source_name" } },
 						components = {
 							kind_icon = {
 								text = function(ctx)
 									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
 									kind_icon, _ = get_color_icon(ctx)
-
 									return kind_icon .. ctx.icon_gap
 								end,
 								highlight = function(ctx)
 									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
 									_, hl = get_color_icon(ctx)
-
 									return hl
 								end,
 							},
 							label = {
-								width = { fill = true, max = 60 },
 								text = function(ctx)
-									local hl_info = require("colorful-menu").highlights(ctx.item, vim.bo.filetype)
-									if hl_info ~= nil then
-										return hl_info.text
-									else
-										return ctx.label
-									end
+									return require("colorful-menu").blink_components_text(ctx)
 								end,
 								highlight = function(ctx)
-									local hl_info = require("colorful-menu").highlights(ctx.item, vim.bo.filetype)
-									local hls = {}
-									if hl_info ~= nil then
-										for _, info in ipairs(hl_info.highlights) do
-											table.insert(hls, {
-												info.range[1],
-												info.range[2],
-												group = ctx.deprecated and "BlinkCmpLabelDeprecated" or info[1],
-											})
-										end
-									end
-									for _, idx in ipairs(ctx.label_matched_indices) do
-										table.insert(hls, { idx, idx + 1, group = "BlinkCmpLabelMatch" })
-									end
-									return hls
+									return require("colorful-menu").blink_components_highlight(ctx)
 								end,
 							},
 						},
