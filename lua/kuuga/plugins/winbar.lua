@@ -1,14 +1,27 @@
 return {
-	"utilyre/barbecue.nvim",
-	event = "BufReadPost",
-	name = "barbecue",
-	dependencies = {
-		"SmiteshP/nvim-navic",
-		"nvim-tree/nvim-web-devicons",
+	"Bekaboo/dropbar.nvim",
+	keys = {
+		{
+			"<leader>;",
+			function()
+				require("dropbar.api").pick()
+			end,
+			desc = "Pick symbols in winbar",
+		},
+		{
+			"[;",
+			function()
+				require("dropbar.api").goto_context_start()
+			end,
+			desc = "Goto start of current context",
+		},
+		{
+			"];",
+			function()
+				require("dropbar.api").select_next_context()
+			end,
+			desc = "Select next context",
+		},
 	},
-	opts = {
-		attach_navic = false,
-		theme = "catppucin-macchiato",
-		exclude_filetypes = { "netwr", "oil", "toggleterm" },
-	},
+	opts = {},
 }
