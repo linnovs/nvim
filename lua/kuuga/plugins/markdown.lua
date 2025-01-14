@@ -2,7 +2,9 @@ return {
 	{
 		"iamcco/markdown-preview.nvim",
 		ft = "markdown",
-		build = "cd app && yarn install",
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
 	},
 
 	{
