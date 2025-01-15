@@ -2,7 +2,6 @@ local M = {}
 
 local icons = require("kuuga.lib.icons")
 local keymap = require("kuuga.lib.keymap")
-local fzf = require("fzf-lua")
 
 if vim.env.VIMDEBUG == "lsp" then
 	vim.lsp.set_log_level("debug")
@@ -22,46 +21,26 @@ local function diagnostic_open_float(cursor)
 		scope = cursor and "cursor" or "line",
 	}
 
-	return function()
-		vim.diagnostic.open_float(diag_opts)
-	end
+	return function() vim.diagnostic.open_float(diag_opts) end
 end
 
-local function declaration()
-	fzf.lsp_declarations({ jump_to_single_result = true })
-end
+local function declaration() Snacks.picker.lsp_declarations() end
 
-local function definitions()
-	fzf.lsp_definitions({ jump_to_single_result = true })
-end
+local function definitions() Snacks.picker.lsp_definitions() end
 
-local function implementations()
-	fzf.lsp_implementations({ jump_to_single_result = true })
-end
+local function implementations() Snacks.picker.lsp_implementations() end
 
-local function hover()
-	vim.lsp.buf.hover()
-end
+local function hover() vim.lsp.buf.hover() end
 
-local function rename()
-	vim.lsp.buf.rename()
-end
+local function rename() vim.lsp.buf.rename() end
 
-local function typedefs()
-	fzf.lsp_typedefs({ jump_to_single_result = true })
-end
+local function typedefs() Snacks.picker.lsp_type_definitions() end
 
-local function references()
-	fzf.lsp_references({ ignore_current_line = true })
-end
+local function references() Snacks.picker.lsp_references() end
 
-local function codeaction()
-	vim.lsp.buf.code_action()
-end
+local function codeaction() vim.lsp.buf.code_action() end
 
-local function codelens()
-	vim.lsp.codelens.run()
-end
+local function codelens() vim.lsp.codelens.run() end
 
 M.init = function()
 	vim.diagnostic.config({
@@ -108,13 +87,9 @@ M.setup = function()
 			local augroup = vim.api.nvim_create_augroup
 			local autocmd = vim.api.nvim_create_autocmd
 
-			local function map(lhs, rhs, desc)
-				keymap.map("n", lhs, rhs, desc, { buffer = bufnr })
-			end
+			local function map(lhs, rhs, desc) keymap.map("n", lhs, rhs, desc, { buffer = bufnr }) end
 
-			if client == nil then
-				return
-			end
+			if client == nil then return end
 
 			map("gD", declaration, "Go to declaration")
 			map("gd", definitions, "Go to definitions")
@@ -138,9 +113,7 @@ M.setup = function()
 				autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
 					group = augroup("LspCodeLens." .. bufnr, { clear = true }),
 					buffer = bufnr,
-					callback = function()
-						vim.lsp.codelens.refresh({ bufnr = bufnr })
-					end,
+					callback = function() vim.lsp.codelens.refresh({ bufnr = bufnr }) end,
 				})
 				map("<Leader>cl", codelens, "Code lens")
 			end
@@ -156,9 +129,7 @@ function M.lsp_progress_autocmd()
 		callback = function(ev)
 			local client = vim.lsp.get_client_by_id(ev.data.client_id)
 			local value = ev.data.params.value --[[@as {percentage?: number, title?: string, message?: string, kind: "begin" | "report" | "end"}]]
-			if not client or type(value) ~= "table" then
-				return
-			end
+			if not client or type(value) ~= "table" then return end
 			local p = progress[client.id]
 
 			for i = 1, #p + 1 do
@@ -177,9 +148,7 @@ function M.lsp_progress_autocmd()
 			end
 
 			local msg = {} ---@type string[]
-			progress[client.id] = vim.tbl_filter(function(v)
-				return table.insert(msg, v.msg) or not v.done
-			end, p)
+			progress[client.id] = vim.tbl_filter(function(v) return table.insert(msg, v.msg) or not v.done end, p)
 
 			local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
 			vim.notify(table.concat(msg, "\n"), "info", {
