@@ -5,6 +5,7 @@ return {
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
+		version = false,
 		---@module "snacks"
 		---@type snacks.Config
 		opts = {
@@ -15,45 +16,84 @@ return {
 			scroll = { enabled = true },
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
+			picker = {
+				win = {
+					input = {
+						keys = {
+							["<Esc>"] = { "close", mode = { "n", "i" } },
+						},
+					},
+				},
+			},
 			styles = {
 				lazygit = {
 					keys = {
-						-- stylua: ignore
 						reset_ob = { "[", "[", mode = "t", expr = true },
 					},
 				},
 				terminal = {
 					keys = {
-						-- stylua: ignore start
-						toggle    = { "<Leader>tt", "<Cmd>close<CR>", mode = "t", expr = true },
-						win_up    = { "<Leader>wk", "<Cmd>wincmd k<CR>", desc = "Moves to window above", mode = "t", expr = true },
-						win_down  = { "<Leader>wj", "<Cmd>wincmd j<CR>", desc = "Moves to window below", mode = "t", expr = true },
-						win_right = { "<Leader>wh", "<Cmd>wincmd h<CR>", desc = "Moves to window right", mode = "t", expr = true },
-						win_left  = { "<Leader>wl", "<Cmd>wincmd l<CR>", desc = "Moves to window left", mode = "t", expr = true },
-						-- stylua: ignore end
+						toggle = { "<Leader>tt", "<Cmd>close<CR>", mode = "t", expr = true },
+						win_up = {
+							"<Leader>wk",
+							"<Cmd>wincmd k<CR>",
+							desc = "Moves to window above",
+							mode = "t",
+							expr = true,
+						},
+						win_down = {
+							"<Leader>wj",
+							"<Cmd>wincmd j<CR>",
+							desc = "Moves to window below",
+							mode = "t",
+							expr = true,
+						},
+						win_right = {
+							"<Leader>wh",
+							"<Cmd>wincmd h<CR>",
+							desc = "Moves to window right",
+							mode = "t",
+							expr = true,
+						},
+						win_left = {
+							"<Leader>wl",
+							"<Cmd>wincmd l<CR>",
+							desc = "Moves to window left",
+							mode = "t",
+							expr = true,
+						},
 					},
 				},
 			},
 			dashboard = dashboard,
 		},
 		keys = {
-			-- stylua: ignore start
-			{ "<leader>z",   function() Snacks.zen() end, desc = "Toggler Zen Mode", },
-			{ "<leader>Z",   function() Snacks.zen.zoom() end, desc = "Toggler Zoom", },
-			{ "<leader>un",  function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications", },
-			{ "<leader>.",   function() Snacks.scratch() end, desc = "Toggle Scratch Buffer", },
-			{ "<leader>S",   function() Snacks.scratch.select() end, desc = "Toggle Scratch Buffer", },
-			{ "<leader>n",   function() Snacks.notifier.show_history() end, desc = "Notifications History", },
-			{ "<leader>bd",  function() Snacks.bufdelete() end, desc = "Delete Buffer", },
-			{ "<leader>fbd", function() Snacks.bufdelete({force = true}) end, desc = "Force Delete Buffer", },
-			{ "<leader>gst", function() Snacks.lazygit() end, desc = "Lazygit", },
-			{ "<leader>gB",  function() Snacks.gitbrowse() end, desc = "Git Browse", },
-			{ "<leader>gfl", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History", },
-			{ "<leader>gl",  function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)", },
-			{ "<leader>tt",  function() Snacks.terminal(nil, { win = { height = 0.3 } }) end, desc = "Toggle terminal", },
-			{ "]]",          function() Snacks.words.jump(vim.v.count1) end, desc = "Next reference", },
-			{ "[[",          function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev reference", },
-			-- stylua: ignore end
+			{ "<leader>z", function() Snacks.zen() end, desc = "Toggler Zen Mode" },
+			{ "<leader>Z", function() Snacks.zen.zoom() end, desc = "Toggler Zoom" },
+			{ "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
+			{ "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+			{ "<leader>S", function() Snacks.scratch.select() end, desc = "Toggle Scratch Buffer" },
+			{ "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notifications History" },
+			{ "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
+			{ "<leader>fbd", function() Snacks.bufdelete({ force = true }) end, desc = "Force Delete Buffer" },
+			{ "<leader>gst", function() Snacks.lazygit() end, desc = "Lazygit" },
+			{ "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse" },
+			{ "<leader>gfl", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
+			{ "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
+			{
+				"<leader>tt",
+				function() Snacks.terminal(nil, { win = { height = 0.3 } }) end,
+				desc = "Toggle terminal",
+			},
+			{ "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next reference" },
+			{ "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev reference" },
+			{ "<leader><leader>", function() Snacks.picker.files() end, desc = "Find files" },
+			{ "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+			{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+			{ "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
+			{ "<leader>fm", function() Snacks.picker.man() end, desc = "Man Pages" },
+			{ "<leader>fs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+			-- { "<leader>fs", function() Snacks.picker.lsp_symbos() end, desc = "LSP Symbols" },
 			{
 				"<leader>N",
 				desc = "Neovim News",
@@ -79,12 +119,8 @@ return {
 				pattern = "VeryLazy",
 				callback = function()
 					-- add global functions for debugging (lazy-loaded)
-					_G.dd = function(...)
-						Snacks.debug.inspect(...)
-					end
-					_G.bt = function()
-						Snacks.debug.backtrace()
-					end
+					_G.dd = function(...) Snacks.debug.inspect(...) end
+					_G.bt = function() Snacks.debug.backtrace() end
 
 					-- override print to use snacks for `:=` command
 					vim.print = _G.dd
