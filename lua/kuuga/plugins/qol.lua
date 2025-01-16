@@ -16,15 +16,6 @@ return {
 			scroll = { enabled = true },
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
-			picker = {
-				win = {
-					input = {
-						keys = {
-							["<Esc>"] = { "close", mode = { "n", "i" } },
-						},
-					},
-				},
-			},
 			styles = {
 				lazygit = {
 					keys = {
