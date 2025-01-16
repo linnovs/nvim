@@ -9,13 +9,6 @@ M.pane_gap = 4
 
 M.preset = {}
 M.preset.keys = {
-	{ icon = "󱋡 ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-	{
-		icon = " ",
-		key = "c",
-		desc = "Config",
-		action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
-	},
 	{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.picker.files()" },
 	{ icon = "󰝒 ", key = "n", desc = "New File", action = ":ene" },
 	{ icon = "󰈞 ", key = "g", desc = "Find Text", action = ":lua Snacks.picker.grep()" },
