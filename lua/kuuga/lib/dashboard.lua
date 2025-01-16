@@ -27,6 +27,17 @@ M.sections[1] = {
 M.sections[2] = {
 	pane = 2,
 	{ section = "keys", gap = 1, padding = 1 },
+	{
+		section = "terminal",
+		enabled = function() return Snacks.git.get_root() ~= nil end,
+		icon = "󰊢 ",
+		title = "Git Status",
+		cmd = "git status --short --branch --renames",
+		ttl = 5 * 60,
+		height = 5,
+		padding = 1,
+		indent = 3,
+	},
 	{ section = "startup", padding = 1 },
 }
 
