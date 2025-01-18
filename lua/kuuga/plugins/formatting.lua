@@ -1,23 +1,31 @@
-local formatters = require("kuuga.lib.tools").formatters
-
 return {
 	"stevearc/conform.nvim",
 	event = "BufWritePre",
 	cmd = "ConformInfo",
-	init = function()
-		vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
-	end,
+	init = function() vim.o.formatexpr = "v:lua.require('conform').formatexpr()" end,
 	---@module "conform"
 	---@type conform.setupOpts
 	opts = {
 		format_on_save = function(bufnr)
 			-- Disable with a global or buffer-local variable
-			if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-				return
-			end
+			if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then return end
 			return { timeout_ms = 500, lsp_format = "fallback" }
 		end,
-		formatters_by_ft = formatters,
+		formatters_by_ft = {
+			["*"] = { "trim_whitespace" },
+			go = { "goimports", "golines", "gofumpt" },
+			javascript = { "prettierd" },
+			javascriptreact = { "prettierd" },
+			typescript = { "prettierd" },
+			typescriptreact = { "prettierd" },
+			lua = { "stylua" },
+			markdown = { "prettierd", "injected" },
+			nix = { "nixpkgs_fmt" },
+			proto = { "protolint" },
+			python = { "ruff_fix", "ruff_format" },
+			rust = { "rustfmt" },
+			yaml = { "prettierd" },
+		},
 		formatters = {
 			prettierd = {
 				env = {
