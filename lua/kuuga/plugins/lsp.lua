@@ -4,8 +4,6 @@ return {
 		event = "BufReadPost",
 		version = false,
 		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
 			"saghen/blink.cmp",
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "neovim/nvim-lspconfig" } },
 			{
@@ -158,10 +156,7 @@ return {
 		config = function(_, opts)
 			local servers = opts.servers
 			local lspconfig = require("lspconfig")
-			local masonlsp = require("mason-lspconfig")
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-			masonlsp.setup({ automatic_installation = true })
 
 			require("kuuga.lib.lsp").init()
 			require("kuuga.lib.lsp").lsp_progress_autocmd()
