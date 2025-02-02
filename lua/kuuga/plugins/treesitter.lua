@@ -36,7 +36,6 @@ return {
 			"json5",
 			"jsonc",
 			"just",
-			"latex",
 			"lua",
 			"luadoc",
 			"luap",
