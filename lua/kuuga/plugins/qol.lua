@@ -16,11 +16,13 @@ return {
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
 			styles = {
+				---@diagnostic disable-next-line: missing-fields
 				lazygit = {
 					keys = {
 						reset_ob = { "[", "[", mode = "t", expr = true },
 					},
 				},
+				---@diagnostic disable-next-line: missing-fields
 				terminal = {
 					keys = {
 						toggle = { "<Leader>tt", "<Cmd>close<CR>", mode = "t", expr = true },
