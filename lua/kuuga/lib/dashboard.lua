@@ -1,17 +1,23 @@
 ---@module 'snacks'
 ---@type snacks.dashboard.Config
-local M = { enabled = true, sections = {}, formats = {} }
+local M = {
+	enabled = true,
+	sections = {},
+	formats = {},
+	width = 75,
+	row = nil,
+	col = nil,
+	pane_gap = 4,
+	autokeys = nil,
+	preset = {},
+	debug = false,
+}
 
-M.width = 75
-M.row = nil
-M.col = nil
-M.pane_gap = 4
-
-M.preset = {}
 M.preset.keys = {
+	{ icon = " ", key = "b", desc = "Browse Repository", action = ":lua Snacks.gitbrowse()" },
 	{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.picker.files()" },
-	{ icon = "󰝒 ", key = "n", desc = "New File", action = ":ene" },
-	{ icon = "󰈞 ", key = "g", desc = "Find Text", action = ":lua Snacks.picker.grep()" },
+	{ icon = "󰝒 ", key = "N", desc = "New File", action = ":ene" },
+	{ icon = "󰈞 ", key = "g", desc = "Find Text", action = ":lua Snacks.picker.live()" },
 	{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
 	{ icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
 	{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
@@ -27,17 +33,42 @@ M.sections[1] = {
 M.sections[2] = {
 	pane = 2,
 	{ section = "keys", gap = 1, padding = 1 },
-	{
-		section = "terminal",
-		enabled = function() return Snacks.git.get_root() ~= nil end,
-		icon = "󰊢 ",
-		title = "Git Status",
-		cmd = "git status --short --branch --renames",
-		ttl = 5 * 60,
-		height = 5,
-		padding = 1,
-		indent = 3,
-	},
+	function()
+		local in_git = Snacks.git.get_root() ~= nil
+		local cmds = {
+			{
+				title = "Notifications",
+				cmd = "gh notify -s -a -n5",
+				action = function() vim.ui.open("https://github.com/notifications") end,
+				key = "n",
+				height = 5,
+				icon = " ",
+			},
+			{
+				section = "terminal",
+				icon = "󰊢 ",
+				title = "Git Status",
+				cmd = "git status --short --branch --renames",
+				ttl = 5 * 60,
+				height = 5,
+				padding = 1,
+				indent = 3,
+			},
+		}
+
+		return vim.tbl_map(
+			function(cmd)
+				return vim.tbl_extend("force", {
+					section = "terminal",
+					enabled = in_git,
+					padding = 1,
+					ttl = 5 * 60,
+					indent = 3,
+				}, cmd)
+			end,
+			cmds
+		)
+	end,
 	{ section = "startup", padding = 1 },
 }
 
