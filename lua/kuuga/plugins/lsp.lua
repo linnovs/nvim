@@ -5,7 +5,6 @@ return {
 		version = false,
 		dependencies = {
 			"saghen/blink.cmp",
-			{ "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "neovim/nvim-lspconfig" } },
 			{
 				"folke/lazydev.nvim",
 				version = false,
@@ -161,7 +160,6 @@ return {
 			require("kuuga.lib.lsp").init()
 			require("kuuga.lib.lsp").lsp_progress_autocmd()
 			require("kuuga.lib.lsp").setup()
-			require("neoconf").setup({})
 
 			for _, server in ipairs(vim.tbl_keys(servers)) do
 				local config = servers[server]
