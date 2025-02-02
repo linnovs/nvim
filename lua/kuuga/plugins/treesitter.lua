@@ -11,6 +11,7 @@ return {
 	init = function() vim.g.skip_ts_context_commentstring_module = true end,
 	opts = {
 		sync_install = false,
+		auto_install = false,
 		ensure_installed = {
 			"bash",
 			"c",
