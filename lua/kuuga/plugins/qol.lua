@@ -14,6 +14,13 @@ return {
 			quickfile = { enabled = true },
 			scroll = { enabled = true },
 			statuscolumn = { enabled = true },
+			picker = {
+				formatters = {
+					file = {
+						filename_first = true,
+					},
+				},
+			},
 			words = { enabled = true },
 			styles = {
 				---@diagnostic disable-next-line: missing-fields
