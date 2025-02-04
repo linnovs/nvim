@@ -17,7 +17,7 @@ M.preset.keys = {
 	{ icon = " ", key = "b", desc = "Browse Repository", action = ":lua Snacks.gitbrowse()" },
 	{ icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.picker.files()" },
 	{ icon = "󰝒 ", key = "N", desc = "New File", action = ":ene" },
-	{ icon = "󰈞 ", key = "g", desc = "Find Text", action = ":lua Snacks.picker.live()" },
+	{ icon = "󰈞 ", key = "g", desc = "Find Text", action = ":lua Snacks.picker.grep()" },
 	{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
 	{ icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
 	{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
