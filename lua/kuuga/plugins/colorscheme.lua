@@ -14,6 +14,7 @@ return {
 				dark = "macchiato",
 			},
 			transparent_background = false,
+			show_end_of_buffer = true,
 			custom_highlights = function(colors)
 				return {
 					DiagnosticUnderlineError = { undercurl = true },
