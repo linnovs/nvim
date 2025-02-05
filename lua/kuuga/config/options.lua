@@ -8,7 +8,7 @@ vim.opt.cursorline = true -- highlight the screen line of the cursor
 vim.opt.diffopt:append({ algorithm = "histogram", linematch = 50 })
 vim.opt.expandtab = true -- use spaces when <Tab> is inserted
 vim.opt.fileencoding = "utf-8" -- file encoding for multibyte text
-vim.opt.fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "" } -- characters to use for displaying special items
+vim.opt.fillchars = { eob = "·", fold = " ", foldopen = "", foldsep = " ", foldclose = "" } -- characters to use for displaying special items
 vim.opt.foldcolumn = "1" -- columns to use for the fold column
 vim.opt.foldenable = true -- set to display all folds open
 vim.opt.foldlevel = 99 -- close folds with a level higher than this
