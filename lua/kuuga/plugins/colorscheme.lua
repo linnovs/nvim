@@ -5,6 +5,8 @@ return {
 	name = "catppuccin",
 	version = false,
 	opts = function()
+		---@module 'catppuccin.types'
+		---@type CatppuccinOptions
 		return {
 			flavor = "macchiato",
 			background = {
