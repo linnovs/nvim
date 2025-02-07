@@ -68,15 +68,6 @@ return {
 					},
 				},
 				menu = {
-					-- TODO: remove this function after noice.nvim upgraded
-					cmdline_position = function()
-						if vim.g.ui_cmdline_pos ~= nil then
-							local pos = vim.g.ui_cmdline_pos
-							return { pos.row - 1, pos.col }
-						end
-						local height = (vim.o.cmdheight == 0) and 1 or vim.o.cmdheight
-						return { vim.o.lines - height, 0 }
-					end,
 					draw = {
 						columns = { { "kind_icon" }, { "label", gap = 1 }, { "source_name" } },
 						components = {
