@@ -41,9 +41,7 @@ return {
 			{
 				"<C-f>",
 				function()
-					if not require("noice.lsp").scroll(4) then
-						return "<C-f>"
-					end
+					if not require("noice.lsp").scroll(4) then return "<C-f>" end
 
 					return ""
 				end,
@@ -54,9 +52,7 @@ return {
 			{
 				"<C-b>",
 				function()
-					if not require("noice.lsp").scroll(-4) then
-						return "<C-b>"
-					end
+					if not require("noice.lsp").scroll(-4) then return "<C-b>" end
 
 					return ""
 				end,
