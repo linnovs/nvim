@@ -12,17 +12,19 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons", -- Used by the code bloxks
 		},
+		---@module 'markview'
+		---@type mkv.config
 		opts = {
-			modes = { "n", "no", "c" },
-
-			hybrid_modes = { "n" },
-
-			callbacks = {
-				on_enable = function(_, win)
-					vim.wo[win].conceallevel = 2
-					---@diagnostic disable-next-line: inject-field
-					vim.wo[win].conecalcursor = "c"
-				end,
+			preview = {
+				modes = { "n", "no", "c" },
+				hybrid_modes = { "n" },
+				callbacks = {
+					on_enable = function(_, win)
+						vim.wo[win].conceallevel = 2
+						---@diagnostic disable-next-line: inject-field
+						vim.wo[win].conecalcursor = "c"
+					end,
+				},
 			},
 		},
 	},
