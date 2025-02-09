@@ -64,10 +64,16 @@ M.init = function()
 		},
 		signs = {
 			text = {
-				[vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
-				[vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
-				[vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
-				[vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
+				[vim.diagnostic.severity.ERROR] = "",
+				[vim.diagnostic.severity.WARN] = "",
+				[vim.diagnostic.severity.INFO] = "",
+				[vim.diagnostic.severity.HINT] = "",
+			},
+			numhl = {
+				[vim.diagnostic.severity.ERROR] = "DiagnosticError",
+				[vim.diagnostic.severity.WARN] = "DiagnosticWarn",
+				[vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+				[vim.diagnostic.severity.HINT] = "DiagnosticHint",
 			},
 		},
 		underline = true,
@@ -105,11 +111,11 @@ M.setup = function()
 				callback = diagnostic_open_float(true),
 			})
 
-			if client:supports_method("textDocument/codeAction", bufnr) then
+			if client.supports_method("textDocument/codeAction", { bufnr = bufnr }) then
 				map("<Leader>ca", codeaction, "Code action")
 			end
 
-			if client:supports_method("textDocument/codeLens", bufnr) then
+			if client.supports_method("textDocument/codeLens", { bufnr = bufnr }) then
 				autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
 					group = augroup("LspCodeLens." .. bufnr, { clear = true }),
 					buffer = bufnr,
