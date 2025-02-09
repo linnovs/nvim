@@ -19,7 +19,7 @@ return {
 			typescript = { "prettierd" },
 			typescriptreact = { "prettierd" },
 			lua = { "stylua" },
-			markdown = { "prettierd", "injected" },
+			markdown = { "injected" },
 			nix = { "nixpkgs_fmt" },
 			proto = { "protolint" },
 			python = { "ruff_fix", "ruff_format" },
