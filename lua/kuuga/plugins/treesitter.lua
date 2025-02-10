@@ -30,6 +30,7 @@ return {
 			"html",
 			"http",
 			"hurl",
+			"hyprlang",
 			"ini",
 			"javascript",
 			"jsdoc",
