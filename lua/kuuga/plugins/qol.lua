@@ -10,6 +10,7 @@ return {
 		opts = {
 			bigfile = { enabled = true },
 			indent = { enabled = true },
+			image = { enabled = true },
 			notifier = { enabled = true },
 			quickfile = { enabled = true },
 			scroll = { enabled = true },
