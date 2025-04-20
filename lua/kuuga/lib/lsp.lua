@@ -111,11 +111,11 @@ M.setup = function()
 				callback = diagnostic_open_float(true),
 			})
 
-			if client.supports_method("textDocument/codeAction", { bufnr = bufnr }) then
+			if client:supports_method("textDocument/codeAction", bufnr) then
 				map("<Leader>ca", codeaction, "Code action")
 			end
 
-			if client.supports_method("textDocument/codeLens", { bufnr = bufnr }) then
+			if client:supports_method("textDocument/codeLens", bufnr) then
 				autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
 					group = augroup("LspCodeLens." .. bufnr, { clear = true }),
 					buffer = bufnr,
