@@ -159,18 +159,14 @@ return {
 		end,
 		config = function(_, opts)
 			local servers = opts.servers
-			local lspconfig = require("lspconfig")
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 			require("kuuga.lib.lsp").init()
 			require("kuuga.lib.lsp").lsp_progress_autocmd()
 			require("kuuga.lib.lsp").setup()
 
 			for _, server in ipairs(vim.tbl_keys(servers)) do
-				local config = servers[server]
-				config.capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
-
-				lspconfig[server].setup(config)
+				vim.lsp.enable(server)
+				vim.lsp.config(server, servers[server])
 			end
 		end,
 	},
