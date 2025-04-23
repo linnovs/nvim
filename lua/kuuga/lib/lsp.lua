@@ -88,12 +88,6 @@ M.setup = function()
 			map("<Leader>D", typedefs, "Type definitions")
 			map("gr", references, "References")
 
-			autocmd("CursorHold", {
-				group = augroup("LspShowDiagnostic" .. bufnr, { clear = true }),
-				buffer = bufnr,
-				callback = diagnostic_open_float(true),
-			})
-
 			if client:supports_method("textDocument/codeAction", bufnr) then
 				map("<Leader>ca", codeaction, "Code action")
 			end
