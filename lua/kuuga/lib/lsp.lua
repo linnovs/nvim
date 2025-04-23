@@ -44,24 +44,7 @@ local function codelens() vim.lsp.codelens.run() end
 
 M.init = function()
 	vim.diagnostic.config({
-		virtual_text = {
-			prefix = function(diagnostic)
-				local prefix = ""
-
-				if diagnostic.severity == vim.diagnostic.severity.ERROR then
-					prefix = icons.diagnostics.Error
-				elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-					prefix = icons.diagnostics.Warn
-				elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-					prefix = icons.diagnostics.Info
-				elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-					prefix = icons.diagnostics.Hint
-				end
-
-				return prefix .. " "
-			end,
-			spacing = 4,
-		},
+		virtual_lines = { current_line = true },
 		signs = {
 			text = {
 				[vim.diagnostic.severity.ERROR] = "",
