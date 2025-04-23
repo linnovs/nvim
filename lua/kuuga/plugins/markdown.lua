@@ -16,6 +16,7 @@ return {
 		---@type mkv.config
 		opts = {
 			preview = {
+				icon_provider = "mini",
 				modes = { "n", "no", "c" },
 				hybrid_modes = { "n" },
 				callbacks = {
