@@ -161,7 +161,6 @@ return {
 			local servers = opts.servers
 
 			require("kuuga.lib.lsp").init()
-			require("kuuga.lib.lsp").lsp_progress_autocmd()
 			require("kuuga.lib.lsp").setup()
 
 			for _, server in ipairs(vim.tbl_keys(servers)) do
