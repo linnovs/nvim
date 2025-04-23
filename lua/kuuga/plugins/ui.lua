@@ -34,7 +34,6 @@ return {
 				command_palette = true,
 				long_message_to_split = true,
 				inc_name = false,
-				lsp_doc_border = true,
 			},
 		},
 		keys = {
