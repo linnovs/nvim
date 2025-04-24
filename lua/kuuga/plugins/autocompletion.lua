@@ -19,15 +19,9 @@ return {
 		lazy = true,
 	},
 
-	{
-		"saghen/blink.compat",
-		version = "*",
-		lazy = true,
-		opts = {},
-		dependencies = {
-			{ "Exafunction/codeium.nvim", opts = true },
-		},
-	},
+	{ "Exafunction/codeium.nvim", lazy = true, opts = {
+		enable_cmp_source = false,
+	} },
 
 	{
 		"saghen/blink.cmp",
@@ -36,6 +30,7 @@ return {
 			"rafamadriz/friendly-snippets",
 			"echasnovski/mini.nvim",
 			"xzbdmw/colorful-menu.nvim",
+			"Exafunction/codeium.nvim",
 		},
 		version = "v0.*",
 		---@module 'blink.cmp'
@@ -49,10 +44,11 @@ return {
 					sql = { "lsp", "snippets", "buffer", "dadbod", "codeium" },
 					psql = { "lsp", "snippets", "buffer", "dadbod", "codeium" },
 					mysql = { "lsp", "snippets", "buffer", "dadbod", "codeium" },
+					oil = { "lsp", "path", "snippets", "buffer" },
 				},
 				providers = {
 					lsp = { name = "LSP" },
-					codeium = { name = "codeium", module = "blink.compat.source" },
+					codeium = { name = "Codeium", module = "codeium.blink", async = true },
 					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", fallbacks = { "lsp" } },
 					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 				},
