@@ -41,18 +41,23 @@ M.sections[2] = {
 				cmd = "gh notify -s -a -n5",
 				action = function() vim.ui.open("https://github.com/notifications") end,
 				key = "n",
-				height = 5,
 				icon = " ",
+				height = 5,
+				enabled = true,
 			},
 			{
-				section = "terminal",
+				icon = " ",
+				title = "Open PRs",
+				cmd = "gh pr list -L 3",
+				key = "P",
+				action = function() vim.fn.jobstart("gh pr list --web", { detach = true }) end,
+				height = 7,
+			},
+			{
 				icon = "󰊢 ",
 				title = "Git Status",
 				cmd = "git status --short --branch --renames",
-				ttl = 5 * 60,
 				height = 5,
-				padding = 1,
-				indent = 3,
 			},
 		}
 
