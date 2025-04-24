@@ -12,6 +12,7 @@ return {
 			python = { "ruff" },
 			proto = { "protolint" },
 			ghaction = { "actionlint" },
+			go = { "golangcilint" },
 		}
 
 		lint.linters.cspell = require("lint.util").wrap(lint.linters.cspell, function(diagnostic)
