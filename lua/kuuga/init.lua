@@ -43,9 +43,7 @@ end
 M.did_init = false
 ---@param opts KuugaOptions
 function M.init(opts)
-	if M.did_init then
-		return
-	end
+	if M.did_init then return end
 
 	version_check(opts)
 	M.delay_notifications()
@@ -74,17 +72,13 @@ function M.setup(opts)
 	})
 
 	-- neovide config
-	if vim.g.neovide then
-		require("kuuga.config.neovide")
-	end
+	if vim.g.neovide then require("kuuga.config.neovide") end
 end
 
 -- this function is from https://github.com/LazyVim/LazyVim/blob/97996faf75c33a9487653be7dd59ecd39c028e52/lua/lazyvim/util/init.lua#L144
 function M.delay_notifications()
 	local notifs = {}
-	local function temp(...)
-		table.insert(notifs, vim.F.pack_len(...))
-	end
+	local function temp(...) table.insert(notifs, vim.F.pack_len(...)) end
 
 	local orig = vim.notify
 	vim.notify = temp
@@ -107,9 +101,7 @@ function M.delay_notifications()
 
 	-- wait until vim.notify is replaced
 	check:start(function()
-		if vim.notify ~= temp then
-			replay()
-		end
+		if vim.notify ~= temp then replay() end
 	end)
 
 	-- something is wrong if after 500ms
