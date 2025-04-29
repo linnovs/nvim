@@ -68,6 +68,7 @@ function M.setup(opts)
 		callback = function()
 			require("kuuga.config.autocmds")
 			require("kuuga.config.mappings")
+			require("kuuga.config.lsp")
 		end,
 	})
 

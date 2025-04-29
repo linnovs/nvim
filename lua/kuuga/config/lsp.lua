@@ -6,6 +6,32 @@ else
 	vim.lsp.set_log_level("off")
 end
 
+vim.lsp.enable({
+	"bashls",
+	"clangd",
+	"cmake",
+	"eslint",
+	"dockerls",
+	"fish_lsp",
+	"gdscript",
+	"gopls",
+	"jsonls",
+	"lemminx",
+	"ltex",
+	"omnisharp",
+	"pbls",
+	"pyright",
+	"rust_analyzer",
+	"lua_ls",
+	"nil_ls",
+	"terraformls",
+	"ts_ls",
+	"typos_lsp",
+	"volar",
+	"yamlls",
+	"zls",
+})
+
 ---@param cursor boolean
 local function diagnostic_open_float(cursor)
 	---@type vim.diagnostic.Opts.Float
