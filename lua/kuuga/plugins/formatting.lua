@@ -25,12 +25,18 @@ return {
 			python = { "ruff_fix", "ruff_format" },
 			rust = { "rustfmt" },
 			yaml = { "prettierd" },
+			http = { "kulala" },
 		},
 		formatters = {
 			prettierd = {
 				env = {
 					PRETTIERD_DEFAULT_CONFIG = vim.fn.stdpath("config") .. "/.prettierrc.json",
 				},
+			},
+			kulala = {
+				command = "kulala-fmt",
+				args = { "format", "$FILENAME" },
+				stdin = false,
 			},
 		},
 		notify_on_error = true,
