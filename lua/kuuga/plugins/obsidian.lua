@@ -1,5 +1,5 @@
 return {
-	"epwalsh/obsidian.nvim",
+	"obsidian-nvim/obsidian.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	event = {
 		"BufReadPre " .. vim.fn.expand("~") .. "/Documents/Obsidian Vault/**.md",
@@ -75,19 +75,16 @@ return {
 		},
 		completion = {
 			nvim_cmp = false,
+			blink = true,
 			min_chars = 2,
 		},
 		mapping = {
 			["gf"] = {
-				action = function()
-					return require("obsidian").util.gf_passthrouhg()
-				end,
+				action = function() return require("obsidian").util.gf_passthrouhg() end,
 				opts = { noremap = false, expr = true, buffer = true },
 			},
 			["<LEADER>ch"] = {
-				action = function()
-					return require("obsidian").util.toggle_checkbox()
-				end,
+				action = function() return require("obsidian").util.toggle_checkbox() end,
 				opts = { buffer = true },
 			},
 		},
@@ -122,9 +119,7 @@ return {
 				return string.format("[[%s]]", opts.id)
 			end
 		end,
-		markdown_link_func = function(opts)
-			return string.format("[%s](%s)", opts.label, opts.path)
-		end,
+		markdown_link_func = function(opts) return string.format("[%s](%s)", opts.label, opts.path) end,
 		preferred_link_style = "wiki",
 		image_name_func = function()
 			-- Prefix image names with timestamp.
@@ -133,9 +128,7 @@ return {
 		disable_frontmatter = false,
 		note_frontmatter_func = function(note)
 			-- Add the title of the note as an alias.
-			if note.title then
-				note:add_alias(note.title)
-			end
+			if note.title then note:add_alias(note.title) end
 
 			local out = { id = note.id, aliases = note.aliases, tags = note.tags }
 
@@ -154,45 +147,23 @@ return {
 			date_format = "%Y-%m-%d",
 			time_format = "%H:%M",
 			substitutions = {
-				locale_date = function()
-					return os.date("%A, %b %d, %Y")
-				end,
-				year = function()
-					return os.date("%Y")
-				end,
-				yesterday = function()
-					return os.date("%Y-%m-%d", os.time() - 86400)
-				end,
-				tomorrow = function()
-					return os.date("%Y-%m-%d", os.time() + 86400)
-				end,
-				weeknum = function()
-					return os.date("%V", os.time())
-				end,
-				lastweek = function()
-					return os.date("%Y-W%V", os.time() - 86400 * 7)
-				end,
-				nextweek = function()
-					return os.date("%Y-W%V", os.time() + 86400 * 7)
-				end,
-				weekstart = function()
-					return os.date("%Y-%m-%d", os.time() - (os.date("%w") - 1) % 7 * 3600 * 24)
-				end,
-				weekstartStr = function()
-					return os.date("%b %d", os.time() - (os.date("%w") - 1) % 7 * 3600 * 24)
-				end,
-				weekend = function()
-					return os.date("%Y-%m-%d", os.time() + (7 - os.date("%w")) % 7 * 3600 * 24)
-				end,
-				weekendStr = function()
-					return os.date("%b %d", os.time() + (7 - os.date("%w")) % 7 * 3600 * 24)
-				end,
+				locale_date = function() return os.date("%A, %b %d, %Y") end,
+				year = function() return os.date("%Y") end,
+				yesterday = function() return os.date("%Y-%m-%d", os.time() - 86400) end,
+				tomorrow = function() return os.date("%Y-%m-%d", os.time() + 86400) end,
+				weeknum = function() return os.date("%V", os.time()) end,
+				lastweek = function() return os.date("%Y-W%V", os.time() - 86400 * 7) end,
+				nextweek = function() return os.date("%Y-W%V", os.time() + 86400 * 7) end,
+				weekstart = function() return os.date("%Y-%m-%d", os.time() - (os.date("%w") - 1) % 7 * 3600 * 24) end,
+				weekstartStr = function() return os.date("%b %d", os.time() - (os.date("%w") - 1) % 7 * 3600 * 24) end,
+				weekend = function() return os.date("%Y-%m-%d", os.time() + (7 - os.date("%w")) % 7 * 3600 * 24) end,
+				weekendStr = function() return os.date("%b %d", os.time() + (7 - os.date("%w")) % 7 * 3600 * 24) end,
 			},
 		},
 		use_advanced_uri = true,
 		open_app_foreground = false,
 		pick = {
-			name = "fzf-lua",
+			name = "snacks.pick",
 			mapping = {
 				new = "<C-x>",
 				insert_link = "<C-l>",
@@ -243,9 +214,7 @@ return {
 	config = function(_, opts)
 		vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 			pattern = vim.fn.expand("~/Documents/Obsidian Vault/**.md"),
-			callback = function()
-				vim.opt.conceallevel = 2
-			end,
+			callback = function() vim.opt.conceallevel = 2 end,
 		})
 
 		require("obsidian").setup(opts)
