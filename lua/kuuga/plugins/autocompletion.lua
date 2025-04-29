@@ -45,6 +45,7 @@ return {
 					psql = { "lsp", "snippets", "buffer", "dadbod", "codeium" },
 					mysql = { "lsp", "snippets", "buffer", "dadbod", "codeium" },
 					oil = { "lsp", "path", "snippets", "buffer" },
+					DressingInput = { "lsp", "path", "buffer" },
 				},
 				providers = {
 					lsp = { name = "LSP" },
