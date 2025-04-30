@@ -87,7 +87,7 @@ return {
 			},
 			{ "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next reference" },
 			{ "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev reference" },
-			{ "<leader><leader>", function() Snacks.picker.smart() end, desc = "Smart Find files" },
+			{ "<leader><leader>", function() Snacks.picker.files() end, desc = "Find files" },
 			{ "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
 			{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
 			{ "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
