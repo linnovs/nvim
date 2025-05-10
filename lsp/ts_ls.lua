@@ -1,7 +1,7 @@
 return {
 	init_options = {
 		plugins = {
-			{ name = "@vue/typescript-plugin", location = "", { languages = { "vue" } } },
+			{ name = "@vue/typescript-plugin", location = "", { languages = { "javascript", "typescript", "vue" } } },
 		},
 	},
 	filetypes = {
