@@ -25,6 +25,7 @@ vim.lsp.enable({
 	"pbls",
 	"pyright",
 	"rust_analyzer",
+	"tailwindcss",
 	"terraformls",
 	"ts_ls",
 	"typos_lsp",
