@@ -13,6 +13,7 @@ return {
 			proto = { "protolint" },
 			ghaction = { "actionlint" },
 			go = { "golangcilint" },
+			typescript = { "oxlint" },
 		}
 
 		lint.linters.cspell = require("lint.util").wrap(lint.linters.cspell, function(diagnostic)
