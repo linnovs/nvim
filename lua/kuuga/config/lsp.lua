@@ -6,33 +6,7 @@ else
 	vim.lsp.set_log_level("off")
 end
 
-vim.lsp.enable({
-	"bashls",
-	"clangd",
-	"cmake",
-	"dockerls",
-	"eslint",
-	"fish_lsp",
-	"gdscript",
-	"gopls",
-	"jsonls",
-	"kulala_ls",
-	"lemminx",
-	"ltex",
-	"lua_ls",
-	"nil_ls",
-	"omnisharp",
-	"pbls",
-	"pyright",
-	"rust_analyzer",
-	"tailwindcss",
-	"terraformls",
-	"ts_ls",
-	"typos_lsp",
-	"volar",
-	"yamlls",
-	"zls",
-})
+require("kuuga.config.lsp.loadconfig")
 
 ---@param cursor boolean
 local function diagnostic_open_float(cursor)
