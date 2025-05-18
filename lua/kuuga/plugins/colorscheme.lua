@@ -52,6 +52,7 @@ return {
 				},
 				lsp_trouble = true,
 				markdown = true,
+				markview = true,
 				mason = true,
 				mini = {
 					enabled = true,
