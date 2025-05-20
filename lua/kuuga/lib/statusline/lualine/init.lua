@@ -1,12 +1,8 @@
 local sections = { lualine_a = {}, lualine_b = {}, lualine_c = {}, lualine_x = {}, lualine_y = {}, lualine_z = {} }
 
-local function insert_left(component)
-	table.insert(sections.lualine_c, component)
-end
+local function insert_left(component) table.insert(sections.lualine_c, component) end
 
-local function insert_right(component)
-	table.insert(sections.lualine_x, component)
-end
+local function insert_right(component) table.insert(sections.lualine_x, component) end
 
 local components = require("kuuga.lib.statusline.lualine.components")
 
@@ -16,6 +12,7 @@ insert_left(components.fileicon)
 insert_left(components.filename)
 insert_left(components.diagnostic)
 
+insert_right(components.lsp_status)
 insert_right(components.lazy_update)
 insert_right(components.empty)
 insert_right(components.filetype)

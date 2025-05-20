@@ -11,6 +11,7 @@ M.selectioncount = require("kuuga.lib.statusline.lualine.components.selectioncou
 M.progress = require("kuuga.lib.statusline.lualine.components.progress")
 M.codeium = require("kuuga.lib.statusline.lualine.components.codeium")
 M.diagnostic = require("kuuga.lib.statusline.lualine.components.diagnostics")
+M.lsp_status = require("kuuga.lib.statusline.lualine.components.lsp_status")
 
 local file = require("kuuga.lib.statusline.lualine.components.file")
 M.fileicon = file.icon
