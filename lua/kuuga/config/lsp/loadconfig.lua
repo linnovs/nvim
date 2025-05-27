@@ -42,7 +42,7 @@ vim.lsp.enable({
 	"terraformls",
 	"ts_ls",
 	"typos_lsp",
-	"volar",
+	"vue_ls",
 	"yamlls",
 	"zls",
 })
