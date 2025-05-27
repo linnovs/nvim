@@ -84,7 +84,10 @@ return {
 				noice = true,
 				notify = true,
 				octo = true,
-				snacks = true,
+				snacks = {
+					enabled = true,
+					indent_scope_color = "text",
+				},
 				telescope = {
 					enabled = true,
 				},
