@@ -30,7 +30,6 @@ vim.lsp.enable({
 	"gdscript",
 	"gopls",
 	"jsonls",
-	"kulala_ls",
 	"lemminx",
 	"ltex",
 	"lua_ls",
