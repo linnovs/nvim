@@ -21,6 +21,7 @@ end
 
 vim.lsp.enable({
 	"bashls",
+	"buf_ls",
 	"clangd",
 	"cmake",
 	"dockerls",
@@ -35,7 +36,6 @@ vim.lsp.enable({
 	"lua_ls",
 	"nil_ls",
 	"omnisharp",
-	"pbls",
 	"pyright",
 	"rust_analyzer",
 	"tailwindcss",

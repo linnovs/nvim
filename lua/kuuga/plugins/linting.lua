@@ -10,7 +10,6 @@ return {
 			["*"] = {}, -- this need to add a `try_lint(linter)` at the end of the autocmd
 			rust = { "clippy" },
 			python = { "ruff" },
-			proto = { "protolint" },
 			ghaction = { "actionlint" },
 			go = { "golangcilint" },
 			typescript = { "oxlint" },
