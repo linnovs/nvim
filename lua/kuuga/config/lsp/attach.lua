@@ -1,28 +1,5 @@
 local keymap = require("kuuga.lib.keymap")
 
-if vim.env.VIMDEBUG == "lsp" then
-	vim.lsp.set_log_level("debug")
-else
-	vim.lsp.set_log_level("off")
-end
-
-require("kuuga.config.lsp.loadconfig")
-
----@param cursor boolean
-local function diagnostic_open_float(cursor)
-	---@type vim.diagnostic.Opts.Float
-	local diag_opts = {
-		focusable = false,
-		-- close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-		border = "rounded",
-		source = true,
-		prefix = " ",
-		scope = cursor and "cursor" or "line",
-	}
-
-	return function() vim.diagnostic.open_float(diag_opts) end
-end
-
 local function declaration() Snacks.picker.lsp_declarations() end
 
 local function definitions() Snacks.picker.lsp_definitions() end
@@ -40,30 +17,6 @@ local function references() Snacks.picker.lsp_references() end
 local function codeaction() vim.lsp.buf.code_action() end
 
 local function codelens() vim.lsp.codelens.run() end
-
-vim.diagnostic.config({
-	virtual_lines = { current_line = true },
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = "",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.INFO] = "",
-			[vim.diagnostic.severity.HINT] = "",
-		},
-		numhl = {
-			[vim.diagnostic.severity.ERROR] = "DiagnosticError",
-			[vim.diagnostic.severity.WARN] = "DiagnosticWarn",
-			[vim.diagnostic.severity.INFO] = "DiagnosticInfo",
-			[vim.diagnostic.severity.HINT] = "DiagnosticHint",
-		},
-	},
-	underline = true,
-	update_in_insert = false,
-	severity_sort = true,
-})
-
-keymap.map("n", "<leader>d", diagnostic_open_float(false), "Show diagnostic floating window")
-keymap.map("n", "<leader>q", vim.diagnostic.setloclist, "Add buffer diagnostics to location list")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
