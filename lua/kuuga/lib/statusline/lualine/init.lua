@@ -28,7 +28,7 @@ require("lualine").setup({
 		section_separators = "",
 		disabled_filetypes = {
 			statusline = {
-				"dashboard",
+				"snacks_dashboard",
 			},
 		},
 		always_divide_middle = true,
