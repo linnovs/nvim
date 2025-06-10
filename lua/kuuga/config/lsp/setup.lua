@@ -35,6 +35,7 @@ vim.lsp.enable({
 	"lua_ls",
 	"nil_ls",
 	"omnisharp",
+	"oxlint",
 	"pyright",
 	"rust_analyzer",
 	"tailwindcss",
