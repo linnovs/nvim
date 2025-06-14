@@ -13,7 +13,7 @@ return {
 				light = "latte",
 				dark = "macchiato",
 			},
-			transparent_background = false,
+			transparent_background = true,
 			show_end_of_buffer = true,
 			custom_highlights = function(colors)
 				return {

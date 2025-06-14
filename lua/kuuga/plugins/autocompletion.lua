@@ -62,9 +62,11 @@ return {
 					auto_show_delay_ms = 200,
 					window = {
 						border = "rounded",
+						winblend = 30,
 					},
 				},
 				menu = {
+					winblend = 30,
 					draw = {
 						columns = { { "kind_icon" }, { "label", gap = 1 }, { "source_name" } },
 						components = {
