@@ -15,6 +15,9 @@ return {
 				},
 				progress = { enabled = true },
 				signature = { enabled = false },
+				documentation = {
+					opts = { win_options = { winhighlight = "Normal:LspFloatWinNormal" } },
+				},
 			},
 			routes = {
 				{

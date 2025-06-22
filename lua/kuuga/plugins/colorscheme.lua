@@ -22,6 +22,7 @@ return {
 					DiagnosticUnderlineInfo = { undercurl = true },
 					DiagnosticUnderlineHint = { undercurl = true },
 					DiagnosticUnderlineOk = { undercurl = true, sp = "LightGreen" },
+					LspFloatWinNormal = { fg = colors.text, bg = colors.base },
 					DashboardHeader = { fg = colors.mauve },
 					DashboardDesc = { fg = colors.lavender },
 					DashboardKey = { fg = colors.green },
