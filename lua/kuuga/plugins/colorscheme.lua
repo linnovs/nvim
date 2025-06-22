@@ -28,6 +28,7 @@ return {
 					DashboardIcon = { fg = colors.lavender },
 				}
 			end,
+			default_integrations = false,
 			integrations = {
 				alpha = true,
 				barbecue = {
