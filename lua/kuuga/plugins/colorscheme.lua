@@ -92,6 +92,7 @@ return {
 				},
 				treesitter = true,
 				treesitter_context = true,
+				rainbow_delimiters = true,
 				which_key = true,
 			},
 		}

@@ -17,4 +17,10 @@ return {
 		event = "BufReadPost",
 		opts = true,
 	},
+
+	{
+		"HiPhish/rainbow-delimiters.nvim",
+		event = "BufReadPost",
+		submodules = false,
+	},
 }
