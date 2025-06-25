@@ -1,6 +1,7 @@
 return {
 	"obsidian-nvim/obsidian.nvim",
 	dependencies = { "nvim-lua/plenary.nvim" },
+	version = false,
 	event = {
 		"BufReadPre " .. vim.fn.expand("~") .. "/Documents/Obsidian Vault/**.md",
 		"BufNewFile " .. vim.fn.expand("~") .. "/Documents/Obsidian Vault/**.md",
@@ -8,32 +9,32 @@ return {
 	keys = {
 		{
 			"<leader>oo",
-			"<CMD>ObsidianQuickSwitch<CR>",
+			"<CMD>Obsidian quick_switch<CR>",
 			desc = "Obsidian Quick Switch",
 		},
 		{
 			"<leader>os",
-			"<CMD>ObsidianSearch<CR>",
+			"<CMD>Obsidian search<CR>",
 			desc = "Obsidian Search",
 		},
 		{
 			"<leader>on",
-			"<CMD>ObsidianNew<CR>",
+			"<CMD>Obsidian new<CR>",
 			desc = "Obsidian New Note",
 		},
 		{
 			"<leader>oa",
-			"<CMD>ObsidianOpen<CR>",
+			"<CMD>Obsidian open<CR>",
 			desc = "Open Obsidian App",
 		},
 		{
 			"<leader>o2d",
-			"<CMD>ObsidianToday<CR>",
+			"<CMD>Obsidian today<CR>",
 			desc = "Create Obsidian Today Note",
 		},
 		{
 			"<leader>oyd",
-			"<CMD>ObsidianToday -1<CR>",
+			"<CMD>Obsidian today -1<CR>",
 			desc = "Create/Open Obsidian Yesterday Note",
 		},
 		{
@@ -160,9 +161,10 @@ return {
 				weekendStr = function() return os.date("%b %d", os.time() + (7 - os.date("%w")) % 7 * 3600 * 24) end,
 			},
 		},
-		use_advanced_uri = true,
-		open_app_foreground = false,
-		pick = {
+		open = {
+			use_advanced_uri = true,
+		},
+		picker = {
 			name = "snacks.pick",
 			mapping = {
 				new = "<C-x>",
