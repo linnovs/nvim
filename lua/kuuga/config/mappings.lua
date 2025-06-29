@@ -1,5 +1,19 @@
 local keymap = require("kuuga.lib.keymap")
 
+local function save()
+	local bufinfo = vim.fn.getbufinfo()[1]
+
+	if bufinfo.changed == 1 then
+		vim.cmd("write")
+	else
+		vim.notify("No changes needed to be saved", vim.log.levels.INFO, {
+			id = "nowrite" .. bufinfo.bufnr,
+			title = "Notification",
+			style = "compact",
+		})
+	end
+end
+
 -- window management
 keymap.map("n", "<Leader>ws", "<C-w>s", "Split window horizontally")
 keymap.map("n", "<Leader>wv", "<C-w>v", "Split window vertically")
@@ -20,7 +34,7 @@ keymap.map("n", "<Leader>w-", "<C-w>-", "Decrease window height")
 keymap.map("n", "<Leader>w<", "<C-w><", "Decrease window width")
 keymap.map("n", "<Leader>w>", "<C-w>>", "Increase window width")
 keymap.map("n", "<Leader>w|", "<C-w>|", "Make the window largest (not closing any)")
-keymap.map("n", "<C-s>", "<cmd>update<CR>", "Quick save")
+keymap.map("n", "<C-s>", save, "Quick save")
 keymap.map("n", "<Leader>e", "<cmd>edit<CR>", "Quick re-edit")
 keymap.map("n", "<Leader>qq", "<cmd>quit<CR>", "Quick quit")
 keymap.map("n", "<Leader>qa", "<cmd>qall<CR>", "Quick quit all")
