@@ -3,11 +3,7 @@ local home = vim.fn.expand("~")
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, { command = "checktime" })
 autocmd("VimResized", { command = "tabdo wincmd =" })
-autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-})
+autocmd("TextYankPost", { callback = function() vim.highlight.on_yank() end })
 
 autocmd("BufWritePost", {
 	pattern = home .. "/.local/share/chezmoi/*",
@@ -15,9 +11,7 @@ autocmd("BufWritePost", {
 		local file = args.file:match("^.+/(.+)$") or args.file
 		local is_run = string.sub(file, 1, string.len("run_")) == "run_"
 		local is_chezmoi = string.sub(file, 1, string.len(".chezmoi")) == ".chezmoi"
-		if is_run or is_chezmoi then
-			return
-		end
+		if is_run or is_chezmoi then return end
 		os.execute("chezmoi apply --refresh-externals=never --source-path " .. args.file)
 		vim.notify("Apply source " .. args.file .. " to target")
 	end,
