@@ -1,13 +1,13 @@
 local keymap = require("kuuga.lib.keymap")
 
 local function save()
-	local bufinfo = vim.fn.getbufinfo()[1]
+	local bufnr = vim.api.nvim_get_current_buf()
 
-	if bufinfo.changed == 1 then
+	if vim.fn.getbufinfo(bufnr)[1].changed == 1 then
 		vim.cmd("write")
 	else
 		vim.notify("No changes needed to be saved", vim.log.levels.INFO, {
-			id = "nowrite" .. bufinfo.bufnr,
+			id = "nowrite" .. bufnr,
 			title = "Notification",
 			style = "compact",
 		})
