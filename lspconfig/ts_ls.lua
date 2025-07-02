@@ -9,32 +9,15 @@ return {
 				languages = { "javascript", "typescript", "vue" },
 			},
 		},
-	},
-	settings = {
-		typescript = {
-			inlayHints = {
-				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all'
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayVariableTypeHints = true,
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayEnumMemberValueHints = true,
-			},
-		},
-		javascript = {
-			inlayHints = {
-				includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all'
-				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-				includeInlayVariableTypeHints = true,
-
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-				includeInlayPropertyDeclarationTypeHints = true,
-				includeInlayFunctionLikeReturnTypeHints = true,
-				includeInlayEnumMemberValueHints = true,
-			},
+		preferences = {
+			includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all'
+			includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+			includeInlayVariableTypeHints = false,
+			includeInlayFunctionParameterTypeHints = false,
+			includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+			includeInlayPropertyDeclarationTypeHints = false,
+			includeInlayFunctionLikeReturnTypeHints = true,
+			includeInlayEnumMemberValueHints = true,
 		},
 	},
 	filetypes = {
