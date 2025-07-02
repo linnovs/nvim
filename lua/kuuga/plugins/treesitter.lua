@@ -46,6 +46,7 @@ return {
 			"nix",
 			"proto",
 			"python",
+			"qmljs",
 			"query",
 			"rasi",
 			"regex",

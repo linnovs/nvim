@@ -37,6 +37,7 @@ vim.lsp.enable({
 	"omnisharp",
 	"oxlint",
 	"pyright",
+	"qmlls",
 	"rust_analyzer",
 	"tailwindcss",
 	"terraformls",
