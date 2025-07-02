@@ -1,0 +1,1 @@
+/home/linnovs/.config/nvim/ftplugin/typescript.lua
