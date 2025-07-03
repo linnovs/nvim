@@ -34,6 +34,8 @@ keymap.map("n", "<Leader>w-", "<C-w>-", "Decrease window height")
 keymap.map("n", "<Leader>w<", "<C-w><", "Decrease window width")
 keymap.map("n", "<Leader>w>", "<C-w>>", "Increase window width")
 keymap.map("n", "<Leader>w|", "<C-w>|", "Make the window largest (not closing any)")
+
+-- buffer management
 keymap.map("n", "<C-s>", save, "Quick save")
 keymap.map("n", "<Leader>e", "<cmd>edit<CR>", "Quick re-edit")
 keymap.map("n", "<Leader>qq", "<cmd>quit<CR>", "Quick quit")
