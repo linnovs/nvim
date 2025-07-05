@@ -29,6 +29,7 @@ vim.lsp.enable({
 	"fish_lsp",
 	"gdscript",
 	"gopls",
+	"hyprls",
 	"jsonls",
 	"lemminx",
 	"ltex",
