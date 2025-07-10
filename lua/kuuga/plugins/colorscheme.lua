@@ -29,6 +29,7 @@ return {
 			default_integrations = false,
 			integrations = {
 				blink_cmp = {
+					enabled = true,
 					style = "bordered",
 				},
 				dap = true,
