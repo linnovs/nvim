@@ -25,7 +25,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local augroup = vim.api.nvim_create_augroup
 		local autocmd = vim.api.nvim_create_autocmd
 
-		local function map(lhs, rhs, desc) keymap.map("n", lhs, rhs, desc, { buffer = bufnr }) end
+		local function map(lhs, rhs, desc, mode)
+			if not mode then mode = "n" end
+			keymap.map(mode, lhs, rhs, desc, { buffer = bufnr })
+		end
 
 		if client == nil then return end
 
@@ -38,7 +41,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("gr", references, "References")
 
 		if client:supports_method("textDocument/codeAction", bufnr) then
-			map("<Leader>ca", codeaction, "Code action")
+			map("<Leader>ca", codeaction, "Code action", { "n", "v" })
 		end
 
 		if client:supports_method("textDocument/codeLens", bufnr) then
