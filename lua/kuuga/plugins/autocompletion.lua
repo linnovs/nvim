@@ -13,7 +13,7 @@ return {
 			"xzbdmw/colorful-menu.nvim",
 			"MahanRahmati/blink-nerdfont.nvim",
 		},
-		version = "v0.*",
+		version = "1.*",
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
