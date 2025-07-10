@@ -6,17 +6,13 @@ return {
 			pattern = {
 				"FTerm",
 				"Trouble",
-				"alpha",
 				"help",
 				"lazy",
 				"mason",
-				"neo-tree",
 				"man",
 				"dashboard",
 			},
-			callback = function()
-				vim.b.miniindentscope_disable = true
-			end,
+			callback = function() vim.b.miniindentscope_disable = true end,
 		})
 	end,
 	config = function()
