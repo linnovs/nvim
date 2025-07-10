@@ -61,11 +61,4 @@ return {
 			},
 		},
 	},
-
-	-- beauty default UI
-	{
-		"stevearc/dressing.nvim",
-		event = "BufReadPost",
-		opts = {},
-	},
 }
