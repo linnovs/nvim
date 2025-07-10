@@ -27,6 +27,7 @@ return {
 					psql = { "lsp", "snippets", "buffer", "dadbod", "copilot" },
 					mysql = { "lsp", "snippets", "buffer", "dadbod", "copilot" },
 					oil = { "lsp", "path", "snippets", "buffer", "copilot" },
+					codecompanion = { "codecompanion" },
 				},
 				providers = {
 					copilot = {
