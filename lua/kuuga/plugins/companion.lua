@@ -6,5 +6,18 @@ return {
 		"CodeCompanionCmd",
 		"CodeCompanionActions",
 	},
-	opts = {},
+	opts = {
+		display = {
+			action_palette = {
+				provider = "snacks",
+			},
+		},
+	},
+	keys = {
+		{
+			"<leader>cc",
+			"<CMD>CodeCompanionActions<CR>",
+			desc = "Code Companion Actions",
+		},
+	},
 }
