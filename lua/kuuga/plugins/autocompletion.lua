@@ -11,7 +11,7 @@ return {
 			"rafamadriz/friendly-snippets",
 			"echasnovski/mini.nvim",
 			"xzbdmw/colorful-menu.nvim",
-			"Exafunction/codeium.nvim",
+			"MahanRahmati/blink-nerdfont.nvim",
 		},
 		version = "v0.*",
 		---@module 'blink.cmp'
@@ -19,18 +19,22 @@ return {
 		opts = {
 			keymap = { preset = "enter" },
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "lsp", "path", "snippets", "buffer", "nerdfont" },
 				per_filetype = {
-					lua = { "lsp", "path", "snippets", "buffer", "lazydev" },
+					lua = { "lsp", "path", "snippets", "buffer", "lazydev", "nerdfont" },
 					sql = { "lsp", "snippets", "buffer", "dadbod" },
 					psql = { "lsp", "snippets", "buffer", "dadbod" },
 					mysql = { "lsp", "snippets", "buffer", "dadbod" },
 					oil = { "lsp", "path", "snippets", "buffer" },
-					DressingInput = { "lsp", "path", "buffer" },
 				},
 				providers = {
 					lsp = { name = "LSP" },
-					-- codeium = { name = "Codeium", module = "codeium.blink", async = true },
+					nerdfont = {
+						name = "Nerd Fonts",
+						module = "blink-nerdfont",
+						score_offset = 15,
+						opts = { insert = true },
+					},
 					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", fallbacks = { "lsp" } },
 					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 				},
