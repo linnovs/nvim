@@ -1,18 +1,3 @@
-local function get_color_icon(ctx)
-	local icon = ctx.kind_icon
-	local hl = "BlinkCmpKind" .. ctx.kind
-
-	if ctx.item.source_name == "LSP" then
-		local color_item = require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
-		if color_item and color_item.abbr ~= "" then
-			icon = color_item.abbr
-			hl = color_item.abbr_hl_group
-		end
-	end
-
-	return icon, hl
-end
-
 return {
 	{
 		"xzbdmw/colorful-menu.nvim",
@@ -72,14 +57,32 @@ return {
 						components = {
 							kind_icon = {
 								text = function(ctx)
-									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
-									kind_icon, _ = get_color_icon(ctx)
-									return kind_icon .. ctx.icon_gap
+									-- default kind icon
+									local icon = ctx.kind_icon
+									-- if LSP source, check for color derived from documentation
+									if ctx.item.source_name == "LSP" then
+										local color_item = require("nvim-highlight-colors").format(
+											ctx.item.documentation,
+											{ kind = ctx.kind }
+										)
+										if color_item and color_item.abbr ~= "" then icon = color_item.abbr end
+									end
+									return icon .. ctx.icon_gap
 								end,
 								highlight = function(ctx)
-									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
-									_, hl = get_color_icon(ctx)
-									return hl
+									-- default highlight group
+									local highlight = "BlinkCmpKind" .. ctx.kind
+									-- if LSP source, check for color derived from documentation
+									if ctx.item.source_name == "LSP" then
+										local color_item = require("nvim-highlight-colors").format(
+											ctx.item.documentation,
+											{ kind = ctx.kind }
+										)
+										if color_item and color_item.abbr_hl_group then
+											highlight = color_item.abbr_hl_group
+										end
+									end
+									return highlight
 								end,
 							},
 							label = {
