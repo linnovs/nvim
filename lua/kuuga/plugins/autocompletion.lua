@@ -4,10 +4,6 @@ return {
 		lazy = true,
 	},
 
-	{ "Exafunction/codeium.nvim", lazy = true, opts = {
-		enable_cmp_source = false,
-	} },
-
 	{
 		"saghen/blink.cmp",
 		lazy = false,
@@ -23,18 +19,18 @@ return {
 		opts = {
 			keymap = { preset = "enter" },
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "codeium" },
+				default = { "lsp", "path", "snippets", "buffer" },
 				per_filetype = {
-					lua = { "lsp", "path", "snippets", "buffer", "lazydev", "codeium" },
-					sql = { "lsp", "snippets", "buffer", "dadbod", "codeium" },
-					psql = { "lsp", "snippets", "buffer", "dadbod", "codeium" },
-					mysql = { "lsp", "snippets", "buffer", "dadbod", "codeium" },
+					lua = { "lsp", "path", "snippets", "buffer", "lazydev" },
+					sql = { "lsp", "snippets", "buffer", "dadbod" },
+					psql = { "lsp", "snippets", "buffer", "dadbod" },
+					mysql = { "lsp", "snippets", "buffer", "dadbod" },
 					oil = { "lsp", "path", "snippets", "buffer" },
 					DressingInput = { "lsp", "path", "buffer" },
 				},
 				providers = {
 					lsp = { name = "LSP" },
-					codeium = { name = "Codeium", module = "codeium.blink", async = true },
+					-- codeium = { name = "Codeium", module = "codeium.blink", async = true },
 					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", fallbacks = { "lsp" } },
 					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 				},
