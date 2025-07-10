@@ -14,7 +14,7 @@ return {
 					["cmp.entry.get_documentation"] = true,
 				},
 				progress = { enabled = true },
-				signature = { enabled = false },
+				signature = { enabled = true },
 				documentation = {
 					opts = { win_options = { winhighlight = "Normal:LspFloatWinNormal" } },
 				},
@@ -34,6 +34,7 @@ return {
 				command_palette = true,
 				long_message_to_split = true,
 				inc_name = false,
+				lsp_doc_border = false,
 			},
 		},
 		keys = {
