@@ -1,4 +1,5 @@
 local keymap = require("kuuga.lib.keymap")
+local icons = require("kuuga.lib.icons")
 
 ---@param cursor boolean
 local function diagnostic_open_float(cursor)
@@ -19,10 +20,10 @@ vim.diagnostic.config({
 	virtual_lines = { current_line = true },
 	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = "",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.INFO] = "",
-			[vim.diagnostic.severity.HINT] = "",
+			[vim.diagnostic.severity.ERROR] = icons.diagnostics.error,
+			[vim.diagnostic.severity.WARN] = icons.diagnostics.warn,
+			[vim.diagnostic.severity.INFO] = icons.diagnostics.info,
+			[vim.diagnostic.severity.HINT] = icons.diagnostics.hint,
 		},
 		numhl = {
 			[vim.diagnostic.severity.ERROR] = "DiagnosticError",

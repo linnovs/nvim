@@ -1,5 +1,5 @@
 local M = {}
 
-M.diagnostics = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+M.diagnostics = { error = " ", warn = " ", info = " ", hint = " " }
 
 return M
