@@ -12,6 +12,7 @@ return {
 			"echasnovski/mini.nvim",
 			"xzbdmw/colorful-menu.nvim",
 			"MahanRahmati/blink-nerdfont.nvim",
+			"fang2hou/blink-copilot",
 		},
 		version = "1.*",
 		---@module 'blink.cmp'
@@ -19,16 +20,21 @@ return {
 		opts = {
 			keymap = { preset = "enter" },
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "nerdfont" },
+				default = { "lsp", "path", "snippets", "buffer", "nerdfont", "copilot" },
 				per_filetype = {
-					lua = { "lsp", "path", "snippets", "buffer", "lazydev", "nerdfont" },
-					sql = { "lsp", "snippets", "buffer", "dadbod" },
-					psql = { "lsp", "snippets", "buffer", "dadbod" },
-					mysql = { "lsp", "snippets", "buffer", "dadbod" },
-					oil = { "lsp", "path", "snippets", "buffer" },
+					lua = { "lsp", "path", "snippets", "buffer", "lazydev", "nerdfont", "copilot" },
+					sql = { "lsp", "snippets", "buffer", "dadbod", "copilot" },
+					psql = { "lsp", "snippets", "buffer", "dadbod", "copilot" },
+					mysql = { "lsp", "snippets", "buffer", "dadbod", "copilot" },
+					oil = { "lsp", "path", "snippets", "buffer", "copilot" },
 				},
 				providers = {
-					lsp = { name = "LSP" },
+					copilot = {
+						name = "Copilot",
+						module = "blink-copilot",
+						score_offset = 100,
+						async = true,
+					},
 					nerdfont = {
 						name = "Nerd Fonts",
 						module = "blink-nerdfont",
