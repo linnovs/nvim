@@ -13,10 +13,10 @@ return {
 			"nvim-tree/nvim-web-devicons", -- Used by the code bloxks
 		},
 		---@module 'markview'
-		---@type mkv.config
+		---@type markview.config
 		opts = {
 			preview = {
-				filetype = { "markdown", "codecompanion" },
+				filetypes = { "markdown", "codecompanion" },
 				icon_provider = "mini",
 				modes = { "n", "no", "c" },
 				hybrid_modes = { "n" },
