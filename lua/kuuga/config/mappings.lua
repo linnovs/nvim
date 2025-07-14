@@ -41,7 +41,7 @@ keymap.map("n", "<Leader>e", "<cmd>edit<CR>", "Quick re-edit")
 keymap.map("n", "<Leader>qq", "<cmd>quit<CR>", "Quick quit")
 keymap.map("n", "<Leader>qa", "<cmd>qall<CR>", "Quick quit all")
 keymap.map("n", "<Leader>fqq", "<cmd>quit!<CR>", "Quick force quit")
-keymap.map("n", "dm", "<Cmd>delmarks!<CR>", "Delete all marks")
+keymap.map("n", "<Leader>dm", "<Cmd>delmarks!<CR>", "Delete all marks")
 
 -- clipboard management
 -- stylua: ignore start
