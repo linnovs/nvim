@@ -18,6 +18,7 @@ return {
 			javascriptreact = { "prettierd" },
 			typescript = { "prettierd" },
 			typescriptreact = { "prettierd" },
+			vue = { "prettierd" },
 			lua = { "stylua" },
 			markdown = { "injected" },
 			nix = { "nixpkgs_fmt" },
