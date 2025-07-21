@@ -27,6 +27,11 @@ return {
 				lazygit = {
 					keys = {
 						reset_ob = { "[", "[", mode = "t", expr = true },
+						reset_toggle = { "<Leader>tt", "<space>tt", mode = "t", expr = true },
+						reset_win_up = { "<Leader>wk", "<space>wk", mode = "t", expr = true },
+						reset_win_down = { "<Leader>wj", "<space>wj", mode = "t", expr = true },
+						reset_win_right = { "<Leader>wh", "<space>wh", mode = "t", expr = true },
+						reset_win_left = { "<Leader>wl", "<space>wl", mode = "t", expr = true },
 					},
 				},
 				terminal = {
