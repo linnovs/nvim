@@ -26,13 +26,9 @@ return {
 				keymap.map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
 				keymap.map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
 				keymap.map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
-				keymap.map("n", "<leader>ghb", function()
-					gs.blame_line({ full = true })
-				end, "Blame Line")
+				keymap.map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
 				keymap.map("n", "<leader>ghd", gs.diffthis, "Diff this")
-				keymap.map("n", "<leader>ghD", function()
-					gs.map.diffthis("~")
-				end, ".mapDiff this ~")
+				keymap.map("n", "<leader>ghD", function() gs.map.diffthis("~") end, ".mapDiff this ~")
 
 				-- Tex.mapt objects
 				keymap.map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk()<CR>", "GitSigns Select Hunk")
@@ -45,7 +41,7 @@ return {
 		cmd = { "Octo" },
 		opts = {
 			enable_builtin = true,
-			picker = "fzf-lua",
+			picker = "snacks",
 			mappings = {
 				submit_win = {
 					approve_review = { lhs = "<leader>ar", desc = "approve review" },
