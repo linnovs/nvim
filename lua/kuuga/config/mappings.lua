@@ -49,7 +49,7 @@ keymap.map("n", "m", "", "")
 -- clipboard management
 -- stylua: ignore start
 keymap.map({ "n", "v", "x" }, "<Leader>y", '"+y', "Yank to clipboard", { silent = true, noremap = true })
-keymap.map({ "n", "v", "x" }, "<Leader>yy", '"+yy', "Yank link to clipboard", { silent = true, noremap = true })
+keymap.map({ "n", "v", "x" }, "<Leader>yy", '"+yy', "Yank line to clipboard", { silent = true, noremap = true })
 keymap.map({ "n", "v", "x" }, "<Leader>Y", '"+Y', "Yank to clipboard", { silent = true, noremap = true })
 keymap.map({ "n", "v", "x" }, "<Leader>p", '"+p', "Paste from clipboard", { silent = true, noremap = true })
 keymap.map( "x", "<Leader>P", '"_dP', "Paste over selection without erasing unnamed register", { silent = true, noremap = true })
