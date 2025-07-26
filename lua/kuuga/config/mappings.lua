@@ -43,6 +43,9 @@ keymap.map("n", "<Leader>qa", "<cmd>qall<CR>", "Quick quit all")
 keymap.map("n", "<Leader>fqq", "<cmd>quit!<CR>", "Quick force quit")
 keymap.map("n", "<Leader>dm", "<Cmd>delmarks!<CR>", "Delete all marks")
 
+-- disable mapping for 'm' key
+keymap.map("n", "m", "", "")
+
 -- clipboard management
 -- stylua: ignore start
 keymap.map({ "n", "v", "x" }, "<Leader>y", '"+y', "Yank to clipboard", { silent = true, noremap = true })
