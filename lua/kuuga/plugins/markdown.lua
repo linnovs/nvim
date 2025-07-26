@@ -7,7 +7,7 @@ return {
 
 	{
 		"OXY2DEV/markview.nvim",
-		ft = "markdown",
+		ft = { "markdown", "codecompanion" },
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"nvim-tree/nvim-web-devicons", -- Used by the code bloxks
@@ -17,6 +17,7 @@ return {
 		opts = {
 			preview = {
 				filetypes = { "markdown", "codecompanion" },
+				ignore_buftypes = {},
 				icon_provider = "mini",
 				modes = { "n", "no", "c" },
 				hybrid_modes = { "n" },
