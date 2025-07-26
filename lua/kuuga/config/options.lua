@@ -33,7 +33,7 @@ vim.opt.scrolloff = 4 -- minimum nr. of lines above and below cursor
 vim.opt.shiftwidth = 0 -- number of spaces to use for (auto)indent step
 vim.opt.shortmess:append("c") -- list of flags, reduce length of messages
 vim.opt.showmode = false -- message on status line to show current mode
-vim.opt.showtabline = 1 -- tells when the tab pages line is displayed
+vim.opt.showtabline = 2 -- tells when the tab pages line is displayed
 vim.opt.signcolumn = "yes:1" -- when and how to display the sign column
 vim.opt.smartindent = true -- smart autoindenting for C programs
 vim.opt.spell = false -- disable spell checking
