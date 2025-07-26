@@ -5,7 +5,7 @@ return {
 	---@module "tabby"
 	---@type TabbyConfig
 	opts = {
-		preset = "tab_only",
+		preset = "active_wins_at_tail",
 		option = {
 			nerdfont = true,
 			lualine_theme = "catppuccin",
