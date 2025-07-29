@@ -1,3 +1,3 @@
 local keymap = require("kuuga.lib.keymap")
 
-keymap.map("n", "<Leader>sca", "<CMD>LspTypescriptSourceAction<CR>", "Source code action")
+keymap.map("n", "grs", "<CMD>LspTypescriptSourceAction<CR>", "Source code action")
