@@ -27,56 +27,7 @@ return {
 				}
 			end,
 			default_integrations = false,
-			integrations = {
-				blink_cmp = {
-					enabled = true,
-					style = "bordered",
-				},
-				dap = true,
-				dap_ui = true,
-				dropbar = {
-					enabled = true,
-					color_mode = false,
-				},
-				flash = true,
-				gitsigns = true,
-				lsp_trouble = true,
-				markdown = true,
-				markview = true,
-				mini = {
-					enabled = true,
-					indentscope_color = "mauve",
-				},
-				native_lsp = {
-					enabled = true,
-					virtual_text = {
-						errors = { "bold" },
-						hints = { "bold" },
-						warnings = { "bold" },
-						information = { "bold" },
-						ok = { "bold" },
-					},
-					underlines = {
-						errors = { "undercurl" },
-						hints = { "undercurl" },
-						warnings = { "undercurl" },
-						information = { "undercurl" },
-						ok = { "undercurl" },
-					},
-					inlay_hints = {
-						background = true,
-					},
-				},
-				noice = true,
-				octo = true,
-				snacks = {
-					enabled = true,
-					indent_scope_color = "mauve",
-				},
-				treesitter = true,
-				treesitter_context = true,
-				rainbow_delimiters = true,
-			},
+			auto_integrations = true,
 		}
 	end,
 }
