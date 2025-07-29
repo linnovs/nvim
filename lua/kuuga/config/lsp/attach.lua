@@ -1,23 +1,5 @@
 local keymap = require("kuuga.lib.keymap")
 
-local function declaration() Snacks.picker.lsp_declarations() end
-
-local function definitions() Snacks.picker.lsp_definitions() end
-
-local function implementations() Snacks.picker.lsp_implementations() end
-
-local function hover() vim.lsp.buf.hover() end
-
-local function rename() vim.lsp.buf.rename() end
-
-local function typedefs() Snacks.picker.lsp_type_definitions() end
-
-local function references() Snacks.picker.lsp_references() end
-
-local function codeaction() vim.lsp.buf.code_action() end
-
-local function codelens() vim.lsp.codelens.run() end
-
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		local bufnr = ev.buf
@@ -32,17 +14,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		if client == nil then return end
 
-		map("gD", declaration, "Go to declaration")
-		map("gd", definitions, "Go to definitions")
-		map("gi", implementations, "Go to implementations")
-		map("K", hover, "Hover")
-		map("<Leader>rn", rename, "Rename")
-		map("<Leader>D", typedefs, "Type definitions")
-		map("gr", references, "References")
-
-		if client:supports_method("textDocument/codeAction", bufnr) then
-			map("<Leader>ca", codeaction, "Code action", { "n", "v" })
-		end
+		map("gd", function() Snacks.picker.lsp_definitions() end, "Go to definitions")
+		map("gD", function() Snacks.picker.lsp_declarations() end, "Go to declaration")
+		map("grr", function() Snacks.picker.lsp_references() end, "References")
+		map("gri", function() Snacks.picker.lsp_implementations() end, "Go to implementations")
+		map("grt", function() Snacks.picker.lsp_type_definitions() end, "Type definitions")
+		map("<Leader>fs", function() Snacks.picker.lsp_symbols() end, "LSP Symbols")
+		map("<leader>fS", function() Snacks.picker.lsp_workspace_symbols() end, "LSP Workspace Symbols")
 
 		if client:supports_method("textDocument/codeLens", bufnr) then
 			autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
@@ -50,7 +28,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				buffer = bufnr,
 				callback = function() vim.lsp.codelens.refresh({ bufnr = bufnr }) end,
 			})
-			map("<Leader>cl", codelens, "Code lens")
+			map("<Leader>cl", function() vim.lsp.codelens.run() end, "Code lens")
 		end
 	end,
 })

@@ -90,7 +90,6 @@ return {
 			{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
 			{ "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
 			{ "<leader>fm", function() Snacks.picker.man() end, desc = "Man Pages" },
-			{ "<leader>fs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
 			{ "<leader>fe", function() Snacks.picker.explorer() end, desc = "File Explorer" },
 			{
 				"<leader>N",
