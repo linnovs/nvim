@@ -12,8 +12,29 @@ autocmd("BufWritePost", {
 		local is_run = string.sub(file, 1, string.len("run_")) == "run_"
 		local is_chezmoi = string.sub(file, 1, string.len(".chezmoi")) == ".chezmoi"
 		if is_run or is_chezmoi then return end
-		os.execute("chezmoi apply --refresh-externals=never --source-path " .. args.file)
-		vim.notify("Apply source " .. args.file .. " to target")
+
+		vim.notify("Apply source " .. args.file .. " to target", vim.log.levels.INFO, {
+			title = "chezmoi",
+			timeout = 2000,
+		})
+
+		---@diagnostic disable-next-line: missing-fields
+		vim.uv.spawn("chezmoi", {
+			args = { "apply", "--refresh-externals=never", "--source-path", args.file },
+			cwd = home .. "/.local/share/chezmoi",
+		}, function(code)
+			if code ~= 0 then
+				vim.notify("chezmoi apply failed: " .. code, vim.log.levels.ERROR, {
+					title = "chezmoi",
+					timeout = 2000,
+				})
+			else
+				vim.notify("chezmoi apply succeeded", vim.log.levels.INFO, {
+					title = "chezmoi",
+					timeout = 2000,
+				})
+			end
+		end)
 	end,
 })
 
