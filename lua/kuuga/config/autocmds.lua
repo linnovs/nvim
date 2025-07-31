@@ -1,5 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 local home = vim.fn.expand("~")
+local uv = vim.uv
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, { command = "checktime" })
 autocmd("VimResized", { command = "tabdo wincmd =" })
@@ -18,23 +19,40 @@ autocmd("BufWritePost", {
 			timeout = 2000,
 		})
 
+		local stdout = uv.new_pipe()
+		local stdin = uv.new_pipe()
+		local notify_opts = { title = "chezmoi", timeout = 2000 }
+
+		if stdin == nil then
+			vim.notify("Failed to create stdin pipe", vim.log.levels.ERROR, notify_opts)
+			return
+		end
+
 		---@diagnostic disable-next-line: missing-fields
-		vim.uv.spawn("chezmoi", {
-			args = { "apply", "--refresh-externals=never", "--source-path", args.file },
+		uv.spawn("chezmoi", {
+			args = { "apply", "--no-pager", "--no-tty", "--refresh-externals=never", "--source-path", args.file },
+			stdio = { stdin, stdout, nil },
 			cwd = home .. "/.local/share/chezmoi",
 		}, function(code)
 			if code ~= 0 then
-				vim.notify("chezmoi apply failed: " .. code, vim.log.levels.ERROR, {
-					title = "chezmoi",
-					timeout = 2000,
-				})
+				if stdout == nil then
+					vim.notify("Apply failed with code " .. code, vim.log.levels.ERROR, notify_opts)
+					return
+				end
+				uv.read_start(stdout, function(err, data)
+					if err then
+						vim.notify("Error reading stderr: " .. err, vim.log.levels.ERROR, notify_opts)
+					elseif data then
+						vim.notify("Apply failed: " .. data, vim.log.levels.ERROR, notify_opts)
+					end
+				end)
 			else
-				vim.notify("chezmoi apply succeeded", vim.log.levels.INFO, {
-					title = "chezmoi",
-					timeout = 2000,
-				})
+				vim.notify("Apply succeeded", vim.log.levels.INFO, notify_opts)
 			end
 		end)
+
+		uv.write(stdin, "diff\n")
+		uv.shutdown(stdin)
 	end,
 })
 
