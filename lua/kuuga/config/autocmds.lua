@@ -76,6 +76,39 @@ autocmd({ "VimEnter", "VimLeave" }, {
 	end,
 })
 
+autocmd("User", {
+	pattern = "LazyUpdate",
+	callback = function()
+		vim.defer_fn(function()
+			---@diagnostic disable-next-line: missing-fields
+			uv.spawn("git", {
+				cwd = vim.fn.stdpath("config"),
+				args = { "add", "lazy-lock.json" },
+			}, function(addCode)
+				if addCode == 0 then
+					---@diagnostic disable-next-line: missing-fields
+					uv.spawn("git", {
+						cwd = vim.fn.stdpath("config"),
+						args = { "commit", "-m", "build(lazy): update lazy-lock.json" },
+					}, function(commitCode)
+						if commitCode == 0 then
+							vim.notify("Committed lazy-lock.json", vim.log.levels.INFO, { title = "Lazy" })
+						else
+							vim.notify(
+								"Failed to commit lazy-lock.json: " .. commitCode,
+								vim.log.levels.ERROR,
+								{ title = "Lazy" }
+							)
+						end
+					end)
+				else
+					vim.notify("Failed to add lazy-lock.json: " .. addCode, vim.log.levels.ERROR, { title = "Lazy" })
+				end
+			end)
+		end, 300)
+	end,
+})
+
 autocmd("BufEnter", { pattern = { "term://*", "*COMMIT_EDITMSG" }, command = "startinsert" })
 autocmd({ "BufReadPost", "BufNewFile" }, { pattern = "*.tf", command = "set filetype=terraform" })
 autocmd({ "BufReadPost", "BufNewFile" }, { pattern = "*.rasi", command = "set filetype=rasi" })
