@@ -89,7 +89,7 @@ autocmd("User", {
 					---@diagnostic disable-next-line: missing-fields
 					uv.spawn("git", {
 						cwd = vim.fn.stdpath("config"),
-						args = { "commit", "-m", "build(lazy): update lazy-lock.json" },
+						args = { "commit", "-m", "chore(lazy): update lazy-lock.json" },
 					}, function(commitCode)
 						if commitCode == 0 then
 							vim.notify("Committed lazy-lock.json", vim.log.levels.INFO, { title = "Lazy" })
