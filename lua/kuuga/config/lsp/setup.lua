@@ -24,7 +24,7 @@ vim.lsp.enable({
 	"buf_ls",
 	"clangd",
 	"cmake",
-	"dockerls",
+	"docker_language_server",
 	"emmet_language_server",
 	"fish_lsp",
 	"gdscript",
