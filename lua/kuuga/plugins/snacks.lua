@@ -62,6 +62,9 @@ return {
 						},
 					},
 				},
+				notification_history = {
+					wo = { wrap = true, linebreak = true },
+				},
 			},
 			dashboard = dashboard,
 		},
