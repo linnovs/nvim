@@ -10,25 +10,32 @@ return {
 		ft = { "markdown", "codecompanion" },
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons", -- Used by the code bloxks
+			"echasnovski/mini.nvim", -- for icon providewr
 		},
 		---@module 'markview'
 		---@type markview.config
 		opts = {
 			preview = {
 				filetypes = { "markdown", "codecompanion" },
-				ignore_buftypes = {},
 				icon_provider = "mini",
-				modes = { "n", "no", "c" },
-				hybrid_modes = { "n" },
-				callbacks = {
-					on_enable = function(_, win)
-						vim.wo[win].conceallevel = 2
-						---@diagnostic disable-next-line: inject-field
-						vim.wo[win].conecalcursor = "c"
-					end,
-				},
 			},
 		},
+		config = function(_, opts)
+			local presets = require("markview.presets")
+
+			---@type markview.config
+			local override = {
+				---@diagnostic disable-next-line: missing-fields
+				markdown = {
+					headings = presets.headings.glow,
+					horizontal_rules = presets.horizontal_rules.thin,
+					tables = presets.tables.rounded,
+				},
+			}
+
+			opts = vim.tbl_deep_extend("force", opts, override)
+			require("markview").setup(opts)
+			require("markview.extras.editor").setup()
+		end,
 	},
 }
