@@ -5,6 +5,7 @@ return {
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		{ "nvim-treesitter/nvim-treesitter-context", opts = { mode = "cursor" } },
 		{ "windwp/nvim-ts-autotag", opts = {} },
+		"OXY2DEV/markview.nvim", -- For markdown code blocks see: https://github.com/OXY2DEV/markview.nvim/issues/365#issuecomment-3028249737
 	},
 	build = ":TSUpdate",
 	event = "BufReadPost",
