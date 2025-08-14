@@ -1,10 +1,15 @@
 return {
 	"olimorris/codecompanion.nvim",
+	dependencies = {
+		"ravitemer/codecompanion-history.nvim",
+	},
 	cmd = {
 		"CodeCompanion",
 		"CodeCompanionChat",
 		"CodeCompanionCmd",
 		"CodeCompanionActions",
+		"CodeCompanionHistory",
+		"CodeCompanionSummaries",
 	},
 	opts = {
 		display = {
@@ -21,6 +26,14 @@ return {
 					["help"] = { opts = { provider = "snacks" } },
 					["image"] = { opts = { provider = "snacks" } },
 					["symbols"] = { opts = { provider = "snacks" } },
+				},
+			},
+		},
+		extensions = {
+			history = {
+				enabled = true,
+				opts = {
+					picker = "snacks",
 				},
 			},
 		},
