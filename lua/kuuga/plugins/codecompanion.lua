@@ -1,48 +1,58 @@
 return {
-	"olimorris/codecompanion.nvim",
-	dependencies = {
-		"ravitemer/codecompanion-history.nvim",
-	},
-	cmd = {
-		"CodeCompanion",
-		"CodeCompanionChat",
-		"CodeCompanionCmd",
-		"CodeCompanionActions",
-		"CodeCompanionHistory",
-		"CodeCompanionSummaries",
-	},
-	opts = {
-		display = {
-			action_palette = {
-				provider = "snacks",
-			},
+	{
+		"olimorris/codecompanion.nvim",
+		dependencies = {
+			"ravitemer/codecompanion-history.nvim",
 		},
-		strategies = {
-			chat = {
-				slash_commands = {
-					["buffer"] = { opts = { provider = "snacks" } },
-					["fetch"] = { opts = { provider = "snacks" } },
-					["file"] = { opts = { provider = "snacks" } },
-					["help"] = { opts = { provider = "snacks" } },
-					["image"] = { opts = { provider = "snacks" } },
-					["symbols"] = { opts = { provider = "snacks" } },
+		cmd = {
+			"CodeCompanion",
+			"CodeCompanionChat",
+			"CodeCompanionCmd",
+			"CodeCompanionActions",
+			"CodeCompanionHistory",
+			"CodeCompanionSummaries",
+		},
+		opts = function()
+			return {
+				display = {
+					action_palette = {
+						provider = "snacks",
+					},
 				},
-			},
-		},
-		extensions = {
-			history = {
-				enabled = true,
-				opts = {
-					picker = "snacks",
+				strategies = {
+					chat = {
+						slash_commands = {
+							["buffer"] = { opts = { provider = "snacks" } },
+							["fetch"] = { opts = { provider = "snacks" } },
+							["file"] = { opts = { provider = "snacks" } },
+							["help"] = { opts = { provider = "snacks" } },
+							["image"] = { opts = { provider = "snacks" } },
+							["symbols"] = { opts = { provider = "snacks" } },
+						},
+					},
 				},
+				extensions = {
+					history = {
+						enabled = true,
+						opts = {
+							picker = "snacks",
+						},
+					},
+				},
+			}
+		end,
+		keys = {
+			{
+				"<leader>cc",
+				"<CMD>CodeCompanionActions<CR>",
+				desc = "Code Companion Actions",
 			},
 		},
 	},
-	keys = {
-		{
-			"<leader>cc",
-			"<CMD>CodeCompanionActions<CR>",
-			desc = "Code Companion Actions",
-		},
+
+	{
+		"Davidyz/VectorCode",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		cmd = "VectorCode",
 	},
 }
