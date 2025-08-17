@@ -9,7 +9,7 @@ return {
 		---@type snacks.Config
 		opts = {
 			bigfile = { enabled = true },
-			indent = { enabled = true },
+			indent = { enabled = true, chunk = { enabled = true } },
 			image = { enabled = true },
 			notifier = { enabled = true },
 			quickfile = { enabled = true },
