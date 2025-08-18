@@ -18,6 +18,8 @@ return {
 			preview = {
 				filetypes = { "markdown", "codecompanion" },
 				icon_provider = "mini",
+				hybrid_modes = { "n" },
+				linewise_hybrid_mode = true,
 			},
 		},
 		config = function(_, opts)
