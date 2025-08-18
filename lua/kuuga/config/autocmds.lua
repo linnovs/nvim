@@ -28,7 +28,6 @@ autocmd("BufWritePost", {
 			return
 		end
 
-		---@diagnostic disable-next-line: missing-fields
 		uv.spawn("chezmoi", {
 			args = { "apply", "--no-pager", "--no-tty", "--refresh-externals=never", "--source-path", args.file },
 			stdio = { stdin, stdout, nil },
@@ -69,10 +68,7 @@ autocmd({ "VimEnter", "VimLeave" }, {
 		if not vim.env.TMUX_PLUGIN_MANAGER_PATH then return end
 
 		local file = vim.env.TMUX_PLUGIN_MANAGER_PATH .. "/tmux-window-name/scripts/rename_session_windows.py"
-		if vim.fn.filereadable(file) then
-			---@diagnostic disable-next-line: missing-fields
-			vim.uv.spawn(file, {}, function() end)
-		end
+		if vim.fn.filereadable(file) then vim.uv.spawn(file, {}, function() end) end
 	end,
 })
 
@@ -80,13 +76,11 @@ autocmd("User", {
 	pattern = "LazyUpdate",
 	callback = function()
 		vim.defer_fn(function()
-			---@diagnostic disable-next-line: missing-fields
 			uv.spawn("git", {
 				cwd = vim.fn.stdpath("config"),
 				args = { "add", "lazy-lock.json" },
 			}, function(addCode)
 				if addCode == 0 then
-					---@diagnostic disable-next-line: missing-fields
 					uv.spawn("git", {
 						cwd = vim.fn.stdpath("config"),
 						args = { "commit", "-m", "chore(lazy): update lazy-lock.json" },

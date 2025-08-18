@@ -25,7 +25,6 @@ return {
 
 			---@type markview.config
 			local override = {
-				---@diagnostic disable-next-line: missing-fields
 				markdown = {
 					headings = presets.headings.glow,
 					horizontal_rules = presets.horizontal_rules.thin,
