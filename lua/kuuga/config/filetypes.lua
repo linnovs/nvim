@@ -6,6 +6,7 @@ vim.filetype.add({
 		[".*/compose.ya?ml"] = "yaml.docker-compose",
 	},
 	extension = {
+		base = "yaml",
 		hujson = "jsonc",
 		["http"] = "http",
 		psql = "sql",
