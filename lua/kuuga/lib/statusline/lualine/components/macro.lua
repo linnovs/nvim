@@ -1,19 +1,17 @@
+local marco = require("lualine.component"):extend()
 local colors = require("catppuccin.palettes").get_palette("macchiato") or {}
 
-local M = {}
+function marco:init(options) marco.super.init(self, options) end
 
-M[1] = function()
-	return "@" .. vim.fn.reg_recording()
+function marco:update_status()
+	-- If recording, return the current recording register
+	if vim.fn.reg_recording() ~= "" then return "@" .. vim.fn.reg_recording() end
+	-- If not recording, return nil
+	return nil
 end
 
-M.icon = "󰻃 "
-M.color = {
-	fg = colors.red,
-	bg = colors.overlay0,
+return {
+	marco,
+	icon = "󰻃 ",
+	color = { fg = colors.red, bg = colors.overlay0 },
 }
-
-M.cond = function()
-	return vim.fn.reg_recording() ~= ""
-end
-
-return M

@@ -77,16 +77,9 @@ local mode_color = {
 	["t"] = highlights.terminal, -- TERMINAL
 }
 
-local M = {}
-
-M[1] = "mode"
-
-M.icon = "▌"
-
-M.color = function()
-	return mode_color[vim.fn.mode()]
-end
-
-M.padding = { left = 0, right = 1 }
-
-return M
+return {
+	"mode",
+	icon = "▌",
+	color = function() return mode_color[vim.fn.mode()] end,
+	padding = { left = 0, right = 1 },
+}
