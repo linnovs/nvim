@@ -34,8 +34,11 @@ return {
 				extensions = {
 					history = {
 						enabled = true,
+						---@module "codecompanion/_extensions/history"
+						---@type CodeCompanion.History.Opts
 						opts = {
 							picker = "snacks",
+							delete_on_clearing_chat = true,
 						},
 					},
 					---@module "vectorcode"
