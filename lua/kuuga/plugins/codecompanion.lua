@@ -38,6 +38,12 @@ return {
 							picker = "snacks",
 						},
 					},
+					---@module "vectorcode"
+					vectorcode = {
+						enabled = true,
+						---@type VectorCode.CodeCompanion.ExtensionOpts
+						opts = {},
+					},
 				},
 			}
 		end,
