@@ -4,6 +4,7 @@ return {
 		dependencies = {
 			"ravitemer/codecompanion-history.nvim",
 			"Davidyz/VectorCode",
+			"franco-ruggeri/codecompanion-spinner.nvim",
 		},
 		cmd = {
 			"CodeCompanion",
@@ -52,6 +53,7 @@ return {
 						---@type VectorCode.CodeCompanion.ExtensionOpts
 						opts = {},
 					},
+					spinner = { enabled = true },
 				},
 			}
 		end,
