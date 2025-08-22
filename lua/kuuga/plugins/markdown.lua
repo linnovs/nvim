@@ -7,7 +7,8 @@ return {
 
 	{
 		"OXY2DEV/markview.nvim",
-		ft = { "markdown", "codecompanion" },
+		lazy = false,
+		priority = 49,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
 			"echasnovski/mini.nvim", -- for icon providewr
@@ -17,6 +18,7 @@ return {
 		opts = {
 			preview = {
 				filetypes = { "markdown", "codecompanion" },
+				ignore_buftypes = {},
 				icon_provider = "mini",
 				hybrid_modes = { "n" },
 				linewise_hybrid_mode = true,

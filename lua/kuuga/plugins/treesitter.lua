@@ -8,7 +8,7 @@ return {
 		"OXY2DEV/markview.nvim", -- For markdown code blocks see: https://github.com/OXY2DEV/markview.nvim/issues/365#issuecomment-3028249737
 	},
 	build = ":TSUpdate",
-	event = "BufReadPost",
+	lazy = false,
 	init = function() vim.g.skip_ts_context_commentstring_module = true end,
 	opts = {
 		sync_install = false,
