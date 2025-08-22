@@ -1,5 +1,5 @@
 {
-  "VectorCode": { "branch": "main", "commit": "0046e648b13a9b9bc71c9b5635355933f8aa5971" },
+  "VectorCode": { "branch": "main", "commit": "747e8a0482ff731fc082200bd4804d846145a5a0" },
   "blink-copilot": { "branch": "main", "commit": "41e91a659bd9b8cba9ba2ea68a69b52ba5a9ebd8" },
   "blink-nerdfont.nvim": { "branch": "main", "commit": "2f3cedda78dcf4ef547128ce7f72f7b80e25501d" },
   "blink.cmp": { "branch": "main", "commit": "bae4bae0eedd1fa55f34b685862e94a222d5c6f8" },
