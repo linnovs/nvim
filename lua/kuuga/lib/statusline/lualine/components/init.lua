@@ -10,7 +10,6 @@ M.progress = require("kuuga.lib.statusline.lualine.components.progress")
 M.diagnostic = require("kuuga.lib.statusline.lualine.components.diagnostics")
 M.lsp_status = require("kuuga.lib.statusline.lualine.components.lsp_status")
 M.copilot = require("kuuga.lib.statusline.lualine.components.copilot")
-M.codecompanion = require("kuuga.lib.statusline.lualine.components.codecompanion")
 
 local file = require("kuuga.lib.statusline.lualine.components.file")
 M.fileicon = file.icon

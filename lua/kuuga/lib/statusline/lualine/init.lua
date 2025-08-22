@@ -12,7 +12,6 @@ insert_left(components.fileicon)
 insert_left(components.filename)
 insert_left(components.diagnostic)
 
-insert_right(components.codecompanion)
 insert_right(components.copilot)
 insert_right(components.lsp_status)
 insert_right(components.lazy_update)
