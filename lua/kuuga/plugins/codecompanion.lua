@@ -23,10 +23,6 @@ return {
 				},
 				strategies = {
 					chat = {
-						adapter = {
-							name = "copilot",
-							model = "gpt-5-mini",
-						},
 						slash_commands = {
 							["buffer"] = { opts = { provider = "snacks" } },
 							["fetch"] = { opts = { provider = "snacks" } },
