@@ -3,6 +3,7 @@ return {
 		"olimorris/codecompanion.nvim",
 		dependencies = {
 			"ravitemer/codecompanion-history.nvim",
+			"Davidyz/VectorCode",
 		},
 		cmd = {
 			"CodeCompanion",
