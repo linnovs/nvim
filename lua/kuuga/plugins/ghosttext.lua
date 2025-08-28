@@ -7,7 +7,7 @@ return {
 
 		vim.api.nvim_create_autocmd("User", {
 			group = vim.api.nvim_create_augroup("nvim_ghost_user_autocommands", { clear = false }),
-			pattern = { "*github.com" },
+			pattern = { "*github.com", "notes.nebula.linnovs.com" },
 			command = "setfiletype markdown",
 		})
 	end,
