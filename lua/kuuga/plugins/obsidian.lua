@@ -71,7 +71,7 @@ return {
 		},
 		notes_subdir = "notes",
 		daily_notes = {
-			folder = "journal/dailies",
+			folder = "Journal/dailies",
 			date_format = "%Y/%B/%Y-%m-%d",
 			template = "daily.md",
 		},
