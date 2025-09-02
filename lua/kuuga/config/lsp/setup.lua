@@ -31,7 +31,7 @@ vim.lsp.enable({
 	"hyprls",
 	"jsonls",
 	"lemminx",
-	"ltex",
+	"ltex_plus",
 	"lua_ls",
 	"nil_ls",
 	"omnisharp",
