@@ -38,7 +38,6 @@
   "obsidian.nvim": { "branch": "main", "commit": "252e5430cd3ee234f6a600030511fb3e6a6ebbb0" },
   "octo.nvim": { "branch": "master", "commit": "6dabe62fb6678804ad38fb0f060854a5d1d4a7ef" },
   "oil.nvim": { "branch": "master", "commit": "975a77cce3c8cb742bc1b3629f4328f5ca977dad" },
-  "opencode.nvim": { "branch": "main", "commit": "d381c36cd5b091132fdc4e7d98679ac6b3295a99" },
   "persistence.nvim": { "branch": "main", "commit": "c45ff862b53ce07a853a753fb0b33e148dbb99d2" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
   "qmk.nvim": { "branch": "main", "commit": "3c804c1480991e4837514900b22b9358cfd64fa1" },
