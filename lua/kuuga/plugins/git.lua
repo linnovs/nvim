@@ -30,8 +30,8 @@ return {
 				keymap.map("n", "<leader>ghd", gs.diffthis, "Diff this")
 				keymap.map("n", "<leader>ghD", function() gs.map.diffthis("~") end, ".mapDiff this ~")
 
-				-- Tex.mapt objects
-				keymap.map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk()<CR>", "GitSigns Select Hunk")
+				-- Text objects
+				keymap.map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
 			end,
 		},
 	},
