@@ -8,10 +8,10 @@ return {
 		---@module 'catppuccin.types'
 		---@type CatppuccinOptions
 		return {
-			flavor = "macchiato",
+			flavor = "mocha",
 			background = {
 				light = "latte",
-				dark = "macchiato",
+				dark = "mocha",
 			},
 			transparent_background = true,
 			show_end_of_buffer = true,
