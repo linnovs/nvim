@@ -2,6 +2,7 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		event = "BufReadPost",
+		---@type Gitsigns.Config
 		opts = {
 			signs = {
 				add = { text = "▎" },
@@ -19,6 +20,7 @@ return {
 				changedelete = { text = "▎" },
 				untracked = { text = "▎" },
 			},
+			attach_to_untracked = true,
 			current_line_blame = true,
 			on_attach = function()
 				local gs = package.loaded["gitsigns"]
