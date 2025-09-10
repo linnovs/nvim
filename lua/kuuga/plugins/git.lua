@@ -28,18 +28,32 @@ return {
 				keymap.map("n", "[h", gs.prev_hunk, "Prev hunk")
 
 				-- Actions
-				keymap.map({ "n", "v" }, "<leader>ghs", "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk")
-				keymap.map({ "n", "v" }, "<leader>ghr", "<CMD>Gitsigns reset_hunk<CR>", "Reset hunk")
+				keymap.map("n", "<leader>ghs", gs.stage_hunk, "Stage hunk")
+				keymap.map("n", "<leader>ghr", gs.reset_hunk, "Reset hunk")
+
+				keymap.map(
+					"v",
+					"<leader>ghs",
+					function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
+					"Stage selected hunk"
+				)
+				keymap.map(
+					"v",
+					"<leader>ghr",
+					function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
+					"Reset selected hunk"
+				)
+
 				keymap.map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
-				keymap.map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
 				keymap.map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
 				keymap.map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
+
 				keymap.map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
 				keymap.map("n", "<leader>ghd", gs.diffthis, "Diff this")
-				keymap.map("n", "<leader>ghD", function() gs.map.diffthis("~") end, ".mapDiff this ~")
+				keymap.map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff this ~")
 
 				-- Text objects
-				keymap.map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+				keymap.map({ "o", "x" }, "ih", gs.select_hunk, "Select Hunk")
 			end,
 		},
 	},
