@@ -24,7 +24,6 @@ return {
 			nix = { "nixpkgs_fmt" },
 			proto = { "protolint" },
 			python = { "ruff_fix", "ruff_format" },
-			qml = { "qmlformat" },
 			rust = { "rustfmt" },
 			yaml = { "prettierd" },
 			http = { "kulala" },
