@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				buffer = bufnr,
 				callback = function() vim.lsp.codelens.refresh({ bufnr = bufnr }) end,
 			})
-			map("<Leader>cl", function() vim.lsp.codelens.run() end, "Code lens")
+			map("grl", function() vim.lsp.codelens.run() end, "Code lens")
 		end
 	end,
 })
