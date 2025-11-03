@@ -82,7 +82,7 @@ return {
 			return out
 		end,
 		templates = {
-			folder = "assets/templates",
+			folder = ".assets/templates",
 			date_format = "%Y-%m-%d",
 			time_format = "%H:%M",
 		},
