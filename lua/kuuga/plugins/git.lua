@@ -2,6 +2,7 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		event = "BufReadPost",
+		---@module "gitsigns"
 		---@type Gitsigns.Config
 		opts = {
 			signs = {
