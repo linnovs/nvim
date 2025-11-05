@@ -7,6 +7,7 @@ vim.opt.conceallevel = 0 -- whether concealable text is shown or hidden
 vim.opt.cursorline = true -- highlight the screen line of the cursor
 vim.opt.diffopt:append({ algorithm = "histogram", linematch = 50 })
 vim.opt.expandtab = true -- use spaces when <Tab> is inserted
+vim.opt.exrc = true -- read init files in the current directory
 vim.opt.fileencoding = "utf-8" -- file encoding for multibyte text
 vim.opt.fillchars = { eob = "·", fold = " ", foldopen = "", foldsep = " ", foldclose = "" } -- characters to use for displaying special items
 vim.opt.foldcolumn = "1" -- columns to use for the fold column

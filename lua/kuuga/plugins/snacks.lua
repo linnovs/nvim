@@ -30,6 +30,7 @@ return {
 					},
 				},
 			},
+			gh = {},
 			words = { enabled = true },
 			styles = {
 				lazygit = {
@@ -89,6 +90,12 @@ return {
 			{ "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse" },
 			{ "<leader>gfl", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
 			{ "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
+			{ "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
+			{
+				"<leader>gP",
+				function() Snacks.picker.gh_pr({ state = "all" }) end,
+				desc = "GitHub Pull Requests (all)",
+			},
 			{
 				"<leader>tt",
 				function() Snacks.terminal(nil, { win = { height = 0.3 } }) end,
