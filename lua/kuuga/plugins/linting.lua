@@ -12,6 +12,8 @@ return {
 			python = { "ruff" },
 			ghaction = { "actionlint" },
 			go = { "golangcilint" },
+			typescript = { "biomejs" },
+			typescriptreact = { "biomejs" },
 		}
 
 		lint.linters.cspell = require("lint.util").wrap(lint.linters.cspell, function(diagnostic)
