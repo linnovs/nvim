@@ -5,11 +5,9 @@ local icons = require("kuuga.lib.icons")
 local function diagnostic_open_float(cursor)
 	---@type vim.diagnostic.Opts.Float
 	local diag_opts = {
-		focusable = false,
-		-- close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
 		border = "rounded",
+		header = "",
 		source = true,
-		prefix = " ",
 		scope = cursor and "cursor" or "line",
 	}
 
