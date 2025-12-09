@@ -17,7 +17,7 @@ local function diagnostic_open_float(cursor)
 end
 
 vim.diagnostic.config({
-	virtual_lines = { current_line = true },
+	virtual_lines = false,
 	virtual_text = false,
 	signs = {
 		text = {
