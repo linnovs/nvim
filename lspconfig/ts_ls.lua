@@ -18,6 +18,7 @@ return {
 			includeInlayPropertyDeclarationTypeHints = false,
 			includeInlayFunctionLikeReturnTypeHints = true,
 			includeInlayEnumMemberValueHints = true,
+			importModuleSpecifierPreference = "non-relative", -- 'relative' | 'non-relative' | 'project-relative'
 		},
 	},
 	filetypes = {
