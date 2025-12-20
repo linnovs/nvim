@@ -21,7 +21,7 @@ require("lazy").setup("kuuga.plugins", {
 		version = "*",
 	},
 	rocks = {
-		hererocks = true,
+		hererocks = false,
 	},
 	checker = { enabled = true, notify = false },
 	install = { colorscheme = { "catppuccin", "habamax" } },
