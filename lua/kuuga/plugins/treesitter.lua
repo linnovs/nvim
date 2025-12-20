@@ -1,92 +1,36 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		{ "nvim-treesitter/nvim-treesitter-context", opts = { mode = "cursor" } },
-		{ "windwp/nvim-ts-autotag", opts = {} },
-		"OXY2DEV/markview.nvim", -- For markdown code blocks see: https://github.com/OXY2DEV/markview.nvim/issues/365#issuecomment-3028249737
+	{
+		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			"OXY2DEV/markview.nvim", -- For markdown code blocks see: https://github.com/OXY2DEV/markview.nvim/issues/365#issuecomment-3028249737
+		},
+		branch = "main",
+		build = ":TSUpdate",
+		lazy = false,
+		opts = {},
+		config = function(_, opts)
+			require("nvim-treesitter").setup(opts)
+			require("kuuga.lib.treesitter")
+		end,
 	},
-	build = ":TSUpdate",
-	lazy = false,
-	init = function() vim.g.skip_ts_context_commentstring_module = true end,
-	opts = {
-		sync_install = false,
-		auto_install = false,
-		ensure_installed = {
-			"bash",
-			"c",
-			"css",
-			"csv",
-			"diff",
-			"dockerfile",
-			"git_config",
-			"git_rebase",
-			"gitattributes",
-			"gitcommit",
-			"gitignore",
-			"go",
-			"gomod",
-			"gosum",
-			"html",
-			"http",
-			"hurl",
-			"hyprlang",
-			"ini",
-			"javascript",
-			"jsdoc",
-			"json",
-			"json5",
-			"jsonc",
-			"just",
-			"lua",
-			"luadoc",
-			"luap",
-			"markdown",
-			"markdown_inline",
-			"nix",
-			"proto",
-			"python",
-			"qmljs",
-			"query",
-			"rasi",
-			"regex",
-			"rust",
-			"sql",
-			"ssh_config",
-			"terraform",
-			"toml",
-			"tsx",
-			"typescript",
-			"vim",
-			"vimdoc",
-			"vue",
-			"wgsl",
-			"xml",
-			"yaml",
-			"zig",
+
+	{ "windwp/nvim-ts-autotag", event = { "BufReadPost", "BufWritePost", "BufNewFile" }, opts = {} },
+
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		opts = {
+			auto_command = false,
 		},
-		highlight = {
-			enable = true,
-			additional_vim_regex_highlighting = false,
-			disable = function(_, buf)
-				local max_filesize = 100 * 1024 -- 100 KB
-				local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
-				if ok and stats and stats.size > max_filesize then return true end
-			end,
-		},
-		indent = { enable = true, disable = { "yaml" } },
-		textobjects = {
+	},
+
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "main",
+		init = function() vim.g.no_plugin_maps = true end,
+		event = "VeryLazy",
+		opts = {
 			select = {
-				enable = true,
 				lookahead = true,
-				keymaps = {
-					["af"] = "@function.outer",
-					["if"] = "@function.inner",
-					["ac"] = "@class.outer",
-					["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-					["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
-				},
 				selection_modes = {
 					["@parameter.outer"] = "v", -- charwise
 					["@function.outer"] = "V", -- linewise
@@ -95,16 +39,28 @@ return {
 				include_surrounding_whitespace = false,
 			},
 		},
-	},
-	config = function(_, opts)
-		require("ts_context_commentstring").setup({
-			enable_autocmd = false,
-		})
-		require("nvim-treesitter.configs").setup(opts)
-		vim.treesitter.language.register("markdown", "octo")
-		vim.treesitter.language.register("gitcommit", "NeogitCommitMessage")
+		config = function()
+			local select = require("nvim-treesitter-textobjects.select")
+			local map = function(lhs, query, query_group, desc)
+				vim.keymap.set(
+					{ "x", "o" },
+					lhs,
+					function() select.select_textobject(query, query_group) end,
+					{ desc = desc }
+				)
+			end
 
-		vim.opt.foldmethod = "expr"
-		vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-	end,
+			map("af", "@function.outer", "textobjects", "Select around function")
+			map("if", "@function.inner", "textobjects", "Select inside function")
+			map("ac", "@class.outer", "textobjects", "Select around class")
+			map("ic", "@class.inner", "textobjects", "Select inside class")
+			map("as", "@local.scope", "locals", "Select language scope")
+		end,
+	},
+
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		lazy = false,
+		opts = { mode = "cursor" },
+	},
 }
