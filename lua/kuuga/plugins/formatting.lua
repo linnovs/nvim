@@ -3,6 +3,14 @@ return {
 	event = "BufWritePre",
 	cmd = "ConformInfo",
 	init = function() vim.o.formatexpr = "v:lua.require('conform').formatexpr()" end,
+	keys = {
+		{
+			"<Leader>f",
+			function() require("conform").format({ lsp_format = "fallback", async = true }) end,
+			mode = "",
+			desc = "Format buffer",
+		},
+	},
 	---@module "conform"
 	---@type conform.setupOpts
 	opts = {
