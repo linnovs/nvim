@@ -6,7 +6,7 @@ return {
 
 	{
 		"stevearc/quicker.nvim",
-		event = "Filetype quickfix",
+		ft = "qf",
 		---@module 'quicker'
 		---@type quicker.SetupOptions
 		opts = {},
