@@ -1,4 +1,5 @@
 {
+  "bafa.nvim": { "branch": "main", "commit": "1a8f9e96cc98d695d2ba748501f501bd21f5e25d" },
   "blink-copilot": { "branch": "main", "commit": "41e91a659bd9b8cba9ba2ea68a69b52ba5a9ebd8" },
   "blink-nerdfont.nvim": { "branch": "main", "commit": "e5034457a0a3f3444c0a48af8f5d7db0ad02a204" },
   "blink.cmp": { "branch": "main", "commit": "b19413d214068f316c78978b08264ed1c41830ec" },
@@ -43,7 +44,6 @@
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "3277ad5f96eb03c9d618c88e24f683e4364e578c" },
   "schemastore.nvim": { "branch": "main", "commit": "1bc1227ee1f5ad02f6796701539e9aaf6c5e77e6" },
   "snacks.nvim": { "branch": "main", "commit": "a4e46becca45eb65c73a388634b1ce8aad629ae0" },
-  "snipe.nvim": { "branch": "snipe2", "commit": "ef75c4c808a03838698d83a0983b57c7835919dd" },
   "tabby.nvim": { "branch": "main", "commit": "b3affa6db7eab80fca2a2db5b73b473144507039" },
   "todo-comments.nvim": { "branch": "main", "commit": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668" },
   "trouble.nvim": { "branch": "main", "commit": "748ca2789044607f19786b1d837044544c55e80a" },
