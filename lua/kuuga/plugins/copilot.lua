@@ -6,6 +6,14 @@ return {
 		},
 		keys = {
 			{
+				"<tab>",
+				function()
+					if not require("sidekick").nes_jump_or_apply() then return "<tab>" end
+				end,
+				expr = true,
+				desc = "Goto/Apply Next Editor Suggestion",
+			},
+			{
 				"<leader>aa",
 				function() require("sidekick.cli").toggle({ name = "opencode", focus = true }) end,
 				desc = "Toggle sidekick (opencode)",
