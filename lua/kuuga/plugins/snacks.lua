@@ -24,9 +24,22 @@ return {
 			scroll = { enabled = true },
 			statuscolumn = { enabled = true },
 			picker = {
+				actions = {
+					sidekick_send = function(...) require("sidekick.cli.picker.snacks").send(...) end,
+				},
 				formatters = {
 					file = {
 						filename_first = true,
+					},
+				},
+				win = {
+					input = {
+						keys = {
+							["<a-a>"] = {
+								"sidekick_send",
+								mode = { "n", "i" },
+							},
+						},
 					},
 				},
 			},

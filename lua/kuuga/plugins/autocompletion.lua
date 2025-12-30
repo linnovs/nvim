@@ -18,7 +18,14 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			keymap = { preset = "enter" },
+			keymap = {
+				preset = "enter",
+				["<tab>"] = {
+					"snippet_forward",
+					function() require("sidekick").nes_jump_or_apply() end,
+					"fallback",
+				},
+			},
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer", "nerdfont", "copilot" },
 				per_filetype = {
