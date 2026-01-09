@@ -2,7 +2,7 @@ return {
 	{
 		"folke/sidekick.nvim",
 		opts = {
-			cli = { mux = { enabled = true } },
+			cli = { mux = { enabled = true }, win = { bo = { scrollback = 0 }, layout = "float" } },
 		},
 		keys = {
 			{
