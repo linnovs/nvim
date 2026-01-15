@@ -15,8 +15,8 @@ return {
 			},
 			{
 				"<leader>aa",
-				function() require("sidekick.cli").toggle({ name = "opencode", focus = true }) end,
-				desc = "Toggle sidekick (opencode)",
+				function() require("sidekick.cli").toggle({ filter = { installed = true }, focus = true }) end,
+				desc = "Toggle sidekick (installed tools)",
 			},
 			{
 				"<leader>at",
