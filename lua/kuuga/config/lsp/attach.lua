@@ -19,6 +19,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("grr", function() Snacks.picker.lsp_references() end, "References")
 		map("gri", function() Snacks.picker.lsp_implementations() end, "Go to implementations")
 		map("grt", function() Snacks.picker.lsp_type_definitions() end, "Type definitions")
+		map("gai", function() Snacks.picker.lsp_incoming_calls() end, "Callers (incoming calls)")
+		map("gao", function() Snacks.picker.lsp_outgoing_calls() end, "Callers (outgoing calls)")
 		map("<Leader>fs", function() Snacks.picker.lsp_symbols() end, "LSP Symbols")
 		map("<leader>fS", function() Snacks.picker.lsp_workspace_symbols() end, "LSP Workspace Symbols")
 
