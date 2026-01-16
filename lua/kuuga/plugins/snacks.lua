@@ -54,34 +54,6 @@ return {
 				terminal = {
 					keys = {
 						toggle = { "<Leader>tt", "<Cmd>close<CR>", mode = "t", expr = true },
-						win_up = {
-							"<Leader>wk",
-							"<Cmd>wincmd k<CR>",
-							desc = "Moves to window above",
-							mode = "t",
-							expr = true,
-						},
-						win_down = {
-							"<Leader>wj",
-							"<Cmd>wincmd j<CR>",
-							desc = "Moves to window below",
-							mode = "t",
-							expr = true,
-						},
-						win_right = {
-							"<Leader>wh",
-							"<Cmd>wincmd h<CR>",
-							desc = "Moves to window right",
-							mode = "t",
-							expr = true,
-						},
-						win_left = {
-							"<Leader>wl",
-							"<Cmd>wincmd l<CR>",
-							desc = "Moves to window left",
-							mode = "t",
-							expr = true,
-						},
 					},
 				},
 				notification_history = {
