@@ -150,4 +150,4 @@ autocmd("User", {
 autocmd({ "BufReadPost", "BufNewFile" }, { pattern = "*.tf", command = "set filetype=terraform" })
 autocmd({ "BufReadPost", "BufNewFile" }, { pattern = "*.rasi", command = "set filetype=rasi" })
 autocmd({ "BufReadPost", "BufNewFile" }, { pattern = "*.wgsl", command = "set filetype=wgsl" })
-autocmd("FileType", { pattern = "gitcommit,gitrebase,gitconfig", command = "set bufhidden=delete" })
+autocmd("Filetype", { pattern = "gitcommit", command = "startinsert" })
