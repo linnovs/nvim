@@ -4,7 +4,7 @@ local function insert_left(component) table.insert(sections.lualine_c, component
 
 local function insert_right(component) table.insert(sections.lualine_x, component) end
 
-local components = require("kuuga.lib.statusline.lualine.components")
+local components = require("kuuga.lib.statusline.components")
 
 insert_left(components.mode)
 insert_left(components.macro)
