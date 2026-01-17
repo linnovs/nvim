@@ -1,6 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 local home = vim.fn.expand("~")
-local uv = vim.uv
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, { command = "checktime" })
 autocmd("VimResized", { command = "tabdo wincmd =" })
@@ -75,75 +74,9 @@ autocmd({ "VimEnter", "VimLeave" }, {
 autocmd("User", {
 	pattern = "LazyUpdate",
 	callback = function()
-		vim.defer_fn(function()
-			local commitMesg = "chore(lazy): update lazy-lock.json"
-			uv.spawn("git", {
-				cwd = vim.fn.stdpath("config"),
-				args = { "add", "lazy-lock.json" },
-			}, function(addCode)
-				if addCode ~= 0 then
-					vim.notify("Failed to add lazy-lock.json: " .. addCode, vim.log.levels.ERROR, { title = "Lazy" })
-					return
-				end
+		local lazy_update = require("kuuga.lib.lazy_update")
 
-				local pipe = uv.new_pipe()
-
-				uv.spawn("git", {
-					cwd = vim.fn.stdpath("config"),
-					args = { "log", "-1", "--pretty=format:%B" },
-					stdio = { nil, pipe, nil },
-				}, function(logCode)
-					if logCode ~= 0 then
-						vim.notify(
-							"Failed to get last commit message: " .. logCode,
-							vim.log.levels.ERROR,
-							{ title = "Lazy" }
-						)
-						return
-					end
-
-					uv.spawn("grep", {
-						args = { "-q", commitMesg },
-						stdio = { pipe, nil, nil },
-					}, function(grepCode)
-						if grepCode == 0 then
-							-- amend the last commit
-							uv.spawn("git", {
-								cwd = vim.fn.stdpath("config"),
-								args = { "commit", "--amend", "--no-edit" },
-							}, function(amendCode)
-								if amendCode == 0 then
-									vim.notify("Amended last chore commit", vim.log.levels.INFO, { title = "Lazy" })
-								else
-									vim.notify(
-										"Failed to amend lazy-lock.json: " .. amendCode,
-										vim.log.levels.ERROR,
-										{ title = "Lazy" }
-									)
-								end
-							end)
-
-							return
-						end
-
-						uv.spawn("git", {
-							cwd = vim.fn.stdpath("config"),
-							args = { "commit", "-m", commitMesg },
-						}, function(commitCode)
-							if commitCode == 0 then
-								vim.notify("Committed lazy-lock.json", vim.log.levels.INFO, { title = "Lazy" })
-							else
-								vim.notify(
-									"Failed to commit lazy-lock.json: " .. commitCode,
-									vim.log.levels.ERROR,
-									{ title = "Lazy" }
-								)
-							end
-						end)
-					end)
-				end)
-			end)
-		end, 300)
+		vim.defer_fn(lazy_update.callback, 300)
 	end,
 })
 
