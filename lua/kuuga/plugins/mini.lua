@@ -15,12 +15,16 @@ return {
 			callback = function() vim.b.miniindentscope_disable = true end,
 		})
 	end,
+	keys = {
+		{ "<leader>gc", ":Git commit<cr>", desc = "Git commit" },
+	},
 	config = function()
 		local bracked = require("mini.bracketed")
 		local pairs = require("mini.pairs")
 		local ai = require("mini.ai")
 		local surround = require("mini.surround")
 		local comment = require("mini.comment")
+		local git = require("mini.git")
 
 		bracked.setup()
 
@@ -88,5 +92,7 @@ return {
 				textobject = "gc",
 			},
 		})
+
+		git.setup()
 	end,
 }
