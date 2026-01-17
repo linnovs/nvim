@@ -16,7 +16,7 @@ return {
 		})
 	end,
 	keys = {
-		{ "<leader>gc", ":Git commit<cr>", desc = "Git commit" },
+		{ "<leader>gc", function() vim.cmd("Git commit") end, desc = "Git commit" },
 	},
 	config = function()
 		local bracked = require("mini.bracketed")
