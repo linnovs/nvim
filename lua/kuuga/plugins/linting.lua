@@ -9,11 +9,7 @@ return {
 		lint.linters_by_ft = {
 			["*"] = {}, -- this need to add a `try_lint(linter)` at the end of the autocmd
 			rust = { "clippy" },
-			python = { "ruff" },
 			ghaction = { "actionlint" },
-			go = { "golangcilint" },
-			typescript = { "biomejs" },
-			typescriptreact = { "biomejs" },
 		}
 
 		lint.linters.cspell = require("lint.util").wrap(lint.linters.cspell, function(diagnostic)

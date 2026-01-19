@@ -21,6 +21,7 @@ end
 
 vim.lsp.enable({
 	"bashls",
+	"biome",
 	"buf_ls",
 	"clangd",
 	"cmake",
@@ -29,6 +30,7 @@ vim.lsp.enable({
 	"emmet_language_server",
 	"fish_lsp",
 	"gdscript",
+	"golangci_lint_ls",
 	"gopls",
 	"harper_ls",
 	"hyprls",
@@ -40,6 +42,7 @@ vim.lsp.enable({
 	"oxlint",
 	"pyright",
 	"qmlls",
+	"ruff",
 	"rust_analyzer",
 	"tailwindcss",
 	"terraformls",
