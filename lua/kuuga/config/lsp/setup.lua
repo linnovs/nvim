@@ -47,6 +47,7 @@ vim.lsp.enable({
 	"tailwindcss",
 	"terraformls",
 	"ts_ls",
+	"ty",
 	"typos_lsp",
 	"vue_ls",
 	"yamlls",
