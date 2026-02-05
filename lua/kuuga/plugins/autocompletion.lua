@@ -14,8 +14,7 @@ return {
 			"MahanRahmati/blink-nerdfont.nvim",
 			"fang2hou/blink-copilot",
 		},
-		version = false,
-		build = "cargo build --release",
+		version = "1.*",
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
