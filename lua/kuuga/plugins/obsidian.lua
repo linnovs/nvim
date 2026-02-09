@@ -49,7 +49,7 @@ return {
 		notes_subdir = "Inbox",
 		daily_notes = {
 			folder = "Journal/dailies",
-			date_format = "%Y/%B/%Y-%m-%d",
+			date_format = "%Y/%m-%B/%Y-%m-%d",
 			template = "daily.md",
 		},
 		completion = {
