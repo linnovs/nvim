@@ -1,4 +1,4 @@
-local colors = require("catppuccin.palettes").get_palette("macchiato") or {}
+local colors = require("catppuccin.palettes").get_palette("mocha") or {}
 
 return {
 	"selectioncount",

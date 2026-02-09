@@ -1,5 +1,5 @@
 local marco = require("lualine.component"):extend()
-local colors = require("catppuccin.palettes").get_palette("macchiato") or {}
+local colors = require("catppuccin.palettes").get_palette("mocha") or {}
 
 function marco:init(options) marco.super.init(self, options) end
 
