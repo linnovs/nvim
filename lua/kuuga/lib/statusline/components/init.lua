@@ -2,6 +2,7 @@ local M = {}
 
 M.mode = require("kuuga.lib.statusline.components.mode")
 M.macro = require("kuuga.lib.statusline.components.macro")
+M.branch = require("kuuga.lib.statusline.components.branch")
 M.lazy_update = require("kuuga.lib.statusline.components.lazy")
 M.empty = require("kuuga.lib.statusline.components.empty")
 M.ruler = require("kuuga.lib.statusline.components.ruler")

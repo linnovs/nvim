@@ -8,6 +8,7 @@ local components = require("kuuga.lib.statusline.components")
 
 insert_left(components.mode)
 insert_left(components.macro)
+insert_left(components.branch)
 insert_left(components.fileicon)
 insert_left(components.filename)
 insert_left(components.diagnostic)
