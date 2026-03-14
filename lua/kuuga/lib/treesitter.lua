@@ -24,14 +24,15 @@ local ensure_installed = {
 	"jsdoc",
 	"json",
 	"json5",
-	"jsonc",
 	"just",
+	"latex",
 	"lua",
 	"luadoc",
 	"luap",
 	"markdown",
 	"markdown_inline",
 	"nix",
+	"norg",
 	"proto",
 	"python",
 	"qmljs",
@@ -39,12 +40,15 @@ local ensure_installed = {
 	"rasi",
 	"regex",
 	"rust",
+	"scss",
 	"sql",
 	"ssh_config",
+	"svelte",
 	"terraform",
 	"toml",
 	"tsx",
 	"typescript",
+	"typst",
 	"vim",
 	"vimdoc",
 	"vue",
@@ -64,7 +68,7 @@ if #should_install > 0 then
 	TS.install(should_install, { summary = true }):await(function() installed_langs = TS.get_installed() end)
 end
 
-local max_filesize = 100 * 1024 -- 100 KB
+local max_filesize = 100 * 1024 -- 100 KiB
 
 vim.api.nvim_create_autocmd("FileType", {
 	group = vim.api.nvim_create_augroup("KuugaTSAttach", { clear = true }),
