@@ -1,6 +1,6 @@
 return {
 	"nanozuki/tabby.nvim",
-	event = "VeryLazy",
+	lazy = false,
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	---@module "tabby"
 	---@type TabbyConfig
@@ -8,7 +8,7 @@ return {
 		preset = "active_wins_at_tail",
 		option = {
 			nerdfont = true,
-			lualine_theme = "catppuccin",
+			lualine_theme = "catppuccin-mocha",
 		},
 	},
 }
