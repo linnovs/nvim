@@ -3,7 +3,7 @@ local home = vim.fn.expand("~")
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, { command = "checktime" })
 autocmd("VimResized", { command = "tabdo wincmd =" })
-autocmd("TextYankPost", { callback = function() vim.highlight.on_yank() end })
+autocmd("TextYankPost", { callback = function() vim.hl.on_yank() end })
 
 autocmd("BufWritePost", {
 	pattern = home .. "/.local/share/chezmoi/*",
