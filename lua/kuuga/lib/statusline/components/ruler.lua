@@ -1,7 +1,7 @@
-local colors = require("catppuccin.palettes").get_palette("mocha") or {}
+local colors = require("tokyonight.colors").setup() or {}
 
 return {
 	"location",
 	icon = "",
-	color = { fg = colors.teal, bg = colors.overlay0 },
+	color = { fg = colors.teal, bg = colors.bg_dark },
 }

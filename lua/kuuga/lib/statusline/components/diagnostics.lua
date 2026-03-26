@@ -1,4 +1,4 @@
-local colors = require("catppuccin.palettes").get_palette("mocha") or {}
+local colors = require("tokyonight.colors").setup() or {}
 local icons = require("kuuga.lib.icons")
 
 return {
@@ -13,7 +13,7 @@ return {
 		info = { fg = colors.blue },
 		hint = { fg = colors.green },
 	},
-	color = { bg = colors.surface2, gui = "bold" },
+	color = { bg = colors.bg_highlight, gui = "bold" },
 	separator = { left = "", right = "" },
 	draw_empty = false,
 }

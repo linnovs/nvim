@@ -1,7 +1,7 @@
-local colors = require("catppuccin.palettes").get_palette("mocha") or {}
+local colors = require("tokyonight.colors").setup() or {}
 
 return {
 	"progress",
-	color = { fg = colors.base, bg = colors.teal },
+	color = { fg = colors.fg, bg = colors.teal },
 	separator = { left = "" },
 }

@@ -1,4 +1,4 @@
-local colors = require("catppuccin.palettes").get_palette("mocha") or {}
+local colors = require("tokyonight.colors").setup() or {}
 
 local M = {}
 
@@ -11,7 +11,7 @@ M.icon = {
 
 M.type = {
 	"bo:filetype",
-	color = { fg = colors.text, bg = colors.surface0 },
+	color = { fg = colors.fg, bg = colors.bg_highlight },
 	separator = { left = "", right = "" },
 	draw_empty = true,
 }
@@ -27,7 +27,7 @@ M.name = {
 		unnamed = "󰡯 ",
 		newfile = "󰎔 ",
 	},
-	color = { fg = colors.text },
+	color = { fg = colors.fg },
 }
 
 M.format = {
@@ -37,13 +37,13 @@ M.format = {
 		dos = "",
 		mac = "",
 	},
-	color = { fg = colors.text, bg = colors.surface1 },
+	color = { fg = colors.fg, bg = colors.bg_highlight },
 	separator = { left = "" },
 }
 
 M.encoding = {
 	"encoding",
-	color = { fg = colors.text, bg = colors.surface1 },
+	color = { fg = colors.fg, bg = colors.bg_highlight },
 	separator = { right = "" },
 }
 

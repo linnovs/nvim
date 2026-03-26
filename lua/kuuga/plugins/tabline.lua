@@ -8,7 +8,7 @@ return {
 		preset = "active_wins_at_tail",
 		option = {
 			nerdfont = true,
-			lualine_theme = "catppuccin-mocha",
+			lualine_theme = "tokyonight",
 		},
 	},
 }

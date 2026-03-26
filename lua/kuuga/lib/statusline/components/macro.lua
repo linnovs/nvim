@@ -1,5 +1,5 @@
 local marco = require("lualine.component"):extend()
-local colors = require("catppuccin.palettes").get_palette("mocha") or {}
+local colors = require("tokyonight.colors").setup() or {}
 
 function marco:init(options) marco.super.init(self, options) end
 
@@ -13,5 +13,5 @@ end
 return {
 	marco,
 	icon = "󰻃 ",
-	color = { fg = colors.red, bg = colors.overlay0 },
+	color = { fg = colors.red, bg = colors.bg_dark },
 }

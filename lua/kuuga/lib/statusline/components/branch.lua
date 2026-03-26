@@ -1,6 +1,6 @@
-local colors = require("catppuccin.palettes").get_palette("mocha") or {}
+local colors = require("tokyonight.colors").setup() or {}
 
 return {
 	"branch",
-	color = { fg = colors.peach, bg = colors.surface0 },
+	color = { fg = colors.fg, bg = colors.bg_highlight },
 }

@@ -1,33 +1,33 @@
-local colors = require("catppuccin.palettes").get_palette("mocha") or {}
+local colors = require("tokyonight.colors").setup() or {}
 
 local highlights = {
 	normal = {
-		bg = colors.overlay0,
+		bg = colors.bg_highlight,
 		fg = colors.teal,
 		gui = "bold",
 	},
 	visual = {
-		bg = colors.overlay0,
-		fg = colors.peach,
+		bg = colors.bg_highlight,
+		fg = colors.magenta,
 		gui = "bold",
 	},
 	insert = {
-		bg = colors.overlay0,
+		bg = colors.bg_highlight,
 		fg = colors.green,
 		gui = "bold",
 	},
 	replace = {
-		bg = colors.overlay0,
+		bg = colors.bg_highlight,
 		fg = colors.red,
 		gui = "bold",
 	},
 	commandline = {
-		bg = colors.overlay0,
+		bg = colors.bg_highlight,
 		fg = colors.yellow,
 		gui = "bold",
 	},
 	terminal = {
-		bg = colors.overlay0,
+		bg = colors.bg_highlight,
 		fg = colors.blue,
 		gui = "bold",
 	},
