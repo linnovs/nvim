@@ -13,5 +13,5 @@ end
 return {
 	marco,
 	icon = "󰻃 ",
-	color = { fg = colors.red, bg = colors.bg_dark },
+	color = { fg = colors.red, bg = colors.bg_dark1 },
 }
