@@ -18,6 +18,7 @@ end
 keymap.map("n", "<Leader>ws", "<C-w>s", "Split window horizontally")
 keymap.map("n", "<Leader>wv", "<C-w>v", "Split window vertically")
 keymap.map("n", "<Leader>wn", "<C-w>n", "New empty file in a split")
+keymap.map("n", "<Leader>wN", "<cmd>vnew<CR>", "New empty file in a vsplit")
 keymap.map("n", "<Leader>wo", "<C-w>o", "Make the current window as the only one")
 keymap.map("n", "<Leader>ww", "<C-w>w", "Cycle through windows")
 keymap.map("n", "<Leader>wj", "<C-w>j", "Moves to window below")
