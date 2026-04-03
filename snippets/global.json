@@ -1,9 +1,0 @@
-{
-    "timestamp": {
-        "prefix": "timestamp",
-        "body": [
-            "${CURRENT_SECONDS_UNIX}"
-        ],
-        "description": "Current time in unix second"
-    }
-}
