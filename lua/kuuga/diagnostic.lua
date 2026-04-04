@@ -1,4 +1,19 @@
 local icons = { error = " ", warn = " ", info = " ", hint = " " }
+local keymap = require("kuuga.lib.keymap")
+
+local function diagnostic_open_float()
+    ---@type vim.diagnostic.Opts.Float
+    local diag_opts = {
+        border = "rounded",
+        header = "",
+        source = true,
+        scope = "line"
+    }
+
+    return function() 
+        vim.diagnostic.open_float(diag_opts)
+    end
+end
 
 vim.diagnostic.config({
 	virtual_lines = false,
@@ -21,3 +36,5 @@ vim.diagnostic.config({
 	update_in_insert = false,
 	severity_sort = true,
 })
+
+keymap("n", "<Leader>d", diagnostic_open_float(), "Open diagnostic popup")
