@@ -16,10 +16,6 @@ vim.opt.tabstop = 4 -- number of spaces tabs count for
 vim.opt.shiftwidth = 0 -- number of spaces to use for (auto)indent step
 vim.opt.colorcolumn = "+1" -- columns to highlight
 
-vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
-end) -- sync clipboard with system clipboard
-
 -- case-insensitive search unless \C / one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true

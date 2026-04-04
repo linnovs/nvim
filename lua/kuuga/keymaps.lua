@@ -45,3 +45,10 @@ keymap("n", "<Leader>fqq", "<Cmd>quit!<CR>", "Quick quit without writing")
 
 -- terminal
 keymap("t", "<Esc><Esc>", "<C-\\><C-n>", "Exit terminal mode")
+
+-- clipboard (copy/paste to system clipboard)
+keymap({"n", "v", "x"}, "<Leader>y", '"+y', "Yank into clipboard", { silent = true, noremap = true})
+keymap({"n", "v", "x"}, "<Leader>yy", '"+yy', "Yank lines into clipboard", { silent = true, noremap = true})
+keymap({"n", "v", "x"}, "<Leader>Y", '"+y$', "Yank lines into clipboard (from cursor position)", { silent = true, noremap = true })
+keymap({"n", "v", "x"}, "<Leader>p", '"+p', "Paste from clipboard", { silent = true, noremap = true })
+keymap("x", "<Leader>P", '"_dP', "Paste without erase unnamed register", { silent = true, noremap = true })
