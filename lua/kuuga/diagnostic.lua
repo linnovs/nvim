@@ -38,3 +38,4 @@ vim.diagnostic.config({
 })
 
 keymap("n", "<Leader>d", diagnostic_open_float(), "Open diagnostic popup")
+keymap("n", "<Leader>q", vim.diagnostic.setqflist, "Add buffer diagnostics to quickfix list")
