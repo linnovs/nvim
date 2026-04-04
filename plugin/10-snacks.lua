@@ -281,4 +281,5 @@ require("snacks").setup({
 			wo = { wrap = true, linebreak = true },
 		},
 	},
+    dashboard = require("kuuga.lib.dashboard")
 })
