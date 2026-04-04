@@ -12,6 +12,7 @@ vim.opt.undofile = true -- save undo history to an undo file
 vim.opt.expandtab = true -- use spaces instead of tabs
 vim.opt.exrc = true -- allow project-local .nvimrc files
 vim.opt.textwidth = 120 -- set maximum width of text that is being inserted
+vim.opt.tabstop = 4 -- number of spaces tabs count for
 vim.opt.colorcolumn = "+1" -- columns to highlight
 
 vim.schedule(function()
