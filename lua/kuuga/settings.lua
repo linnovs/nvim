@@ -32,7 +32,7 @@ vim.opt.splitbelow = true
 
 -- set how neovim displays whitespace characters
 vim.opt.list = true
-vim.opt.listchars = { extends = "", lead = "·", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { extends = "", lead = "·", tab = "󰌒 ", trail = "·", nbsp = "␣" }
 
 vim.opt.inccommand = "split" -- preview substitutions live
 vim.opt.cursorline = true -- highlight the current line
