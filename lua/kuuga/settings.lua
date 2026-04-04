@@ -41,6 +41,11 @@ vim.opt.cursorline = true -- highlight the current line
 vim.opt.scrolloff = 7 -- Minimum number of screen lines to keep above and below the cursor
 vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
 
+-- fold settings
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+
 -- Disable providers we don't use to speed up startup time
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
