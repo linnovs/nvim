@@ -10,9 +10,9 @@
       "src": "https://github.com/MahanRahmati/blink-nerdfont.nvim"
     },
     "blink.cmp": {
-      "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
+      "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
-      "version": ">=0.0.0"
+      "version": "1.0.0 - 2.0.0"
     },
     "colorful-menu.nvim": {
       "rev": "b51a659459df8d078201aefc995db8175ed55e84",
