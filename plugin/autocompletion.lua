@@ -55,7 +55,7 @@ vim.schedule(function()
 				},
 			},
 			menu = {
-				winblend = 30,
+				winblend = 0,
 				draw = {
 					columns = { { "kind_icon" }, { "label", gap = 1 }, { "source_name" } },
 					components = {
