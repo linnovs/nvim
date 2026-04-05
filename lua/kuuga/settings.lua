@@ -7,6 +7,7 @@ vim.opt.number = true -- show line numbers
 vim.opt.relativenumber = true -- show relative line numbers
 vim.opt.mouse = "a" -- enable mouse support for all modes (unless |hit-enter| and |more-prompt|)
 vim.opt.showmode = false -- hide the mode since it's shown in the statusline
+vim.opt.laststatus = 3 -- tells when last window has status lines
 vim.opt.breakindent = true -- wrapped line repeats indent
 vim.opt.undofile = true -- save undo history to an undo file
 vim.opt.expandtab = true -- use spaces instead of tabs
