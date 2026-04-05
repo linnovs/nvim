@@ -75,6 +75,10 @@
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
       "src": "https://github.com/folke/tokyonight.nvim"
+    },
+    "vim-startuptime": {
+      "rev": "c12649b2458e34ec6dde8f1bdfe830661a613a6b",
+      "src": "https://github.com/dstein64/vim-startuptime"
     }
   }
 }
