@@ -37,6 +37,7 @@ vim.opt.inccommand = "split" -- preview substitutions live
 vim.opt.cursorline = true -- highlight the current line
 vim.opt.scrolloff = 7 -- Minimum number of screen lines to keep above and below the cursor
 vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
+vim.opt.wrap = false -- long lines wrap and continue on the next line
 
 -- fold settings
 vim.opt.foldcolumn = "1"
