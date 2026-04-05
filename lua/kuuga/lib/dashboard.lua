@@ -15,8 +15,8 @@ local M = {
 
 M.preset.keys = {
 	{ icon = " ", key = "b", desc = "Browse Repository", action = ":lua Snacks.gitbrowse()" },
-	{ icon = "󰝒 ", key = "N", desc = "New File", action = ":ene" },
-	{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
+	{ icon = "󰝒 ", key = "N", desc = "New File", action = ":ene | startinsert" },
+	{ icon = " ", key = "s", desc = "Restore Session", action = ':lua require("persistence").load()', enabled = function() return package.loaded.persistence ~= nil end },
 	{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 }
 
