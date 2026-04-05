@@ -185,7 +185,7 @@ local keymaps = {
     {
         "<Leader>fe",
         function()
-            Snacks.picker.explorer()
+            Snacks.explorer()
         end,
         "File explorer",
     },
