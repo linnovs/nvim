@@ -15,6 +15,7 @@ vim.opt.textwidth = 120 -- set maximum width of text that is being inserted
 vim.opt.tabstop = 4 -- number of spaces tabs count for
 vim.opt.shiftwidth = 0 -- number of spaces to use for (auto)indent step
 vim.opt.colorcolumn = "+1" -- columns to highlight
+vim.opt.diffopt:append({ algorithm = "histogram", linematch = 60 }) -- options for using diff mode
 
 -- case-insensitive search unless \C / one or more capital letters in the search term
 vim.opt.ignorecase = true
