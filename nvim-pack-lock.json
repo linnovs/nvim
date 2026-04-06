@@ -120,6 +120,10 @@
     "vim-startuptime": {
       "rev": "c12649b2458e34ec6dde8f1bdfe830661a613a6b",
       "src": "https://github.com/dstein64/vim-startuptime"
+    },
+    "vim-wakatime": {
+      "rev": "d7973b157a632d1edeff01818f18d67e584eeaff",
+      "src": "https://github.com/wakatime/vim-wakatime"
     }
   }
 }
