@@ -39,7 +39,7 @@ end
 function M.install(servers)
 	if not mason_exist then return end
 
-	if vim.uv.gettimeofday() - M.last_install < 6 * 60 then return end
+	if vim.uv.gettimeofday() - M.last_install < 6 * 60 * 60 then return end
 
 	for _, server in ipairs(servers) do
 		install_server(server, function(msg, lvl) notify(msg, lvl) end)
