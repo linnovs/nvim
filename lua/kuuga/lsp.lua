@@ -8,22 +8,21 @@ vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", { desc = "Sho
 vim.api.nvim_create_user_command("LspRestart", "lsp restart", { desc = "Restart LSP" })
 
 vim.api.nvim_create_autocmd("LspProgress", {
-    callback = function(ev)
-        local value = ev.data.params.value or {}
-        local msg = value.message or "done"
+	callback = function(ev)
+		local value = ev.data.params.value or {}
+		local msg = value.message or "done"
 
-        if #msg > 40 then
-            msg = msg:sub(1, 37) .. "..."
-        end
+		if #msg > 40 then msg = msg:sub(1, 37) .. "..." end
 
-        vim.api.nvim_echo({ { msg } }, false, {
-            id = "lsp." .. ev.data.client_id,
-            kind = "progress",
-            title = value.title,
-            status = value.kind ~= "end" and "running" or "success",
-            percent = value.percentage,
-        })
-    end
+		vim.api.nvim_echo({ { msg } }, false, {
+			id = "lsp." .. ev.data.client_id,
+			kind = "progress",
+			source = "vim.lsp",
+			title = value.title,
+			status = value.kind ~= "end" and "running" or "success",
+			percent = value.percentage,
+		})
+	end,
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -39,7 +38,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
 				group = augroup("LspCodeLens." .. bufnr, { clear = true }),
 				buffer = bufnr,
-				callback = function() vim.lsp.codelens.refresh({ bufnr = bufnr }) end,
+				callback = function() vim.lsp.codelens.enable(true) end,
 			})
 		end
 
@@ -55,7 +54,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("grt", function() Snacks.picker.lsp_type_definitions() end, "Type definitions")
 		map("gai", function() Snacks.picker.lsp_incoming_calls() end, "Callers (incoming calls)")
 		map("gao", function() Snacks.picker.lsp_outgoing_calls() end, "Callers (outgoing calls)")
-		map("<Leader>fs", function() Snacks.picker.lsp_symbols() end, "LSP Symbols")
-		map("<leader>fS", function() Snacks.picker.lsp_workspace_symbols() end, "LSP Workspace Symbols")
+		map("gO", function() Snacks.picker.lsp_symbols() end, "LSP Symbols")
+		map("<leader>fs", function() Snacks.picker.lsp_workspace_symbols() end, "LSP Workspace Symbols")
 	end,
 })

@@ -7,9 +7,7 @@ return function(args)
 	local is_run = string.sub(file, 1, string.len("run_")) == "run_"
 	local is_chezmoi = string.sub(file, 1, string.len(".chezmoi")) == ".chezmoi"
 
-	if is_run or is_chezmoi then
-		return
-	end
+	if is_run or is_chezmoi then return end
 
 	local stdin = uv.new_pipe()
 	local stdout = uv.new_pipe()

@@ -12,9 +12,7 @@ vim.schedule(function()
 			preset = "enter",
 			["<Tab>"] = {
 				"snippet_forward",
-				function()
-					require("sidekick").nes_jump_or_apply()
-				end,
+				function() require("sidekick").nes_jump_or_apply() end,
 				"fallback",
 			},
 		},
@@ -69,9 +67,7 @@ vim.schedule(function()
 										ctx.item.documentation,
 										{ kind = ctx.kind }
 									)
-									if color_item and color_item.abbr ~= "" then
-										icon = color_item.abbr
-									end
+									if color_item and color_item.abbr ~= "" then icon = color_item.abbr end
 								end
 								return icon .. ctx.icon_gap
 							end,
@@ -92,12 +88,8 @@ vim.schedule(function()
 							end,
 						},
 						label = {
-							text = function(ctx)
-								return require("colorful-menu").blink_components_text(ctx)
-							end,
-							highlight = function(ctx)
-								return require("colorful-menu").blink_components_highlight(ctx)
-							end,
+							text = function(ctx) return require("colorful-menu").blink_components_text(ctx) end,
+							highlight = function(ctx) return require("colorful-menu").blink_components_highlight(ctx) end,
 						},
 					},
 				},

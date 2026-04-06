@@ -2,17 +2,15 @@ local icons = { error = " ", warn = " ", info = " ", hint = " " }
 local keymap = require("kuuga.lib.keymap")
 
 local function diagnostic_open_float()
-    ---@type vim.diagnostic.Opts.Float
-    local diag_opts = {
-        border = "rounded",
-        header = "",
-        source = true,
-        scope = "line"
-    }
+	---@type vim.diagnostic.Opts.Float
+	local diag_opts = {
+		border = "rounded",
+		header = "",
+		source = true,
+		scope = "line",
+	}
 
-    return function() 
-        vim.diagnostic.open_float(diag_opts)
-    end
+	return function() vim.diagnostic.open_float(diag_opts) end
 end
 
 vim.diagnostic.config({

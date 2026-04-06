@@ -2,14 +2,10 @@ vim.schedule(function()
 	vim.pack.add({ { src = "https://github.com/echasnovski/mini.nvim", version = vim.version.range("*") } })
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = { "Trouble", "help", "mason", "man", "dashboard" },
-		callback = function()
-			vim.b.miniindentscope_disable = true
-		end,
+		callback = function() vim.b.miniindentscope_disable = true end,
 	})
 
-	require("kuuga.lib.keymap")("n", "<Leader>gc", function()
-		vim.cmd("Git commit")
-	end, "Git commit")
+	require("kuuga.lib.keymap")("n", "<Leader>gc", function() vim.cmd("Git commit") end, "Git commit")
 
 	require("mini.bracketed").setup()
 	require("mini.pairs").setup({
@@ -63,7 +59,8 @@ vim.schedule(function()
 	require("mini.comment").setup({
 		options = {
 			custom_commentstring = function()
-				return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
+				local ok, module = pcall(require, "ts_context_commentstring")
+				return ok and module.calculate_commentstring() or vim.bo.commentstring
 			end,
 		},
 		mappings = {

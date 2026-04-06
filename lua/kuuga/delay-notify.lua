@@ -1,9 +1,7 @@
 -- from https://github.com/LazyVim/LazyVim/blob/83d90f339defdb109a6ede333865a66ffc7ef6aa/lua/lazyvim/util/init.lua#L144
 -- delay notify until vim.notify is available or after 500ms
 local notifs = {}
-local function temp(...)
-	table.insert(notifs, vim.F.pack_len(...))
-end
+local function temp(...) table.insert(notifs, vim.F.pack_len(...)) end
 
 local orig = vim.notify
 vim.notify = temp
@@ -33,9 +31,7 @@ end
 
 -- wait till vim.notify has been replaced
 check:start(function()
-	if vim.notify ~= temp then
-		replay()
-	end
+	if vim.notify ~= temp then replay() end
 end)
 -- or if it took more than 500ms, then something went wrong
 timer:start(500, 0, replay)
