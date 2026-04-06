@@ -80,6 +80,10 @@
       "rev": "b20b2a7887bd39c1a356980b45e03250f3dce49c",
       "src": "https://github.com/folke/persistence.nvim"
     },
+    "rainbow-delimiters.nvim": {
+      "rev": "bd0d34008d611b9f87fb0969b1f9878351202e80",
+      "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
+    },
     "schemastore.nvim": {
       "rev": "6d0329adb9c8cbe51b9a28299890a5eb104db7dc",
       "src": "https://github.com/b0o/schemastore.nvim"
