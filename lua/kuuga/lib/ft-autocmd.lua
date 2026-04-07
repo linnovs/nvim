@@ -12,11 +12,12 @@ function M.autocmd(callback, opts)
 		vim.tbl_extend("force", {
 			group = M.augroup,
 			once = true,
+			---@param ev vim.api.keyset.create_autocmd.callback_args
 			callback = function(ev)
 				callback(ev)
 
 				vim.schedule(function()
-					local bufnr = vim.api.nvim_get_current_buf()
+					local bufnr = ev.buf
 					if not vim.api.nvim_buf_is_valid(bufnr) then return end
 
 					local _opts = { buffer = bufnr, modeline = false }
