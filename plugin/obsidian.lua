@@ -32,7 +32,7 @@ vim.schedule(function()
 		new_notes_location = "notes_subdir",
 		note_id_func = function(title)
 			if title == nil or title == "" then
-				return os.date("%Y%m%d%H%M")
+				return tostring(os.date("%Y%m%d%H%M"))
 			else
 				return title
 			end
