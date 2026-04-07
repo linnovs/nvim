@@ -3,8 +3,7 @@ vim.pack.add({ { src = "https://github.com/folke/snacks.nvim", version = vim.ver
 vim.schedule(function()
 	_G.dd = function(...) Snacks.debug.inspect(...) end
 	_G.bt = function() Snacks.debug.backtrace() end
-
-	vim.print = function(_, ...) dd(...) end
+	vim.print = _G.dd
 
 	Snacks.toggle.option("cursorcolumn", { name = "Cursor column" }):map("yoc")
 	Snacks.toggle.option("wrap", { name = "Wrap lines" }):map("yow")
