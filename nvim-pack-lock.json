@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "bafa.nvim": {
+      "rev": "c021eec24e98e41e212a2ae7718ab847466103b0",
+      "src": "https://github.com/mistweaverco/bafa.nvim"
+    },
     "blink-copilot": {
       "rev": "41e91a659bd9b8cba9ba2ea68a69b52ba5a9ebd8",
       "src": "https://github.com/fang2hou/blink-copilot",
