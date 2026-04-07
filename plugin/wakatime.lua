@@ -1,1 +1,3 @@
-vim.schedule(function() vim.pack.add({ "https://github.com/wakatime/vim-wakatime" }) end)
+vim.schedule(
+	function() vim.pack.add({ { src = "https://github.com/wakatime/vim-wakatime", version = vim.version.range("*") } }) end
+)

@@ -2,7 +2,7 @@ local keymap = require("kuuga.lib.keymap")
 
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()
-		vim.pack.add({ "https://github.com/folke/todo-comments.nvim" })
+		vim.pack.add({ { src = "https://github.com/folke/todo-comments.nvim", version = vim.version.range("*") } })
 
 		require("todo-comments").setup()
 

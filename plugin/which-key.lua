@@ -1,5 +1,5 @@
 vim.schedule(function()
-	vim.pack.add({ "https://github.com/folke/which-key.nvim" })
+	vim.pack.add({ { src = "https://github.com/folke/which-key.nvim", version = vim.version.range("*") } })
 	require("kuuga.lib.keymap")(
 		"n",
 		"<Leader>?",

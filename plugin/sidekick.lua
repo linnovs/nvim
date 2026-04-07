@@ -1,5 +1,5 @@
 vim.schedule(function()
-	vim.pack.add({ "https://github.com/folke/sidekick.nvim" })
+	vim.pack.add({ { src = "https://github.com/folke/sidekick.nvim", version = vim.version.range("*") } })
 	require("sidekick").setup({
 		cli = { mux = { enabled = true }, win = { bo = { scrollback = 0 }, layout = "float" } },
 	})

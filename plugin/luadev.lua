@@ -1,5 +1,5 @@
 require("kuuga.lib.ft-autocmd").autocmd(function()
-	vim.pack.add({ "https://github.com/folke/lazydev.nvim" })
+	vim.pack.add({ { src = "https://github.com/folke/lazydev.nvim", version = vim.version.range("*") } })
 	require("lazydev").setup({
 		library = {
 			{ path = "snacks.nvim", words = { "Snacks" } },
