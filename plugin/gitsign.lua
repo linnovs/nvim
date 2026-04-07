@@ -31,24 +31,26 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 				keymap("n", "<leader>ghs", gs.stage_hunk, "Stage hunk")
 				keymap("n", "<leader>ghr", gs.reset_hunk, "Reset hunk")
 
-				keymap("v", "<leader>ghs", function()
-					gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-				end, "Stage selected hunk")
-				keymap("v", "<leader>ghr", function()
-					gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-				end, "Reset selected hunk")
+				keymap(
+					"v",
+					"<leader>ghs",
+					function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
+					"Stage selected hunk"
+				)
+				keymap(
+					"v",
+					"<leader>ghr",
+					function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
+					"Reset selected hunk"
+				)
 
 				keymap("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
 				keymap("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
 				keymap("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
 
-				keymap("n", "<leader>ghb", function()
-					gs.blame_line({ full = true })
-				end, "Blame Line")
+				keymap("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
 				keymap("n", "<leader>ghd", gs.diffthis, "Diff this")
-				keymap("n", "<leader>ghD", function()
-					gs.diffthis("~")
-				end, "Diff this ~")
+				keymap("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff this ~")
 
 				-- Text objects
 				keymap({ "o", "x" }, "ih", gs.select_hunk, "Select Hunk")
