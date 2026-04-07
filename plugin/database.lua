@@ -8,13 +8,9 @@ local function packadd()
 	})
 end
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "sql", "psql", "mysql", "plsql" },
-	callback = function() packadd() end,
-})
-
 vim.api.nvim_create_user_command("DBUI", function()
 	vim.api.nvim_del_user_command("DBUI")
 	packadd()
 	vim.cmd("DBUI")
 end, {})
+require("kuuga.lib.ft-autocmd").autocmd(function() packadd() end, { pattern = { "sql", "psql", "mysql", "plsql" } })
