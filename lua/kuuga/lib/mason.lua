@@ -1,7 +1,4 @@
 local M = {}
-
-M.last_install = 0
-
 local mason_exist, registry = pcall(require, "mason-registry")
 
 ---@param server_name string
@@ -14,8 +11,11 @@ local function install_server(server_name, callback)
 
 	local pkg = registry.get_package(server_name)
 	local is_installed = pkg:is_installed()
-	local success_msg = (is_installed and "Updated " or "Installed ") .. server_name
-	local failed_msg = (is_installed and "Update " or "Install ") .. server_name .. " failed"
+
+	if is_installed then return end
+
+	local success_msg = "Installed " .. server_name
+	local failed_msg = "Install " .. server_name .. " failed"
 
 	pkg:install({}, function(success, data)
 		local msg = success and success_msg or failed_msg .. "\nError: " .. data
@@ -39,13 +39,9 @@ end
 function M.install(servers)
 	if not mason_exist then return end
 
-	if vim.uv.gettimeofday() - M.last_install < 6 * 60 * 60 then return end
-
 	for _, server in ipairs(servers) do
 		install_server(server, function(msg, lvl) notify(msg, lvl) end)
 	end
-
-	M.last_install = vim.uv.gettimeofday()
 end
 
 return M
