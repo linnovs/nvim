@@ -1,9 +1,5 @@
 vim.schedule(function()
 	vim.pack.add({ { src = "https://github.com/echasnovski/mini.nvim", version = vim.version.range("*") } })
-	vim.api.nvim_create_autocmd("FileType", {
-		pattern = { "Trouble", "help", "mason", "man", "dashboard" },
-		callback = function() vim.b.miniindentscope_disable = true end,
-	})
 
 	require("kuuga.lib.keymap")("n", "<Leader>gc", function() vim.cmd("Git commit") end, "Git commit")
 
