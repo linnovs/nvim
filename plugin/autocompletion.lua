@@ -20,7 +20,6 @@ vim.schedule(function()
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer", "nerdfont", "copilot" },
 			per_filetype = {
-				lua = { "lsp", "path", "snippets", "buffer", "lazydev", "nerdfont", "copilot" },
 				sql = { "lsp", "snippets", "buffer", "dadbob", "copilot" },
 				psql = { "lsp", "snippets", "buffer", "dadbob", "copilot" },
 				mysql = { "lsp", "snippets", "buffer", "dadbob", "copilot" },
@@ -39,7 +38,6 @@ vim.schedule(function()
 					score_offset = 15,
 					opts = { insert = true },
 				},
-				lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", fallbacks = { "lsp" } },
 				dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
 			},
 		},
