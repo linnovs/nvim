@@ -1,4 +1,4 @@
-local gh = require("kuuga.lib.pack-source.gh")
+local gh = require("kuuga.helper.gh")
 vim.pack.add({
 	gh("nvim-lua/plenary.nvim"),
 	gh("brenoprata10/nvim-highlight-colors"),

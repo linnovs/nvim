@@ -1,4 +1,4 @@
-local gh = require("kuuga.lib.pack-source.gh")
+local gh = require("kuuga.helper.gh")
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()
 		vim.pack.add({

@@ -1,4 +1,4 @@
-local gh = require("kuuga.lib.pack-source.gh")
+local gh = require("kuuga.helper.gh")
 vim.schedule(function()
 	vim.pack.add({ { src = gh("folke/which-key.nvim"), version = vim.version.range("*") } })
 	require("kuuga.lib.keymap")(

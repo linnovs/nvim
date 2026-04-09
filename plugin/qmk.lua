@@ -1,4 +1,4 @@
-local gh = require("kuuga.lib.pack-source.gh")
+local gh = require("kuuga.helper.gh")
 require("kuuga.lib.ft-autocmd").autocmd(function()
 	vim.pack.add({ gh("codethread/qmk.nvim") })
 	require("qmk").setup({

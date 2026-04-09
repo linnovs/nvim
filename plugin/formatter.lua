@@ -1,4 +1,4 @@
-local gh = require("kuuga.lib.pack-source.gh")
+local gh = require("kuuga.helper.gh")
 vim.api.nvim_create_autocmd("BufReadPre", {
 	callback = function()
 		vim.pack.add({ { src = gh("stevearc/conform.nvim"), version = vim.version.range("*") } })

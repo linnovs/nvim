@@ -1,5 +1,5 @@
 ---@diagnostic disable: duplicate-set-field
-local gh = require("kuuga.lib.pack-source.gh")
+local gh = require("kuuga.helper.gh")
 vim.pack.add({ { src = gh("folke/snacks.nvim"), version = vim.version.range("*") } })
 vim.schedule(function()
 	_G.dd = function(...) Snacks.debug.inspect(...) end
