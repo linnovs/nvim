@@ -17,14 +17,18 @@ vim.opt.tabstop = 4 -- number of spaces tabs count for
 vim.opt.shiftwidth = 0 -- number of spaces to use for (auto)indent step
 vim.opt.colorcolumn = "+1" -- columns to highlight
 vim.opt.diffopt:append({ algorithm = "histogram", linematch = 60 }) -- options for using diff mode
+vim.opt.inccommand = "split" -- preview substitutions live
+vim.opt.cursorline = true -- highlight the current line
+vim.opt.scrolloff = 7 -- Minimum number of screen lines to keep above and below the cursor
+vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
+vim.opt.wrap = false -- long lines wrap and continue on the next line
+vim.opt.signcolumn = "yes" -- keep signcolumn on by default
+vim.opt.updatetime = 250 -- Decrease update time (default is 4000ms)
+vim.opt.timeoutlen = 300 -- Decrease mapped sequence timeout (default is 1000ms)
 
 -- case-insensitive search unless \C / one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-
-vim.opt.signcolumn = "yes" -- keep signcolumn on by default
-vim.opt.updatetime = 250 -- Decrease update time (default is 4000ms)
-vim.opt.timeoutlen = 300 -- Decrease mapped sequence timeout (default is 1000ms)
 
 -- Split windows to the right and below
 vim.opt.splitright = true
@@ -33,12 +37,6 @@ vim.opt.splitbelow = true
 -- set how neovim displays whitespace characters
 vim.opt.list = true
 vim.opt.listchars = { extends = "", lead = "·", tab = "󰌒 ", trail = "·", nbsp = "␣" }
-
-vim.opt.inccommand = "split" -- preview substitutions live
-vim.opt.cursorline = true -- highlight the current line
-vim.opt.scrolloff = 7 -- Minimum number of screen lines to keep above and below the cursor
-vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
-vim.opt.wrap = false -- long lines wrap and continue on the next line
 
 -- fold settings
 vim.opt.foldcolumn = "1"
