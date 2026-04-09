@@ -1,5 +1,10 @@
 local gh = require("kuuga.helper.gh")
-vim.schedule(function()
-	vim.pack.add({ gh("JoosepAlviste/nvim-ts-context-commentstring") })
-	vim.pack.add({ gh("nvim-treesitter/nvim-treesitter") })
-end)
+vim.schedule(
+	function()
+		vim.pack.add({
+			gh("windwp/nvim-ts-autotag"),
+			gh("JoosepAlviste/nvim-ts-context-commentstring"),
+			gh("nvim-treesitter/nvim-treesitter"),
+		})
+	end
+)
