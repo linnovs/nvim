@@ -1,7 +1,8 @@
+local gh = require("kuuga.lib.pack-source.gh")
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()
 		vim.pack.add({
-			"https://github.com/HiPhish/rainbow-delimiters.nvim",
+			gh("HiPhish/rainbow-delimiters.nvim"),
 		})
 	end,
 })

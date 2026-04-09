@@ -1,7 +1,8 @@
+local gh = require("kuuga.lib.pack-source.gh")
 local keymap = require("kuuga.lib.keymap")
 
 vim.schedule(function()
-	vim.pack.add({ { src = "https://github.com/obsidian-nvim/obsidian.nvim", version = vim.version.range("*") } })
+	vim.pack.add({ { src = gh("obsidian-nvim/obsidian.nvim"), version = vim.version.range("*") } })
 
 	keymap("n", "<Leader>oo", "<Cmd>Obsidian quick_switch<CR>", "Obsidian quick switch")
 	keymap("n", "<Leader>os", "<Cmd>Obsidian search<CR>", "Search Obsidian file")

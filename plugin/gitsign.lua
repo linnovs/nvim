@@ -1,6 +1,7 @@
+local gh = require("kuuga.lib.pack-source.gh")
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()
-		vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
+		vim.pack.add({ gh("lewis6991/gitsigns.nvim") })
 		require("gitsigns").setup({
 			signs = {
 				add = { text = "▎" },

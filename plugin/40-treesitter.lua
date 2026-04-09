@@ -1,4 +1,5 @@
+local gh = require("kuuga.lib.pack-source.gh")
 vim.schedule(function()
-	vim.pack.add({ "https://github.com/JoosepAlviste/nvim-ts-context-commentstring" })
-	vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
+	vim.pack.add({ gh("JoosepAlviste/nvim-ts-context-commentstring") })
+	vim.pack.add({ gh("nvim-treesitter/nvim-treesitter") })
 end)

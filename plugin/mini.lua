@@ -1,5 +1,7 @@
+local gh = require("kuuga.lib.pack-source.gh")
+
 vim.schedule(function()
-	vim.pack.add({ { src = "https://github.com/echasnovski/mini.nvim", version = vim.version.range("*") } })
+	vim.pack.add({ { src = gh("echasnovski/mini.nvim"), version = vim.version.range("*") } })
 
 	require("kuuga.lib.keymap")("n", "<Leader>gc", function() vim.cmd("Git commit") end, "Git commit")
 

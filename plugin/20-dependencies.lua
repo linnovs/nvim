@@ -1,8 +1,9 @@
+local gh = require("kuuga.lib.pack-source.gh")
 vim.pack.add({
-	"https://github.com/nvim-lua/plenary.nvim",
-	"https://github.com/brenoprata10/nvim-highlight-colors",
-	"https://github.com/nvim-tree/nvim-web-devicons",
-	"https://github.com/b0o/schemastore.nvim",
+	gh("nvim-lua/plenary.nvim"),
+	gh("brenoprata10/nvim-highlight-colors"),
+	gh("nvim-tree/nvim-web-devicons"),
+	gh("b0o/schemastore.nvim"),
 })
 
-require("nvim-highlight-colors").setup()
+require("nvim-highlight-colors").setup({})

@@ -1,10 +1,11 @@
+local gh = require("kuuga.lib.pack-source.gh")
 vim.schedule(function()
 	vim.pack.add({
-		"https://github.com/MahanRahmati/blink-nerdfont.nvim",
-		{ src = "https://github.com/fang2hou/blink-copilot", version = vim.version.range("*") },
-		"https://github.com/rafamadriz/friendly-snippets",
-		"https://github.com/xzbdmw/colorful-menu.nvim",
-		{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
+		gh("MahanRahmati/blink-nerdfont.nvim"),
+		{ src = gh("fang2hou/blink-copilot"), version = vim.version.range("*") },
+		gh("rafamadriz/friendly-snippets"),
+		gh("xzbdmw/colorful-menu.nvim"),
+		{ src = gh("saghen/blink.cmp"), version = vim.version.range("^1") },
 	})
 
 	require("blink.cmp").setup({

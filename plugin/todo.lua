@@ -1,8 +1,9 @@
+local gh = require("kuuga.lib.pack-source.gh")
 local keymap = require("kuuga.lib.keymap")
 
 vim.api.nvim_create_autocmd("BufReadPost", {
 	callback = function()
-		vim.pack.add({ { src = "https://github.com/folke/todo-comments.nvim", version = vim.version.range("*") } })
+		vim.pack.add({ { src = gh("folke/todo-comments.nvim"), version = vim.version.range("*") } })
 
 		require("todo-comments").setup()
 

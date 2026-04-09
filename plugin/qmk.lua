@@ -1,5 +1,6 @@
+local gh = require("kuuga.lib.pack-source.gh")
 require("kuuga.lib.ft-autocmd").autocmd(function()
-	vim.pack.add({ "https://github.com/codethread/qmk.nvim" })
+	vim.pack.add({ gh("codethread/qmk.nvim") })
 	require("qmk").setup({
 		name = "LAYOUT",
 		comment_preview = {},

@@ -1,6 +1,7 @@
+local gh = require("kuuga.lib.pack-source.gh")
 vim.api.nvim_create_autocmd("BufReadPre", {
 	callback = function()
-		vim.pack.add({ { src = "https://github.com/stevearc/conform.nvim", version = vim.version.range("*") } })
+		vim.pack.add({ { src = gh("stevearc/conform.nvim"), version = vim.version.range("*") } })
 		vim.opt.formatexpr = 'v:lua.require("conform").formatexpr()'
 
 		require("kuuga.lib.keymap")(

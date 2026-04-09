@@ -1,5 +1,6 @@
+local gh = require("kuuga.lib.pack-source.gh")
 vim.schedule(function()
-	vim.pack.add({ { src = "https://github.com/mistweaverco/bafa.nvim", version = vim.version.range("*") } })
+	vim.pack.add({ { src = gh("mistweaverco/bafa.nvim"), version = vim.version.range("*") } })
 	require("kuuga.lib.keymap")(
 		"n",
 		"<Leader>s",
