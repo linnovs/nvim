@@ -5,6 +5,7 @@ vim.schedule(function()
 
 	require("kuuga.lib.keymap")("n", "<Leader>gc", function() vim.cmd("Git commit") end, "Git commit")
 
+	require("mini.operators").setup()
 	require("mini.bracketed").setup()
 	require("mini.pairs").setup({
 		modes = { insert = true, command = false, terminal = true },
