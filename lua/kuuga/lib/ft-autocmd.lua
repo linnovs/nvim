@@ -1,6 +1,5 @@
 local M = {}
-
-M.augroup = vim.api.nvim_create_augroup("KuugaLazyFileType", { clear = true })
+local augroup = vim.api.nvim_create_augroup("KuugaLazyFileType", { clear = true })
 
 ---@param callback fun(vim.api.keyset.create_autocmd.callback_args)
 ---@param opts? vim.api.keyset.create_autocmd
@@ -10,7 +9,7 @@ function M.autocmd(callback, opts)
 	return vim.api.nvim_create_autocmd(
 		"FileType",
 		vim.tbl_extend("force", {
-			group = M.augroup,
+			group = augroup,
 			once = true,
 			---@param ev vim.api.keyset.create_autocmd.callback_args
 			callback = function(ev)
