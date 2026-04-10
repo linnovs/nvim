@@ -1,6 +1,5 @@
----@module 'snacks'
 ---@type snacks.dashboard.Config
-local M = {
+local DashboardConfig = {
 	enabled = true,
 	sections = {},
 	formats = {},
@@ -13,7 +12,7 @@ local M = {
 	debug = false,
 }
 
-M.preset.keys = {
+DashboardConfig.preset.keys = {
 	{ icon = " ", key = "b", desc = "Browse Repository", action = ":lua Snacks.gitbrowse()" },
 	{ icon = "󰝒 ", key = "N", desc = "New File", action = ":ene | startinsert" },
 	{
@@ -26,7 +25,7 @@ M.preset.keys = {
 	{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 }
 
-M.sections[1] = {
+DashboardConfig.sections[1] = {
 	{
 		text = {
 			{
@@ -62,7 +61,7 @@ M.sections[1] = {
 	},
 }
 
-M.sections[2] = {
+DashboardConfig.sections[2] = {
 	pane = 2,
 	{ section = "keys", gap = 0, padding = 1 },
 	function()
@@ -109,4 +108,4 @@ M.sections[2] = {
 	end,
 }
 
-return M
+return DashboardConfig
