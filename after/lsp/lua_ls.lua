@@ -1,3 +1,8 @@
+local library = vim.tbl_filter(
+	function(d) return not d:match(vim.fn.stdpath("config") .. "/?a?f?t?e?r?") end,
+	vim.api.nvim_get_runtime_file("", true)
+)
+
 return {
 	on_init = function(client)
 		if client.workspace_folders then
@@ -20,7 +25,7 @@ return {
 				},
 			},
 			workspace = {
-				library = { vim.env.VIMRUNTIME },
+				library = library,
 			},
 		})
 	end,
