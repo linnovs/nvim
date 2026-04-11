@@ -42,6 +42,7 @@ vim.opt.smartcase = true
 -- Split windows to the right and below
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.splitkeep = "screen"
 
 -- set how neovim displays whitespace characters
 vim.opt.list = true
