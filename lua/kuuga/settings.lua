@@ -3,28 +3,37 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Set up options
-vim.opt.number = true -- show line numbers
-vim.opt.relativenumber = true -- show relative line numbers
-vim.opt.mouse = "a" -- enable mouse support for all modes (unless |hit-enter| and |more-prompt|)
-vim.opt.showmode = false -- hide the mode since it's shown in the statusline
-vim.opt.laststatus = 3 -- tells when last window has status lines
-vim.opt.breakindent = true -- wrapped line repeats indent
-vim.opt.undofile = true -- save undo history to an undo file
-vim.opt.expandtab = true -- use spaces instead of tabs
-vim.opt.exrc = true -- allow project-local .nvimrc files
-vim.opt.textwidth = 120 -- set maximum width of text that is being inserted
-vim.opt.tabstop = 4 -- number of spaces tabs count for
-vim.opt.shiftwidth = 0 -- number of spaces to use for (auto)indent step
 vim.opt.colorcolumn = "+1" -- columns to highlight
-vim.opt.diffopt:append({ algorithm = "histogram", linematch = 60 }) -- options for using diff mode
-vim.opt.inccommand = "split" -- preview substitutions live
-vim.opt.cursorline = true -- highlight the current line
-vim.opt.scrolloff = 7 -- Minimum number of screen lines to keep above and below the cursor
 vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
-vim.opt.wrap = false -- long lines wrap and continue on the next line
+vim.opt.cursorline = true -- highlight the current line
+vim.opt.diffopt:append({ algorithm = "histogram", linematch = 60 }) -- options for using diff mode
+vim.opt.exrc = true -- allow project-local .nvimrc files
+vim.opt.inccommand = "split" -- preview substitutions live
+vim.opt.laststatus = 3 -- tells when last window has status lines
+vim.opt.mouse = "a" -- enable mouse support for all modes (unless |hit-enter| and |more-prompt|)
+vim.opt.scrolloff = 7 -- Minimum number of screen lines to keep above and below the cursor
+vim.opt.showmode = false -- hide the mode since it's shown in the statusline
 vim.opt.signcolumn = "yes" -- keep signcolumn on by default
-vim.opt.updatetime = 250 -- Decrease update time (default is 4000ms)
+vim.opt.textwidth = 120 -- set maximum width of text that is being inserted
+vim.opt.undofile = true -- save undo history to an undo file
+
+-- line number
+vim.opt.number = true
+vim.opt.relativenumber = true
+
+-- indent settings
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 0
+vim.opt.tabstop = 4
+
+-- line wrapping settings
+vim.opt.wrap = false
+vim.opt.breakindent = true
+vim.opt.linebreak = true
+
+-- Decrease timeout and update time to make vim more responsive
 vim.opt.timeoutlen = 300 -- Decrease mapped sequence timeout (default is 1000ms)
+vim.opt.updatetime = 250 -- Decrease update time (default is 4000ms)
 
 -- case-insensitive search unless \C / one or more capital letters in the search term
 vim.opt.ignorecase = true
