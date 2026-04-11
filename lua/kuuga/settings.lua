@@ -8,6 +8,7 @@ vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.opt.diffopt:append({ algorithm = "histogram", linematch = 60 }) -- options for using diff mode
 vim.opt.exrc = true -- allow project-local .nvimrc files
 vim.opt.inccommand = "split" -- preview substitutions live
+vim.opt.iskeyword:append("-") -- consider string-string as whole word
 vim.opt.laststatus = 3 -- tells when last window has status lines
 vim.opt.mouse = "a" -- enable mouse support for all modes (unless |hit-enter| and |more-prompt|)
 vim.opt.scrolloff = 7 -- Minimum number of screen lines to keep above and below the cursor
