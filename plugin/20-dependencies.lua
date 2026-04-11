@@ -6,4 +6,4 @@ vim.pack.add({
 	gh("b0o/schemastore.nvim"),
 })
 
-require("nvim-highlight-colors").setup({})
+require("nvim-highlight-colors").setup({ render = "virtual" })
