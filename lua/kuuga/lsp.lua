@@ -29,18 +29,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		local bufnr = ev.buf
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
-		local augroup = vim.api.nvim_create_augroup
-		local autocmd = vim.api.nvim_create_autocmd
 
 		if client == nil or Snacks == nil or vim.b[bufnr].disable_lsp then return end
-
-		if client:supports_method("textDocument/codeLens", bufnr) then
-			autocmd({ "CursorHold", "CursorHoldI", "InsertLeave" }, {
-				group = augroup("LspCodeLens." .. bufnr, { clear = true }),
-				buffer = bufnr,
-				callback = function() vim.lsp.codelens.enable(true) end,
-			})
-		end
 
 		local function map(lhs, rhs, desc, mode)
 			if not mode then mode = "n" end
