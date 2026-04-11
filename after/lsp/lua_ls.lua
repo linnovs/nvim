@@ -1,3 +1,12 @@
+local plugins = { "lua/snacks" }
+local library = { vim.env.VIMRUNTIME }
+
+for _, v in ipairs(plugins) do
+	local path = vim.api.nvim_get_runtime_file(v, false)[1]
+	path = string.sub(path, 1, #path - #v) .. "lua"
+	table.insert(library, path)
+end
+
 return {
 	on_init = function(client)
 		if client.workspace_folders then
@@ -20,7 +29,7 @@ return {
 				},
 			},
 			workspace = {
-				library = { vim.env.VIMRUNTIME },
+				library = library,
 			},
 		})
 	end,
@@ -34,6 +43,7 @@ return {
 			},
 			workspace = {
 				checkThirdParty = false,
+				ignoreSubmodules = true,
 			},
 			completion = {
 				callSnippet = "Replace",
