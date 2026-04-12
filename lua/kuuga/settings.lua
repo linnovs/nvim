@@ -3,19 +3,25 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Set up options
-vim.opt.colorcolumn = "+1" -- columns to highlight
 vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.opt.diffopt:append({ algorithm = "histogram", linematch = 60 }) -- options for using diff mode
 vim.opt.exrc = true -- allow project-local .nvimrc files
-vim.opt.inccommand = "split" -- preview substitutions live
 vim.opt.iskeyword:append("-") -- consider string-string as whole word
-vim.opt.laststatus = 3 -- tells when last window has status lines
 vim.opt.mouse = "a" -- enable mouse support for all modes (unless |hit-enter| and |more-prompt|)
 vim.opt.scrolloff = 7 -- Minimum number of screen lines to keep above and below the cursor
 vim.opt.showmode = false -- hide the mode since it's shown in the statusline
 vim.opt.signcolumn = "yes" -- keep signcolumn on by default
 vim.opt.textwidth = 120 -- set maximum width of text that is being inserted
 vim.opt.undofile = true -- save undo history to an undo file
+
+-- ui settings
+vim.opt.colorcolumn = "+1"
+vim.opt.inccommand = "split"
+vim.opt.laststatus = 3
+vim.opt.scrolloff = 7
+vim.opt.showmode = false
+vim.opt.signcolumn = "yes"
+vim.opt.textwidth = 120
 
 -- cursor lines settings
 vim.opt.cursorline = true
