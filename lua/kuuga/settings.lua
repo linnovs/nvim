@@ -19,6 +19,7 @@ vim.opt.colorcolumn = "+1"
 vim.opt.inccommand = "split"
 vim.opt.laststatus = 3
 vim.opt.scrolloff = 7
+vim.opt.shortmess = "CFOSWaco"
 vim.opt.showmode = false
 vim.opt.signcolumn = "yes"
 vim.opt.textwidth = 120
