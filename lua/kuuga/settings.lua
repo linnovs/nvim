@@ -9,9 +9,7 @@ vim.opt.exrc = true -- allow project-local .nvimrc files
 vim.opt.iskeyword:append("-") -- consider string-string as whole word
 vim.opt.mouse = "a" -- enable mouse support for all modes (unless |hit-enter| and |more-prompt|)
 vim.opt.scrolloff = 7 -- Minimum number of screen lines to keep above and below the cursor
-vim.opt.showmode = false -- hide the mode since it's shown in the statusline
-vim.opt.signcolumn = "yes" -- keep signcolumn on by default
-vim.opt.textwidth = 120 -- set maximum width of text that is being inserted
+vim.opt.timeoutlen = 500 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.undofile = true -- save undo history to an undo file
 
 -- ui settings
@@ -41,10 +39,6 @@ vim.opt.tabstop = 4
 vim.opt.wrap = false
 vim.opt.breakindent = true
 vim.opt.linebreak = true
-
--- Decrease timeout and update time to make vim more responsive
-vim.opt.timeoutlen = 300 -- Decrease mapped sequence timeout (default is 1000ms)
-vim.opt.updatetime = 250 -- Decrease update time (default is 4000ms)
 
 -- case-insensitive search unless \C / one or more capital letters in the search term
 vim.opt.ignorecase = true
