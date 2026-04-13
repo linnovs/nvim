@@ -9,6 +9,13 @@ vim.schedule(function()
 	Snacks.toggle.option("cursorcolumn", { name = "Cursor column" }):map("yoc")
 	Snacks.toggle.option("wrap", { name = "Wrap lines" }):map("yow")
 	Snacks.toggle.inlay_hints():map("yoh")
+	Snacks.toggle
+		.new({
+			name = "Code lens",
+			get = vim.lsp.codelens.is_enabled,
+			set = vim.lsp.codelens.enable,
+		})
+		:map("yol")
 
 	vim.api.nvim_create_autocmd("User", {
 		pattern = "OilActionPost",
