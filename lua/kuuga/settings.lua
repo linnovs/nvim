@@ -9,7 +9,7 @@ vim.opt.exrc = true -- allow project-local .nvimrc files
 vim.opt.iskeyword:append("-") -- consider string-string as whole word
 vim.opt.mouse = "a" -- enable mouse support for all modes (unless |hit-enter| and |more-prompt|)
 vim.opt.switchbuf = "usetab" -- sets behavior when switching to another buffer
-vim.opt.timeoutlen = 500 -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.timeoutlen = 300 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.undofile = true -- save undo history to an undo file
 
 -- shada settings
