@@ -8,7 +8,7 @@ vim.schedule(function()
 
 	Snacks.toggle.option("cursorcolumn", { name = "Cursor column" }):map("yoc")
 	Snacks.toggle.option("wrap", { name = "Wrap lines" }):map("yow")
-	Snacks.toggle.inlay_hints():map("yoih")
+	Snacks.toggle.inlay_hints():map("yoh")
 
 	vim.api.nvim_create_autocmd("User", {
 		pattern = "OilActionPost",
