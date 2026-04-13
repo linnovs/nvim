@@ -94,6 +94,7 @@ require("snacks").setup({
 	quickfile = { enabled = true },
 	scroll = { enabled = true },
 	statuscolumn = { enabled = true },
+	input = { enabled = true },
 	picker = {
 		actions = {
 			sidekick_send = function(...)
