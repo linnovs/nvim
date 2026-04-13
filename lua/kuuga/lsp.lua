@@ -1,7 +1,7 @@
 if vim.env.VIMDEBUG == "lsp" then
 	vim.lsp.log.set_level(vim.log.levels.DEBUG)
 else
-	vim.lsp.log.set_level(vim.log.levels.ERROR)
+	vim.lsp.log.set_level(vim.log.levels.OFF)
 end
 
 vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", { desc = "Show LSP Info" })
