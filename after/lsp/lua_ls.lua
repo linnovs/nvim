@@ -1,11 +1,7 @@
-local plugins = { "lua/snacks", "lua/tokyonight" }
-local library = { vim.env.VIMRUNTIME }
-
-for _, v in ipairs(plugins) do
-	local path = vim.api.nvim_get_runtime_file(v, false)[1]
-	path = string.sub(path, 1, #path - #v) .. "lua"
-	table.insert(library, path)
-end
+local library = vim.tbl_filter(
+	function(d) return d:match(vim.fn.stdpath("data") .. "/site/pack/core/opt") or d:match(vim.env.VIMRUNTIME) end,
+	vim.api.nvim_get_runtime_file("", true)
+)
 
 return {
 	on_init = function(client)
