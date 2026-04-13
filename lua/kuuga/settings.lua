@@ -11,6 +11,7 @@ vim.opt.mouse = "a" -- enable mouse support for all modes (unless |hit-enter| an
 vim.opt.switchbuf = "usetab" -- sets behavior when switching to another buffer
 vim.opt.timeoutlen = 300 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.undofile = true -- save undo history to an undo file
+vim.opt.hlsearch = false -- highlight matches with last search pattern
 
 -- shada settings
 vim.opt.shada = "'100,<50,s10,:1000,/100,@100,r/tmp/,r/private/,h"
