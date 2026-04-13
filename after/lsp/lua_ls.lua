@@ -1,4 +1,4 @@
-local plugins = { "lua/snacks" }
+local plugins = { "lua/snacks", "lua/tokyonight" }
 local library = { vim.env.VIMRUNTIME }
 
 for _, v in ipairs(plugins) do
