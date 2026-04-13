@@ -16,9 +16,9 @@ vim.schedule(function()
 			jump_labels = {
 					-- stylua: ignore start
 					keys = {
-						"a", "r", "s", "t", "n", "e", "i", "o", -- home row
-						"q", "w", "f", "p", "l", "u", "y", ";", -- top row
-						"z", "x", "c", "k", "h", ",", ".",      -- bottom row
+						"a", "r", "s", "t", "n", "e", "i",  -- home row
+						"w", "f", "p", "l", "y", ";",       -- top row
+						"z", "x", "c", "k", "h", ",", ".",  -- bottom row
 					},
 				-- stylua: ignore end
 			},
