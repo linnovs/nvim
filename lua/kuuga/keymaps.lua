@@ -58,3 +58,6 @@ keymap(
 )
 keymap({ "n", "v", "x" }, "<Leader>p", '"+p', "Paste from clipboard", { silent = true, noremap = true })
 keymap("x", "<Leader>P", '"_dP', "Paste without erase unnamed register", { silent = true, noremap = true })
+
+-- delete marks
+keymap("n", "<Leader>dm", "<Cmd>delmarks!<CR>", "Delete all marks")
