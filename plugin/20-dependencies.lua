@@ -6,3 +6,4 @@ vim.pack.add({
 })
 
 require("nvim-highlight-colors").setup({ render = "virtual" })
+require("nvim-web-devicons").setup()
