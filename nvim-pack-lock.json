@@ -59,6 +59,10 @@
       "rev": "c282a62bec6c0621a1ef5132aa3f4c9fc4dcc2c7",
       "src": "https://github.com/kevinhwang91/nvim-bqf"
     },
+    "nvim-early-retirement": {
+      "rev": "3b05315a61c8f01bb893249f9e044fc359122c9d",
+      "src": "https://github.com/chrisgrieser/nvim-early-retirement"
+    },
     "nvim-highlight-colors": {
       "rev": "e2cb22089cc2358b2b995c09578224f142de6039",
       "src": "https://github.com/brenoprata10/nvim-highlight-colors"
