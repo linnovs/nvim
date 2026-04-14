@@ -24,7 +24,7 @@ return function()
 	local filepath = api.nvim_buf_get_name(bufnr)
 	local bo = vim.bo[bufnr]
 
-	if bo.buftype ~= "" and not vim.tbl_contains(buftype_ignore, bo.buftype) then filepath = bo.buftype end
+	if bo.buftype ~= "" and not vim.list_contains(buftype_ignore, bo.buftype) then filepath = bo.buftype end
 
 	local filename = vim.fs.basename(filepath)
 	local icon = get_file_icon(filename)

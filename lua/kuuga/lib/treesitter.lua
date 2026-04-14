@@ -9,7 +9,7 @@ function M.start()
 	local bufnr = vim.api.nvim_get_current_buf()
 	local lang = vim.treesitter.language.get_lang(ftype)
 	if not lang then return end
-	if not vim.tbl_contains(installed_langs, lang) then
+	if not vim.list_contains(installed_langs, lang) then
 		if has_TS then TS.install({ lang }) end
 	end
 

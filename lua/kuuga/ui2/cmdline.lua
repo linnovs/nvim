@@ -34,7 +34,7 @@ local function reposition()
 	local cols, lines = vim.o.columns, vim.o.lines
 	local content_height = math.max(1, api.nvim_win_get_height(win))
 
-	if vim.tbl_contains(native_types, cmdline_type) then
+	if vim.list_contains(native_types, cmdline_type) then
 		pcall(api.nvim_win_set_config, win, {
 			relative = "editor",
 			col = 0,
@@ -70,7 +70,7 @@ local function wrap_cmdline_show()
 		local rtn = orig_cmdline_show(...)
 		if not cmdline_type then return rtn end
 
-		if not vim.tbl_contains(native_types, cmdline_type) then
+		if not vim.list_contains(native_types, cmdline_type) then
 			vim._with({ noautocmd = true }, function() vim.opt.cmdheight = 0 end)
 		end
 

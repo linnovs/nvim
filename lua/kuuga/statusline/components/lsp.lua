@@ -6,7 +6,7 @@ return function()
 	local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
 	local clients = vim.lsp.get_clients({ bufnr = bufnr })
 	local filtered_clients = vim.tbl_filter(
-		function(client) return not vim.tbl_contains(client_filter, client.name) end,
+		function(client) return not vim.list_contains(client_filter, client.name) end,
 		clients
 	)
 
