@@ -1,4 +1,4 @@
-local icons = { error = " ", warn = " ", info = " ", hint = " " }
+local icons = require("kuuga.lib.icons").diagnostics
 local keymap = require("kuuga.lib.keymap")
 
 local function diagnostic_open_float()
