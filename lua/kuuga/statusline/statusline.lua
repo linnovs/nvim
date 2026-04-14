@@ -38,5 +38,5 @@ end
 function StatusLine.render()
 	local winid = vim.g.statusline_winid
 	StatusLine.refresh(winid)
-	return StatusLine.last_status[winid] or "%#StatusLine#   Loading ...%*"
+	return StatusLine.last_status[winid] or "%#StatusLineLogo#   Loading ...%*"
 end
