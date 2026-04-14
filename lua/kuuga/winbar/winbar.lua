@@ -8,24 +8,25 @@ WinBar.last_refresh_time = {} ---@type table<integer, integer>
 WinBar.current_winid = nil ---@type integer
 
 ---@param winid integer
----@param active boolean
-function WinBar.refresh(winid, active)
+function WinBar.refresh(winid)
 	local last_refresh_time = WinBar.last_refresh_time[winid] or 0
 	if math.abs(last_refresh_time - vim.uv.now()) < refresh_interval then return end
 
-	WinBar.last_winbar[active and "active" or "inactive"][winid] = table.concat({
-		components.render("filepath", active, false),
-		"%=",
-		components.render("lsp", active, false),
-		components.render("file", active, true),
-	})
+	for _, state in ipairs({ "active", "inactive" }) do
+		WinBar.last_winbar[state][winid] = table.concat({
+			components.render("filepath", state == "active", false),
+			"%=",
+			components.render("lsp", state == "active", true),
+			components.render("file", state == "active", true),
+		})
+	end
 	WinBar.last_refresh_time[winid] = vim.uv.now()
 end
 
 function WinBar.render()
 	local active = WinBar.current_winid == vim.api.nvim_get_current_win()
 	local winid = vim.api.nvim_get_current_win()
-	WinBar.refresh(winid, active)
+	WinBar.refresh(winid)
 	return WinBar.last_winbar[active and "active" or "inactive"][winid] or "%#WinBarNC# 󱢡  Loading ...%*"
 end
 
