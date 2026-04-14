@@ -4,7 +4,7 @@ return function()
 
 	return table.concat({
 		"%#StatuslineMacroRecordingIcon#",
-		"󰰟 ",
+		"󰑋 ",
 		"%#StatuslineMacroRecording#",
 		"Recording ",
 		"%#StatuslineMacroRecordingReg#",
