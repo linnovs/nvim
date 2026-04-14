@@ -5,9 +5,9 @@ return function()
 
 	if vim.bo[bufnr].buftype == "terminal" then
 		return table.concat({
-			"%#StatuslineFilepathTerminal#",
+			"%#StatusLineFilepathTerminal#",
 			" ",
-			"%#StatuslineFilepath#",
+			"%#StatusLineFilepath#",
 			vim.fs.basename(filename),
 		})
 	end
@@ -17,9 +17,9 @@ return function()
 	local pathname = vim.fn.fnamemodify(filename, ":~:.:h")
 
 	return table.concat({
-		"%#StatuslineFilepathIcon#",
+		"%#StatusLineFilepathIcon#",
 		"󱉭  ",
-		"%#StatuslineFilepath#",
+		"%#StatusLineFilepath#",
 		pathname,
 	})
 end

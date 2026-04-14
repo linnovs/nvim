@@ -10,9 +10,9 @@ return function()
 	end
 
 	return table.concat({
-		"%#StatuslineSearchCountIcon#",
+		"%#StatusLineSearchCountIcon#",
 		"  ",
-		"%#StatuslineSearchCountCount#",
+		"%#StatusLineSearchCountCount#",
 		current,
 		"/",
 		total,

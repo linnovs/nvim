@@ -31,11 +31,11 @@ return function()
 
 	return table.concat({
 		icon,
-		"%#StatuslineFile#",
+		"%#StatusLineFile#",
 		filename,
-		"%#StatuslineFileModified#",
+		"%#StatusLineFileModified#",
 		is_modified(bufnr) and " " or "",
-		"%#StatuslineFileReadonly#",
+		"%#StatusLineFileReadonly#",
 		is_readonly(bufnr) and " " or "",
 	})
 end

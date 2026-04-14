@@ -3,11 +3,11 @@ return function()
 	if register == "" then return "" end
 
 	return table.concat({
-		"%#StatuslineMacroRecordingIcon#",
+		"%#StatusLineMacroRecordingIcon#",
 		"󰑋 ",
-		"%#StatuslineMacroRecording#",
+		"%#StatusLineMacroRecording#",
 		"Recording ",
-		"%#StatuslineMacroRecordingReg#",
+		"%#StatusLineMacroRecordingReg#",
 		"@" .. register,
 		"%*",
 	})

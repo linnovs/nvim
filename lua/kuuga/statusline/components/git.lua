@@ -31,7 +31,7 @@ return function()
 	local branch = git_branch(root)
 
 	return table.concat({
-		"%#StatuslineGitBranchIcon# ",
-		"%#StatuslineGitBranchName#" .. branch,
+		"%#StatusLineGitBranchIcon# ",
+		"%#StatusLineGitBranchName#" .. branch,
 	})
 end

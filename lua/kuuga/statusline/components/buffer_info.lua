@@ -4,9 +4,9 @@ local function selected_lines()
 	if lines <= 1 then return "" end
 
 	return table.concat({
-		"%#StatuslineBufferInfoSLineIcon#",
+		"%#StatusLineBufferInfoSLineIcon#",
 		" ",
-		"%#StatuslineBufferInfoLine#",
+		"%#StatusLineBufferInfoLine#",
 		lines,
 		" ",
 	})
@@ -18,9 +18,9 @@ local function selected_chars()
 	if not words.visual_chars then return "" end
 
 	return table.concat({
-		"%#StatuslineBufferInfoSCharIcon#",
+		"%#StatusLineBufferInfoSCharIcon#",
 		"󰘎 ",
-		"%#StatuslineBufferInfoLine#",
+		"%#StatusLineBufferInfoLine#",
 		words.visual_chars,
 		" ",
 	})
@@ -30,9 +30,9 @@ return function()
 	return table.concat({
 		selected_lines(),
 		selected_chars(),
-		"%#StatuslineBufferInfoIcon#",
+		"%#StatusLineBufferInfoIcon#",
 		"󰦨 ",
-		"%#StatuslineBufferInfoLine#",
+		"%#StatusLineBufferInfoLine#",
 		"%L",
 	})
 end

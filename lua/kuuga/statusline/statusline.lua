@@ -1,21 +1,21 @@
-Statusline = {}
+StatusLine = {}
 
 local components = require("kuuga.statusline.components")
 local refresh_interval = 16 -- refresh every 16 milliseconds (60fps)
 
-Statusline.last_status = {} ---@type table<integer, string>
-Statusline.last_refresh_time = {} ---@type table<integer, integer>
+StatusLine.last_status = {} ---@type table<integer, string>
+StatusLine.last_refresh_time = {} ---@type table<integer, integer>
 
 ---@param winid integer
 ---@param last_refresh_time integer
-function Statusline.refresh(winid, last_refresh_time)
+function StatusLine.refresh(winid, last_refresh_time)
 	if math.abs(last_refresh_time - vim.uv.now()) < refresh_interval then return end
 
 	local macro_recording = components.render("macro_recording", false)
 	local search_count = components.render("search_count", macro_recording ~= "")
 
-	Statusline.last_status[winid] = table.concat({
-		"%#StatuslineNormal#   ",
+	StatusLine.last_status[winid] = table.concat({
+		"%#StatusLineLogo#   ",
 		components.render("mode", false),
 		components.render("git", true),
 		components.render("filepath", true),
@@ -32,16 +32,16 @@ function Statusline.refresh(winid, last_refresh_time)
 		components.render("scrollbar", true),
 		"%* ",
 	})
-	Statusline.last_refresh_time[winid] = vim.uv.now()
+	StatusLine.last_refresh_time[winid] = vim.uv.now()
 end
 
-function Statusline.render()
+function StatusLine.render()
 	local winid = vim.g.statusline_winid
-	local last_refresh_time = Statusline.last_refresh_time[winid] or 0
+	local last_refresh_time = StatusLine.last_refresh_time[winid] or 0
 
 	if last_refresh_time and math.abs(last_refresh_time - vim.uv.now()) >= refresh_interval then
-		Statusline.refresh(winid, last_refresh_time)
+		StatusLine.refresh(winid, last_refresh_time)
 	end
 
-	return Statusline.last_status[winid] or "%#StatuslineNormal#   Loading ...%*"
+	return StatusLine.last_status[winid] or "%#StatusLine#   Loading ...%*"
 end

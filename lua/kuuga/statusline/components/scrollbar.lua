@@ -6,7 +6,7 @@ return function()
 	local part = math.floor(current_line / total_lines * (#chars - 1)) + 1
 
 	return table.concat({
-		"%#StatuslineScrollbar#",
+		"%#StatusLineScrollbar#",
 		chars[part],
 	})
 end

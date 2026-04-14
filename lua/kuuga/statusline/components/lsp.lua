@@ -10,17 +10,17 @@ return function()
 		clients
 	)
 
-	if #filtered_clients == 0 then return "%#StatuslineLSPDisabled#   No active LSP" end
+	if #filtered_clients == 0 then return "%#StatusLineLSPDisabled#   No active LSP" end
 
 	return table.concat({
-		"%#StatuslineLSPIcon#",
+		"%#StatusLineLSPIcon#",
 		"  ",
-		"%#StatuslineLSP#",
+		"%#StatusLineLSP#",
 		"LSP",
 		table.concat({
-			" [%#StatuslineLSPName#",
+			" [%#StatusLineLSPName#",
 			table.concat(vim.tbl_map(function(client) return client.name end, filtered_clients), " "),
-			"%#StatuslineLSP#]",
+			"%#StatusLineLSP#]",
 		}),
 	})
 end

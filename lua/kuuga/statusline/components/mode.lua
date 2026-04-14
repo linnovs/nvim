@@ -83,9 +83,9 @@ local function get_mode_hl(mode_code)
 		["t"] = "Terminal",
 	}
 
-	if mode_hls[mode_code] then return "%#StatuslineMode" .. mode_hls[mode_code] .. "#" end
+	if mode_hls[mode_code] then return "%#StatusLineMode" .. mode_hls[mode_code] .. "#" end
 
-	return "%#StatuslineModeNormal#"
+	return "%#StatusLineModeNormal#"
 end
 
 return function()
