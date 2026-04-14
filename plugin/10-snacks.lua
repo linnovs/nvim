@@ -16,17 +16,6 @@ vim.schedule(function()
 			set = vim.lsp.codelens.enable,
 		})
 		:map("yol")
-	Snacks.toggle
-		.new({
-			name = "LSP servers (statusline)",
-			get = function() return vim.g.statusline_lsp_show_servers end,
-			set = function(value) vim.g.statusline_lsp_show_servers = value end,
-			wk_desc = {
-				enabled = "Show ",
-				disabled = "Hide ",
-			},
-		})
-		:map("yos")
 
 	vim.api.nvim_create_autocmd("User", {
 		pattern = "OilActionPost",
