@@ -37,3 +37,5 @@ function StatusLine.render()
 	StatusLine.refresh(winid)
 	return StatusLine.last_status[winid] or "%#StatusLineLogo#   Loading ...%*"
 end
+
+function StatusLine.setup() vim.opt_local.statusline = "%!v:lua.StatusLine.render()" end
