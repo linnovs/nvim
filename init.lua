@@ -2,6 +2,7 @@ require("kuuga.checkversion")
 
 vim.loader.enable()
 
+require("kuuga.lib")
 require("kuuga.ui2")
 require("kuuga.delay-notify")
 require("kuuga.settings")
