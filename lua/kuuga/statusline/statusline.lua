@@ -7,8 +7,8 @@ StatusLine.last_status = {} ---@type table<integer, string>
 StatusLine.last_refresh_time = {} ---@type table<integer, integer>
 
 ---@param winid integer
----@param last_refresh_time integer
-function StatusLine.refresh(winid, last_refresh_time)
+function StatusLine.refresh(winid)
+	local last_refresh_time = StatusLine.last_refresh_time[winid] or 0
 	if math.abs(last_refresh_time - vim.uv.now()) < refresh_interval then return end
 
 	local macro_recording = components.render("macro_recording", false)
@@ -37,11 +37,6 @@ end
 
 function StatusLine.render()
 	local winid = vim.g.statusline_winid
-	local last_refresh_time = StatusLine.last_refresh_time[winid] or 0
-
-	if last_refresh_time and math.abs(last_refresh_time - vim.uv.now()) >= refresh_interval then
-		StatusLine.refresh(winid, last_refresh_time)
-	end
-
+	StatusLine.refresh(winid)
 	return StatusLine.last_status[winid] or "%#StatusLine#   Loading ...%*"
 end
