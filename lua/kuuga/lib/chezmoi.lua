@@ -8,8 +8,8 @@ end
 --- @param args vim.api.keyset.create_autocmd.callback_args
 return function(args)
 	local file = args.file:match("^.+/(.+)$") or args.file
-	local is_run = string.sub(file, 1, string.len("run_")) == "run_"
-	local is_chezmoi = string.sub(file, 1, string.len(".chezmoi")) == ".chezmoi"
+	local is_run = string.starts(file, "run_")
+	local is_chezmoi = string.starts(file, ".chezmoi")
 
 	if is_run or is_chezmoi then return end
 
