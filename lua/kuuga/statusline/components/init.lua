@@ -1,4 +1,4 @@
-local M = {}
+local Component = {}
 local sep = require("kuuga.statusline.components.sep")
 
 ---@alias ComponentNames
@@ -32,14 +32,13 @@ local components = {
 
 ---@param name ComponentNames
 ---@param sep_before boolean whether to add a separator before the component
-function M.render(name, sep_before)
+function Component.render(name, sep_before)
 	if components[name] then
 		local status = components[name]()
 		if status ~= "" and sep_before then status = sep() .. status end
 		return status
-	else
-		return ""
 	end
+	return ""
 end
 
-return M
+return Component
