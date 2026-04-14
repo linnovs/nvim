@@ -36,4 +36,5 @@ vim.diagnostic.config({
 })
 
 keymap("n", "<Leader>d", diagnostic_open_float(), "Open diagnostic popup")
-keymap("n", "<Leader>q", function() vim.diagnostic.setloclist() end, "Add buffer diagnostics to location list")
+keymap("n", "<Leader>dl", function() vim.diagnostic.setloclist() end, "Add buffer diagnostics to location list")
+keymap("n", "<Leader>dq", function() vim.diagnostic.setqflist() end, "Add all diagnostics to quickfix list")
