@@ -42,6 +42,7 @@ hl("StatuslineMacroRecording", colors.fg_dark)
 
 hl("StatuslineLSPIcon", colors.green2)
 hl("StatuslineLSPName", colors.cyan)
+hl("StatuslineLSPDisabled", colors.fg_gutter)
 hl("StatuslineLSP", colors.fg_dark)
 
 hl("StatuslineSearchCountIcon", colors.blue1)
