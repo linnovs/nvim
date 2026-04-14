@@ -17,10 +17,10 @@ return function()
 	if vim.bo[bufnr].modifiable and total > 0 then
 		local msgs = {}
 
-		if results.hints > 0 then table.insert(msgs, "%#DiagnosticHint# " .. results.hints) end
-		if results.info > 0 then table.insert(msgs, "%#DiagnosticInfo# " .. results.info) end
-		if results.warnings > 0 then table.insert(msgs, "%#DiagnosticWarn# " .. results.warnings) end
 		if results.errors > 0 then table.insert(msgs, "%#DiagnosticError# " .. results.errors) end
+		if results.warnings > 0 then table.insert(msgs, "%#DiagnosticWarn# " .. results.warnings) end
+		if results.info > 0 then table.insert(msgs, "%#DiagnosticInfo# " .. results.info) end
+		if results.hints > 0 then table.insert(msgs, "%#DiagnosticHint# " .. results.hints) end
 
 		return table.concat(msgs, " ")
 	end
