@@ -38,7 +38,7 @@ function WinBar.render()
 	return WinBar.last_winbar[active and "active" or "inactive"][winid] or "%#WinBarNC# 󱢡  Loading ...%*"
 end
 
-local disabled_filetypes = { "help", "snacks_dashboard" }
+local disabled_filetypes = { "help", "qf", "snacks_dashboard" }
 
 function WinBar.setup()
 	WinBar.current_winid = vim.api.nvim_get_current_win()
