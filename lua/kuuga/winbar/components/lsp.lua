@@ -8,7 +8,7 @@ return function(active)
 		clients
 	)
 
-	if #filtered_clients == 0 then return "%#StatusLineLSPDisabled#   No active LSP" end
+	if #filtered_clients == 0 then return "%#WinBarLSPDisabled#   No active LSP" end
 
 	return table.concat({
 		active and "%$WinBarLSPIcon$" or "",
