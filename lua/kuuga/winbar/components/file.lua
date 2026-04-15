@@ -11,16 +11,6 @@ local function get_file_icon(filename, active)
 	return icon .. " "
 end
 
-local function is_modified(bufnr)
-	local bo = vim.bo[bufnr]
-	return bo.modified
-end
-
-local function is_readonly(bufnr)
-	local bo = vim.bo[bufnr]
-	return bo.readonly
-end
-
 local buftype_ignore = { "acwrite", "prompt" }
 
 ---@param active boolean
@@ -38,10 +28,6 @@ return function(active)
 		icon,
 		"%$WinBarFile$",
 		filename,
-		"%$WinBarModified$",
-		is_modified(bufnr) and " " or "",
-		"%$WinBarReadonly$",
-		is_readonly(bufnr) and " " or "",
 		" ",
 	})
 end

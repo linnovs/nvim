@@ -6,9 +6,6 @@ hl("WinBarNC", colors.fg_gutter)
 
 hl("WinBarFilepathLogo", colors.blue2)
 
-hl("WinBarModified", colors.orange, nil, { "bold" })
-hl("WinBarReadonly", colors.red, nil, { "bold" })
-
 hl("WinBarLSPIcon", colors.green2)
 hl("WinBarLSPName", colors.cyan)
 hl("WinBarLSPDisabled", colors.fg_gutter)
