@@ -47,7 +47,7 @@ function WinBar.setup()
 		local filetype = vim.bo[buf].filetype
 
 		if
-			(vim.wo[winid].winbar == "" or WinBar.last_winbar.active[winid] ~= "")
+			(vim.wo[winid].winbar == "" or WinBar.last_winbar.active[winid])
 			and not vim.tbl_contains(disabled_filetypes, filetype)
 			and vim.api.nvim_win_get_config(winid).relative == ""
 		then
