@@ -4,9 +4,7 @@ local homedir = os.getenv("HOME")
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, { command = "checktime" })
 autocmd("VimResized", { command = "tabdo wincmd =" })
-autocmd("TextYankPost", {
-	callback = function() vim.hl.on_yank() end,
-})
+autocmd("TextYankPost", { callback = function() vim.hl.on_yank() end })
 autocmd("BufWritePost", { pattern = homedir .. "/.local/share/chezmoi/*", callback = require("kuuga.lib.chezmoi") })
 autocmd({ "VimEnter", "VimLeave" }, {
 	callback = function()
