@@ -15,6 +15,11 @@ hl("StatusLineModeTerminal", colors.purple, nil, { "bold" })
 hl("StatusLineGitBranchIcon", colors.orange, nil, { "bold" })
 hl("StatusLineGitBranchName", colors.fg_dark)
 
+hl("StatusLineGitDiff", colors.fg_dark)
+hl("StatusLineGitDiffAdded", colors.green2)
+hl("StatusLineGitDiffModified", colors.blue1)
+hl("StatusLineGitDiffDeleted", colors.red1)
+
 hl("StatusLineMacroRecordingIcon", colors.red, nil, { "bold" })
 hl("StatusLineMacroRecordingReg", colors.yellow)
 hl("StatusLineMacroRecording", colors.fg_dark)

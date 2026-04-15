@@ -17,6 +17,7 @@ function StatusLine.refresh(winid)
 		"%#StatusLineLogo#   ",
 		components.render("mode", false),
 		components.render("git", true),
+		components.render("git_diff", true),
 		components.render("diagnostics", true),
 		"%=",
 		macro_recording,

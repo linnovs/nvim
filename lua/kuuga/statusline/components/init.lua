@@ -1,9 +1,12 @@
 local Component = {}
 local sep = require("kuuga.statusline.components.sep")
 
+require("kuuga.statusline.components.git_lib").setup()
+
 ---@alias ComponentNames
 ---| "mode"
 ---| "git"
+---| "git_diff"
 ---| "macro_recording"
 ---| "buffer_info"
 ---| "line_info"
@@ -14,6 +17,7 @@ local sep = require("kuuga.statusline.components.sep")
 local components = {
 	mode = require("kuuga.statusline.components.mode"),
 	git = require("kuuga.statusline.components.git"),
+	git_diff = require("kuuga.statusline.components.git_diff"),
 	macro_recording = require("kuuga.statusline.components.macro_recording"),
 	buffer_info = require("kuuga.statusline.components.buffer_info"),
 	line_info = require("kuuga.statusline.components.line_info"),
