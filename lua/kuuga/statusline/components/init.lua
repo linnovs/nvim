@@ -5,7 +5,6 @@ local sep = require("kuuga.statusline.components.sep")
 ---| "mode"
 ---| "git"
 ---| "macro_recording"
----| "search_count"
 ---| "buffer_info"
 ---| "line_info"
 ---| "filetype"
@@ -16,7 +15,6 @@ local components = {
 	mode = require("kuuga.statusline.components.mode"),
 	git = require("kuuga.statusline.components.git"),
 	macro_recording = require("kuuga.statusline.components.macro_recording"),
-	search_count = require("kuuga.statusline.components.search_count"),
 	buffer_info = require("kuuga.statusline.components.buffer_info"),
 	line_info = require("kuuga.statusline.components.line_info"),
 	filetype = require("kuuga.statusline.components.filetype"),

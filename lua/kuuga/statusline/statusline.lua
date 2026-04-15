@@ -12,7 +12,6 @@ function StatusLine.refresh(winid)
 	if math.abs(last_refresh_time - vim.uv.now()) < refresh_interval then return end
 
 	local macro_recording = components.render("macro_recording", false)
-	local search_count = components.render("search_count", macro_recording ~= "")
 
 	StatusLine.last_status[winid] = table.concat({
 		"%#StatusLineLogo#   ",
@@ -21,7 +20,6 @@ function StatusLine.refresh(winid)
 		components.render("diagnostics", true),
 		"%=",
 		macro_recording,
-		search_count,
 		"%=",
 		components.render("buffer_info", true),
 		components.render("line_info", true),

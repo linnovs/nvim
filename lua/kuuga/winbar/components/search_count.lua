@@ -1,4 +1,5 @@
-return function()
+---@param active boolean
+return function(active)
 	if vim.api.nvim_get_vvar("hlsearch") == 0 then return "" end
 	local count = vim.fn.searchcount({ recompute = true, maxcount = 500 })
 	local current = count.current
@@ -10,9 +11,9 @@ return function()
 	end
 
 	return table.concat({
-		"%#StatusLineSearchCountIcon#",
+		active and "%#WinBarSearchCountIcon#" or "",
 		"  ",
-		"%#StatusLineSearchCountCount#",
+		active and "%#WinBarSearchCountCount#" or "",
 		current,
 		"/",
 		total,

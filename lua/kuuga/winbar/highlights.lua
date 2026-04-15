@@ -13,3 +13,6 @@ hl("WinBarLSPIcon", colors.green2)
 hl("WinBarLSPName", colors.cyan)
 hl("WinBarLSPDisabled", colors.fg_gutter)
 hl("WinBarLSP", colors.fg_dark)
+
+hl("WinBarSearchCountIcon", colors.blue1)
+hl("WinBarSearchCountCount", colors.fg_dark)

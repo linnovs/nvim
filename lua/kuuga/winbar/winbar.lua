@@ -16,6 +16,7 @@ function WinBar.refresh(winid)
 		WinBar.last_winbar[state][winid] = table.concat({
 			components.render("filepath", state == "active", false),
 			"%=",
+			components.render("search_count", state == "active", false),
 			components.render("lsp", state == "active", true),
 			components.render("file", state == "active", true),
 		})
