@@ -3,7 +3,7 @@ local sep = require("kuuga.statusline.components.sep")
 
 require("kuuga.statusline.components.git_lib").setup()
 
----@alias ComponentNames
+---@alias StatusLineComponent
 ---| "mode"
 ---| "git"
 ---| "git_diff"
@@ -13,7 +13,7 @@ require("kuuga.statusline.components.git_lib").setup()
 ---| "filetype"
 ---| "scrollbar"
 ---| "diagnostics"
----@type table<ComponentNames, fun(): string>
+---@type table<StatusLineComponent, fun(): string>
 local components = {
 	mode = require("kuuga.statusline.components.mode"),
 	git = require("kuuga.statusline.components.git"),
@@ -26,7 +26,7 @@ local components = {
 	diagnostics = require("kuuga.statusline.components.diagnostics"),
 }
 
----@param name ComponentNames
+---@param name StatusLineComponent
 ---@param sep_before boolean whether to add a separator before the component
 function Component.render(name, sep_before)
 	if components[name] then
