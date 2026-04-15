@@ -7,6 +7,12 @@ StatusLine.last_status = {} ---@type table<integer, string>
 StatusLine.last_refresh_time = {} ---@type table<integer, integer>
 
 ---@param winid integer
+function StatusLine.clear_cache(winid)
+	StatusLine.last_status[winid] = nil
+	StatusLine.last_refresh_time[winid] = nil
+end
+
+---@param winid integer
 function StatusLine.refresh(winid)
 	local last_refresh_time = StatusLine.last_refresh_time[winid] or 0
 	if math.abs(last_refresh_time - vim.uv.now()) < refresh_interval then return end

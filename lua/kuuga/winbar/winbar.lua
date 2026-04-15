@@ -8,6 +8,13 @@ WinBar.last_refresh_time = {} ---@type table<integer, integer>
 WinBar.current_winid = nil ---@type integer
 
 ---@param winid integer
+function WinBar.clear_cache(winid)
+	WinBar.last_winbar.active[winid] = nil
+	WinBar.last_winbar.inactive[winid] = nil
+	WinBar.last_refresh_time[winid] = nil
+end
+
+---@param winid integer
 function WinBar.refresh(winid)
 	local last_refresh_time = WinBar.last_refresh_time[winid] or 0
 	if math.abs(last_refresh_time - vim.uv.now()) < refresh_interval then return end
