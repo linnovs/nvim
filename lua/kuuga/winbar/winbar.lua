@@ -3,16 +3,9 @@ WinBar = {}
 local components = require("kuuga.winbar.components")
 local refresh_interval = 16 -- refresh every 16 milliseconds (60fps)
 
-WinBar.last_winbar = { active = {}, inactive = {} } ---@type { active: table<integer, string>, inactive: table<integer, string>}
-WinBar.last_refresh_time = {} ---@type table<integer, integer>
+WinBar.last_winbar = { active = setmetatable({}, { __mode = "k" }), inactive = setmetatable({}, { __mode = "k" }) }
+WinBar.last_refresh_time = setmetatable({}, { __mode = "k" })
 WinBar.current_winid = nil ---@type integer
-
----@param winid integer
-function WinBar.clear_cache(winid)
-	WinBar.last_winbar.active[winid] = nil
-	WinBar.last_winbar.inactive[winid] = nil
-	WinBar.last_refresh_time[winid] = nil
-end
 
 ---@param winid integer
 function WinBar.refresh(winid)

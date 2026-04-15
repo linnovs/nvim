@@ -3,14 +3,8 @@ StatusLine = {}
 local components = require("kuuga.statusline.components")
 local refresh_interval = 16 -- refresh every 16 milliseconds (60fps)
 
-StatusLine.last_status = {} ---@type table<integer, string>
-StatusLine.last_refresh_time = {} ---@type table<integer, integer>
-
----@param winid integer
-function StatusLine.clear_cache(winid)
-	StatusLine.last_status[winid] = nil
-	StatusLine.last_refresh_time[winid] = nil
-end
+StatusLine.last_status = setmetatable({}, { __mode = "k" })
+StatusLine.last_refresh_time = setmetatable({}, { __mode = "k" })
 
 ---@param winid integer
 function StatusLine.refresh(winid)

@@ -47,7 +47,7 @@ local function centerAlign(text, width, fill)
 end
 
 ---@type { [string]: string }
-local tag_cache = {}
+local tag_cache = setmetatable({}, { __mode = "k" })
 
 ---@param p vim.pack.PlugData
 ---@return string

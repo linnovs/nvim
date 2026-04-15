@@ -35,12 +35,3 @@ autocmd({
 		StatusLine.setup()
 	end),
 })
-autocmd("WinClosed", {
-	pattern = "*",
-	group = augroup("KuugaStatusLineClearup", { clear = true }),
-	callback = vim.schedule_wrap(function()
-		local winid = vim.api.nvim_get_current_win()
-		WinBar.clear_cache(winid)
-		StatusLine.clear_cache(winid)
-	end),
-})
