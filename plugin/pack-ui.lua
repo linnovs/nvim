@@ -23,9 +23,6 @@ local state = {
 	winid = nil, ---@type integer
 	lines_map = {}, ---@type LineToPlugin
 	plugins_map = {}, ---@type PluginLines
-	current_section = "loaded", ---@type "loaded"|"not_loaded"
-	not_loaded_index = 0, ---@type integer
-	cursor_index = 0, ---@type integer
 	expanded = {}, ---@type { [string]: boolean }
 	show_help = false, ---@type boolean
 }
@@ -97,8 +94,6 @@ local function build_contents()
 	local lines_map = {} ---@type LineToPlugin
 	local plugins_map = {} ---@type PluginLines
 
-	state.not_loaded_index = #plugins - #not_loaded + 1
-
 	local function add(text, hl)
 		local lnum = #lines
 		lines[#lines + 1] = text
@@ -122,10 +117,8 @@ local function build_contents()
 		add("")
 		add("  Keymaps:", "PackUIHeader")
 		local keymaps = {
-			{ "j", "Next plugin" },
-			{ "k", "Previous plugin" },
-			{ "l", "Next section" },
-			{ "h", "Previous section" },
+			{ "]]", "Next plugin" },
+			{ "[[", "Previous plugin" },
 			{ "<CR>", "Toggle plugin detail" },
 			{ "u", "Update plugin under cursor" },
 			{ "U", "Update all plugins" },
@@ -207,12 +200,6 @@ local function build_contents()
 	state.lines_map = lines_map
 	state.plugins_map = plugins_map
 
-	state.plugin_lines = {}
-	for lnum, _ in pairs(state.lines_map) do
-		table.insert(state.plugin_lines, lnum)
-	end
-	table.sort(state.plugin_lines)
-
 	return lines, hls
 end
 local function render()
@@ -265,30 +252,27 @@ local function notify(msg, level) return vim.notify(msg, level, { title = "vim.p
 local function jump_to_plugin(direction)
 	if not state.winid or not api.nvim_win_is_valid(state.winid) then return end
 
-	local index = state.cursor_index + direction
-	index = math.max(1, math.min(#state.plugin_lines, index))
+	local curpos = api.nvim_win_get_cursor(state.winid)[1]
 
-	api.nvim_win_set_cursor(state.winid, { state.plugin_lines[index], 8 })
-	state.cursor_index = index
-	state.current_section = index < state.not_loaded_index and "loaded" or "not_loaded"
-end
+	local lines = vim.tbl_keys(state.lines_map)
+	table.sort(lines)
 
----@param direction integer
-local function jump_to_section(direction)
-	if not state.winid or not api.nvim_win_is_valid(state.winid) then return end
-	if direction == 0 then return end
+	local start_index = direction > 0 and 1 or #lines
+	local stop_index = direction > 0 and #lines or 1
+	local step = direction > 0 and 1 or -1
+	local should_wrap = true
 
-	if direction > 0 and state.current_section == "loaded" then
-		state.cursor_index = state.not_loaded_index
-		state.current_section = "not_loaded"
-	elseif direction < 0 and state.current_section == "not_loaded" then
-		state.cursor_index = 1
-		state.current_section = "loaded"
-	else
-		return
+	for i = start_index, stop_index, step do
+		if (direction > 0 and curpos < lines[i]) or (direction < 0 and curpos > lines[i]) then
+			api.nvim_win_set_cursor(state.winid, { lines[i], 8 })
+			should_wrap = false
+			break
+		end
 	end
 
-	api.nvim_win_set_cursor(state.winid, { state.plugin_lines[state.cursor_index], 8 })
+	if should_wrap and #lines > 0 then
+		api.nvim_win_set_cursor(state.winid, { lines[direction > 0 and 1 or #lines], 8 })
+	end
 end
 
 local function toggle_expand()
@@ -306,12 +290,9 @@ local function setup_keymaps()
 	keymap("n", "g?", function()
 		state.show_help = not state.show_help
 		render()
-		jump_to_plugin(0)
 	end, "Show help")
-	keymap("n", "j", function() jump_to_plugin(1) end, "Next plugin")
-	keymap("n", "k", function() jump_to_plugin(-1) end, "Previous plugin")
-	keymap("n", "l", function() jump_to_section(1) end, "Next section")
-	keymap("n", "h", function() jump_to_section(-1) end, "Previous section")
+	keymap("n", "]]", function() jump_to_plugin(1) end, "Next plugin")
+	keymap("n", "[[", function() jump_to_plugin(-1) end, "Previous plugin")
 	keymap("n", "<CR>", function() toggle_expand() end, "Toggle plugin detail")
 	keymap("n", "U", function()
 		vim.cmd.quit()
@@ -391,14 +372,13 @@ local function open()
 
 	render()
 	setup_keymaps()
-	jump_to_plugin(0)
 
 	local captured_winid = state.winid
 	api.nvim_create_autocmd("WinClosed", {
 		buffer = state.bufnr,
 		once = true,
 		callback = function(ev)
-			if vim._tointeger(ev.match) ~= captured_winid then return end
+			if tonumber(ev.match) ~= captured_winid then return end
 			state.winid = nil
 			state.bufnr = nil
 			state.expanded = {}
