@@ -13,7 +13,7 @@ require("kuuga.statusline.components.git_lib").setup()
 ---| "filetype"
 ---| "scrollbar"
 ---| "diagnostics"
----@type table<StatusLineComponent, fun(): string>
+---@type table<StatusLineComponent, fun(winid: integer): string>
 local components = {
 	mode = require("kuuga.statusline.components.mode"),
 	git = require("kuuga.statusline.components.git"),
@@ -26,11 +26,12 @@ local components = {
 	diagnostics = require("kuuga.statusline.components.diagnostics"),
 }
 
+---@param winid integer
 ---@param name StatusLineComponent
 ---@param sep_before boolean whether to add a separator before the component
-function Component.render(name, sep_before)
+function Component.render(winid, name, sep_before)
 	if components[name] then
-		local status = components[name]()
+		local status = components[name](winid)
 		if status ~= "" and sep_before then status = sep() .. status end
 		return status
 	end

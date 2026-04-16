@@ -4,8 +4,9 @@ local function get_diagnostic_counts()
 	return vim.diagnostic.count(nil, { severity = { min = vim.diagnostic.severity.HINT } })
 end
 
-return function()
-	local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
+---@param winid integer
+return function(winid)
+	local bufnr = vim.api.nvim_win_get_buf(winid)
 	local diagnostics = get_diagnostic_counts()
 
 	local results = {

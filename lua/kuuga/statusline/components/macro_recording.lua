@@ -1,4 +1,4 @@
-return function()
+return function(_)
 	local register = vim.fn.reg_recording()
 	if register == "" then return "" end
 

@@ -1,7 +1,8 @@
 local git_lib = require("kuuga.statusline.components.git_lib")
 
-return function()
-	local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
+---@param winid integer
+return function(winid)
+	local bufnr = vim.api.nvim_win_get_buf(winid)
 	local diff = git_lib.get_diff(bufnr)
 
 	if diff == nil then return "" end

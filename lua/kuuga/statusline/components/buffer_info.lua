@@ -26,7 +26,7 @@ local function selected_chars()
 	})
 end
 
-return function()
+return function(_)
 	return table.concat({
 		selected_lines(),
 		selected_chars(),
