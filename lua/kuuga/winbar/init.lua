@@ -7,6 +7,7 @@ local disabled_filetypes = { "help", "qf", "snacks_dashboard" }
 local function set_winbar(winid)
 	local bufnr = vim.api.nvim_win_get_buf(winid)
 	if vim.list_contains(disabled_filetypes, vim.bo[bufnr].filetype) then return end
+	if vim.bo[bufnr].filetype == "" then return end
 
 	if vim.wo[winid].winbar == "" and vim.api.nvim_win_get_config(winid).relative == "" then
 		WinBar.refresh(winid)
