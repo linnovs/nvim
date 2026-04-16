@@ -44,10 +44,6 @@
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "https://github.com/folke/lazydev.nvim"
     },
-    "lualine.nvim": {
-      "rev": "f5d2a8570f8b736ddb9bb4be504355bcd6e15ec8",
-      "src": "https://github.com/nvim-lualine/lualine.nvim"
-    },
     "markview.nvim": {
       "rev": "02824a95a0db2c9fd1bab3adba4510bc8f9c91e4",
       "src": "https://github.com/OXY2DEV/markview.nvim",
