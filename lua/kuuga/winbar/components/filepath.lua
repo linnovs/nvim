@@ -13,6 +13,8 @@ return function(winid, active)
 	return table.concat({
 		active and "%#WinBarFilepathLogo#" or "",
 		" 󱉭  %*",
+		active and "%#WinBarFilepathPart#" or "",
 		table.concat(pathname_parts, " "),
+		"%*",
 	})
 end

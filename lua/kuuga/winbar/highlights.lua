@@ -4,7 +4,8 @@ local hl = require("kuuga.lib.highlight")
 hl("WinBar", colors.fg_dark)
 hl("WinBarNC", colors.fg_gutter)
 
-hl("WinBarFilepathLogo", colors.blue2)
+hl("WinBarFilepathLogo", colors.blue2, nil, { "bold" })
+hl("WinBarFilepathPart", colors.fg_dark, nil, { "bold" })
 
 hl("WinBarCopilotIcon", colors.green1)
 
