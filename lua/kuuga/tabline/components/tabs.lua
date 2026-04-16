@@ -1,5 +1,22 @@
 local file_lib = require("kuuga.lib.file")
 
+vim.api.nvim_exec2(
+	[[
+function! KuugaTabLineSwitchTab(tabid, clicks, button, mod)
+	execute a:tabid .. "tabnext"
+endfunction
+]],
+	{}
+)
+
+---@param tabid integer
+---@param tabpage string
+local function wrap_tab_switch(tabid, tabpage)
+	local tabnr = vim.api.nvim_tabpage_get_number(tabid)
+	local tab_func = "%" .. tabnr .. "@KuugaTabLineSwitchTab@"
+	return tab_func .. tabpage .. "%X"
+end
+
 ---@param tabid integer
 local function get_tabpage(tabid)
 	local winid = vim.api.nvim_tabpage_get_win(tabid)
@@ -16,7 +33,9 @@ local function get_tabpage(tabid)
 	local tab_filename = text_hl .. filename .. " "
 	local tab_number = tabicon_hl .. "󰓩 " .. vim.api.nvim_tabpage_get_number(tabid) .. " "
 
-	return table.concat({ tab_icon, tab_filename, tab_number })
+	local tabpage = table.concat({ tab_icon, tab_filename, tab_number })
+
+	return wrap_tab_switch(tabid, tabpage)
 end
 
 return function()
