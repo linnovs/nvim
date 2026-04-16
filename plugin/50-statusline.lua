@@ -21,6 +21,8 @@ vim.uv.timer_start(
 		vim.cmd.redrawtabline()
 			StatusLine.refresh()
 
+			if vim.wo.statusline ~= "" then vim.opt_local.statusline = "%!v:lua.StatusLine.render()" end
+
 			vim.cmd.redrawstatus()
 			vim.cmd.redrawtabline()
 		end
