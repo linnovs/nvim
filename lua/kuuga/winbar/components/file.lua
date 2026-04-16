@@ -1,8 +1,9 @@
 local file_lib = require("kuuga.lib.file")
 
+---@param winid integer
 ---@param active boolean
-return function(active)
-	local bufnr = vim.api.nvim_get_current_buf()
+return function(winid, active)
+	local bufnr = vim.api.nvim_win_get_buf(winid)
 	local filename = file_lib.get_filename(bufnr)
 	local icon, hl = file_lib.get_file_icon(filename)
 

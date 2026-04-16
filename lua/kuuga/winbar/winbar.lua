@@ -8,11 +8,11 @@ WinBar.last_winbar = { active = setmetatable({}, { __mode = "k" }), inactive = s
 function WinBar.refresh(winid)
 	for _, state in ipairs({ "active", "inactive" }) do
 		WinBar.last_winbar[state][winid] = table.concat({
-			components.render("filepath", state == "active", false),
+			components.render(winid, "filepath", state == "active", false),
 			"%=",
-			components.render("search_count", state == "active", false),
-			components.render("lsp", state == "active", true),
-			components.render("file", state == "active", true),
+			components.render(winid, "search_count", state == "active", false),
+			components.render(winid, "lsp", state == "active", true),
+			components.render(winid, "file", state == "active", true),
 		})
 	end
 end
