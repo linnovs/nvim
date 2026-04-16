@@ -14,7 +14,7 @@ local function set_winbar(winid)
 	end
 end
 
-vim.api.nvim_create_autocmd({ "VimEnter", "WinNew", "WinEnter", "WinLeave" }, {
+vim.api.nvim_create_autocmd({ "VimEnter", "WinNew", "WinEnter", "WinLeave", "BufEnter", "BufLeave" }, {
 	group = vim.api.nvim_create_augroup("KuugaWinBar", { clear = true }),
 	callback = function()
 		for _, winid in ipairs(vim.api.nvim_list_wins()) do
