@@ -10,11 +10,11 @@ local function set_winbar(winid)
 
 	if vim.wo[winid].winbar == "" and vim.api.nvim_win_get_config(winid).relative == "" then
 		WinBar.refresh(winid)
-		vim.opt_local.winbar = "%{%v:lua.WinBar.render()%}"
+		vim.wo[winid].winbar = "%{%v:lua.WinBar.render()%}"
 	end
 end
 
-vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufEnter", "BufLeave", "WinLeave" }, {
+vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "WinLeave" }, {
 	group = vim.api.nvim_create_augroup("KuugaWinBar", { clear = true }),
 	callback = function()
 		for _, winid in ipairs(vim.api.nvim_list_wins()) do

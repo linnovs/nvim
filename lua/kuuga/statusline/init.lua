@@ -1,4 +1,5 @@
 require("kuuga.statusline.highlights")
 require("kuuga.statusline.statusline")
 
-vim.opt.statusline = "%!v:lua.StatusLine.render()"
+StatusLine.refresh()
+vim.go.statusline = "%!v:lua.StatusLine.render()"
