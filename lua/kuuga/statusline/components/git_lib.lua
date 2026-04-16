@@ -86,12 +86,12 @@ function Git.update_root(bufnr)
 	local git_dir = get_git_dir(root)
 	if not git_dir then return end
 
-	vim.uv.fs_event_start(head_watchers[root], git_dir .. "/HEAD", {}, function()
-		vim.schedule(function()
-			Git.update_root(bufnr)
-			vim.cmd.redrawstatus({ bang = true })
-		end)
-	end)
+	vim.uv.fs_event_start(
+		head_watchers[root],
+		git_dir .. "/HEAD",
+		{},
+		vim.schedule_wrap(function() Git.update_root(bufnr) end)
+	)
 end
 
 ---@param bufnr integer

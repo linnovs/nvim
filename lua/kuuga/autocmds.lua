@@ -17,23 +17,3 @@ autocmd(
 	"FileType",
 	{ pattern = "gitcommit", command = "startinsert", desc = "Auto-enter insert mode for git commit messages" }
 )
-autocmd({
-	"WinEnter",
-	"BufEnter",
-	"BufWritePost",
-	"SessionLoadPost",
-	"FileChangedShellPost",
-	"VimResized",
-	"FileType",
-	"CursorMoved",
-	"CursorMovedI",
-	"ModeChanged",
-}, {
-	group = augroup("KuugaStatusLine", { clear = true }),
-	desc = "Refresh statusline on various events",
-	pattern = "*",
-	callback = vim.schedule_wrap(function()
-		WinBar.setup()
-		StatusLine.setup()
-	end),
-})
