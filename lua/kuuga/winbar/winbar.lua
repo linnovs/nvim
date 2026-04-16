@@ -6,6 +6,7 @@ WinBar.last_winbar = { active = setmetatable({}, { __mode = "k" }), inactive = s
 
 ---@param winid integer
 function WinBar.refresh(winid)
+	if not vim.api.nvim_win_is_valid(winid) then return end
 	for _, state in ipairs({ "active", "inactive" }) do
 		WinBar.last_winbar[state][winid] = table.concat({
 			components.render(winid, "filepath", state == "active", false),
