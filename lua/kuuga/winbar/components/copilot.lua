@@ -8,6 +8,6 @@ return function(winid, active)
 
 	return table.concat({
 		active and "%$WinBarCopilotIcon$" or "",
-		" ",
+		"",
 	})
 end
