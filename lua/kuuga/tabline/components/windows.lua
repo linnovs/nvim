@@ -45,14 +45,10 @@ local function get_window(winid, current_tab)
 	local index_hl = focused and "%#TabLineWindowIndex#" or "%#TabLineWindowInactive#"
 	local win_index = index_hl .. winnr .. text_hl .. ": "
 	local file_icon = (hl and "%$" .. hl .. "$" or "") .. icon .. " "
+	local file_window = file_icon .. text_hl .. filename
+	local symbol = readonly_symbol(bufnr) or modified_symbol(bufnr) or "  "
 
-	local window = table.concat({
-		win_index,
-		file_icon,
-		text_hl,
-		filename,
-		(readonly_symbol(bufnr) or modified_symbol(bufnr) or "  "),
-	})
+	local window = table.concat({ win_index, file_window, symbol })
 
 	return wrap_click_func(winid, text_hl, window)
 end
