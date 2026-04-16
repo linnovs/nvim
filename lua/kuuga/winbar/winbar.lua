@@ -11,6 +11,7 @@ function WinBar.refresh(winid)
 			components.render(winid, "filepath", state == "active", false),
 			"%=",
 			components.render(winid, "search_count", state == "active", false),
+			components.render(winid, "copilot", state == "active", true),
 			components.render(winid, "lsp", state == "active", true),
 			components.render(winid, "file", state == "active", true),
 		})

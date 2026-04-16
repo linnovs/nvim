@@ -6,6 +6,8 @@ hl("WinBarNC", colors.fg_gutter)
 
 hl("WinBarFilepathLogo", colors.blue2)
 
+hl("WinBarCopilotIcon", colors.green1)
+
 hl("WinBarLSPIcon", colors.green2)
 hl("WinBarLSPName", colors.cyan)
 hl("WinBarLSPDisabled", colors.fg_gutter)
