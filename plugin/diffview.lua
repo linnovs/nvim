@@ -6,5 +6,6 @@ local function packadd() vim.pack.add({ gh("dlyongemallo/diffview.nvim") }) end
 
 usercmd("DiffviewOpen", packadd)
 usercmd("DiffviewFileHistory", packadd)
+usercmd("DiffviewDiffFiles", packadd)
 
 keymap("n", "<Leader>dvo", "<Cmd>DiffviewOpen<CR>", "Open Diffview")
