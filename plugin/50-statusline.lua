@@ -1,3 +1,4 @@
+require("kuuga.tabline")
 require("kuuga.winbar")
 require("kuuga.statusline")
 
@@ -18,7 +19,7 @@ vim.uv.timer_start(
 		end
 
 		if refresh_needed then
-		vim.cmd.redrawtabline()
+			TabLine.refresh()
 			StatusLine.refresh()
 
 			if vim.wo.statusline ~= "" then vim.opt_local.statusline = "%!v:lua.StatusLine.render()" end

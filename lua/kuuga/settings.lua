@@ -22,6 +22,7 @@ vim.opt.laststatus = 3
 vim.opt.scrolloff = 7
 vim.opt.shortmess = "CFOSWaco"
 vim.opt.showmode = false
+vim.opt.showtabline = 2
 vim.opt.signcolumn = "yes"
 vim.opt.textwidth = 120
 
