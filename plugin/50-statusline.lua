@@ -35,6 +35,7 @@ vim.api.nvim_create_autocmd({
 	"WinLeave",
 	"BufEnter",
 	"BufLeave",
+	"BufWritePost",
 	"CursorMoved",
 	"CursorMovedI",
 	"CursorHold",
