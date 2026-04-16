@@ -17,7 +17,8 @@ local function packadd()
 end
 
 usercmd("DiffviewOpen", packadd)
+usercmd("DiffviewToggle", packadd)
 usercmd("DiffviewFileHistory", packadd)
 usercmd("DiffviewDiffFiles", packadd)
 
-keymap("n", "<Leader>dvo", "<Cmd>DiffviewOpen<CR>", "Open Diffview")
+keymap("n", "<Leader>dv", "<Cmd>DiffviewToggle<CR>", "Open Diffview")
