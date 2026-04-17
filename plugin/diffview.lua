@@ -7,6 +7,11 @@ local function setup()
 	if need_setup then
 		require("diffview").setup({
 			enhanced_diff_hl = true,
+			keymaps = {
+				file_panel = {
+					{ { "n", "x" }, "<space>", false },
+				},
+			},
 		})
 		need_setup = false
 	end
