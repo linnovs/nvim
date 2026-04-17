@@ -1,4 +1,4 @@
 ---@type vim.lsp.Config
 return {
-	cmd = { "qmlls", "-E" },
+	cmd = { "qmlls6", "-E" },
 }
