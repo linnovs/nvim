@@ -1,0 +1,5 @@
+require("kuuga.lib.treesitter").start()
+require("kuuga.lib.mason").install({ "typescript-language-server", "oxfmt", "oxlint" })
+require("kuuga.lib.formatter").setup({ "oxfmt" })
+require("kuuga.lib.linter").setup({ "oxlint" })
+vim.lsp.enable({ "ts_ls" })
