@@ -48,5 +48,6 @@ vim.schedule(function()
 			textobject = "gc",
 		},
 	})
+	require("mini.trailspace").setup()
 	require("mini.git").setup()
 end)
