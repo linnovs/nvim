@@ -7,9 +7,9 @@ TabLine.last_tabline = setmetatable({}, { __mode = "k" }) ---@type table<integer
 function TabLine.refresh()
 	local winid = vim.api.nvim_get_current_win()
 	TabLine.last_tabline[winid] = table.concat({
-		components.render("windows", true),
-		"%=",
 		components.render("tabs", true),
+		"%=",
+		components.render("windows", true),
 		components.render("tab_close", true),
 	})
 end
