@@ -10,8 +10,9 @@ function WinBar.refresh(winid)
 	for _, state in ipairs({ "active", "inactive" }) do
 		WinBar.last_winbar[state][winid] = table.concat({
 			components.render(winid, "filepath", state == "active", false),
+			components.render(winid, "search_count", state == "active", true),
 			"%=",
-			components.render(winid, "search_count", state == "active", false),
+			components.render(winid, "grammar", state == "active", true),
 			components.render(winid, "copilot", state == "active", true),
 			components.render(winid, "lsp", state == "active", true),
 			components.render(winid, "file", state == "active", true),
