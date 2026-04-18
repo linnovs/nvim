@@ -36,7 +36,7 @@ local function get_window_count(tabid, focused)
 	end
 
 	return table.concat({
-		focused and "%#TabLineTabWindowCount# " or "%#TabLineTabInactive# ",
+		focused and "%#TabLineTabWindowCount#" or "%#TabLineTabInactive#",
 		window_count_icons[window_count] or window_count_icons.above10,
 	})
 end
