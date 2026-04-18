@@ -1,4 +1,4 @@
-local client_filter = { "harper_ls", "typos_lsp", "copilot" }
+local client_filter = { "harper_ls", "copilot" }
 
 ---@param winid integer
 ---@param active boolean
