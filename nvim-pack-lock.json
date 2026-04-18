@@ -29,7 +29,7 @@
       "version": ">=0.0.0"
     },
     "diffview.nvim": {
-      "rev": "dde44b20df93b1cc837f1c8a483893838b0f8f03",
+      "rev": "7df789b5228b2ed81789eccb7f37c29d4f52b0b5",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "friendly-snippets": {
@@ -120,11 +120,11 @@
       "version": ">=0.0.0"
     },
     "rainbow-delimiters.nvim": {
-      "rev": "aab6caaffd79b8def22ec4320a5344f7c42f58d2",
+      "rev": "08783ec022e7ddefe0f12a16f1ac4968f55478b0",
       "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
     },
     "schemastore.nvim": {
-      "rev": "0ce1f8aba51db6812382a4135f5b20a9f0c959ec",
+      "rev": "250aed7415ddd6cb3ea321490c7b35094ed9148d",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "sidekick.nvim": {
