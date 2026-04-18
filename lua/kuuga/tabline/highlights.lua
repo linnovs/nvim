@@ -14,6 +14,7 @@ hl("TabLineWindowReadonly", colors.comment, nil, { "bold" })
 hl("TabLineTabActive", colors.fg_dark, nil, { "bold" })
 hl("TabLineTabInactive", colors.fg_gutter)
 hl("TabLineTabNumber", colors.green)
+hl("TabLineTabWindowCount", colors.blue5)
 
 hl("TabLineTabClose", colors.red, nil, { "bold" })
 hl("TabLineTabCloseInactive", colors.fg_gutter, nil, { "bold" })
