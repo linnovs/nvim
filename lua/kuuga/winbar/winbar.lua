@@ -4,18 +4,18 @@ local components = require("kuuga.winbar.components")
 
 WinBar.last_winbar = { active = setmetatable({}, { __mode = "k" }), inactive = setmetatable({}, { __mode = "k" }) }
 
----@param winid integer
-function WinBar.refresh(winid)
+function WinBar.refresh()
+	local winid = vim.api.nvim_get_current_win()
 	if not vim.api.nvim_win_is_valid(winid) then return end
 	for _, state in ipairs({ "active", "inactive" }) do
 		WinBar.last_winbar[state][winid] = table.concat({
-			components.render(winid, "filepath", state == "active", false),
-			components.render(winid, "search_count", state == "active", true),
+			components.render("filepath", state == "active", false),
+			components.render("search_count", state == "active", true),
 			"%=",
-			components.render(winid, "grammar", state == "active", true),
-			components.render(winid, "copilot", state == "active", true),
-			components.render(winid, "lsp", state == "active", true),
-			components.render(winid, "file", state == "active", true),
+			components.render("grammar", state == "active", true),
+			components.render("copilot", state == "active", true),
+			components.render("lsp", state == "active", true),
+			components.render("file", state == "active", true),
 		})
 	end
 end

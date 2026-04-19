@@ -1,8 +1,8 @@
 local client_filter = { "harper_ls", "copilot" }
 
----@param winid integer
 ---@param active boolean
-return function(winid, active)
+return function(active)
+	local winid = vim.api.nvim_get_current_win()
 	local bufnr = vim.api.nvim_win_get_buf(winid)
 	local clients = vim.lsp.get_clients({ bufnr = bufnr })
 	local filtered_clients = vim.tbl_filter(

@@ -1,6 +1,6 @@
----@param winid integer
 ---@param active boolean
-return function(winid, active)
+return function(active)
+	local winid = vim.api.nvim_get_current_win()
 	local bufnr = vim.api.nvim_win_get_buf(winid)
 	local filename = vim.api.nvim_buf_get_name(bufnr)
 	local filetype = vim.bo[bufnr].filetype

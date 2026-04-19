@@ -1,6 +1,5 @@
----@param _ integer
 ---@param active boolean
-return function(_, active)
+return function(active)
 	if vim.api.nvim_get_vvar("hlsearch") == 0 then return "" end
 	local count = vim.fn.searchcount({ recompute = true, maxcount = 500 })
 	local current = count.current
