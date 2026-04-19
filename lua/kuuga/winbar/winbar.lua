@@ -9,7 +9,8 @@ function WinBar.refresh()
 	if not vim.api.nvim_win_is_valid(winid) then return end
 	for _, state in ipairs({ "active", "inactive" }) do
 		WinBar.last_winbar[state][winid] = table.concat({
-			components.render("filepath", state == "active", false),
+			components.render("winnr", state == "active", false),
+			components.render("filepath", state == "active", true),
 			components.render("search_count", state == "active", true),
 			"%=",
 			components.render("grammar", state == "active", true),

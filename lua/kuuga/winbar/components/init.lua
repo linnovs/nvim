@@ -2,6 +2,7 @@ local Component = {}
 local sep = require("kuuga.winbar.components.sep")
 
 ---@alias WinbarComponent
+---| "winnr"
 ---| "filepath"
 ---| "file"
 ---| "lsp"
@@ -10,6 +11,7 @@ local sep = require("kuuga.winbar.components.sep")
 ---| "grammar"
 ---@type table<WinbarComponent, fun(active: boolean): string>
 local components = {
+	winnr = require("kuuga.winbar.components.winnr"),
 	filepath = require("kuuga.winbar.components.filepath"),
 	file = require("kuuga.winbar.components.file"),
 	lsp = require("kuuga.winbar.components.lsp"),
