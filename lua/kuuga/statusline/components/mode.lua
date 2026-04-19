@@ -88,7 +88,7 @@ local function get_mode_hl(mode_code)
 	return "%#StatusLineModeNormal#"
 end
 
-return function(_)
+return function()
 	local mode_code = vim.api.nvim_get_mode().mode
 
 	return table.concat({

@@ -1,1 +1,1 @@
-return function(_) return "%#StatusLineFiletype#" .. vim.bo.filetype:upper() end
+return function() return "%#StatusLineFiletype#" .. vim.bo.filetype:upper() end

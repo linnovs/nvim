@@ -6,21 +6,19 @@ StatusLine.last_status = setmetatable({}, { __mode = "k" })
 
 function StatusLine.refresh()
 	local winid = vim.api.nvim_get_current_win()
-	local macro_recording = components.render(winid, "macro_recording", false)
-
 	StatusLine.last_status[winid] = table.concat({
 		"%#StatusLineLogo#   ",
-		components.render(winid, "mode", false),
-		components.render(winid, "git", true),
-		components.render(winid, "git_diff", true),
-		components.render(winid, "diagnostics", true),
+		components.render("mode", false),
+		components.render("git", true),
+		components.render("git_diff", true),
+		components.render("diagnostics", true),
 		"%=",
-		macro_recording,
+		components.render("macro_recording", false),
 		"%=",
-		components.render(winid, "buffer_info", true),
-		components.render(winid, "line_info", true),
-		components.render(winid, "filetype", true),
-		components.render(winid, "scrollbar", true),
+		components.render("buffer_info", true),
+		components.render("line_info", true),
+		components.render("filetype", true),
+		components.render("scrollbar", true),
 		"%* ",
 	})
 end

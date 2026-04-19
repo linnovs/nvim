@@ -1,4 +1,4 @@
-return function(_)
+return function()
 	return table.concat({
 		"%#StatusLineLineInfoIcon#",
 		" ",

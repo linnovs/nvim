@@ -1,5 +1,5 @@
----@param winid integer
-return function(winid)
+return function()
+	local winid = vim.api.nvim_get_current_win()
 	local chars = { "󰋙", "󰫃", "󰫄", "󰫅", "󰫆", "󰫇", "󰫈" }
 
 	local current_line = vim.api.nvim_win_get_cursor(winid)[1]
