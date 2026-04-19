@@ -14,16 +14,19 @@ vim.uv.timer_start(
 	vim.schedule_wrap(function()
 		local refresh_needed = next(scheduled_refresh) ~= nil
 		for winid, config in pairs(scheduled_refresh) do
-			if config.relative == "" then WinBar.refresh(winid) end
+			if vim.api.nvim_win_is_valid(winid) then
+				vim.api.nvim_win_call(winid, function()
+					if config.relative ~= "" then return end
+					TabLine.refresh()
+					WinBar.refresh()
+					StatusLine.refresh()
+					vim.opt_local.statusline = "%{%v:lua.StatusLine.render()%}"
+				end)
+			end
 			scheduled_refresh[winid] = nil
 		end
 
 		if refresh_needed then
-			TabLine.refresh()
-			StatusLine.refresh()
-
-			if vim.wo.statusline ~= "" then vim.opt_local.statusline = "%!v:lua.StatusLine.render()" end
-
 			vim.cmd.redrawstatus()
 			vim.cmd.redrawtabline()
 		end
