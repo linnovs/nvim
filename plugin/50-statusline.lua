@@ -48,6 +48,8 @@ vim.api.nvim_create_autocmd({
 	"CursorHold",
 	"LspAttach",
 	"LspDetach",
+	"RecordingEnter",
+	"RecordingLeave",
 	"DiagnosticChanged",
 	"ModeChanged",
 }, {
