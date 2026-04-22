@@ -71,7 +71,11 @@ local function wrap_cmdline_show()
 		if not cmdline_type then return rtn end
 
 		if not vim.list_contains(native_types, cmdline_type) then
-			vim._with({ noautocmd = true }, function() vim.opt.cmdheight = 0 end)
+			vim.api.nvim_cmd({
+				cmd = "set",
+				args = { "cmdheight=0" },
+				mods = { noautocmd = true },
+			}, {})
 		end
 
 		reposition()
