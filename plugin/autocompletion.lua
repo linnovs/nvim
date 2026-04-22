@@ -4,7 +4,6 @@ vim.schedule(function()
 		gh("MahanRahmati/blink-nerdfont.nvim"),
 		{ src = gh("fang2hou/blink-copilot"), version = vim.version.range("*") },
 		gh("rafamadriz/friendly-snippets"),
-		gh("xzbdmw/colorful-menu.nvim"),
 		{ src = gh("saghen/blink.cmp"), version = vim.version.range("^1") },
 	})
 
@@ -85,10 +84,6 @@ vim.schedule(function()
 								end
 								return highlight
 							end,
-						},
-						label = {
-							text = function(ctx) return require("colorful-menu").blink_components_text(ctx) end,
-							highlight = function(ctx) return require("colorful-menu").blink_components_highlight(ctx) end,
 						},
 					},
 				},
