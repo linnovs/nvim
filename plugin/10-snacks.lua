@@ -16,6 +16,13 @@ vim.schedule(function()
 			set = vim.lsp.codelens.enable,
 		})
 		:map("yol")
+	Snacks.toggle
+		.new({
+			name = "Auto Format",
+			get = function() return not vim.g.disable_autoformat end,
+			set = function(value) vim.g.disable_autoformat = not value end,
+		})
+		:map("yof")
 
 	vim.api.nvim_create_autocmd("User", {
 		pattern = "OilActionPost",
