@@ -50,10 +50,4 @@ vim.schedule(function()
 	})
 	require("mini.trailspace").setup()
 	require("mini.git").setup()
-	require("mini.animate").setup({
-		cursor = { enable = false },
-		resize = { enable = false },
-		open = { enable = false },
-		close = { enable = false },
-	})
 end)
