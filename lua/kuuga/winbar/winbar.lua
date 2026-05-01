@@ -12,6 +12,7 @@ function WinBar.refresh()
 			components.render("winnr", state == "active", false),
 			components.render("filepath", state == "active", true),
 			components.render("search_count", state == "active", true),
+			components.render("filestatus", state == "active", true),
 			"%=",
 			components.render("grammar", state == "active", true),
 			components.render("copilot", state == "active", true),

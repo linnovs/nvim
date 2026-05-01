@@ -9,6 +9,9 @@ hl("WinBarWindowNum", colors.blue5, nil, { "bold" })
 hl("WinBarFilepathLogo", colors.blue2, nil, { "bold" })
 hl("WinBarFilepathPart", colors.fg_dark, nil, { "bold" })
 
+hl("WinBarFileModified", colors.yellow, nil, { "bold" })
+hl("WinBarFileReadonly", colors.comment, nil, { "bold" })
+
 hl("WinBarGrammarIcon", colors.rainbow[2])
 
 hl("WinBarCopilotIcon", colors.green1)
