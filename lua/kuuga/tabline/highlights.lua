@@ -5,6 +5,8 @@ hl("TabLine", colors.fg_gutter)
 hl("TabLineSel", colors.fg_dark, nil, { "bold" })
 hl("TabLineFill", colors.fg_dark)
 
+hl("TabLineLogo", colors.green, nil, { "bold" })
+
 hl("TabLineWindowIndex", colors.blue5, nil, { "bold" })
 hl("TabLineWindowActive", colors.fg_dark, nil, { "bold" })
 hl("TabLineWindowInactive", colors.fg_gutter)

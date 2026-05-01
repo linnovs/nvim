@@ -5,11 +5,13 @@ local sep = require("kuuga.tabline.components.sep")
 ---| "windows"
 ---| "tabs"
 ---| "tab_close"
+---| "logo"
 ---@type table<TabLineComponent, fun(): string>
 local components = {
 	windows = require("kuuga.tabline.components.windows"),
 	tabs = require("kuuga.tabline.components.tabs"),
 	tab_close = require("kuuga.tabline.components.tab_close"),
+	logo = require("kuuga.tabline.components.neovim"),
 }
 
 ---@param name TabLineComponent
