@@ -14,7 +14,7 @@ hl("WinBarFileReadonly", colors.comment, nil, { "bold" })
 
 hl("WinBarGrammarIcon", colors.rainbow[2])
 
-hl("WinBarCopilotIcon", colors.green1)
+hl("WinBarCopilotIcon", colors.green)
 
 hl("WinBarLSPIcon", colors.green2)
 hl("WinBarLSPName", colors.cyan)
