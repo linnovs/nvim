@@ -58,11 +58,8 @@ vim.opt.list = true
 vim.opt.listchars = { extends = "", lead = "·", tab = "󰌒 ", trail = "·", nbsp = "␣" }
 
 -- fold settings
-vim.opt.foldcolumn = "1"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-vim.opt.foldtext = ""
-vim.opt.fillchars:append({ fold = " " })
 
 -- Disable providers we don't use to speed up startup time
 vim.g.loaded_python3_provider = 0
