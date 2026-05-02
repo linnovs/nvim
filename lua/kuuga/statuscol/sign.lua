@@ -15,7 +15,7 @@ local severity_map = {
 ---@param bufnr number
 local function get_diagnostic_sign(bufnr)
 	local diagnostices = vim.diagnostic.get(bufnr, { lnum = vim.v.lnum - 1 })
-	if #diagnostices == 0 then return " " end
+	if #diagnostices == 0 then return nil end
 
 	local diagnostic = diagnostices[1]
 	local severity = diagnostic.severity
@@ -25,7 +25,7 @@ local function get_diagnostic_sign(bufnr)
 end
 
 return function()
-	local winid = vim.api.nvim_get_current_win()
+	local winid = vim.g.statusline_winid
 	local bufnr = vim.api.nvim_win_get_buf(winid)
 	local git_sign = require("gitsigns").statuscolumn(bufnr)
 	local diagnostic_sign = get_diagnostic_sign(bufnr)
