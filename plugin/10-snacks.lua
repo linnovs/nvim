@@ -99,7 +99,6 @@ require("snacks").setup({
 	},
 	notifier = { enabled = true },
 	quickfile = { enabled = true },
-	statuscolumn = { enabled = true },
 	input = { enabled = true },
 	picker = {
 		actions = {
