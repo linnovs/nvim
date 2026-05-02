@@ -6,7 +6,10 @@ autocmd(
 	{ "FocusGained", "TermClose", "TermLeave" },
 	{ command = "checktime", desc = "Check for file changes when focus is gained or terminal is closed/left" }
 )
-autocmd("VimResized", { command = "tabdo wincmd =", desc = "Resize windows when Vim is resized" })
+autocmd("VimResized", {
+	command = "let t=tabpagenr() | tabdo wincmd = | execute t.'tabnext'",
+	desc = "Resize all windows when Vim is resized",
+})
 autocmd("TextYankPost", { callback = function() vim.hl.on_yank() end, desc = "Highlight yanked text" })
 autocmd("BufWritePost", {
 	pattern = homedir .. "/.local/share/chezmoi/*",
