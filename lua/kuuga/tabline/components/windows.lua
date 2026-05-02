@@ -4,25 +4,12 @@ local function modified_symbol(bufnr) return vim.bo[bufnr].modified and "%#TabLi
 
 local function readonly_symbol(bufnr) return vim.bo[bufnr].readonly and "%#TabLineWindowReadonly# " or nil end
 
-vim.api.nvim_exec2(
-	[[
-function! KuugaTabLineSwitchWindow(win_id, clicks, button, mod)
-	call win_gotoid(a:win_id)
-endfunction
-
-function! KuugaTabLineCloseWindow(win_id, clicks, button, mod)
-	call win_execute(a:win_id, "close")
-endfunction
-]],
-	{}
-)
-
 ---@param winid integer
 ---@param text_hl string
 ---@param window string
 local function wrap_click_func(winid, text_hl, window)
-	local win_func = "%" .. winid .. "@KuugaTabLineSwitchWindow@"
-	local close_button = "%" .. winid .. "@KuugaTabLineCloseWindow@" .. text_hl .. "%X"
+	local win_func = "%" .. winid .. "@v:lua.TabLine.switch_window@"
+	local close_button = "%" .. winid .. "@v:lua.TabLine.close_window@" .. text_hl .. "%X"
 	return win_func .. window .. "%X " .. close_button
 end
 

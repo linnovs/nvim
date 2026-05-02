@@ -1,14 +1,5 @@
 local file_lib = require("kuuga.lib.file")
 
-vim.api.nvim_exec2(
-	[[
-function! KuugaTabLineSwitchTab(tabid, clicks, button, mod)
-	execute a:tabid .. "tabnext"
-endfunction
-]],
-	{}
-)
-
 local window_count_icons = {
 	[0] = "󰎡",
 	[1] = "󰎤",
@@ -45,7 +36,7 @@ end
 ---@param tabpage string
 local function wrap_tab_switch(tabid, tabpage)
 	local tabnr = vim.api.nvim_tabpage_get_number(tabid)
-	local tab_func = "%" .. tabnr .. "@KuugaTabLineSwitchTab@"
+	local tab_func = "%" .. tabnr .. "@v:lua.TabLine.switch_tab@"
 	return tab_func .. tabpage .. "%X"
 end
 
