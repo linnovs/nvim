@@ -7,7 +7,6 @@ local refresh_interval = 50 -- Refresh at most 50 milliseconds
 local scheduled_refresh = {} ---@type table<integer, vim.api.keyset.win_config>
 
 vim.o.tabline = "%!v:lua.require'kuuga.tabline'.render()"
-vim.o.winbar = "%!v:lua.require'kuuga.winbar'.render()"
 vim.o.statusline = "%!v:lua.require'kuuga.statusline'.render()"
 
 if timer == nil then error("Failed to create timer") end
