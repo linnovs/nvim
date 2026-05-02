@@ -5,17 +5,23 @@ local severity_hl = {
 	[vim.diagnostic.severity.INFO] = "%#DiagnosticInfo#",
 	[vim.diagnostic.severity.HINT] = "%#DiagnosticHint#",
 }
+local severity_map = {
+	[vim.diagnostic.severity.ERROR] = "error",
+	[vim.diagnostic.severity.WARN] = "warn",
+	[vim.diagnostic.severity.INFO] = "info",
+	[vim.diagnostic.severity.HINT] = "hint",
+}
 
 ---@param bufnr number
 local function get_diagnostic_sign(bufnr)
-	local diagnostic = vim.diagnostic.get(bufnr, { lnum = vim.v.lnum - 1 })[1]
+	local diagnostices = vim.diagnostic.get(bufnr, { lnum = vim.v.lnum - 1 })
+	if #diagnostices == 0 then return " " end
 
-	if not diagnostic then return " " end
-
+	local diagnostic = diagnostices[1]
 	local severity = diagnostic.severity
 	local hl = severity_hl[severity] or ""
 
-	return hl .. icons[severity] .. " %*"
+	return hl .. icons[severity_map[severity]] .. " %*"
 end
 
 return function()
