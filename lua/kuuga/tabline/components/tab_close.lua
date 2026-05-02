@@ -3,5 +3,5 @@ return function()
 
 	if #tabs <= 1 then return "%#TabLineTabCloseInactive#  " end
 
-	return "%1@v:lua.TabLine.close_tab@%#TabLineTabClose#  %X"
+	return "%1@v:lua.require'kuuga.tabline'.close_tab@%#TabLineTabClose#  %X"
 end

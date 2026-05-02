@@ -1,12 +1,12 @@
-StatusLine = {}
+local M = {}
 
 local components = require("kuuga.statusline.components")
 
-StatusLine.last_status = setmetatable({}, { __mode = "k" })
+M.last_status = setmetatable({}, { __mode = "k" })
 
-function StatusLine.refresh()
+function M.refresh()
 	local winid = vim.api.nvim_get_current_win()
-	StatusLine.last_status[winid] = table.concat({
+	M.last_status[winid] = table.concat({
 		"%#StatusLineLogo#   ",
 		components.render("mode", false),
 		components.render("git", true),
@@ -23,7 +23,9 @@ function StatusLine.refresh()
 	})
 end
 
-function StatusLine.render()
+function M.render()
 	local winid = vim.api.nvim_get_current_win()
-	return StatusLine.last_status[winid] or "%#StatusLineLogo#   Loading ...%*"
+	return M.last_status[winid] or "%#StatusLineLogo#   Loading ...%*"
 end
+
+return M

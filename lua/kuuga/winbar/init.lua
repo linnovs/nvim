@@ -1,5 +1,5 @@
 require("kuuga.winbar.highlights")
-require("kuuga.winbar.winbar")
+local winbar = require("kuuga.winbar.winbar")
 
 local disabled_filetypes = { "help", "qf", "snacks_dashboard" }
 
@@ -10,8 +10,8 @@ local function set_winbar()
 	if vim.bo[bufnr].filetype == "" then return end
 
 	if vim.wo[winid].winbar == "" and vim.api.nvim_win_get_config(winid).relative == "" then
-		WinBar.refresh()
-		vim.wo[winid].winbar = "%{%v:lua.WinBar.render()%}"
+		winbar.refresh()
+		vim.wo[winid].winbar = "%!v:lua.require'kuuga.winbar'.render()"
 	end
 end
 
@@ -23,3 +23,5 @@ vim.api.nvim_create_autocmd({ "VimEnter", "WinNew", "WinEnter", "WinLeave", "Buf
 		end
 	end,
 })
+
+return winbar

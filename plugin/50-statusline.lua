@@ -1,10 +1,14 @@
-require("kuuga.tabline")
-require("kuuga.winbar")
-require("kuuga.statusline")
+local tabline = require("kuuga.tabline")
+local winbar = require("kuuga.winbar")
+local statusline = require("kuuga.statusline")
 
 local timer = vim.uv.new_timer()
-local refresh_interval = 16 -- Refresh every 16 milliseconds (approximately 60 FPS)
+local refresh_interval = 50 -- Refresh at most 50 milliseconds
 local scheduled_refresh = {} ---@type table<integer, vim.api.keyset.win_config>
+
+vim.o.tabline = "%!v:lua.require'kuuga.tabline'.render()"
+vim.o.winbar = "%!v:lua.require'kuuga.winbar'.render()"
+vim.o.statusline = "%!v:lua.require'kuuga.statusline'.render()"
 
 if timer == nil then error("Failed to create timer") end
 vim.uv.timer_start(
@@ -17,10 +21,9 @@ vim.uv.timer_start(
 			if vim.api.nvim_win_is_valid(winid) then
 				vim.api.nvim_win_call(winid, function()
 					if config.relative ~= "" then return end
-					TabLine.refresh()
-					WinBar.refresh()
-					StatusLine.refresh()
-					vim.opt_local.statusline = "%{%v:lua.StatusLine.render()%}"
+					tabline.refresh()
+					winbar.refresh()
+					statusline.refresh()
 				end)
 			end
 			scheduled_refresh[winid] = nil

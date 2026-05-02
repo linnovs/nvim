@@ -36,7 +36,7 @@ end
 ---@param tabpage string
 local function wrap_tab_switch(tabid, tabpage)
 	local tabnr = vim.api.nvim_tabpage_get_number(tabid)
-	local tab_func = "%" .. tabnr .. "@v:lua.TabLine.switch_tab@"
+	local tab_func = "%" .. tabnr .. "@v:lua.require'kuuga.tabline'.switch_tab@"
 	return tab_func .. tabpage .. "%X"
 end
 

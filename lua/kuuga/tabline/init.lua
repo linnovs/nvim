@@ -1,5 +1,6 @@
 require("kuuga.tabline.highlights")
-require("kuuga.tabline.tabline")
+local tabline = require("kuuga.tabline.tabline")
 
-TabLine.refresh()
-vim.opt.tabline = "%{%v:lua.TabLine.render()%}"
+tabline.refresh()
+
+return tabline

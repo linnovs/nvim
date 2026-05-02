@@ -8,8 +8,8 @@ local function readonly_symbol(bufnr) return vim.bo[bufnr].readonly and "%#TabLi
 ---@param text_hl string
 ---@param window string
 local function wrap_click_func(winid, text_hl, window)
-	local win_func = "%" .. winid .. "@v:lua.TabLine.switch_window@"
-	local close_button = "%" .. winid .. "@v:lua.TabLine.close_window@" .. text_hl .. "%X"
+	local win_func = "%" .. winid .. "@v:lua.require'kuuga.tabline'.switch_window@"
+	local close_button = "%" .. winid .. "@v:lua.require'kuuga.tabline'.close_window@" .. text_hl .. "%X"
 	return win_func .. window .. "%X " .. close_button
 end
 
