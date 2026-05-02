@@ -21,7 +21,7 @@ local function get_diagnostic_sign(bufnr)
 	local severity = diagnostic.severity
 	local hl = severity_hl[severity] or ""
 
-	return hl .. icons[severity_map[severity]] .. " %*"
+	return hl .. icons[severity_map[severity]] .. "%*"
 end
 
 return function()
