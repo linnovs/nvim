@@ -4,9 +4,9 @@ M.last_linestatus = setmetatable({}, { __mode = "k" })
 
 function M.click_fold()
 	local pos = vim.fn.getmousepos()
-	vim.api.nvim_win_set_cursor(pos.winid, { pos.line, 1 })
+	vim.api.nvim_win_set_cursor(pos.winid, { pos.line, 0 })
 	vim.api.nvim_win_call(pos.winid, function()
-		if vim.fn.foldlevel(pos.line) == 0 then vim.cmd("normal! za") end
+		if vim.fn.foldlevel(pos.line) ~= -1 then vim.cmd("normal! za") end
 	end)
 end
 
@@ -26,8 +26,9 @@ function M.reset() M.last_linestatus = setmetatable({}, { __mode = "k" }) end
 ---@param key string
 function M.refresh(key)
 	M.last_linestatus[key] = wrap_click({
-		require("kuuga.statuscol.sign")(),
+		require("kuuga.statuscol.diagnostic_sign")(),
 		require("kuuga.statuscol.lnum")(),
+		require("kuuga.statuscol.git_sign")(),
 		require("kuuga.statuscol.fold")(),
 	})
 end

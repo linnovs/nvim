@@ -27,7 +27,6 @@ end
 return function()
 	local winid = vim.g.statusline_winid
 	local bufnr = vim.api.nvim_win_get_buf(winid)
-	local git_sign = require("gitsigns").statuscolumn(bufnr)
 	local diagnostic_sign = get_diagnostic_sign(bufnr)
-	return (diagnostic_sign or git_sign or " ") .. " "
+	return (diagnostic_sign or " ") .. " "
 end
