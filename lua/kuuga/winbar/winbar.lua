@@ -24,8 +24,8 @@ function M.refresh()
 end
 
 function M.render()
-	local winid = vim.api.nvim_get_current_win()
-	local state = winid == vim.g.statusline_winid and "active" or "inactive"
+	local winid = vim.g.statusline_winid
+	local state = winid == vim.api.nvim_get_current_win() and "active" or "inactive"
 	return M.last_winbar[state][winid] or "%#WinBarNC# 󱢡  Loading ...%*"
 end
 
