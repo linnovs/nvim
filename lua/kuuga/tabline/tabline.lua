@@ -19,7 +19,10 @@ function M.render()
 	return M.last_tabline[winid] or "%#TabLine#   Loading ...%*"
 end
 
-function M.switch_tab(tabid) vim.api.nvim_set_current_tabpage(tabid) end
+function M.switch_tab(tabnr)
+	local tabid = vim.api.nvim_list_tabpages()[tabnr]
+	vim.api.nvim_set_current_tabpage(tabid)
+end
 
 function M.close_tab() vim.cmd("tabclose") end
 
