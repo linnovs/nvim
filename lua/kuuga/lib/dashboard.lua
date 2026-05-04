@@ -11,6 +11,11 @@ local DashboardConfig = {
 	preset = {},
 	debug = false,
 }
+local gh_pr_cmd = [[
+gh pr list -L 5 --json number,title,headRefName,updatedAt --template \
+'{{tablerow (color "white+du" "ID") (color "white+du" "Title") (color "white+du" "Branch") (color "white+du" "Updated At") -}}
+{{range .}}{{tablerow (printf "#%v" .number | autocolor "green") .title .headRefName (timeago .updatedAt)}}{{end}}'
+]]
 
 DashboardConfig.preset.keys = {
 	{ icon = " ", key = "b", desc = "Browse Repository", action = ":lua Snacks.gitbrowse()" },
@@ -80,10 +85,10 @@ DashboardConfig.sections[2] = {
 			{
 				icon = " ",
 				title = "Open PRs",
-				cmd = "gh pr list -L 3",
+				cmd = gh_pr_cmd,
 				key = "P",
 				action = function() vim.fn.jobstart("gh pr list --web", { detach = true }) end,
-				height = 7,
+				height = 6,
 				indent = 3,
 			},
 			{
