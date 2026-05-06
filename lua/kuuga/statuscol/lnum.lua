@@ -1,5 +1,6 @@
 return function()
-	local bufnr = vim.api.nvim_get_current_buf()
+	local winid = vim.g.statusline_winid
+	local bufnr = vim.api.nvim_win_get_buf(winid)
 	local line_count = tostring(vim.api.nvim_buf_line_count(bufnr))
 	local lnum = tostring(vim.v.lnum)
 
