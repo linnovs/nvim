@@ -23,6 +23,7 @@ vim.uv.timer_start(
 					tabline.refresh()
 					winbar.refresh()
 					statusline.refresh()
+					vim.opt_local.statusline = "%!v:lua.require'kuuga.statusline'.render()"
 				end)
 			end
 			scheduled_refresh[winid] = nil
