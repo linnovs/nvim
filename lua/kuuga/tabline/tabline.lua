@@ -12,11 +12,12 @@ function M.refresh()
 		"%=",
 		components.render("tab_close", true),
 	})
+	return M.last_tabline[winid]
 end
 
 function M.render()
 	local winid = vim.api.nvim_get_current_win()
-	return M.last_tabline[winid] or "%#TabLine#   Loading ...%*"
+	return M.last_tabline[winid] or M.refresh()
 end
 
 function M.switch_tab(tabnr)

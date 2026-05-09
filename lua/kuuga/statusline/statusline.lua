@@ -21,11 +21,12 @@ function M.refresh()
 		components.render("scrollbar", true),
 		"%* ",
 	})
+	return M.last_status[winid]
 end
 
 function M.render()
 	local winid = vim.api.nvim_get_current_win()
-	return M.last_status[winid] or "%#StatusLineLogo#   Loading ...%*"
+	return M.last_status[winid] or M.refresh()
 end
 
 return M

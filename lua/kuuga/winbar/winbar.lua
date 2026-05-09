@@ -21,12 +21,13 @@ function M.refresh()
 			components.render("file", is_active, true),
 		})
 	end
+	return M.last_winbar
 end
 
 function M.render()
 	local winid = vim.g.statusline_winid
 	local state = winid == vim.api.nvim_get_current_win() and "active" or "inactive"
-	return M.last_winbar[state][winid] or "%#WinBarNC# 󱢡  Loading ...%*"
+	return M.last_winbar[state][winid] or M.refresh()[state][winid]
 end
 
 return M
