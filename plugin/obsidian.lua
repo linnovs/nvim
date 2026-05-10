@@ -54,7 +54,7 @@ vim.schedule(function()
 			},
 		},
 		checkbox = {
-			order = { " ", "-", "/", "!", ">", "<", "x" },
+			order = { " ", "x", "-", "/", "!", ">", "<" },
 		},
 	})
 end)
