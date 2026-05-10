@@ -1,7 +1,7 @@
 {
   "plugins": {
     "bafa.nvim": {
-      "rev": "22861c47c985bf3bbe89b823593d33d49b6bd11a",
+      "rev": "72583e5fadf43fb39eb0fd6afa0b2fe6d23214ad",
       "src": "https://github.com/mistweaverco/bafa.nvim",
       "version": ">=0.0.0"
     },
@@ -25,7 +25,7 @@
       "version": ">=0.0.0"
     },
     "diffview.nvim": {
-      "rev": "6d7149be18917fe89af3b91d1dcd28260805084b",
+      "rev": "fe01c7c3f11575c8d732fc0c1d52890d33ce41c0",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "friendly-snippets": {
@@ -64,7 +64,7 @@
       "src": "https://github.com/chrisgrieser/nvim-early-retirement"
     },
     "nvim-highlight-colors": {
-      "rev": "e2cb22089cc2358b2b995c09578224f142de6039",
+      "rev": "e4c7af0211866162d999ce0bdd6a029302e19139",
       "src": "https://github.com/brenoprata10/nvim-highlight-colors"
     },
     "nvim-lint": {
@@ -72,7 +72,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "31026a13eefb20681124706a79fc1df6bf11ab27",
+      "rev": "451d4ef9abd4f0f08e379ef0d55d1c391b6125a7",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -88,11 +88,11 @@
       "src": "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
     },
     "nvim-web-devicons": {
-      "rev": "4fc505ac7bd7692824a142e96e5f529c133862f8",
+      "rev": "2795c26c916bb3c57dde308b82be51971fa92747",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "obsidian.nvim": {
-      "rev": "dec6573816767eaa9596cabc1593f45a2f7821ee",
+      "rev": "ed6f386abe83e4dafa9afecf50cd9d9fff072a07",
       "src": "https://github.com/obsidian-nvim/obsidian.nvim",
       "version": ">=0.0.0"
     },
@@ -120,7 +120,7 @@
       "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
     },
     "schemastore.nvim": {
-      "rev": "6db1246640e9e1bdf8a1d1f6d27a940fc0a572d5",
+      "rev": "7127911cc824a1d2f600492edd9667b476cf3eda",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "sidekick.nvim": {
