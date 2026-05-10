@@ -4,7 +4,7 @@ local keymap = require("kuuga.lib.keymap")
 vim.schedule(function()
 	vim.pack.add({ { src = gh("folke/sidekick.nvim"), version = vim.version.range("*") } })
 	require("sidekick").setup({
-		cli = { mux = { enabled = true }, win = { bo = { scrollback = 0 }, layout = "float" } },
+		cli = { mux = { enabled = true }, win = { bo = { scrollback = 0 }, layout = "right" } },
 	})
 
 	keymap("n", "<Tab>", function()
