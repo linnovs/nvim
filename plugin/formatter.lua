@@ -1,6 +1,6 @@
 local gh = require("kuuga.helper.gh")
 
-vim.pack.add({ { src = gh("stevearc/conform.nvim"), version = vim.version.range("*") } })
+vim.pack.add({ gh("stevearc/conform.nvim") })
 vim.opt.formatexpr = 'v:lua.require("conform").formatexpr()'
 
 require("kuuga.lib.keymap")(
