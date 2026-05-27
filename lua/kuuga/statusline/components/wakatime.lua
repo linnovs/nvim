@@ -3,7 +3,6 @@ local today_summary = ""
 local timer = vim.uv.new_timer()
 
 if not ok or timer == nil then
-	vim.notify(wakatime)
 	return function() return "wakatime failed" end
 end
 
