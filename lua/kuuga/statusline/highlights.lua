@@ -35,3 +35,6 @@ hl("StatusLineLineInfoLine", colors.fg_dark)
 hl("StatusLineFiletype", colors.fg_dark)
 
 hl("StatusLineScrollbar", colors.blue2)
+
+hl("StatusLineWakaTimeIcon", colors.orange, nil, { "bold" })
+hl("StatusLineWakaTimeLine", colors.fg_dark)

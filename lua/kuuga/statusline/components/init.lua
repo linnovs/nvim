@@ -13,6 +13,7 @@ require("kuuga.statusline.components.git_lib").setup()
 ---| "filetype"
 ---| "scrollbar"
 ---| "diagnostics"
+---| "wakatime"
 ---@type table<StatusLineComponent, fun(): string>
 local components = {
 	mode = require("kuuga.statusline.components.mode"),
@@ -24,6 +25,7 @@ local components = {
 	filetype = require("kuuga.statusline.components.filetype"),
 	scrollbar = require("kuuga.statusline.components.scrollbar"),
 	diagnostics = require("kuuga.statusline.components.diagnostics"),
+	wakatime = require("kuuga.statusline.components.wakatime"),
 }
 
 ---@param name StatusLineComponent

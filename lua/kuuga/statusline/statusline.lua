@@ -15,6 +15,7 @@ function M.refresh()
 		"%=",
 		components.render("macro_recording", false),
 		"%=",
+		components.render("wakatime", true),
 		components.render("buffer_info", true),
 		components.render("line_info", true),
 		components.render("filetype", true),
