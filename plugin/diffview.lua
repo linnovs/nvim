@@ -17,7 +17,7 @@ local function setup()
 	end
 end
 local function packadd()
-	vim.pack.add({ gh("dlyongemallo/diffview.nvim") })
+	vim.pack.add({ gh("dlyongemallo/diffview-plus.nvim") })
 	setup()
 end
 
