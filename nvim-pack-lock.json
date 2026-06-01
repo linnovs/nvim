@@ -5,11 +5,6 @@
       "src": "https://github.com/mistweaverco/bafa.nvim",
       "version": ">=0.0.0"
     },
-    "blink-copilot": {
-      "rev": "41e91a659bd9b8cba9ba2ea68a69b52ba5a9ebd8",
-      "src": "https://github.com/fang2hou/blink-copilot",
-      "version": ">=0.0.0"
-    },
     "blink-nerdfont.nvim": {
       "rev": "e5034457a0a3f3444c0a48af8f5d7db0ad02a204",
       "src": "https://github.com/MahanRahmati/blink-nerdfont.nvim"
