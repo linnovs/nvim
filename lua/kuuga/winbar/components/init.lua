@@ -7,7 +7,6 @@ local sep = require("kuuga.winbar.components.sep")
 ---| "file"
 ---| "lsp"
 ---| "search_count"
----| "copilot"
 ---| "grammar"
 ---| "filestatus"
 ---@type table<WinbarComponent, fun(active: boolean): string>
@@ -17,7 +16,6 @@ local components = {
 	file = require("kuuga.winbar.components.file"),
 	lsp = require("kuuga.winbar.components.lsp"),
 	search_count = require("kuuga.winbar.components.search_count"),
-	copilot = require("kuuga.winbar.components.copilot"),
 	grammar = require("kuuga.winbar.components.grammar"),
 	filestatus = require("kuuga.winbar.components.filestatus"),
 }

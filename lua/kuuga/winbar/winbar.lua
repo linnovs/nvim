@@ -16,7 +16,6 @@ function M.refresh()
 			components.render("filestatus", is_active, true),
 			"%=",
 			components.render("grammar", is_active, true),
-			components.render("copilot", is_active, true),
 			components.render("lsp", is_active, true),
 			components.render("file", is_active, true),
 		})

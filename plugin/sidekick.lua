@@ -3,13 +3,11 @@ local keymap = require("kuuga.lib.keymap")
 
 vim.schedule(function()
 	vim.pack.add({ { src = gh("folke/sidekick.nvim"), version = vim.version.range("*") } })
+	vim.g.sidekick_nes = false
 	require("sidekick").setup({
 		cli = { mux = { enabled = true }, win = { bo = { scrollback = 0 }, layout = "right" } },
 	})
 
-	keymap("n", "<Tab>", function()
-		if not require("sidekick").nes_jump_or_apply() then return "<Tab>" end
-	end, "Goto/Apply Next Editor Suggestion", { expr = true })
 	keymap(
 		"n",
 		"<Leader>aa",

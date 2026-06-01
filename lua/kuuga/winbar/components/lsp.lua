@@ -1,4 +1,4 @@
-local client_filter = { "harper_ls", "copilot" }
+local client_filter = { "harper_ls" }
 
 ---@param active boolean
 return function(active)

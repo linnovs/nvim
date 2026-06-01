@@ -113,16 +113,6 @@ require("snacks").setup({
 				filename_first = true,
 			},
 		},
-		win = {
-			input = {
-				keys = {
-					["<a-a>"] = {
-						"sidekick_send",
-						mode = { "n", "i" },
-					},
-				},
-			},
-		},
 	},
 	gh = {},
 	words = { enabled = true },

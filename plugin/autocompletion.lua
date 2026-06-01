@@ -2,7 +2,6 @@ local gh = require("kuuga.helper.gh")
 vim.schedule(function()
 	vim.pack.add({
 		gh("MahanRahmati/blink-nerdfont.nvim"),
-		{ src = gh("fang2hou/blink-copilot"), version = vim.version.range("*") },
 		gh("rafamadriz/friendly-snippets"),
 		{ src = gh("saghen/blink.cmp"), version = vim.version.range("^1") },
 	})
@@ -12,25 +11,18 @@ vim.schedule(function()
 			preset = "enter",
 			["<Tab>"] = {
 				"snippet_forward",
-				function() require("sidekick").nes_jump_or_apply() end,
 				"fallback",
 			},
 		},
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "nerdfont", "copilot" },
+			default = { "lsp", "path", "snippets", "buffer", "nerdfont" },
 			per_filetype = {
-				sql = { "lsp", "snippets", "buffer", "dadbob", "copilot" },
-				psql = { "lsp", "snippets", "buffer", "dadbob", "copilot" },
-				mysql = { "lsp", "snippets", "buffer", "dadbob", "copilot" },
-				oil = { "lsp", "path", "buffer", "copilot" },
+				sql = { "lsp", "snippets", "buffer", "dadbob" },
+				psql = { "lsp", "snippets", "buffer", "dadbob" },
+				mysql = { "lsp", "snippets", "buffer", "dadbob" },
+				oil = { "lsp", "path", "buffer" },
 			},
 			providers = {
-				copilot = {
-					name = "Copilot",
-					module = "blink-copilot",
-					score_offset = 100,
-					async = true,
-				},
 				nerdfont = {
 					name = "NerdFont",
 					module = "blink-nerdfont",
