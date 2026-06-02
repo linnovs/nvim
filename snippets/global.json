@@ -1,9 +1,12 @@
 {
-    "timestamp": {
-        "prefix": "timestamp",
-        "body": [
-            "${CURRENT_SECONDS_UNIX}"
-        ],
-        "description": "Current time in unix second"
-    }
+  "timestamp": {
+    "prefix": "timestamp",
+    "body": ["${CURRENT_SECONDS_UNIX}"],
+    "description": "Current time in unix second"
+  },
+  "mailbox": {
+    "prefix": "mailbox",
+    "body": ["Linnovs Liu <no-reply@linnovs.com>"],
+    "description": "My mailbox"
+  }
 }
