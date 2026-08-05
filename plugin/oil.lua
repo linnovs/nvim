@@ -2,13 +2,11 @@ local detail = false
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
 		vim.pack.add({ { src = "https://github.com/stevearc/oil.nvim", version = vim.version.range("*") } })
-		require("kuuga.lib.keymap")("n", "<Leader>of", "<Cmd>Oil<CR>", "Open oil (File explorer)")
 		require("oil").setup({
 			default_file_explorer = true,
 			watch_for_changes = true,
 			lsp_file_methods = { autosave_changes = "unmodified" },
 			keymaps = {
-				["<Leader>wv"] = "actions.select_vsplit",
 				["gd"] = {
 					desc = "Toggle detail view",
 					callback = function()
@@ -20,7 +18,20 @@ vim.api.nvim_create_autocmd("VimEnter", {
 						end
 					end,
 				},
-				["<C-s>"] = false,
+				["<CR>"] = {
+					function()
+						local oil = require("oil")
+						local entry = oil.get_cursor_entry()
+						local dir = oil.get_current_dir()
+
+						if entry and entry.type == "file" and dir then
+							vim.fn.jobstart({ "zeditor", dir .. entry.name }, { detatch = true })
+							vim.cmd("qa!")
+						else
+							require("oil.actions").select.callback()
+						end
+					end,
+				},
 			},
 		})
 	end,
