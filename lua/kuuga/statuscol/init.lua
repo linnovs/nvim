@@ -26,9 +26,9 @@ function M.reset() M.last_linestatus = setmetatable({}, { __mode = "k" }) end
 ---@param key string
 function M.refresh(key)
 	M.last_linestatus[key] = wrap_click({
+		require("kuuga.statuscol.git_sign")(),
 		require("kuuga.statuscol.diagnostic_sign")(),
 		require("kuuga.statuscol.lnum")(),
-		require("kuuga.statuscol.git_sign")(),
 		require("kuuga.statuscol.fold")(),
 	})
 end
