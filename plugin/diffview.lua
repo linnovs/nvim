@@ -17,7 +17,7 @@ local function setup()
 	end
 end
 local function packadd()
-	vim.pack.add({ { src = gh("dlyongemallo/diffview-plus.nvim"), version = vim.version.range("*") } })
+	vim.pack.add({ { src = gh("dlyongemallo/diffview-plus.nvim") } })
 	setup()
 end
 
