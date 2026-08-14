@@ -25,12 +25,6 @@ vim.schedule(function()
 			date_format = "%Y/%m-%B/%Y-%m-%d",
 			template = "daily.md",
 		},
-		completion = {
-			nvim_cmp = false,
-			blink = true,
-			min_chars = 2,
-		},
-		new_notes_location = "notes_subdir",
 		note_id_func = function(title)
 			if title == nil or title == "" then
 				return tostring(os.date("%Y%m%d%H%M"))
