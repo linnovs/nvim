@@ -41,7 +41,7 @@ vim.schedule(function()
 			use_advanced_uri = true,
 		},
 		picker = {
-			name = "snacks.pick",
+			name = "snacks.picker",
 			mapping = {
 				new = "<C-x>",
 				insert_link = "<C-l>",
