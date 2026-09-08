@@ -3,6 +3,7 @@ vim.schedule(function()
 	vim.pack.add({
 		gh("MahanRahmati/blink-nerdfont.nvim"),
 		gh("rafamadriz/friendly-snippets"),
+		gh("kristijanhusak/vim-dadbod-completion"),
 		{ src = gh("saghen/blink.cmp"), version = vim.version.range("^1") },
 	})
 
