@@ -1,9 +1,11 @@
+local maxcount = 500
+
 ---@param active boolean
 return function(active)
 	if vim.api.nvim_get_vvar("hlsearch") == 0 then return "" end
-	local count = vim.fn.searchcount({ recompute = true, maxcount = 500 })
+	local count = vim.fn.searchcount({ recompute = true, maxcount = maxcount })
 	local current = count.current
-	local total = count.total > count.maxcount and ">" .. count.maxcount or count.total
+    local total = (count.total or 0) > maxcount and ">" .. count.maxcount or count.total
 
 	if count.incomplete == 1 then
 		current = "?"
