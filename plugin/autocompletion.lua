@@ -52,7 +52,7 @@ vim.schedule(function()
 							text = function(ctx)
 								-- default kind icon
 								local icon = ctx.kind_icon
-								-- if LSP source, check for color derived from documentation
+								-- If LSP source, check for color derived from documentation
 								if ctx.item.source_name == "LSP" then
 									local color_item = require("nvim-highlight-colors").format(
 										ctx.item.documentation,
@@ -65,7 +65,7 @@ vim.schedule(function()
 							highlight = function(ctx)
 								-- default highlight group
 								local highlight = "BlinkCmpKind" .. ctx.kind
-								-- if LSP source, check for color derived from documentation
+								-- If LSP source, check for color derived from documentation
 								if ctx.item.source_name == "LSP" then
 									local color_item = require("nvim-highlight-colors").format(
 										ctx.item.documentation,
