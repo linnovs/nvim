@@ -5,3 +5,4 @@ require("mason").setup({
 		border = "rounded",
 	},
 })
+require("kuuga.lib.mason").install({ "mmdc" })
