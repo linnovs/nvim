@@ -14,8 +14,7 @@ return function(active)
 
 	return table.concat({
 		active and "%$WinBarLSPIcon$" or "",
-		"  %*",
-		"LSP [",
+		" %*[",
 		active and "%$WinBarLSPName$" or "",
 		table.concat(vim.tbl_map(function(client) return client.name end, filtered_clients), " "),
 		"%*]",
