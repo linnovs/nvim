@@ -15,6 +15,7 @@ function M.refresh()
 			components.render("search_count", is_active, true),
 			components.render("filestatus", is_active, true),
 			"%=",
+			components.render("ai", is_active, true),
 			components.render("grammar", is_active, true),
 			components.render("lsp", is_active, true),
 			components.render("file", is_active, true),
