@@ -5,7 +5,7 @@ vim.schedule(function()
 	vim.pack.add({ { src = gh("folke/sidekick.nvim"), version = vim.version.range("*") } })
 	vim.g.sidekick_nes = false
 	require("sidekick").setup({
-		cli = { mux = { enabled = true }, win = { bo = { scrollback = 0 }, layout = "right" } },
+		cli = { mux = { enabled = true }, win = { bo = { scrollback = 0 }, layout = "float" } },
 	})
 
 	keymap(
