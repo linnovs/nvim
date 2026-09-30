@@ -120,6 +120,7 @@ local function build_contents()
 			{ "]]", "Next plugin" },
 			{ "[[", "Previous plugin" },
 			{ "<CR>", "Toggle plugin detail" },
+			{ "S", "Sync all plugins to the locked version" },
 			{ "u", "Update plugin under cursor" },
 			{ "U", "Update all plugins" },
 			{ "x", "Delete plugin under cursor" },
@@ -294,6 +295,10 @@ local function setup_keymaps()
 	keymap("n", "]]", function() jump_to_plugin(1) end, "Next plugin")
 	keymap("n", "[[", function() jump_to_plugin(-1) end, "Previous plugin")
 	keymap("n", "<CR>", function() toggle_expand() end, "Toggle plugin detail")
+	keymap("n", "S", function()
+		vim.cmd.quit()
+		vim.pack.update(nil, { target = "lockfile" })
+	end, "Sync all")
 	keymap("n", "U", function()
 		vim.cmd.quit()
 		vim.pack.update()
