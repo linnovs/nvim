@@ -1,0 +1,5 @@
+require("kuuga.lib.treesitter").start()
+require("kuuga.lib.mason").install({ "rust-analyzer", "codebook" })
+require("kuuga.lib.linter").setup({ "clippy" })
+require("kuuga.lib.formatter").setup({ "rustfmt" })
+vim.lsp.enable({ "rust_analyzer", "codebook" })
