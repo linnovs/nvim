@@ -47,8 +47,6 @@ local keymaps = {
 	{ "<Leader>gB", function() Snacks.gitbrowse() end, "Git Browse" },
 	{ "<Leader>glf", function() Snacks.lazygit.log_file() end, "Lazygit Current file history" },
 	{ "<Leader>gl", function() Snacks.lazygit.log() end, "Lazygit log (CWD)" },
-	{ "<Leader>gp", function() Snacks.picker.gh_pr() end, "GitHub Pull Requests (Open)" },
-	{ "<Leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, "GitHub Pull Requests (All)" },
 	{ "<Leader>tt", function() Snacks.terminal(nil, { win = { height = 0.3 } }) end, "Toggle terminal" },
 	{ "]]", function() Snacks.words.jump(vim.v.count1) end, "Next reference" },
 	{ "[[", function() Snacks.words.jump(-vim.v.count1) end, "Previous reference" },
