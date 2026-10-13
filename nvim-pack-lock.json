@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "atlas.nvim": {
+      "rev": "fb40953462ff922c1084f1338072588c6e0eb0bf",
+      "src": "https://github.com/emrearmagan/atlas.nvim"
+    },
     "bafa.nvim": {
       "rev": "9de396c78f56392b0d033ebd93c492d2fc8353eb",
       "src": "https://github.com/mistweaverco/bafa.nvim",
