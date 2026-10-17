@@ -5,7 +5,6 @@ local sep = require("kuuga.winbar.components.sep")
 ---| "winnr"
 ---| "filepath"
 ---| "file"
----| "ai"
 ---| "lsp"
 ---| "search_count"
 ---| "grammar"
@@ -15,7 +14,6 @@ local components = {
 	winnr = require("kuuga.winbar.components.winnr"),
 	filepath = require("kuuga.winbar.components.filepath"),
 	file = require("kuuga.winbar.components.file"),
-	ai = require("kuuga.winbar.components.ai"),
 	lsp = require("kuuga.winbar.components.lsp"),
 	search_count = require("kuuga.winbar.components.search_count"),
 	grammar = require("kuuga.winbar.components.grammar"),
