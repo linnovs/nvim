@@ -1,5 +1,5 @@
 require("kuuga.lib.treesitter").start()
-require("kuuga.lib.mason").install({ "gopls", "golangci-lint", "codebook" })
+require("kuuga.lib.mason").install({ "gopls", "golangci-lint" })
 require("kuuga.lib.linter").setup({ "golangcilint" })
 require("kuuga.lib.formatter").setup({ "golangci-lint" })
-vim.lsp.enable({ "gopls", "codebook" })
+vim.lsp.enable({ "gopls" })
