@@ -1,1 +1,1 @@
-javascript.lua
+require("kuuga.ftplugin.javascript")
