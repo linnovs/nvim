@@ -1,5 +1,5 @@
 require("kuuga.lib.treesitter").start()
-require("kuuga.lib.mason").install({ "typescript-language-server", "oxfmt", "oxlint" })
-require("kuuga.lib.formatter").setup({ "oxfmt" })
-require("kuuga.lib.linter").setup({ "oxlint" })
+require("kuuga.lib.mason").install({ "typescript-language-server", "biome" })
+require("kuuga.lib.formatter").setup({ "biome" })
+require("kuuga.lib.linter").setup({ "biomejs" })
 vim.lsp.enable({ "ts_ls" })
