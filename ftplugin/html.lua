@@ -1,0 +1,5 @@
+require("kuuga.lib.treesitter").start()
+require("kuuga.lib.mason").install({ "emmet-language-server", "biome" })
+require("kuuga.lib.formatter").setup({ "biome" })
+require("kuuga.lib.linter").setup({ "biomejs" })
+vim.lsp.enable({ "emmet_language_server" })
